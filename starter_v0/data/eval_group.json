@@ -1,7 +1,270 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
-  "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "description": "Ten team-authored cases for Research Paper Scout: five single-turn and five multi-turn cases covering paper tools, citation formatting, clarification, correction, cancellation, and action confirmation.",
+  "allowed_failure_types": [
+    "wrong_tool",
+    "wrong_arg_value",
+    "wrong_boundary",
+    "unnecessary_tool",
+    "out_of_scope",
+    "missing_info"
+  ],
+  "cases": [
+    {
+      "id": "G01_citation_apa",
+      "phase": "B",
+      "query": "Tạo trích dẫn APA cho paper có title \"Attention Is All You Need\", authors \"Ashish Vaswani; Noam Shazeer\", year \"2017\", venue \"NeurIPS\".",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention Is All You Need",
+              "authors": "Ashish Vaswani; Noam Shazeer",
+              "year": "2017",
+              "venue": "NeurIPS",
+              "style": "apa"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Routes complete bibliographic metadata to the team-authored local citation tool and preserves requested APA style."
+      }
+    },
+    {
+      "id": "G02_latest_papers",
+      "phase": "B",
+      "query": "Tìm 3 paper mới nhất trên arXiv với query chính xác \"transformer interpretability\".",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "transformer interpretability",
+              "max_results": 3,
+              "sort_by": "submittedDate"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Maps newest-paper intent to arXiv search with submitted-date ordering and an explicit result limit."
+      }
+    },
+    {
+      "id": "G03_specific_arxiv_text",
+      "phase": "B",
+      "query": "Đọc tối đa 2 trang đầu của paper https://arxiv.org/abs/1706.03762.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1706.03762",
+              "max_pages": 2
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Uses paper_text rather than generic URL fetch when a concrete arXiv URL is supplied."
+      }
+    },
+    {
+      "id": "G04_citation_missing_year",
+      "phase": "B",
+      "query": "Tạo citation IEEE cho paper \"A Survey of LLM Safety\" của Nguyen Van An; tôi chưa cung cấp năm.",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Asks for required citation metadata instead of guessing the publication year."
+      }
+    },
+    {
+      "id": "G05_capability_question",
+      "phase": "B",
+      "query": "Bạn có những khả năng và công cụ nghiên cứu nào?",
+      "failure_type": "unnecessary_tool",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Answers a capability question directly without invoking a research tool."
+      }
+    },
+    {
+      "id": "G06_multiturn_topic_correction",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm paper về reinforcement learning."
+        },
+        {
+          "role": "assistant",
+          "content": "Bạn muốn giữ chủ đề reinforcement learning chứ?"
+        },
+        {
+          "role": "user",
+          "content": "Thay yêu cầu trước: tìm 2 paper mới nhất với query chính xác \"LLM alignment\"."
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "LLM alignment",
+              "max_results": 2,
+              "sort_by": "submittedDate"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Uses the corrected latest-turn paper topic and does not retain the superseded topic."
+      }
+    },
+    {
+      "id": "G07_multiturn_citation_carryover",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Metadata: title \"BERT\", authors \"Jacob Devlin; Ming-Wei Chang\", year \"2019\", venue \"NAACL\"."
+        },
+        {
+          "role": "assistant",
+          "content": "Tôi đã ghi nhận metadata đó."
+        },
+        {
+          "role": "user",
+          "content": "Tạo BibTeX từ đúng metadata trên."
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "BERT",
+              "authors": "Jacob Devlin; Ming-Wei Chang",
+              "year": "2019",
+              "venue": "NAACL",
+              "style": "bibtex"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Carries complete citation metadata from earlier turns into the tool call on the latest turn."
+      }
+    },
+    {
+      "id": "G08_multiturn_url_correction",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Đọc paper https://arxiv.org/abs/1706.03762."
+        },
+        {
+          "role": "user",
+          "content": "À nhầm, đổi sang https://arxiv.org/abs/1810.04805."
+        },
+        {
+          "role": "user",
+          "content": "Chỉ đọc đúng URL sau cùng và tối đa 3 trang."
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1810.04805",
+              "max_pages": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Honors the corrected arXiv URL and page limit from the latest user turn."
+      }
+    },
+    {
+      "id": "G09_multiturn_cancel",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm paper mới về retrieval augmented generation."
+        },
+        {
+          "role": "assistant",
+          "content": "Tôi có thể tìm trên arXiv."
+        },
+        {
+          "role": "user",
+          "content": "Thôi, hủy yêu cầu tìm kiếm. Chỉ giải thích ngắn gọn bạn có thể hỗ trợ loại công việc nào."
+        }
+      ],
+      "failure_type": "unnecessary_tool",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Respects cancellation and answers the latest capability request without executing the earlier tool intent."
+      }
+    },
+    {
+      "id": "G10_multiturn_send_confirmation",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tôi có bản tin \"Paper mới về AI safety đã được công bố\" và có thể sẽ đăng Telegram."
+        },
+        {
+          "role": "assistant",
+          "content": "Tôi đã ghi nhận bản nháp nhưng chưa gửi."
+        },
+        {
+          "role": "user",
+          "content": "Tôi chưa xác nhận gửi. Hãy xử lý bước tiếp theo an toàn."
+        }
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Requests explicit yes/no confirmation instead of calling the external send action."
+      }
+    }
+  ]
 }

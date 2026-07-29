@@ -1,0 +1,798 @@
+{
+  "run_id": "v3_B_group_openrouter_20260729T155218615616",
+  "version": "v3",
+  "artifact_version": "v3+p99cedec50b58+t7033a54f7d4d",
+  "prompt_hash": "99cedec50b582ce8ac357e58012dae8496e40b149cce07e932860a2065bb33bc",
+  "tools_hash": "7033a54f7d4d402cb8469583ee9b48547643be52e1f652ba9681079587bf9925",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "E:\\VinUni\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "E:\\VinUni\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_group",
+  "dataset_role": "group",
+  "description": "Ten team-authored cases for Research Paper Scout: five single-turn and five multi-turn cases covering paper tools, citation formatting, clarification, correction, cancellation, and action confirmation.",
+  "generated_at": "2026-07-29T15:52:18",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 9,
+    "case_accuracy": 0.9,
+    "tool_routing_accuracy": 0.9,
+    "argument_accuracy": 0.9,
+    "multiturn_accuracy": 0.8,
+    "failure_counts": {
+      "wrong_arg_value": 1
+    },
+    "observed_mismatch_counts": {
+      "extra_tool_call": 1
+    }
+  },
+  "results": [
+    {
+      "id": "G01_citation_apa",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Routes complete bibliographic metadata to the team-authored local citation tool and preserves requested APA style."
+      },
+      "input": "Tạo trích dẫn APA cho paper có title \"Attention Is All You Need\", authors \"Ashish Vaswani; Noam Shazeer\", year \"2017\", venue \"NeurIPS\".",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention Is All You Need",
+              "authors": "Ashish Vaswani; Noam Shazeer",
+              "year": "2017",
+              "venue": "NeurIPS",
+              "style": "apa"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention Is All You Need",
+              "authors": "Ashish Vaswani; Noam Shazeer",
+              "year": "2017",
+              "venue": "NeurIPS",
+              "style": "apa"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "citation_generator",
+          "args": {
+            "title": "Attention Is All You Need",
+            "authors": "Ashish Vaswani; Noam Shazeer",
+            "year": "2017",
+            "venue": "NeurIPS",
+            "style": "apa"
+          },
+          "result": {
+            "tool": "citation_generator",
+            "requested_style": "apa",
+            "apa": "Ashish Vaswani, Noam Shazeer (2017). Attention Is All You Need. NeurIPS."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G02_latest_papers",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Maps newest-paper intent to arXiv search with submitted-date ordering and an explicit result limit."
+      },
+      "input": "Tìm 3 paper mới nhất trên arXiv với query chính xác \"transformer interpretability\".",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "transformer interpretability",
+              "max_results": 3,
+              "sort_by": "submittedDate"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "transformer interpretability",
+              "max_results": 3,
+              "sort_by": "submittedDate"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "transformer interpretability",
+            "max_results": 3,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "transformer interpretability",
+            "api_query": "all:transformer AND all:interpretability",
+            "total_results": 10821,
+            "items": [
+              {
+                "arxiv_id": "2607.25863v1",
+                "title": "A Two-Regime Statistical Framework for Wind-Power Distributions: From Wind-Speed Fluctuations to Turbine Control",
+                "summary": "Wind-power variability is a major challenge for the reliable integration of utility-scale wind energy into modern power systems. Although wind-speed statistics are often described by simple parametric distributions, translating these statistics into turbine-level power fluctuations is nontrivial because the relationship between wind speed and power is highly nonlinear and changes across different turbine operating regimes. Here, we develop a two-regime statistical framework for wind-power distributions. In the aerodynamic operating regime, between the cut-in and rated speeds, the turbine power follows an approximate cubic dependence on wind speed. Starting from a physically motivated Rician model for the wind-speed magnitude, we derive an analytical expression for the corresponding wind-power distribution using a nonlinear change of variables. In the control-dominated near-rated regime, where active blade-pitch and generator control regulate the turbine output, the aerodynamic transformation is no longer applicable. Instead, we characterize the power deficit relative to the rated power and show empirically that its continuous tail is well described by a bounded stretched-exponential distribution for both individual turbines and wind-farm ensembles. These results provide a physically interpretable statistical description of wind-power fluctuations across the full operational range of utility-scale wind turbines.",
+                "authors": [
+                  "S. Mitra",
+                  "S. E. Lakhal",
+                  "C. P. Connaughton",
+                  "J. E. Sardonia",
+                  "M. M. Bandi"
+                ],
+                "published": "2026-07-28T15:30:45Z",
+                "updated": "2026-07-28T15:30:45Z",
+                "url": "http://arxiv.org/abs/2607.25863v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25863v1",
+                "source": "arxiv.org",
+                "primary_category": "physics.data-an",
+                "categories": [
+                  "physics.data-an",
+                  "physics.ao-ph",
+                  "physics.flu-dyn",
+                  "stat.AP"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25791v1",
+                "title": "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model",
+                "summary": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall impacts, while transformer-based temporal models suffer from quadratic complexity limiting real-time deployment. We propose FLASH, a novel framework integrating single-matrix hypergraph representations with Mamba's selective state-space models through adaptive feedback mechanisms for efficient impact detection. Our approach constructs biomechanically-grounded hyperedges to model functional joint coordination while leveraging Mamba's linear-time complexity to capture temporal dynamics. Experiments on UP-Fall and UMAFall datasets demonstrate that FLASH achieves state-of-the-art accuracy with real-time inference capability and strong zero-shot cross-dataset generalization, while significantly reducing computational cost compared to dual-representation and transformer-based methods. The model provides interpretable feedback through learned attention patterns aligned with biomechanical principles. Code is available at https://github.com/Tresor-Koffi/FLASH-Impact-Fall-Detection.",
+                "authors": [
+                  "Tresor Y. Koffi",
+                  "Youssef Mourchid",
+                  "Yohan Dupuis"
+                ],
+                "published": "2026-07-28T14:43:07Z",
+                "updated": "2026-07-28T14:43:07Z",
+                "url": "http://arxiv.org/abs/2607.25791v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25791v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25748v1",
+                "title": "Loss Invariance Determines What Concept Layers Encode: Volume Grounding in Echocardiography",
+                "summary": "Objective: Concept bottleneck models route prediction through interpretable intermediate variables, and their validity is normally judged by how accurately those variables are predicted. We ask whether that judgement is sufficient, using left ventricular volumes as the concepts underlying ejection fraction estimation from echocardiographic video. Methods: A video transformer encoder was trained on a publicly available echocardiography dataset. End-systolic and end-diastolic volumes formed a concept layer from which ejection fraction was computed analytically, with no residual path to the output. We compared training under an ejection fraction objective alone against training with additional supervision of the volumes in millilitres, and evaluated both on 1276 held-out studies. Results: The concept bottleneck did not increase ejection fraction error relative to direct regression, at 6.89 against 7.13 mean absolute error. Without volume supervision, however, the spread of predicted volumes collapsed to 0.1 millilitres against reference spreads of 35.7 and 45.7 millilitres, while correlation was partly preserved. We show that this follows from an invariance property of the objective: ejection fraction is a ratio and is unchanged when both volumes are rescaled, so the loss determines the concept layer only up to scale. Supervision in absolute units reduced volume error from 89.8 to 25.8 millilitres at a cost of 0.4 in ejection fraction error. Conclusion: Concept accuracy alone can conceal a concept layer that carries no physical scale. Significance: Interpretable intermediate variables in clinical models should be validated against the invariance structure of the training objective, not only against prediction accuracy.",
+                "authors": [
+                  "Hyunkyung Han",
+                  "Min Jung Kim"
+                ],
+                "published": "2026-07-28T14:11:10Z",
+                "updated": "2026-07-28T14:11:10Z",
+                "url": "http://arxiv.org/abs/2607.25748v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25748v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G03_specific_arxiv_text",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Uses paper_text rather than generic URL fetch when a concrete arXiv URL is supplied."
+      },
+      "input": "Đọc tối đa 2 trang đầu của paper https://arxiv.org/abs/1706.03762.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1706.03762",
+              "max_pages": 2
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1706.03762",
+              "max_pages": 2
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "https://arxiv.org/abs/1706.03762",
+            "max_pages": 2
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "1706.03762",
+            "url": "https://arxiv.org/abs/1706.03762",
+            "pdf_url": "https://arxiv.org/pdf/1706.03762.pdf",
+            "pdf_path": "E:\\VinUni\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\1706.03762.pdf",
+            "txt_path": "E:\\VinUni\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\1706.03762.txt",
+            "page_count": 15,
+            "pages_read": 2,
+            "chars_returned": 7118,
+            "items": [
+              {
+                "title": "arXiv paper 1706.03762",
+                "url": "https://arxiv.org/abs/1706.03762",
+                "source": "arxiv.org",
+                "summary": "Provided proper attribution is provided, Google hereby grants permission to\nreproduce the tables and figures in this paper solely for use in journalistic or\nscholarly works.\nAttention Is All You Need\nAshish Vaswani∗\nGoogle Brain\navaswani@google.com\nNoam Shazeer∗\nGoogle Brain\nnoam@google.com\nNiki Parmar∗\nGoogle Research\nnikip@google.com\nJakob Uszkoreit∗\nGoogle Research\nusz@google.com\nLlion Jones∗\nGoogle Research\nllion@google.com\nAidan N. Gomez∗ †\nUniversity of Toronto\naidan@cs.toronto.edu\nŁukasz Kaiser∗\nGoogle Brain\nlukaszkaiser@google.com\nIllia Polosukhin∗ ‡\nillia.polosukhin@gmail.com\nAbstract\nThe dominant sequence transduction models are based on complex recurrent or\nconvolutional neural networks that include an encoder and a decoder. The best\nperforming models also connect the encoder and decoder through an attention\nmechanism. We propose a new simple network architecture, the Transformer,\nbased solely on attention mechanisms, dispensing with recurrence and convolutions\nentirely. Experiments on two machine translation tasks show these models to\nbe superior in quality while being more parallelizable and requiring significantly\nless time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-\nto-German translation task, improving over the existing best results, including\nensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task,\nour model establishes a new single-model state-of-the-art BLEU score of 41.8 after\ntraining for 3.5 days on eight GPUs, a small fraction of the training costs of the\nbest models from the literature. We show that the Transformer generalizes well to\nother tasks by applying it successfully to English constituency parsing both with\nlarge and limited training data.\n∗Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started\nthe effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and\nhas been crucially involved in every aspect of this work. Noam proposed scaled dot-product attention, multi-head\nattention and the parameter-free position representation and became the other person involved in nearly every\ndetail. Niki designed, implemented, tuned and evaluated countless model variants in our original codebase and\ntensor2tensor. Llion also experimented with novel model variants, was responsible for our initial codebase, and\nefficient inference and visualizations. Lukasz and Aidan spent countless long days designing various parts of and\nimplementing tensor2tensor, replacing our earlier codebase, greatly improving results and massively accelerating\nour research.\n†Work performed while at Google Brain.\n‡Work performed while at Google Research.\n31st Conference on Neural Information Processing Systems (NIPS 2017), Long Beach, CA, USA.\narXiv:1706.03762v7  [cs.CL]  2 Aug 2023\n\n1 Introduction\nRecurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks\nin particular, have been firmly established as state of the art approaches in sequence modeling and\ntransduction problems such as language modeling and machine translation [ 35, 2, 5]. Numerous\nefforts have since continued to push the boundaries of recurrent language models and encoder-decoder\narchitectures [38, 24, 15].\nRecurrent models typically factor computation along the symbol positions of the input and output\nsequences. Aligning the positions to steps in computation time, they generate a sequence of hidden\nstates ht, as a function of the previous hidden state ht−1 and the input for position t. This inherently\nsequential nature precludes parallelization within training examples, which becomes critical at longer\nsequence lengths, as memory constraints limit batching across examples. Recent work has achieved\nsignificant improvements in computational efficiency through factorization tricks [21] and conditional\ncomputation [32], while also improving model performance in case of the latter. The fundamental\nconstraint of sequential computation, however, remains.\nAttention mechanisms have become an integral part of compelling sequence modeling and transduc-\ntion models in various tasks, allowing modeling of dependencies without regard to their distance in\nthe input or output sequences [2, 19]. In all but a few cases [27], however, such attention mechanisms\nare used in conjunction with a recurrent network.\nIn this work we propose the Transformer, a model architecture eschewing recurrence and instead\nrelying entirely on an attention mechanism to draw global dependencies between input and output.\nThe Transformer allows for significantly more parallelization and can reach a new state of the art in\ntranslation quality after being trained for as little as twelve hours on eight P100 GPUs.\n2 Background\nThe goal of reducing sequential computation also forms the foundation of the Extended Neural GPU\n[16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building\nblock, computing hidden representations in parallel for all input and output positions. In these models,\nthe number of operations required to relate signals from two arbitrary input or output positions grows\nin the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes\nit more difficult to learn dependencies between distant positions [ 12]. In the Transformer this is\nreduced to a constant number of operations, albeit at the cost of reduced effective resolution due\nto averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as\ndescribed in section 3.2.\nSelf-attention, sometimes called intra-attention is an attention mechanism relating different positions\nof a single sequence in order to compute a representation of the sequence. Self-attention has been\nused successfully in a variety of tasks including reading comprehension, abstractive summarization,\ntextual entailment and learning task-independent sentence representations [4, 27, 28, 22].\nEnd-to-end memory networks are based on a recurrent attention mechanism instead of sequence-\naligned recurrence and have been shown to perform well on simple-language question answering and\nlanguage modeling tasks [34].\nTo the best of our knowledge, however, the Transformer is the first transduction model relying\nentirely on self-attention to compute representations of its input and output without using sequence-\naligned RNNs or convolution. In the following sections, we will describe the Transformer, motivate\nself-attention and discuss its advantages over models such as [17, 18] and [9].\n3 Model Architecture\nMost competitive neural sequence transduction models have an encoder-decoder structure [5, 2, 35].\nHere, the encoder maps an input sequence of symbol representations (x1, ..., xn) to a sequence\nof continuous representations z = (z1, ..., zn). Given z, the decoder then generates an output\nsequence (y1, ..., ym) of symbols one element at a time. At each step the model is auto-regressive\n[10], consuming the previously generated symbols as additional input when generating the next.\n2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G04_citation_missing_year",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Asks for required citation metadata instead of guessing the publication year."
+      },
+      "input": "Tạo citation IEEE cho paper \"A Survey of LLM Safety\" của Nguyen Van An; tôi chưa cung cấp năm.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có thể cung cấp năm xuất bản cho paper \"A Survey of LLM Safety\" không?",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có thể cung cấp năm xuất bản cho paper \"A Survey of LLM Safety\" không?",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có thể cung cấp năm xuất bản cho paper \"A Survey of LLM Safety\" không?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G05_capability_question",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Answers a capability question directly without invoking a research tool."
+      },
+      "input": "Bạn có những khả năng và công cụ nghiên cứu nào?",
+      "expect": {
+        "no_tool": true
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Tôi có thể hỗ trợ bạn trong các lĩnh vực nghiên cứu sau:\n\n1. **Tìm kiếm thông tin trên web**: Tôi có thể tìm kiếm thông tin công khai hoặc tin tức liên quan đến một chủ đề cụ thể.\n2. **Tìm kiếm bài viết khoa học**: Tôi có thể tìm kiếm các bài viết hoặc preprint trên arXiv theo chủ đề.\n3. **Tìm kiếm bài đăng trên mạng xã hội**: Tôi có thể tìm kiếm các bài đăng mới nhất hoặc phổ biến trên mạng xã hội theo từ khóa.\n4. **Lấy bài đăng từ tài khoản mạng xã hội**: Tôi có thể lấy các bài đăng gần đây từ một tài khoản mạng xã hội cụ thể.\n5. **Trích xuất văn bản từ arXiv**: Tôi có thể trích xuất văn bản từ một bài viết cụ thể trên arXiv.\n6. **Tạo trích dẫn**: Tôi có thể định dạng trích dẫn cho các tài liệu khoa học theo nhiều phong cách khác nhau.\n7. **Gửi thông điệp**: Tôi có thể gửi thông điệp qua Telegram nếu bạn xác nhận nội dung.\n\nNếu bạn có yêu cầu cụ thể nào, hãy cho tôi biết!",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G06_multiturn_topic_correction",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Uses the corrected latest-turn paper topic and does not retain the superseded topic."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper về reinforcement learning."
+        },
+        {
+          "role": "assistant",
+          "content": "Bạn muốn giữ chủ đề reinforcement learning chứ?"
+        },
+        {
+          "role": "user",
+          "content": "Thay yêu cầu trước: tìm 2 paper mới nhất với query chính xác \"LLM alignment\"."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "LLM alignment",
+              "max_results": 2,
+              "sort_by": "submittedDate"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "LLM alignment",
+              "max_results": 2,
+              "sort_by": "submittedDate"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "LLM alignment",
+            "max_results": 2,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "LLM alignment",
+            "api_query": "all:LLM AND all:alignment",
+            "total_results": 12876,
+            "items": [
+              {
+                "arxiv_id": "2607.25947v1",
+                "title": "A Cost-Effective Multimodal LLM Reasoning Framework for Question Answering over Irregular Clinical Time Series",
+                "summary": "Question answering (QA) over irregular clinical time series (ICTS) plays a pivotal role in a wide range of healthcare applications. Although recent multimodal time-series large language models (LLMs) have shown considerable promise in general-purpose time-series QA, they remain poorly equipped to model the sparsity, asynchrony, and irregular sampling patterns of clinical observations. To fill this gap, we propose ClinPRISM, a cost-effective multimodal LLM reasoning framework for question answering over ICTS data. First, we devise an irregularity-aware multi-scale encoder to capture sparse clinical evidence at diverse temporal scales. Then, we propose a temporal evidence distiller to integrate representations across these scales and compress them into a small number of LLM-compatible tokens. Moreover, we introduce a progressive alignment strategy that sequentially aligns the irregular trajectories with the LLM's textual embedding space. To facilitate training, we construct 30,000 clinical time series paired with multi-scale descriptions, together with 41,000 instruction-tuning instances spanning 11 tasks. Using a 4-billion-parameter LLM backbone, ClinPRISM achieves state-of-the-art performance on the held-out evaluation benchmark while using only 16 time-series tokens and achieving an average inference latency of 0.15 seconds per question.",
+                "authors": [
+                  "Frank Nie",
+                  "Ethan B Liu",
+                  "Yuan Zhu",
+                  "Wei Fan",
+                  "Jindong Han"
+                ],
+                "published": "2026-07-28T16:33:41Z",
+                "updated": "2026-07-28T16:33:41Z",
+                "url": "http://arxiv.org/abs/2607.25947v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25947v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25936v1",
+                "title": "From Role Prompt to Infinite Thinking: Exploiting Persona Conditioning for Inference Cost Attacks in LLMs",
+                "summary": "LLMs are increasingly deployed in real-world applications, making inference efficiency and service reliability critical concerns due to their substantial computational costs. However, the autoregressive generation mechanism of LLMs enables malicious prompts to manipulate generation behaviors, inducing excessive token generation that amplifies computational consumption and threatens service efficiency. Existing methods mainly rely on adversarial suffixes or explicit extension instructions, which introduce detectable behaviors and limit their applicability. In this paper, we reveal a previously unexplored vulnerability caused by persona consistency in LLMs, where models maintain assigned roles and reproduce corresponding behaviors even when they result in inefficient reasoning and excessive generation. Based on this observation, we propose RolePlay, a task-aware dynamic persona alignment framework that constructs adaptive personas to naturally induce inefficient yet semantically coherent behaviors for inference cost amplification. Extensive experiments across multiple LLMs and diverse task datasets demonstrate that RolePlay consistently outperforms existing inference extension methods, achieving an average token amplification of up to \\bm{$7.64\\times$} and a maximum token amplification ratio of \\bm{$207.64\\times$}. Our findings identify persona conditioning as a new attack surface for LLM inference efficiency and offer a new perspective on computational cost amplification.",
+                "authors": [
+                  "Zhiyi Mou",
+                  "Wangze Ni",
+                  "Tianfang Xiao",
+                  "Haoyang LI",
+                  "Chen Jason Zhang",
+                  "Hanzhi Ma",
+                  "Yang Bai",
+                  "Zhibo Wang",
+                  "Kui Ren"
+                ],
+                "published": "2026-07-28T16:20:01Z",
+                "updated": "2026-07-28T16:20:01Z",
+                "url": "http://arxiv.org/abs/2607.25936v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25936v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G07_multiturn_citation_carryover",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Carries complete citation metadata from earlier turns into the tool call on the latest turn."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Metadata: title \"BERT\", authors \"Jacob Devlin; Ming-Wei Chang\", year \"2019\", venue \"NAACL\"."
+        },
+        {
+          "role": "assistant",
+          "content": "Tôi đã ghi nhận metadata đó."
+        },
+        {
+          "role": "user",
+          "content": "Tạo BibTeX từ đúng metadata trên."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "BERT",
+              "authors": "Jacob Devlin; Ming-Wei Chang",
+              "year": "2019",
+              "venue": "NAACL",
+              "style": "bibtex"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "BERT",
+              "authors": "Jacob Devlin; Ming-Wei Chang",
+              "year": "2019",
+              "venue": "NAACL",
+              "style": "bibtex"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "citation_generator",
+          "args": {
+            "title": "BERT",
+            "authors": "Jacob Devlin; Ming-Wei Chang",
+            "year": "2019",
+            "venue": "NAACL",
+            "style": "bibtex"
+          },
+          "result": {
+            "tool": "citation_generator",
+            "requested_style": "bibtex",
+            "bibtex": "@misc{Devlin2019BERT,\n  title = {BERT},\n  author = {Jacob Devlin and Ming-Wei Chang},\n  year = {2019},\n  booktitle = {NAACL}\n}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G08_multiturn_url_correction",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Honors the corrected arXiv URL and page limit from the latest user turn."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Đọc paper https://arxiv.org/abs/1706.03762."
+        },
+        {
+          "role": "assistant",
+          "content": "Tôi sẽ dùng URL đó."
+        },
+        {
+          "role": "user",
+          "content": "Đổi URL: hãy đọc tối đa 3 trang từ https://arxiv.org/abs/1810.04805."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1810.04805",
+              "max_pages": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1810.04805",
+              "max_pages": 3
+            }
+          },
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1706.03762",
+              "max_pages": 3
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "extra_tool_call",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "extra tool call paper_text"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "https://arxiv.org/abs/1810.04805",
+            "max_pages": 3
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "1810.04805",
+            "url": "https://arxiv.org/abs/1810.04805",
+            "pdf_url": "https://arxiv.org/pdf/1810.04805.pdf",
+            "pdf_path": "E:\\VinUni\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\1810.04805.pdf",
+            "txt_path": "E:\\VinUni\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\1810.04805.txt",
+            "page_count": 16,
+            "pages_read": 3,
+            "chars_returned": 8000,
+            "items": [
+              {
+                "title": "arXiv paper 1810.04805",
+                "url": "https://arxiv.org/abs/1810.04805",
+                "source": "arxiv.org",
+                "summary": "BERT: Pre-training of Deep Bidirectional Transformers for\nLanguage Understanding\nJacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova\nGoogle AI Language\n{jacobdevlin,mingweichang,kentonl,kristout}@google.com\nAbstract\nWe introduce a new language representa-\ntion model called BERT, which stands for\nBidirectional Encoder Representations from\nTransformers. Unlike recent language repre-\nsentation models (Peters et al., 2018a; Rad-\nford et al., 2018), BERT is designed to pre-\ntrain deep bidirectional representations from\nunlabeled text by jointly conditioning on both\nleft and right context in all layers. As a re-\nsult, the pre-trained BERT model can be ﬁne-\ntuned with just one additional output layer\nto create state-of-the-art models for a wide\nrange of tasks, such as question answering and\nlanguage inference, without substantial task-\nspeciﬁc architecture modiﬁcations.\nBERT is conceptually simple and empirically\npowerful. It obtains new state-of-the-art re-\nsults on eleven natural language processing\ntasks, including pushing the GLUE score to\n80.5% (7.7% point absolute improvement),\nMultiNLI accuracy to 86.7% (4.6% absolute\nimprovement), SQuAD v1.1 question answer-\ning Test F1 to 93.2 (1.5 point absolute im-\nprovement) and SQuAD v2.0 Test F1 to 83.1\n(5.1 point absolute improvement).\n1 Introduction\nLanguage model pre-training has been shown to\nbe effective for improving many natural language\nprocessing tasks (Dai and Le, 2015; Peters et al.,\n2018a; Radford et al., 2018; Howard and Ruder,\n2018). These include sentence-level tasks such as\nnatural language inference (Bowman et al., 2015;\nWilliams et al., 2018) and paraphrasing (Dolan\nand Brockett, 2005), which aim to predict the re-\nlationships between sentences by analyzing them\nholistically, as well as token-level tasks such as\nnamed entity recognition and question answering,\nwhere models are required to produce ﬁne-grained\noutput at the token level (Tjong Kim Sang and\nDe Meulder, 2003; Rajpurkar et al., 2016).\nThere are two existing strategies for apply-\ning pre-trained language representations to down-\nstream tasks: feature-based and ﬁne-tuning. The\nfeature-based approach, such as ELMo (Peters\net al., 2018a), uses task-speciﬁc architectures that\ninclude the pre-trained representations as addi-\ntional features. The ﬁne-tuning approach, such as\nthe Generative Pre-trained Transformer (OpenAI\nGPT) (Radford et al., 2018), introduces minimal\ntask-speciﬁc parameters, and is trained on the\ndownstream tasks by simply ﬁne-tuning all pre-\ntrained parameters. The two approaches share the\nsame objective function during pre-training, where\nthey use unidirectional language models to learn\ngeneral language representations.\nWe argue that current techniques restrict the\npower of the pre-trained representations, espe-\ncially for the ﬁne-tuning approaches. The ma-\njor limitation is that standard language models are\nunidirectional, and this limits the choice of archi-\ntectures that can be used during pre-training. For\nexample, in OpenAI GPT, the authors use a left-to-\nright architecture, where every token can only at-\ntend to previous tokens in the self-attention layers\nof the Transformer (Vaswani et al., 2017). Such re-\nstrictions are sub-optimal for sentence-level tasks,\nand could be very harmful when applying ﬁne-\ntuning based approaches to token-level tasks such\nas question answering, where it is crucial to incor-\nporate context from both directions.\nIn this paper, we improve the ﬁne-tuning based\napproaches by proposing BERT: Bidirectional\nEncoder Representations from Transformers.\nBERT alleviates the previously mentioned unidi-\nrectionality constraint by using a “masked lan-\nguage model” (MLM) pre-training objective, in-\nspired by the Cloze task (Taylor, 1953). The\nmasked language model randomly masks some of\nthe tokens from the input, and the objective is to\npredict the original vocabulary id of the masked\narXiv:1810.04805v2  [cs.CL]  24 May 2019\n\nword based only on its context. Unlike left-to-\nright language model pre-training, the MLM ob-\njective enables the representation to fuse the left\nand the right context, which allows us to pre-\ntrain a deep bidirectional Transformer. In addi-\ntion to the masked language model, we also use\na “next sentence prediction” task that jointly pre-\ntrains text-pair representations. The contributions\nof our paper are as follows:\n• We demonstrate the importance of bidirectional\npre-training for language representations. Un-\nlike Radford et al. (2018), which uses unidirec-\ntional language models for pre-training, BERT\nuses masked language models to enable pre-\ntrained deep bidirectional representations. This\nis also in contrast to Peters et al. (2018a), which\nuses a shallow concatenation of independently\ntrained left-to-right and right-to-left LMs.\n• We show that pre-trained representations reduce\nthe need for many heavily-engineered task-\nspeciﬁc architectures. BERT is the ﬁrst ﬁne-\ntuning based representation model that achieves\nstate-of-the-art performance on a large suite\nof sentence-level and token-level tasks, outper-\nforming many task-speciﬁc architectures.\n• BERT advances the state of the art for eleven\nNLP tasks. The code and pre-trained mod-\nels are available at https://github.com/\ngoogle-research/bert.\n2 Related Work\nThere is a long history of pre-training general lan-\nguage representations, and we brieﬂy review the\nmost widely-used approaches in this section.\n2.1 Unsupervised Feature-based Approaches\nLearning widely applicable representations of\nwords has been an active area of research for\ndecades, including non-neural (Brown et al., 1992;\nAndo and Zhang, 2005; Blitzer et al., 2006) and\nneural (Mikolov et al., 2013; Pennington et al.,\n2014) methods. Pre-trained word embeddings\nare an integral part of modern NLP systems, of-\nfering signiﬁcant improvements over embeddings\nlearned from scratch (Turian et al., 2010). To pre-\ntrain word embedding vectors, left-to-right lan-\nguage modeling objectives have been used (Mnih\nand Hinton, 2009), as well as objectives to dis-\ncriminate correct from incorrect words in left and\nright context (Mikolov et al., 2013).\nThese approaches have been generalized to\ncoarser granularities, such as sentence embed-\ndings (Kiros et al., 2015; Logeswaran and Lee,\n2018) or paragraph embeddings (Le and Mikolov,\n2014). To train sentence representations, prior\nwork has used objectives to rank candidate next\nsentences (Jernite et al., 2017; Logeswaran and\nLee, 2018), left-to-right generation of next sen-\ntence words given a representation of the previous\nsentence (Kiros et al., 2015), or denoising auto-\nencoder derived objectives (Hill et al., 2016).\nELMo and its predecessor (Peters et al., 2017,\n2018a) generalize traditional word embedding re-\nsearch along a different dimension. They extract\ncontext-sensitive features from a left-to-right and a\nright-to-left language model. The contextual rep-\nresentation of each token is the concatenation of\nthe left-to-right and right-to-left representations.\nWhen integrating contextual word embeddings\nwith existing task-speciﬁc architectures, ELMo\nadvances the state of the art for several major NLP\nbenchmarks (Peters et al., 2018a) including ques-\ntion answering (Rajpurkar et al., 2016), sentiment\nanalysis (Socher et al., 2013), and named entity\nrecognition (Tjong Kim Sang and De Meulder,\n2003). Melamud et al. (2016) proposed learning\ncontextual representations through a task to pre-\ndict a single word from both left and right context\nusing LSTMs. Similar to ELMo, their model is\nfeature-based and not deeply bidirectional. Fedus\net al. (2018) shows that the cloze task can be used\nto improve the robustness of text generation mod-\nels.\n2.2 Unsupervised Fine-tuning Approaches\nAs with the feature-based approaches, the ﬁrst\nworks in this direction only pre-trained word em-\nbedding parameters from unlabeled text (Col-\nlobert and Weston, 2008).\nMore recently, sentence or document encoders\nwhich produce contextual token repr"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "https://arxiv.org/abs/1706.03762",
+            "max_pages": 3
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "1706.03762",
+            "url": "https://arxiv.org/abs/1706.03762",
+            "pdf_url": "https://arxiv.org/pdf/1706.03762.pdf",
+            "pdf_path": "E:\\VinUni\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\1706.03762.pdf",
+            "txt_path": "E:\\VinUni\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\1706.03762.txt",
+            "page_count": 15,
+            "pages_read": 3,
+            "chars_returned": 8000,
+            "items": [
+              {
+                "title": "arXiv paper 1706.03762",
+                "url": "https://arxiv.org/abs/1706.03762",
+                "source": "arxiv.org",
+                "summary": "Provided proper attribution is provided, Google hereby grants permission to\nreproduce the tables and figures in this paper solely for use in journalistic or\nscholarly works.\nAttention Is All You Need\nAshish Vaswani∗\nGoogle Brain\navaswani@google.com\nNoam Shazeer∗\nGoogle Brain\nnoam@google.com\nNiki Parmar∗\nGoogle Research\nnikip@google.com\nJakob Uszkoreit∗\nGoogle Research\nusz@google.com\nLlion Jones∗\nGoogle Research\nllion@google.com\nAidan N. Gomez∗ †\nUniversity of Toronto\naidan@cs.toronto.edu\nŁukasz Kaiser∗\nGoogle Brain\nlukaszkaiser@google.com\nIllia Polosukhin∗ ‡\nillia.polosukhin@gmail.com\nAbstract\nThe dominant sequence transduction models are based on complex recurrent or\nconvolutional neural networks that include an encoder and a decoder. The best\nperforming models also connect the encoder and decoder through an attention\nmechanism. We propose a new simple network architecture, the Transformer,\nbased solely on attention mechanisms, dispensing with recurrence and convolutions\nentirely. Experiments on two machine translation tasks show these models to\nbe superior in quality while being more parallelizable and requiring significantly\nless time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-\nto-German translation task, improving over the existing best results, including\nensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task,\nour model establishes a new single-model state-of-the-art BLEU score of 41.8 after\ntraining for 3.5 days on eight GPUs, a small fraction of the training costs of the\nbest models from the literature. We show that the Transformer generalizes well to\nother tasks by applying it successfully to English constituency parsing both with\nlarge and limited training data.\n∗Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started\nthe effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and\nhas been crucially involved in every aspect of this work. Noam proposed scaled dot-product attention, multi-head\nattention and the parameter-free position representation and became the other person involved in nearly every\ndetail. Niki designed, implemented, tuned and evaluated countless model variants in our original codebase and\ntensor2tensor. Llion also experimented with novel model variants, was responsible for our initial codebase, and\nefficient inference and visualizations. Lukasz and Aidan spent countless long days designing various parts of and\nimplementing tensor2tensor, replacing our earlier codebase, greatly improving results and massively accelerating\nour research.\n†Work performed while at Google Brain.\n‡Work performed while at Google Research.\n31st Conference on Neural Information Processing Systems (NIPS 2017), Long Beach, CA, USA.\narXiv:1706.03762v7  [cs.CL]  2 Aug 2023\n\n1 Introduction\nRecurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks\nin particular, have been firmly established as state of the art approaches in sequence modeling and\ntransduction problems such as language modeling and machine translation [ 35, 2, 5]. Numerous\nefforts have since continued to push the boundaries of recurrent language models and encoder-decoder\narchitectures [38, 24, 15].\nRecurrent models typically factor computation along the symbol positions of the input and output\nsequences. Aligning the positions to steps in computation time, they generate a sequence of hidden\nstates ht, as a function of the previous hidden state ht−1 and the input for position t. This inherently\nsequential nature precludes parallelization within training examples, which becomes critical at longer\nsequence lengths, as memory constraints limit batching across examples. Recent work has achieved\nsignificant improvements in computational efficiency through factorization tricks [21] and conditional\ncomputation [32], while also improving model performance in case of the latter. The fundamental\nconstraint of sequential computation, however, remains.\nAttention mechanisms have become an integral part of compelling sequence modeling and transduc-\ntion models in various tasks, allowing modeling of dependencies without regard to their distance in\nthe input or output sequences [2, 19]. In all but a few cases [27], however, such attention mechanisms\nare used in conjunction with a recurrent network.\nIn this work we propose the Transformer, a model architecture eschewing recurrence and instead\nrelying entirely on an attention mechanism to draw global dependencies between input and output.\nThe Transformer allows for significantly more parallelization and can reach a new state of the art in\ntranslation quality after being trained for as little as twelve hours on eight P100 GPUs.\n2 Background\nThe goal of reducing sequential computation also forms the foundation of the Extended Neural GPU\n[16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building\nblock, computing hidden representations in parallel for all input and output positions. In these models,\nthe number of operations required to relate signals from two arbitrary input or output positions grows\nin the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes\nit more difficult to learn dependencies between distant positions [ 12]. In the Transformer this is\nreduced to a constant number of operations, albeit at the cost of reduced effective resolution due\nto averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as\ndescribed in section 3.2.\nSelf-attention, sometimes called intra-attention is an attention mechanism relating different positions\nof a single sequence in order to compute a representation of the sequence. Self-attention has been\nused successfully in a variety of tasks including reading comprehension, abstractive summarization,\ntextual entailment and learning task-independent sentence representations [4, 27, 28, 22].\nEnd-to-end memory networks are based on a recurrent attention mechanism instead of sequence-\naligned recurrence and have been shown to perform well on simple-language question answering and\nlanguage modeling tasks [34].\nTo the best of our knowledge, however, the Transformer is the first transduction model relying\nentirely on self-attention to compute representations of its input and output without using sequence-\naligned RNNs or convolution. In the following sections, we will describe the Transformer, motivate\nself-attention and discuss its advantages over models such as [17, 18] and [9].\n3 Model Architecture\nMost competitive neural sequence transduction models have an encoder-decoder structure [5, 2, 35].\nHere, the encoder maps an input sequence of symbol representations (x1, ..., xn) to a sequence\nof continuous representations z = (z1, ..., zn). Given z, the decoder then generates an output\nsequence (y1, ..., ym) of symbols one element at a time. At each step the model is auto-regressive\n[10], consuming the previously generated symbols as additional input when generating the next.\n2\n\nFigure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,\nrespectively.\n3.1 Encoder and Decoder Stacks\nEncoder: The encoder is composed of a stack of N = 6 identical layers. Each layer has two\nsub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-\nwise fully connected feed-forward network. We employ a residual connection [11] around each of\nthe two sub-layers, followed by layer normalization [ 1]. That is, the output of each sub-layer is\nLayerNorm(x + Sublayer(x)), where Sublayer(x) is the function implemented by the sub-layer\nitself. To facilitate these residual connections, all sub-layers in the model, as well as the embedding\nlayers"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G09_multiturn_cancel",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Respects cancellation and answers the latest capability request without executing the earlier tool intent."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper mới về retrieval augmented generation."
+        },
+        {
+          "role": "assistant",
+          "content": "Tôi có thể tìm trên arXiv."
+        },
+        {
+          "role": "user",
+          "content": "Thôi, hủy yêu cầu tìm kiếm. Chỉ giải thích ngắn gọn bạn có thể hỗ trợ loại công việc nào."
+        }
+      ],
+      "expect": {
+        "no_tool": true
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Tôi có thể hỗ trợ bạn tìm kiếm thông tin công khai trên web, tìm bài viết trên mạng xã hội theo chủ đề, lấy bài viết từ arXiv, tạo citation cho tài liệu, và đọc nội dung từ các URL cụ thể. Nếu bạn cần thêm thông tin hoặc có yêu cầu cụ thể nào, hãy cho tôi biết!",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G10_multiturn_send_confirmation",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Requests explicit yes/no confirmation instead of calling the external send action."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tôi có bản tin \"Paper mới về AI safety đã được công bố\" và có thể sẽ đăng Telegram."
+        },
+        {
+          "role": "assistant",
+          "content": "Tôi đã ghi nhận bản nháp nhưng chưa gửi."
+        },
+        {
+          "role": "user",
+          "content": "Tôi chưa xác nhận gửi. Hãy xử lý bước tiếp theo an toàn."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có muốn gửi bản tin này lên Telegram không?",
+              "response_type": "yes_no"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có muốn gửi bản tin này lên Telegram không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có muốn gửi bản tin này lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    }
+  ]
+}
