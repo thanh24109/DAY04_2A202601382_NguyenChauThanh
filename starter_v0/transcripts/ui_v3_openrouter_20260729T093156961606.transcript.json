@@ -1,0 +1,399 @@
+{
+  "transcript_id": "ui_v3_openrouter_20260729T093156961606",
+  "version": "v3",
+  "artifact_version": "v3+p53982f7ab803+tb9eec571bc4f",
+  "prompt_hash": "53982f7ab80315fd8c067670660a2f5b55aaf79347265bc18ace99573d10837e",
+  "tools_hash": "b9eec571bc4fedced6651e53e0ad2cc982e13138911677276bbd6677f8721827",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\artifacts\\tools.yaml",
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T09:31:56",
+  "updated_at": "2026-07-29T09:31:56",
+  "turns": [
+    {
+      "turn_index": 1,
+      "user": "tìm các bài báo về Meaching Learning ",
+      "status": "answered",
+      "assistant_text": "Dưới đây là một số bài báo và thông tin mới nhất liên quan đến Machine Learning:\n\n### Bài báo nghiên cứu\n\n1. **[Changing Data Sources in the Age of Machine Learning for Official Statistics](http://arxiv.org/abs/2306.04338v1)**\n   - **Tác giả:** Cedric De Boom, Michael Reusens\n   - **Tóm tắt:** Bài báo này thảo luận về tầm quan trọng của khoa học dữ liệu trong việc sản xuất thống kê chính thức và các rủi ro liên quan đến việc thay đổi nguồn dữ liệu trong bối cảnh máy học. Nó cung cấp một danh sách kiểm tra các nguyên nhân và nguồn gốc phổ biến của việc thay đổi nguồn dữ liệu.\n   - **Ngày xuất bản:** 07 tháng 6, 2023\n   - **[PDF](https://arxiv.org/pdf/2306.04338v1)**\n\n2. **[DOME: Recommendations for supervised machine learning validation in biology](http://arxiv.org/abs/2006.16189v4)**\n   - **Tác giả:** Ian Walsh, Dmytro Fishman, và các tác giả khác\n   - **Tóm tắt:** Bài báo đưa ra các khuyến nghị nhằm thiết lập tiêu chuẩn cho việc xác thực máy học có giám sát trong sinh học, giúp cải thiện quy trình đánh giá và hiểu biết về hiệu suất của các phương pháp máy học.\n   - **Ngày xuất bản:** 25 tháng 6, 2020\n   - **[PDF](https://arxiv.org/pdf/2006.16189v4)**\n\n3. **[Learning Curves for Decision Making in Supervised Machine Learning: A Survey](http://arxiv.org/abs/2201.12150v2)**\n   - **Tác giả:** Felix Mohr, Jan N. van Rijn\n   - **Tóm tắt:** Bài báo khảo sát các mô hình đường cong học tập trong máy học và ứng dụng của chúng trong việc ra quyết định, bao gồm việc lựa chọn mô hình và dừng sớm quá trình huấn luyện.\n   - **Ngày xuất bản:** 28 tháng 1, 2022\n   - **[PDF](https://arxiv.org/pdf/2201.12150v2)**\n\n4. **[Active learning for data streams: a survey](http://arxiv.org/abs/2302.08893v4)**\n   - **Tác giả:** Davide Cacciarelli, Murat Kulahci\n   - **Tóm tắt:** Bài báo này cung cấp cái nhìn tổng quan về các phương pháp học chủ động cho các dòng dữ liệu, nhấn mạnh các chiến lược chọn lựa quan sát có thông tin nhất để gán nhãn.\n   - **Ngày xuất bản:** 17 tháng 2, 2023\n   - **[PDF](https://arxiv.org/pdf/2302.08893v4)**\n\n5. **[Physics-Inspired Interpretability Of Machine Learning Models](http://arxiv.org/abs/2304.02381v2)**\n   - **Tác giả:** Maximilian P Niroomand, David J Wales\n   - **Tóm tắt:** Bài báo đề xuất một phương pháp mới để xác định các đặc điểm quan trọng của dữ liệu đầu vào trong các mô hình máy học, lấy cảm hứng từ các phương pháp trong lĩnh vực năng lượng.\n   - **Ngày xuất bản:** 05 tháng 4, 2023\n   - **[PDF](https://arxiv.org/pdf/2304.02381v2)**\n\n### Tin tức gần đây\n\n1. **[Using machine learning to predict and prevent child malnutrition](https://business.cornell.edu/news/2026/07/28/machine-learning-malnutrition)**\n   - **Nguồn:** Cornell SC Johnson College of Business\n   - **Tóm tắt:** Nghiên cứu từ Cornell và UC Berkeley đang phát triển một hệ thống máy học có thể dự đoán các điểm nóng về suy dinh dưỡng trước 3 tháng, giúp các tổ chức nhân đạo gửi hỗ trợ kịp thời.\n\n2. **[Enroll in CSCE 478/878: Introduction to Machine Learning](https://newsroom.unl.edu/announce/cse/20493/108529)**\n   - **Nguồn:** University of Nebraska-Lincoln\n   - **Tóm tắt:** Khóa học này sẽ dạy về các phương pháp phân loại, hồi quy và phân cụm, cùng với các chủ đề về học sâu.\n\n3. **[Quantum Machine-Learning Design Targets Training And Scaling Barriers](https://thequantuminsider.com/2026/07/28/quantum-machine-learning-design-targets-training-and-scaling-barriers)**\n   - **Nguồn:** The Quantum Insider\n   - **Tóm tắt:** Bài viết thảo luận về một khung thiết kế mới cho máy học lượng tử nhằm giải quyết các vấn đề phức tạp trong nhiều lĩnh vực.\n\n4. **[Machine learning improves imaging within complex media](https://newsroom.ucla.edu/releases/biomedical-imaging-autonomous-vehicle-sensors-get-AI-boost)**\n   - **Nguồn:** UCLA\n   - **Tóm tắt:** Nghiên cứu từ UCLA và University of Rochester đã phát triển một hệ thống hình ảnh mới sử dụng máy học để cải thiện khả năng hình ảnh trong các môi trường phức tạp.\n\n5. **[HeyDonto launches DFT Labs to pursue physics-based machine learning capabilities](https://siliconangle.com/2026/07/28/heydonto-launches-dft-labs-pursue-physics-based-machine-learning-capabilities)**\n   - **Nguồn:** SiliconANGLE\n   - **Tóm tắt:** Bài viết thông báo về việc HeyDonto ra mắt DFT Labs để theo đuổi khả năng máy học dựa trên vật lý.\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "Machine Learning",
+                "max_results": 5,
+                "sort_by": "relevance"
+              }
+            },
+            {
+              "name": "lookup",
+              "args": {
+                "query": "Machine Learning",
+                "topic": "news",
+                "timeframe": "week",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "Machine Learning",
+                "max_results": 5,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Machine Learning",
+                "api_query": "all:Machine AND all:Learning",
+                "total_results": 338525,
+                "items": [
+                  {
+                    "arxiv_id": "2306.04338v1",
+                    "title": "Changing Data Sources in the Age of Machine Learning for Official Statistics",
+                    "summary": "Data science has become increasingly essential for the production of official statistics, as it enables the automated collection, processing, and analysis of large amounts of data. With such data science practices in place, it enables more timely, more insightful and more flexible reporting. However, the quality and integrity of data-science-driven statistics rely on the accuracy and reliability of the data sources and the machine learning techniques that support them. In particular, changes in data sources are inevitable to occur and pose significant risks that are crucial to address in the context of machine learning for official statistics. This paper gives an overview of the main risks, liabilities, and uncertainties associated with changing data sources in the context of machine learning for official statistics. We provide a checklist of the most prevalent origins and causes of changing data sources; not only on a technical level but also regarding ownership, ethics, regulation, and public perception. Next, we highlight the repercussions of changing data sources on statistical reporting. These include technical effects such as concept drift, bias, availability, validity, accuracy and completeness, but also the neutrality and potential discontinuation of the statistical offering. We offer a few important precautionary measures, such as enhancing robustness in both data sourcing and statistical techniques, and thorough monitoring. In doing so, machine learning-based official statistics can maintain integrity, reliability, consistency, and relevance in policy-making, decision-making, and public discourse.",
+                    "authors": [
+                      "Cedric De Boom",
+                      "Michael Reusens"
+                    ],
+                    "published": "2023-06-07T11:08:12Z",
+                    "updated": "2023-06-07T11:08:12Z",
+                    "url": "http://arxiv.org/abs/2306.04338v1",
+                    "pdf_url": "https://arxiv.org/pdf/2306.04338v1",
+                    "source": "arxiv.org",
+                    "primary_category": "stat.ML",
+                    "categories": [
+                      "stat.ML",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2006.16189v4",
+                    "title": "DOME: Recommendations for supervised machine learning validation in biology",
+                    "summary": "Modern biology frequently relies on machine learning to provide predictions and improve decision processes. There have been recent calls for more scrutiny on machine learning performance and possible limitations. Here we present a set of community-wide recommendations aiming to help establish standards of supervised machine learning validation in biology. Adopting a structured methods description for machine learning based on data, optimization, model, evaluation (DOME) will aim to help both reviewers and readers to better understand and assess the performance and limitations of a method or outcome. The recommendations are formulated as questions to anyone wishing to pursue implementation of a machine learning algorithm. Answers to these questions can be easily included in the supplementary material of published papers.",
+                    "authors": [
+                      "Ian Walsh",
+                      "Dmytro Fishman",
+                      "Dario Garcia-Gasulla",
+                      "Tiina Titma",
+                      "Gianluca Pollastri",
+                      "The ELIXIR Machine Learning focus group",
+                      "Jen Harrow",
+                      "Fotis E. Psomopoulos",
+                      "Silvio C. E. Tosatto"
+                    ],
+                    "published": "2020-06-25T12:01:39Z",
+                    "updated": "2021-01-07T07:29:24Z",
+                    "url": "http://arxiv.org/abs/2006.16189v4",
+                    "pdf_url": "https://arxiv.org/pdf/2006.16189v4",
+                    "source": "arxiv.org",
+                    "primary_category": "q-bio.OT",
+                    "categories": [
+                      "q-bio.OT",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2201.12150v2",
+                    "title": "Learning Curves for Decision Making in Supervised Machine Learning: A Survey",
+                    "summary": "Learning curves are a concept from social sciences that has been adopted in the context of machine learning to assess the performance of a learning algorithm with respect to a certain resource, e.g., the number of training examples or the number of training iterations. Learning curves have important applications in several machine learning contexts, most notably in data acquisition, early stopping of model training, and model selection. For instance, learning curves can be used to model the performance of the combination of an algorithm and its hyperparameter configuration, providing insights into their potential suitability at an early stage and often expediting the algorithm selection process. Various learning curve models have been proposed to use learning curves for decision making. Some of these models answer the binary decision question of whether a given algorithm at a certain budget will outperform a certain reference performance, whereas more complex models predict the entire learning curve of an algorithm. We contribute a framework that categorises learning curve approaches using three criteria: the decision-making situation they address, the intrinsic learning curve question they answer and the type of resources they use. We survey papers from the literature and classify them into this framework.",
+                    "authors": [
+                      "Felix Mohr",
+                      "Jan N. van Rijn"
+                    ],
+                    "published": "2022-01-28T14:34:32Z",
+                    "updated": "2025-01-28T14:39:26Z",
+                    "url": "http://arxiv.org/abs/2201.12150v2",
+                    "pdf_url": "https://arxiv.org/pdf/2201.12150v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2302.08893v4",
+                    "title": "Active learning for data streams: a survey",
+                    "summary": "Online active learning is a paradigm in machine learning that aims to select the most informative data points to label from a data stream. The problem of minimizing the cost associated with collecting labeled observations has gained a lot of attention in recent years, particularly in real-world applications where data is only available in an unlabeled form. Annotating each observation can be time-consuming and costly, making it difficult to obtain large amounts of labeled data. To overcome this issue, many active learning strategies have been proposed in the last decades, aiming to select the most informative observations for labeling in order to improve the performance of machine learning models. These approaches can be broadly divided into two categories: static pool-based and stream-based active learning. Pool-based active learning involves selecting a subset of observations from a closed pool of unlabeled data, and it has been the focus of many surveys and literature reviews. However, the growing availability of data streams has led to an increase in the number of approaches that focus on online active learning, which involves continuously selecting and labeling observations as they arrive in a stream. This work aims to provide an overview of the most recently proposed approaches for selecting the most informative observations from data streams in real time. We review the various techniques that have been proposed and discuss their strengths and limitations, as well as the challenges and opportunities that exist in this area of research.",
+                    "authors": [
+                      "Davide Cacciarelli",
+                      "Murat Kulahci"
+                    ],
+                    "published": "2023-02-17T14:24:13Z",
+                    "updated": "2023-11-29T21:07:15Z",
+                    "url": "http://arxiv.org/abs/2302.08893v4",
+                    "pdf_url": "https://arxiv.org/pdf/2302.08893v4",
+                    "source": "arxiv.org",
+                    "primary_category": "stat.ML",
+                    "categories": [
+                      "stat.ML",
+                      "cs.LG",
+                      "stat.ME"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2304.02381v2",
+                    "title": "Physics-Inspired Interpretability Of Machine Learning Models",
+                    "summary": "The ability to explain decisions made by machine learning models remains one of the most significant hurdles towards widespread adoption of AI in highly sensitive areas such as medicine, cybersecurity or autonomous driving. Great interest exists in understanding which features of the input data prompt model decision making. In this contribution, we propose a novel approach to identify relevant features of the input data, inspired by methods from the energy landscapes field, developed in the physical sciences. By identifying conserved weights within groups of minima of the loss landscapes, we can identify the drivers of model decision making. Analogues to this idea exist in the molecular sciences, where coordinate invariants or order parameters are employed to identify critical features of a molecule. However, no such approach exists for machine learning loss landscapes. We will demonstrate the applicability of energy landscape methods to machine learning models and give examples, both synthetic and from the real world, for how these methods can help to make models more interpretable.",
+                    "authors": [
+                      "Maximilian P Niroomand",
+                      "David J Wales"
+                    ],
+                    "published": "2023-04-05T11:35:17Z",
+                    "updated": "2024-12-15T17:17:01Z",
+                    "url": "http://arxiv.org/abs/2304.02381v2",
+                    "pdf_url": "https://arxiv.org/pdf/2304.02381v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            },
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "Machine Learning",
+                "topic": "news",
+                "timeframe": "week",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "Machine Learning",
+                "topic": "news",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "Using machine learning to predict and prevent child malnutrition - Cornell SC Johnson College of Business",
+                    "url": "https://business.cornell.edu/news/2026/07/28/machine-learning-malnutrition",
+                    "source": "business.cornell.edu",
+                    "summary": "Many prediction systems in weather and finance trigger alerts based on one event, but human outcomes are much more complex, resulting from multiple intersecting factors. The research team found that machine learning expanded their predictive capabilities by drawing out complicated relationships from multiple variables. [...] Researchers from the Cornell SC Johnson College of Business and UC Berkeley School of Information are piloting a machine learning system that can forecast malnutrition hotspots up to 3 months before they appear, helping humanitarian and governmental organizations send preventative aid to people in need. Susana Constenla-Villoslada, M.S. ’19, presented the system at the Data Science to Build Resilience and Improve Humanitarian Response Thought Summit on May 12. [...] “Child wasting is a clinical condition that has a 45% rate case fatality if untreated,” said Constenla-Villoslada, a Ph.D. candidate at University of California, Berkeley studying econometrics and machine learning for international development. “The kids that don’t die might have long term developmental consequences throughout their life, and if we don’t do anything about this issue, we are compromising the next generation. It reinforces cycles of poverty.”",
+                    "score": 0.44434834
+                  },
+                  {
+                    "title": "Enroll in CSCE 478/878: Introduction to Machine Learning | Announce | University of Nebraska-Lincoln",
+                    "url": "https://newsroom.unl.edu/announce/cse/20493/108529",
+                    "source": "newsroom.unl.edu",
+                    "summary": "Description: In this course, you will learn about classification, regression, and clustering methods, which are the core concepts of machine learning. You will also be exposed to topics of deep leaning which will help you connect with recent developments in AI/ML. Besides doing the term projects, graduate students enrolled in this course will get an opportunity to do research presentations. Interested students will receive guidance to submit their project ideas/implementations as",
+                    "score": 0.4292146
+                  },
+                  {
+                    "title": "Quantum Machine-Learning Design Targets Training And Scaling Barriers",
+                    "url": "https://thequantuminsider.com/2026/07/28/quantum-machine-learning-design-targets-training-and-scaling-barriers",
+                    "source": "thequantuminsider.com",
+                    "summary": "If the approach proves successful on future quantum hardware, it could help machine-learning systems tackle highly complex problems in areas such as financial risk modeling, portfolio optimization, materials discovery, drug design, and logistics that are difficult to solve efficiently with classical computers. [...] The new framework is designed to avoid that shortcut. For supervised machine-learning tasks, it uses a different type of input state whose simulation would instead require a more complex mathematical object called a hyper-Pfaffian. No efficient classical algorithm is currently known for performing that calculation, so the study argues these models remain difficult to simulate using today’s best techniques. [...] The circuit then spreads a small number of excitations across all available qubits. Classical data are encoded through phase rotations applied after this spreading process. Each feature changes the phase of one qubit, allowing all features to influence the entangled quantum state.\n\nThe study presents two versions of the input state for different machine-learning tasks.",
+                    "score": 0.40896168
+                  },
+                  {
+                    "title": "Machine learning improves imaging within complex media | UCLA",
+                    "url": "https://newsroom.ucla.edu/releases/biomedical-imaging-autonomous-vehicle-sensors-get-AI-boost",
+                    "source": "newsroom.ucla.edu",
+                    "summary": "## FINDINGS\n\nA research team led by UCLA and the University of Rochester has demonstrated a promising evolution of an imaging system designed to capture details within “complex media,” which scatter light, from depicting structures inside body tissue to seeing obstacles through heavy fog. The system uses physics-based machine learning to improve upon an existing imaging technique. [...] UCLA  Newsroom\n\nComparison of two imaging techniques. Top rows (red border) show images with visible white artifacts and noise. Bottom rows (blue border) show cleaner images produced by physics-based machine learning, with artifacts removed.  \n\nUCLA Quantum Light-Matter Cooperative\n\nImages created using physics-based machine learning (bottom row) lack artifacts showing up in images from an existing technique for capturing details obscured by complex media (top row).\n\n \n\nScience + Technology [...] In contrast, the underlying method that the researchers improved can use relatively cheap silicon-based cameras, like those found in smartphones. Introduced 10 years ago by study co-authors from the University of Rochester, the technique relies on a special film that lets through some photons and not others to convert scattered light from the near-infrared to the visible range.",
+                    "score": 0.39887524
+                  },
+                  {
+                    "title": "HeyDonto launches DFT Labs to pursue physics-based machine learning capabilities - SiliconANGLE",
+                    "url": "https://siliconangle.com/2026/07/28/heydonto-launches-dft-labs-pursue-physics-based-machine-learning-capabilities",
+                    "source": "siliconangle.com",
+                    "summary": "Torq unveils SOC Brain, a self-learning layer for its AI SOC platform\n\n  SECURITY - BY DUNCAN RILEY . 31 MINS AGO\n [](\n\n  Exclusive: Dymium introduces single gateway to govern enterprise AI use\n\n  AI - BY PAUL GILLIN . 31 MINS AGO\n\nWe use cookies for analytics and measurement. You can accept or reject tracking cookies. See our Privacy Policy. [...] [](\n\n  Fish Audio makes a splash after raising $52M seed funding for AI voices\n [](\n\n  Bugcrowd launches Savant Pathseeker for continuous agentic pentesting\n [](\n\n  Tines seeks to tame 'wild code' AI sprawl\n [](\n\n  1Password aims to cut standing access risks for AI agents\n [](\n\n  Torq unveils SOC Brain, a self-learning layer for its AI SOC platform\n [](\n\n  Exclusive: Dymium introduces single gateway to govern enterprise AI use\n\n##### LATEST STORIES\n\n []( [...] [](\n\n  Fish Audio makes a splash after raising $52M seed funding for AI voices\n\n  AI - BY MIKE WHEATLEY . 1 MIN AGO\n [](\n\n  Bugcrowd launches Savant Pathseeker for continuous agentic pentesting\n\n  SECURITY - BY DUNCAN RILEY . 31 MINS AGO\n [](\n\n  Tines seeks to tame 'wild code' AI sprawl\n\n  AI - BY DUNCAN RILEY . 31 MINS AGO\n [](\n\n  1Password aims to cut standing access risks for AI agents\n\n  SECURITY - BY DUNCAN RILEY . 31 MINS AGO\n [](",
+                    "score": 0.28424355
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là một số bài báo và thông tin mới nhất liên quan đến Machine Learning:\n\n### Bài báo nghiên cứu\n\n1. **[Changing Data Sources in the Age of Machine Learning for Official Statistics](http://arxiv.org/abs/2306.04338v1)**\n   - **Tác giả:** Cedric De Boom, Michael Reusens\n   - **Tóm tắt:** Bài báo này thảo luận về tầm quan trọng của khoa học dữ liệu trong việc sản xuất thống kê chính thức và các rủi ro liên quan đến việc thay đổi nguồn dữ liệu trong bối cảnh máy học. Nó cung cấp một danh sách kiểm tra các nguyên nhân và nguồn gốc phổ biến của việc thay đổi nguồn dữ liệu.\n   - **Ngày xuất bản:** 07 tháng 6, 2023\n   - **[PDF](https://arxiv.org/pdf/2306.04338v1)**\n\n2. **[DOME: Recommendations for supervised machine learning validation in biology](http://arxiv.org/abs/2006.16189v4)**\n   - **Tác giả:** Ian Walsh, Dmytro Fishman, và các tác giả khác\n   - **Tóm tắt:** Bài báo đưa ra các khuyến nghị nhằm thiết lập tiêu chuẩn cho việc xác thực máy học có giám sát trong sinh học, giúp cải thiện quy trình đánh giá và hiểu biết về hiệu suất của các phương pháp máy học.\n   - **Ngày xuất bản:** 25 tháng 6, 2020\n   - **[PDF](https://arxiv.org/pdf/2006.16189v4)**\n\n3. **[Learning Curves for Decision Making in Supervised Machine Learning: A Survey](http://arxiv.org/abs/2201.12150v2)**\n   - **Tác giả:** Felix Mohr, Jan N. van Rijn\n   - **Tóm tắt:** Bài báo khảo sát các mô hình đường cong học tập trong máy học và ứng dụng của chúng trong việc ra quyết định, bao gồm việc lựa chọn mô hình và dừng sớm quá trình huấn luyện.\n   - **Ngày xuất bản:** 28 tháng 1, 2022\n   - **[PDF](https://arxiv.org/pdf/2201.12150v2)**\n\n4. **[Active learning for data streams: a survey](http://arxiv.org/abs/2302.08893v4)**\n   - **Tác giả:** Davide Cacciarelli, Murat Kulahci\n   - **Tóm tắt:** Bài báo này cung cấp cái nhìn tổng quan về các phương pháp học chủ động cho các dòng dữ liệu, nhấn mạnh các chiến lược chọn lựa quan sát có thông tin nhất để gán nhãn.\n   - **Ngày xuất bản:** 17 tháng 2, 2023\n   - **[PDF](https://arxiv.org/pdf/2302.08893v4)**\n\n5. **[Physics-Inspired Interpretability Of Machine Learning Models](http://arxiv.org/abs/2304.02381v2)**\n   - **Tác giả:** Maximilian P Niroomand, David J Wales\n   - **Tóm tắt:** Bài báo đề xuất một phương pháp mới để xác định các đặc điểm quan trọng của dữ liệu đầu vào trong các mô hình máy học, lấy cảm hứng từ các phương pháp trong lĩnh vực năng lượng.\n   - **Ngày xuất bản:** 05 tháng 4, 2023\n   - **[PDF](https://arxiv.org/pdf/2304.02381v2)**\n\n### Tin tức gần đây\n\n1. **[Using machine learning to predict and prevent child malnutrition](https://business.cornell.edu/news/2026/07/28/machine-learning-malnutrition)**\n   - **Nguồn:** Cornell SC Johnson College of Business\n   - **Tóm tắt:** Nghiên cứu từ Cornell và UC Berkeley đang phát triển một hệ thống máy học có thể dự đoán các điểm nóng về suy dinh dưỡng trước 3 tháng, giúp các tổ chức nhân đạo gửi hỗ trợ kịp thời.\n\n2. **[Enroll in CSCE 478/878: Introduction to Machine Learning](https://newsroom.unl.edu/announce/cse/20493/108529)**\n   - **Nguồn:** University of Nebraska-Lincoln\n   - **Tóm tắt:** Khóa học này sẽ dạy về các phương pháp phân loại, hồi quy và phân cụm, cùng với các chủ đề về học sâu.\n\n3. **[Quantum Machine-Learning Design Targets Training And Scaling Barriers](https://thequantuminsider.com/2026/07/28/quantum-machine-learning-design-targets-training-and-scaling-barriers)**\n   - **Nguồn:** The Quantum Insider\n   - **Tóm tắt:** Bài viết thảo luận về một khung thiết kế mới cho máy học lượng tử nhằm giải quyết các vấn đề phức tạp trong nhiều lĩnh vực.\n\n4. **[Machine learning improves imaging within complex media](https://newsroom.ucla.edu/releases/biomedical-imaging-autonomous-vehicle-sensors-get-AI-boost)**\n   - **Nguồn:** UCLA\n   - **Tóm tắt:** Nghiên cứu từ UCLA và University of Rochester đã phát triển một hệ thống hình ảnh mới sử dụng máy học để cải thiện khả năng hình ảnh trong các môi trường phức tạp.\n\n5. **[HeyDonto launches DFT Labs to pursue physics-based machine learning capabilities](https://siliconangle.com/2026/07/28/heydonto-launches-dft-labs-pursue-physics-based-machine-learning-capabilities)**\n   - **Nguồn:** SiliconANGLE\n   - **Tóm tắt:** Bài viết thông báo về việc HeyDonto ra mắt DFT Labs để theo đuổi khả năng máy học dựa trên vật lý.\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Machine Learning",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Machine Learning",
+            "api_query": "all:Machine AND all:Learning",
+            "total_results": 338525,
+            "items": [
+              {
+                "arxiv_id": "2306.04338v1",
+                "title": "Changing Data Sources in the Age of Machine Learning for Official Statistics",
+                "summary": "Data science has become increasingly essential for the production of official statistics, as it enables the automated collection, processing, and analysis of large amounts of data. With such data science practices in place, it enables more timely, more insightful and more flexible reporting. However, the quality and integrity of data-science-driven statistics rely on the accuracy and reliability of the data sources and the machine learning techniques that support them. In particular, changes in data sources are inevitable to occur and pose significant risks that are crucial to address in the context of machine learning for official statistics. This paper gives an overview of the main risks, liabilities, and uncertainties associated with changing data sources in the context of machine learning for official statistics. We provide a checklist of the most prevalent origins and causes of changing data sources; not only on a technical level but also regarding ownership, ethics, regulation, and public perception. Next, we highlight the repercussions of changing data sources on statistical reporting. These include technical effects such as concept drift, bias, availability, validity, accuracy and completeness, but also the neutrality and potential discontinuation of the statistical offering. We offer a few important precautionary measures, such as enhancing robustness in both data sourcing and statistical techniques, and thorough monitoring. In doing so, machine learning-based official statistics can maintain integrity, reliability, consistency, and relevance in policy-making, decision-making, and public discourse.",
+                "authors": [
+                  "Cedric De Boom",
+                  "Michael Reusens"
+                ],
+                "published": "2023-06-07T11:08:12Z",
+                "updated": "2023-06-07T11:08:12Z",
+                "url": "http://arxiv.org/abs/2306.04338v1",
+                "pdf_url": "https://arxiv.org/pdf/2306.04338v1",
+                "source": "arxiv.org",
+                "primary_category": "stat.ML",
+                "categories": [
+                  "stat.ML",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2006.16189v4",
+                "title": "DOME: Recommendations for supervised machine learning validation in biology",
+                "summary": "Modern biology frequently relies on machine learning to provide predictions and improve decision processes. There have been recent calls for more scrutiny on machine learning performance and possible limitations. Here we present a set of community-wide recommendations aiming to help establish standards of supervised machine learning validation in biology. Adopting a structured methods description for machine learning based on data, optimization, model, evaluation (DOME) will aim to help both reviewers and readers to better understand and assess the performance and limitations of a method or outcome. The recommendations are formulated as questions to anyone wishing to pursue implementation of a machine learning algorithm. Answers to these questions can be easily included in the supplementary material of published papers.",
+                "authors": [
+                  "Ian Walsh",
+                  "Dmytro Fishman",
+                  "Dario Garcia-Gasulla",
+                  "Tiina Titma",
+                  "Gianluca Pollastri",
+                  "The ELIXIR Machine Learning focus group",
+                  "Jen Harrow",
+                  "Fotis E. Psomopoulos",
+                  "Silvio C. E. Tosatto"
+                ],
+                "published": "2020-06-25T12:01:39Z",
+                "updated": "2021-01-07T07:29:24Z",
+                "url": "http://arxiv.org/abs/2006.16189v4",
+                "pdf_url": "https://arxiv.org/pdf/2006.16189v4",
+                "source": "arxiv.org",
+                "primary_category": "q-bio.OT",
+                "categories": [
+                  "q-bio.OT",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2201.12150v2",
+                "title": "Learning Curves for Decision Making in Supervised Machine Learning: A Survey",
+                "summary": "Learning curves are a concept from social sciences that has been adopted in the context of machine learning to assess the performance of a learning algorithm with respect to a certain resource, e.g., the number of training examples or the number of training iterations. Learning curves have important applications in several machine learning contexts, most notably in data acquisition, early stopping of model training, and model selection. For instance, learning curves can be used to model the performance of the combination of an algorithm and its hyperparameter configuration, providing insights into their potential suitability at an early stage and often expediting the algorithm selection process. Various learning curve models have been proposed to use learning curves for decision making. Some of these models answer the binary decision question of whether a given algorithm at a certain budget will outperform a certain reference performance, whereas more complex models predict the entire learning curve of an algorithm. We contribute a framework that categorises learning curve approaches using three criteria: the decision-making situation they address, the intrinsic learning curve question they answer and the type of resources they use. We survey papers from the literature and classify them into this framework.",
+                "authors": [
+                  "Felix Mohr",
+                  "Jan N. van Rijn"
+                ],
+                "published": "2022-01-28T14:34:32Z",
+                "updated": "2025-01-28T14:39:26Z",
+                "url": "http://arxiv.org/abs/2201.12150v2",
+                "pdf_url": "https://arxiv.org/pdf/2201.12150v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2302.08893v4",
+                "title": "Active learning for data streams: a survey",
+                "summary": "Online active learning is a paradigm in machine learning that aims to select the most informative data points to label from a data stream. The problem of minimizing the cost associated with collecting labeled observations has gained a lot of attention in recent years, particularly in real-world applications where data is only available in an unlabeled form. Annotating each observation can be time-consuming and costly, making it difficult to obtain large amounts of labeled data. To overcome this issue, many active learning strategies have been proposed in the last decades, aiming to select the most informative observations for labeling in order to improve the performance of machine learning models. These approaches can be broadly divided into two categories: static pool-based and stream-based active learning. Pool-based active learning involves selecting a subset of observations from a closed pool of unlabeled data, and it has been the focus of many surveys and literature reviews. However, the growing availability of data streams has led to an increase in the number of approaches that focus on online active learning, which involves continuously selecting and labeling observations as they arrive in a stream. This work aims to provide an overview of the most recently proposed approaches for selecting the most informative observations from data streams in real time. We review the various techniques that have been proposed and discuss their strengths and limitations, as well as the challenges and opportunities that exist in this area of research.",
+                "authors": [
+                  "Davide Cacciarelli",
+                  "Murat Kulahci"
+                ],
+                "published": "2023-02-17T14:24:13Z",
+                "updated": "2023-11-29T21:07:15Z",
+                "url": "http://arxiv.org/abs/2302.08893v4",
+                "pdf_url": "https://arxiv.org/pdf/2302.08893v4",
+                "source": "arxiv.org",
+                "primary_category": "stat.ML",
+                "categories": [
+                  "stat.ML",
+                  "cs.LG",
+                  "stat.ME"
+                ]
+              },
+              {
+                "arxiv_id": "2304.02381v2",
+                "title": "Physics-Inspired Interpretability Of Machine Learning Models",
+                "summary": "The ability to explain decisions made by machine learning models remains one of the most significant hurdles towards widespread adoption of AI in highly sensitive areas such as medicine, cybersecurity or autonomous driving. Great interest exists in understanding which features of the input data prompt model decision making. In this contribution, we propose a novel approach to identify relevant features of the input data, inspired by methods from the energy landscapes field, developed in the physical sciences. By identifying conserved weights within groups of minima of the loss landscapes, we can identify the drivers of model decision making. Analogues to this idea exist in the molecular sciences, where coordinate invariants or order parameters are employed to identify critical features of a molecule. However, no such approach exists for machine learning loss landscapes. We will demonstrate the applicability of energy landscape methods to machine learning models and give examples, both synthetic and from the real world, for how these methods can help to make models more interpretable.",
+                "authors": [
+                  "Maximilian P Niroomand",
+                  "David J Wales"
+                ],
+                "published": "2023-04-05T11:35:17Z",
+                "updated": "2024-12-15T17:17:01Z",
+                "url": "http://arxiv.org/abs/2304.02381v2",
+                "pdf_url": "https://arxiv.org/pdf/2304.02381v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "Machine Learning",
+            "topic": "news",
+            "timeframe": "week",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Machine Learning",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Using machine learning to predict and prevent child malnutrition - Cornell SC Johnson College of Business",
+                "url": "https://business.cornell.edu/news/2026/07/28/machine-learning-malnutrition",
+                "source": "business.cornell.edu",
+                "summary": "Many prediction systems in weather and finance trigger alerts based on one event, but human outcomes are much more complex, resulting from multiple intersecting factors. The research team found that machine learning expanded their predictive capabilities by drawing out complicated relationships from multiple variables. [...] Researchers from the Cornell SC Johnson College of Business and UC Berkeley School of Information are piloting a machine learning system that can forecast malnutrition hotspots up to 3 months before they appear, helping humanitarian and governmental organizations send preventative aid to people in need. Susana Constenla-Villoslada, M.S. ’19, presented the system at the Data Science to Build Resilience and Improve Humanitarian Response Thought Summit on May 12. [...] “Child wasting is a clinical condition that has a 45% rate case fatality if untreated,” said Constenla-Villoslada, a Ph.D. candidate at University of California, Berkeley studying econometrics and machine learning for international development. “The kids that don’t die might have long term developmental consequences throughout their life, and if we don’t do anything about this issue, we are compromising the next generation. It reinforces cycles of poverty.”",
+                "score": 0.44434834
+              },
+              {
+                "title": "Enroll in CSCE 478/878: Introduction to Machine Learning | Announce | University of Nebraska-Lincoln",
+                "url": "https://newsroom.unl.edu/announce/cse/20493/108529",
+                "source": "newsroom.unl.edu",
+                "summary": "Description: In this course, you will learn about classification, regression, and clustering methods, which are the core concepts of machine learning. You will also be exposed to topics of deep leaning which will help you connect with recent developments in AI/ML. Besides doing the term projects, graduate students enrolled in this course will get an opportunity to do research presentations. Interested students will receive guidance to submit their project ideas/implementations as",
+                "score": 0.4292146
+              },
+              {
+                "title": "Quantum Machine-Learning Design Targets Training And Scaling Barriers",
+                "url": "https://thequantuminsider.com/2026/07/28/quantum-machine-learning-design-targets-training-and-scaling-barriers",
+                "source": "thequantuminsider.com",
+                "summary": "If the approach proves successful on future quantum hardware, it could help machine-learning systems tackle highly complex problems in areas such as financial risk modeling, portfolio optimization, materials discovery, drug design, and logistics that are difficult to solve efficiently with classical computers. [...] The new framework is designed to avoid that shortcut. For supervised machine-learning tasks, it uses a different type of input state whose simulation would instead require a more complex mathematical object called a hyper-Pfaffian. No efficient classical algorithm is currently known for performing that calculation, so the study argues these models remain difficult to simulate using today’s best techniques. [...] The circuit then spreads a small number of excitations across all available qubits. Classical data are encoded through phase rotations applied after this spreading process. Each feature changes the phase of one qubit, allowing all features to influence the entangled quantum state.\n\nThe study presents two versions of the input state for different machine-learning tasks.",
+                "score": 0.40896168
+              },
+              {
+                "title": "Machine learning improves imaging within complex media | UCLA",
+                "url": "https://newsroom.ucla.edu/releases/biomedical-imaging-autonomous-vehicle-sensors-get-AI-boost",
+                "source": "newsroom.ucla.edu",
+                "summary": "## FINDINGS\n\nA research team led by UCLA and the University of Rochester has demonstrated a promising evolution of an imaging system designed to capture details within “complex media,” which scatter light, from depicting structures inside body tissue to seeing obstacles through heavy fog. The system uses physics-based machine learning to improve upon an existing imaging technique. [...] UCLA  Newsroom\n\nComparison of two imaging techniques. Top rows (red border) show images with visible white artifacts and noise. Bottom rows (blue border) show cleaner images produced by physics-based machine learning, with artifacts removed.  \n\nUCLA Quantum Light-Matter Cooperative\n\nImages created using physics-based machine learning (bottom row) lack artifacts showing up in images from an existing technique for capturing details obscured by complex media (top row).\n\n \n\nScience + Technology [...] In contrast, the underlying method that the researchers improved can use relatively cheap silicon-based cameras, like those found in smartphones. Introduced 10 years ago by study co-authors from the University of Rochester, the technique relies on a special film that lets through some photons and not others to convert scattered light from the near-infrared to the visible range.",
+                "score": 0.39887524
+              },
+              {
+                "title": "HeyDonto launches DFT Labs to pursue physics-based machine learning capabilities - SiliconANGLE",
+                "url": "https://siliconangle.com/2026/07/28/heydonto-launches-dft-labs-pursue-physics-based-machine-learning-capabilities",
+                "source": "siliconangle.com",
+                "summary": "Torq unveils SOC Brain, a self-learning layer for its AI SOC platform\n\n  SECURITY - BY DUNCAN RILEY . 31 MINS AGO\n [](\n\n  Exclusive: Dymium introduces single gateway to govern enterprise AI use\n\n  AI - BY PAUL GILLIN . 31 MINS AGO\n\nWe use cookies for analytics and measurement. You can accept or reject tracking cookies. See our Privacy Policy. [...] [](\n\n  Fish Audio makes a splash after raising $52M seed funding for AI voices\n [](\n\n  Bugcrowd launches Savant Pathseeker for continuous agentic pentesting\n [](\n\n  Tines seeks to tame 'wild code' AI sprawl\n [](\n\n  1Password aims to cut standing access risks for AI agents\n [](\n\n  Torq unveils SOC Brain, a self-learning layer for its AI SOC platform\n [](\n\n  Exclusive: Dymium introduces single gateway to govern enterprise AI use\n\n##### LATEST STORIES\n\n []( [...] [](\n\n  Fish Audio makes a splash after raising $52M seed funding for AI voices\n\n  AI - BY MIKE WHEATLEY . 1 MIN AGO\n [](\n\n  Bugcrowd launches Savant Pathseeker for continuous agentic pentesting\n\n  SECURITY - BY DUNCAN RILEY . 31 MINS AGO\n [](\n\n  Tines seeks to tame 'wild code' AI sprawl\n\n  AI - BY DUNCAN RILEY . 31 MINS AGO\n [](\n\n  1Password aims to cut standing access risks for AI agents\n\n  SECURITY - BY DUNCAN RILEY . 31 MINS AGO\n [](",
+                "score": 0.28424355
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

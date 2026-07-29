@@ -1,0 +1,1083 @@
+{
+  "run_id": "v3_B_group_openrouter_20260729T084521455530",
+  "version": "v3",
+  "artifact_version": "v3+p7b8b4d43be9d+tbd1f142cec8b",
+  "prompt_hash": "7b8b4d43be9d1ddf69a9754c4c52e95a8192fd43677ed539fdfb4b0bf7592023",
+  "tools_hash": "bd1f142cec8b90425213dcdb166fbd882757ce57a528d38e6f24384152276b01",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_group",
+  "dataset_role": "group",
+  "description": "10 team eval cases: 5 single-turn + 5 multi-turn for Research Paper Scout agent.",
+  "generated_at": "2026-07-29T08:45:21",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 6,
+    "case_accuracy": 0.6,
+    "tool_routing_accuracy": 0.7,
+    "argument_accuracy": 0.6,
+    "multiturn_accuracy": 0.4,
+    "failure_counts": {
+      "wrong_boundary": 1,
+      "wrong_tool": 1,
+      "missing_info": 1,
+      "out_of_scope": 1
+    },
+    "observed_mismatch_counts": {
+      "wrong_arg_value": 1,
+      "missing_tool_call": 2,
+      "unexpected_tool_call": 1
+    }
+  },
+  "results": [
+    {
+      "id": "G001",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "User asks for newest papers → papers with sort_by=submittedDate, not relevance"
+      },
+      "input": "Tìm 5 bài báo mới nhất về Transformer",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "Transformer",
+              "sort_by": "submittedDate",
+              "max_results": 5
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "Transformer",
+              "max_results": 5,
+              "sort_by": "submittedDate"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Transformer",
+            "max_results": 5,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Transformer",
+            "api_query": "all:Transformer",
+            "total_results": 174319,
+            "items": [
+              {
+                "arxiv_id": "2607.26042v1",
+                "title": "VetClaw: An Edge-Cloud Multimodal Agentic System for Veterinary Disease Screening",
+                "summary": "We present VetClaw, an edge-cloud multimodal agentic system for early veterinary disease screening. VetClaw uses a camera module as an edge sensing device and sends captured images, together with optional symptom descriptions, to a server-hosted vision-language model for zero-shot disease classification. The system separates agent interaction from workflow orchestration: OpenClaw provides scheduling, tool access, user interaction, and notification services on the edge device, while LangGraph manages the stateful screening workflow, including input validation, image transmission, model invocation, safety checks, conditional routing, failure handling, and structured logging. This design moves beyond static image classification by enabling the system to collect visual evidence, invoke external models, apply deterministic safety rules, and generate diagnostic-support alerts. Results show that image-only VLM prediction remains limited, whereas symptom-guided and multimodal inputs improve zero-shot classification performance. Thus, VetClaw transforms a static prediction model into a coordinated, safety-aware system that can use tools, manage workflows, handle failures, and escalate uncertain cases.",
+                "authors": [
+                  "Syed Mhamudul Hasan",
+                  "Anas AlSobeh",
+                  "Hussein Zangoti",
+                  "Abdur R. Shahid"
+                ],
+                "published": "2026-07-28T17:50:25Z",
+                "updated": "2026-07-28T17:50:25Z",
+                "url": "http://arxiv.org/abs/2607.26042v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26042v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26021v1",
+                "title": "Weighted Webs: Morphology-Informed Marked Fields",
+                "summary": "The morphology of the cosmic web formed by the late-time matter distribution encodes cosmological information beyond that contained in standard two-point statistics. Marked power spectra provide a computationally efficient framework to access this higher-order information, by studying the two-point statistics of the density field ``marked'' (i.e. weighted) by a function of its local environmental density. In this work we explore the potential of marks that are sensitive to the morphology of this local environment, rather than simply its density. We study a broad range of such marks, considering mark functions based on the smoothed density, tidal shear amplitude, local degree of isotropy and filamentarity, Gaussian transformations of these quantities and a local fractal dimension estimator. We quantify the merit of different marks in terms of their constraints on key cosmological parameters, including the matter abundance $Ω_m$, the amplitude of fluctuations $σ_8$, and the mass of neutrinos $M_ν$. We have found that density-dependent marks continue to provide the largest improvements over the standard power spectrum, while morphology-based marks yield more modest improvements on their own. Nevertheless, combining density- and morphology-based marks consistently enhances cosmological constraints beyond what either class achieves separately, demonstrating that they probe complementary aspects of the underlying matter distribution. These results provide a systematic assessment of morphology-based marked statistics and explore which geometric properties of the cosmic web contribute most effectively to cosmological parameter inference. They also establish a physically motivated framework for future investigations of optimal marks and their perturbative connection to higher-order correlation functions.",
+                "authors": [
+                  "Mikel Martin Barandiaran",
+                  "Jessica A. Cowell",
+                  "David Alonso",
+                  "Javier Carrón Duque",
+                  "Juan García-Bellido"
+                ],
+                "published": "2026-07-28T17:32:56Z",
+                "updated": "2026-07-28T17:32:56Z",
+                "url": "http://arxiv.org/abs/2607.26021v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26021v1",
+                "source": "arxiv.org",
+                "primary_category": "astro-ph.CO",
+                "categories": [
+                  "astro-ph.CO"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26016v1",
+                "title": "MDTransformer: A Hardware-Software Co-Design of Mode-Division Photonic Transformer Accelerator with Inverse-Designed Coherent Crossbar",
+                "summary": "Recently, photonic transformer accelerators (PTAs) have successfully achieved significant speedup and energy efficiency improvements over electronic accelerators for expediting Transformer inference. However, state-of-the-art rely on expensive multi-wavelength light generation and large dot-product units due to active phase-shifter components, thus making their approach inefficient and impractical. To address this, we propose MDTransformer, a novel hardware-software co-design of PTA based on mode-division optical dataflow and operations. Specifically, MDTransformer performs complex matrix operations using spatial-mode interference, that leverages the inverse-designed multi-mode couplers, crossings, and Mach-Zehnder IQ modulators into a compact mode-division photonic tensor core (MPTC), capable of executing matrix multiplications in the optical domain. Its each guided mode (i.e., TE0-TE3) acts as an independent computational lane, enabling four-fold parallelism-per-waveguide without spectral filtering or free-spectral-range limitations. Moreover, its coherent detection and IQ modulation jointly encode amplitude and phase, realizing complex-valued arithmetic for full-range operations in transformers. MDTransformer offers analog multiplication with sub-4-bit effective precision and inter-modal crosstalk below -30 dB. Its inverse-designed approach also offers scalable and full compatibility with single-laser continuous-wave operation at 1550 nm. Experimental results show that MDTransformer achieves 40.4% area reduction, 63.6% power saving, 40.6% energy saving, and comparable latency over the state-of-the-art PTA across different workloads (i.e., DeiT-Tiny/Small/Base and BERT-Base/Large). These results show that MDTransformer offers a practical solution for high-performance and energy-efficient transformer-based systems.",
+                "authors": [
+                  "Solomon Micheal Serunjogi",
+                  "Rachmad Vidya Wicaksana Putra",
+                  "Ayat Taha",
+                  "Muhammad Shafique",
+                  "Mahmoud Rasras"
+                ],
+                "published": "2026-07-28T17:27:49Z",
+                "updated": "2026-07-28T17:27:49Z",
+                "url": "http://arxiv.org/abs/2607.26016v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26016v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AR",
+                "categories": [
+                  "cs.AR",
+                  "cs.AI",
+                  "cs.DC"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25998v1",
+                "title": "Observable Estimation in the Absence of Classical Verification",
+                "summary": "The predictive success of quantum mechanics underpins many areas of modern science, even as the exact simulation of large, interacting quantum systems remains beyond the reach of classical computation. This success has been enabled by the remarkable advancement of scalable numerical approximation methods, which often demonstrate practical accuracy despite the absence of formal guarantees. As quantum simulation pushes into regimes where these approximations struggle, a fundamental challenge arises: How can quantum outcomes be trusted when reliable classical benchmarks are unavailable? Here, we establish a framework for the independent validation of quantum estimates in this setting and present evidence that they provide the most credible result among several considered methods, in the absence of an immediately accessible ground-truth solution. We apply our framework to the semi-scrambling dynamics of a physical model that strains several leading classical simulation methods yet remains experimentally accessible, in part through our introduction of the \\textit{operator Loschmidt echo}. We systematically design a series of experiments using quantum heuristics that, taken together, test the underlying assumptions and provide strong confidence in the observable estimates obtained from the quantum computer. We then show how this framework can be extended to place accuracy bounds on quantum estimates via careful characterization and manipulation of the device noise, transforming the problem of validating the observable estimation to validating the noise model. These results establish a route towards trusted quantum computation for scientific discovery, independent of classical verification.",
+                "authors": [
+                  "Samantha V. Barron",
+                  "Bradley Mitchell",
+                  "Vinay Tripathi",
+                  "Francesco Grieco",
+                  "Ilan Rosen",
+                  "Francesca Pietracaprina",
+                  "Davide Materia",
+                  "Alireza Seif",
+                  "Darvin Wanisch",
+                  "Ramón L. Panadés-Barrueta",
+                  "Ewout van den Berg",
+                  "Jay-U Chung",
+                  "Andrew Eddins",
+                  "Sam Ferracin",
+                  "Guillermo García-Pérez",
+                  "John Goold",
+                  "Luke C. G. Govia",
+                  "Holger Haas",
+                  "Ian Hincks",
+                  "Jesse C. Hoke",
+                  "Zoë Holmes",
+                  "Su-un Lee",
+                  "Youngseok Kim",
+                  "Swarnadeep Majumder",
+                  "Sabrina Maniscalco",
+                  "Simone Montangero",
+                  "Daniel Puzzuoli",
+                  "Tomaž Prosen",
+                  "James Raftery",
+                  "Ricardo Rivera Cardoso",
+                  "Max Rossmannek",
+                  "Manuel Rudolph",
+                  "Brendan Saxberg",
+                  "Liran Shirizly",
+                  "Karthik Siva",
+                  "Joshua Skanes-Norman",
+                  "Ilaria Siloi",
+                  "Kevin C Smith",
+                  "Boris Sokolov",
+                  "Maika Takita",
+                  "Yanting Teng",
+                  "Mao Tian Tan",
+                  "Joseph Tindall",
+                  "Zoltán Zimborás",
+                  "Matteo A. C. Rossi",
+                  "Minh C. Tran",
+                  "Sergei N. Filippov",
+                  "Abhinav Kandala"
+                ],
+                "published": "2026-07-28T17:14:26Z",
+                "updated": "2026-07-28T17:14:26Z",
+                "url": "http://arxiv.org/abs/2607.25998v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25998v1",
+                "source": "arxiv.org",
+                "primary_category": "quant-ph",
+                "categories": [
+                  "quant-ph"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25988v1",
+                "title": "Generator-Aligned Representation Interfaces for Diagnostic Soft Equivariance",
+                "summary": "Exact-equivariant architectures typically encode prescribed group actions in specialized operators, which can complicate their reuse with generic backbones and across data modalities. We introduce the Generator-Aligned Representation Interface (GARI), a representation-level design principle that exposes selected transformation generators to a generic sequence backbone through aligned canonical and generator-induced views. We formalize the resulting behavior using a probe-specific soft-equivariance residual defined over declared data and transformation distributions. This framework distinguishes representation consistency from task robustness and exact equivariance, and localizes residual mismatch to interface construction, shared stream processing, and terminal fusion. We instantiate the interface as GARI-Net, which constructs generator-indexed streams, converts them into a common interaction frame, processes them with shared parameters, repairs ordering-induced context mismatch, enables cross-stream information exchange, and aggregates them using inter-stream discrepancy. Direct Equivariance Error (DEE) provides a frozen-checkpoint diagnostic of the prescribed representation relation under known token or voxel actions. Experiments on genomic sequences, images, and three-dimensional point clouds examine sequence reversal, planar rotations and reflections, and controlled axial transfer. Across these settings, the same interface principle supports task-relevant transformation consistency and generalization to declared held-out probes without requiring group-specific redesign of the sequence backbone. GARI therefore provides a portable diagnostic complement to hard-equivariant architectures: it makes generator structure accessible, learnable, and measurable, while finite-probe evidence remains distinct from certification of exact equivariance over a continuous group.",
+                "authors": [
+                  "Weitao Li",
+                  "Gong Cheng"
+                ],
+                "published": "2026-07-28T17:06:21Z",
+                "updated": "2026-07-28T17:06:21Z",
+                "url": "http://arxiv.org/abs/2607.25988v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25988v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G002",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "User provides arXiv URL → use paper_text, not fetch or lookup"
+      },
+      "input": "Đọc nội dung bài báo này: https://arxiv.org/abs/1706.03762",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1706.03762"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1706.03762"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "https://arxiv.org/abs/1706.03762"
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "1706.03762",
+            "url": "https://arxiv.org/abs/1706.03762",
+            "pdf_url": "https://arxiv.org/pdf/1706.03762.pdf",
+            "pdf_path": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\arxiv_papers\\1706.03762.pdf",
+            "txt_path": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\arxiv_papers\\1706.03762.txt",
+            "page_count": 15,
+            "pages_read": 5,
+            "chars_returned": 8000,
+            "items": [
+              {
+                "title": "arXiv paper 1706.03762",
+                "url": "https://arxiv.org/abs/1706.03762",
+                "source": "arxiv.org",
+                "summary": "Provided proper attribution is provided, Google hereby grants permission to\nreproduce the tables and figures in this paper solely for use in journalistic or\nscholarly works.\nAttention Is All You Need\nAshish Vaswani∗\nGoogle Brain\navaswani@google.com\nNoam Shazeer∗\nGoogle Brain\nnoam@google.com\nNiki Parmar∗\nGoogle Research\nnikip@google.com\nJakob Uszkoreit∗\nGoogle Research\nusz@google.com\nLlion Jones∗\nGoogle Research\nllion@google.com\nAidan N. Gomez∗ †\nUniversity of Toronto\naidan@cs.toronto.edu\nŁukasz Kaiser∗\nGoogle Brain\nlukaszkaiser@google.com\nIllia Polosukhin∗ ‡\nillia.polosukhin@gmail.com\nAbstract\nThe dominant sequence transduction models are based on complex recurrent or\nconvolutional neural networks that include an encoder and a decoder. The best\nperforming models also connect the encoder and decoder through an attention\nmechanism. We propose a new simple network architecture, the Transformer,\nbased solely on attention mechanisms, dispensing with recurrence and convolutions\nentirely. Experiments on two machine translation tasks show these models to\nbe superior in quality while being more parallelizable and requiring significantly\nless time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-\nto-German translation task, improving over the existing best results, including\nensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task,\nour model establishes a new single-model state-of-the-art BLEU score of 41.8 after\ntraining for 3.5 days on eight GPUs, a small fraction of the training costs of the\nbest models from the literature. We show that the Transformer generalizes well to\nother tasks by applying it successfully to English constituency parsing both with\nlarge and limited training data.\n∗Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started\nthe effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and\nhas been crucially involved in every aspect of this work. Noam proposed scaled dot-product attention, multi-head\nattention and the parameter-free position representation and became the other person involved in nearly every\ndetail. Niki designed, implemented, tuned and evaluated countless model variants in our original codebase and\ntensor2tensor. Llion also experimented with novel model variants, was responsible for our initial codebase, and\nefficient inference and visualizations. Lukasz and Aidan spent countless long days designing various parts of and\nimplementing tensor2tensor, replacing our earlier codebase, greatly improving results and massively accelerating\nour research.\n†Work performed while at Google Brain.\n‡Work performed while at Google Research.\n31st Conference on Neural Information Processing Systems (NIPS 2017), Long Beach, CA, USA.\narXiv:1706.03762v7  [cs.CL]  2 Aug 2023\n\n1 Introduction\nRecurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks\nin particular, have been firmly established as state of the art approaches in sequence modeling and\ntransduction problems such as language modeling and machine translation [ 35, 2, 5]. Numerous\nefforts have since continued to push the boundaries of recurrent language models and encoder-decoder\narchitectures [38, 24, 15].\nRecurrent models typically factor computation along the symbol positions of the input and output\nsequences. Aligning the positions to steps in computation time, they generate a sequence of hidden\nstates ht, as a function of the previous hidden state ht−1 and the input for position t. This inherently\nsequential nature precludes parallelization within training examples, which becomes critical at longer\nsequence lengths, as memory constraints limit batching across examples. Recent work has achieved\nsignificant improvements in computational efficiency through factorization tricks [21] and conditional\ncomputation [32], while also improving model performance in case of the latter. The fundamental\nconstraint of sequential computation, however, remains.\nAttention mechanisms have become an integral part of compelling sequence modeling and transduc-\ntion models in various tasks, allowing modeling of dependencies without regard to their distance in\nthe input or output sequences [2, 19]. In all but a few cases [27], however, such attention mechanisms\nare used in conjunction with a recurrent network.\nIn this work we propose the Transformer, a model architecture eschewing recurrence and instead\nrelying entirely on an attention mechanism to draw global dependencies between input and output.\nThe Transformer allows for significantly more parallelization and can reach a new state of the art in\ntranslation quality after being trained for as little as twelve hours on eight P100 GPUs.\n2 Background\nThe goal of reducing sequential computation also forms the foundation of the Extended Neural GPU\n[16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building\nblock, computing hidden representations in parallel for all input and output positions. In these models,\nthe number of operations required to relate signals from two arbitrary input or output positions grows\nin the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes\nit more difficult to learn dependencies between distant positions [ 12]. In the Transformer this is\nreduced to a constant number of operations, albeit at the cost of reduced effective resolution due\nto averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as\ndescribed in section 3.2.\nSelf-attention, sometimes called intra-attention is an attention mechanism relating different positions\nof a single sequence in order to compute a representation of the sequence. Self-attention has been\nused successfully in a variety of tasks including reading comprehension, abstractive summarization,\ntextual entailment and learning task-independent sentence representations [4, 27, 28, 22].\nEnd-to-end memory networks are based on a recurrent attention mechanism instead of sequence-\naligned recurrence and have been shown to perform well on simple-language question answering and\nlanguage modeling tasks [34].\nTo the best of our knowledge, however, the Transformer is the first transduction model relying\nentirely on self-attention to compute representations of its input and output without using sequence-\naligned RNNs or convolution. In the following sections, we will describe the Transformer, motivate\nself-attention and discuss its advantages over models such as [17, 18] and [9].\n3 Model Architecture\nMost competitive neural sequence transduction models have an encoder-decoder structure [5, 2, 35].\nHere, the encoder maps an input sequence of symbol representations (x1, ..., xn) to a sequence\nof continuous representations z = (z1, ..., zn). Given z, the decoder then generates an output\nsequence (y1, ..., ym) of symbols one element at a time. At each step the model is auto-regressive\n[10], consuming the previously generated symbols as additional input when generating the next.\n2\n\nFigure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,\nrespectively.\n3.1 Encoder and Decoder Stacks\nEncoder: The encoder is composed of a stack of N = 6 identical layers. Each layer has two\nsub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-\nwise fully connected feed-forward network. We employ a residual connection [11] around each of\nthe two sub-layers, followed by layer normalization [ 1]. That is, the output of each sub-layer is\nLayerNorm(x + Sublayer(x)), where Sublayer(x) is the function implemented by the sub-layer\nitself. To facilitate these residual connections, all sub-layers in the model, as well as the embedding\nlayers"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G003",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "User requests APA citation → use citation_generator tool, not format or papers"
+      },
+      "input": "Tạo trích dẫn APA cho bài Attention is All You Need",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention is All You Need",
+              "style": "apa"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention is All You Need",
+              "authors": "Vaswani et al.",
+              "year": "2017",
+              "journal": "NeurIPS",
+              "url": "https://arxiv.org/abs/1706.03762",
+              "style": "apa"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "citation_generator",
+          "args": {
+            "title": "Attention is All You Need",
+            "authors": "Vaswani et al.",
+            "year": "2017",
+            "journal": "NeurIPS",
+            "url": "https://arxiv.org/abs/1706.03762",
+            "style": "apa"
+          },
+          "result": {
+            "tool": "citation_generator",
+            "title": "Attention is All You Need",
+            "authors": "Vaswani et al.",
+            "year": "2017",
+            "journal": "NeurIPS",
+            "style": "apa",
+            "apa": "Vaswani et al. (2017). Attention is All You Need. *NeurIPS*. https://arxiv.org/abs/1706.03762",
+            "bibtex": "@article{attention,\n  title = {Attention is All You Need},\n  author = {Vaswani et al.},\n  year = {2017},\n  journal = {NeurIPS},\n  url = {https://arxiv.org/abs/1706.03762},\n}",
+            "vancouver": "Vaswani et al.. Attention is All You Need. NeurIPS. 2017.. Available from: https://arxiv.org/abs/1706.03762"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G004",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Send request without confirmation → must call clarify(yes_no) first, not send directly"
+      },
+      "input": "Gửi tóm tắt bài RAG lên Telegram ngay đi",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có thể cung cấp cho tôi đường link hoặc thông tin cụ thể về bài RAG mà bạn muốn tóm tắt không?",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_boundary",
+        "failures": [
+          "response_type: expected 'yes_no', got 'text'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có thể cung cấp cho tôi đường link hoặc thông tin cụ thể về bài RAG mà bạn muốn tóm tắt không?",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có thể cung cấp cho tôi đường link hoặc thông tin cụ thể về bài RAG mà bạn muốn tóm tắt không?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G005",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "User asks for most popular → papers with sort_by=relevance, not submittedDate"
+      },
+      "input": "Tìm bài nổi tiếng nhất về RAG",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "RAG",
+              "sort_by": "relevance"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "RAG",
+              "max_results": 5,
+              "sort_by": "relevance"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "RAG",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "RAG",
+            "api_query": "all:RAG",
+            "total_results": 5557,
+            "items": [
+              {
+                "arxiv_id": "2511.22858v1",
+                "title": "RAG System for Supporting Japanese Litigation Procedures: Faithful Response Generation Complying with Legal Norms",
+                "summary": "This study discusses the essential components that a Retrieval-Augmented Generation (RAG)-based LLM system should possess in order to support Japanese medical litigation procedures complying with legal norms. In litigation, expert commissioners, such as physicians, architects, accountants, and engineers, provide specialized knowledge to help judges clarify points of dispute. When considering the substitution of these expert roles with a RAG-based LLM system, the constraint of strict adherence to legal norms is imposed. Specifically, three requirements arise: (1) the retrieval module must retrieve appropriate external knowledge relevant to the disputed issues in accordance with the principle prohibiting the use of private knowledge, (2) the responses generated must originate from the context provided by the RAG and remain faithful to that context, and (3) the retrieval module must reference external knowledge with appropriate timestamps corresponding to the issues at hand. This paper discusses the design of a RAG-based LLM system that satisfies these requirements.",
+                "authors": [
+                  "Yuya Ishihara",
+                  "Atsushi Keyaki",
+                  "Hiroaki Yamada",
+                  "Ryutaro Ohara",
+                  "Mihoko Sumida"
+                ],
+                "published": "2025-11-28T03:28:27Z",
+                "updated": "2025-11-28T03:28:27Z",
+                "url": "http://arxiv.org/abs/2511.22858v1",
+                "pdf_url": "https://arxiv.org/pdf/2511.22858v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.IR"
+                ]
+              },
+              {
+                "arxiv_id": "2401.15391v1",
+                "title": "MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries",
+                "summary": "Retrieval-augmented generation (RAG) augments large language models (LLM) by retrieving relevant knowledge, showing promising potential in mitigating LLM hallucinations and enhancing response quality, thereby facilitating the great adoption of LLMs in practice. However, we find that existing RAG systems are inadequate in answering multi-hop queries, which require retrieving and reasoning over multiple pieces of supporting evidence. Furthermore, to our knowledge, no existing RAG benchmarking dataset focuses on multi-hop queries. In this paper, we develop a novel dataset, MultiHop-RAG, which consists of a knowledge base, a large collection of multi-hop queries, their ground-truth answers, and the associated supporting evidence. We detail the procedure of building the dataset, utilizing an English news article dataset as the underlying RAG knowledge base. We demonstrate the benchmarking utility of MultiHop-RAG in two experiments. The first experiment compares different embedding models for retrieving evidence for multi-hop queries. In the second experiment, we examine the capabilities of various state-of-the-art LLMs, including GPT-4, PaLM, and Llama2-70B, in reasoning and answering multi-hop queries given the evidence. Both experiments reveal that existing RAG methods perform unsatisfactorily in retrieving and answering multi-hop queries. We hope MultiHop-RAG will be a valuable resource for the community in developing effective RAG systems, thereby facilitating greater adoption of LLMs in practice. The MultiHop-RAG and implemented RAG system is publicly available at https://github.com/yixuantt/MultiHop-RAG/.",
+                "authors": [
+                  "Yixuan Tang",
+                  "Yi Yang"
+                ],
+                "published": "2024-01-27T11:41:48Z",
+                "updated": "2024-01-27T11:41:48Z",
+                "url": "http://arxiv.org/abs/2401.15391v1",
+                "pdf_url": "https://arxiv.org/pdf/2401.15391v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2412.12881v1",
+                "title": "RAG-Star: Enhancing Deliberative Reasoning with Retrieval Augmented Verification and Refinement",
+                "summary": "Existing large language models (LLMs) show exceptional problem-solving capabilities but might struggle with complex reasoning tasks. Despite the successes of chain-of-thought and tree-based search methods, they mainly depend on the internal knowledge of LLMs to search over intermediate reasoning steps, limited to dealing with simple tasks involving fewer reasoning steps. In this paper, we propose \\textbf{RAG-Star}, a novel RAG approach that integrates the retrieved information to guide the tree-based deliberative reasoning process that relies on the inherent knowledge of LLMs. By leveraging Monte Carlo Tree Search, RAG-Star iteratively plans intermediate sub-queries and answers for reasoning based on the LLM itself. To consolidate internal and external knowledge, we propose an retrieval-augmented verification that utilizes query- and answer-aware reward modeling to provide feedback for the inherent reasoning of LLMs. Our experiments involving Llama-3.1-8B-Instruct and GPT-4o demonstrate that RAG-Star significantly outperforms previous RAG and reasoning methods.",
+                "authors": [
+                  "Jinhao Jiang",
+                  "Jiayi Chen",
+                  "Junyi Li",
+                  "Ruiyang Ren",
+                  "Shijie Wang",
+                  "Wayne Xin Zhao",
+                  "Yang Song",
+                  "Tao Zhang"
+                ],
+                "published": "2024-12-17T13:05:36Z",
+                "updated": "2024-12-17T13:05:36Z",
+                "url": "http://arxiv.org/abs/2412.12881v1",
+                "pdf_url": "https://arxiv.org/pdf/2412.12881v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2402.07483v2",
+                "title": "T-RAG: Lessons from the LLM Trenches",
+                "summary": "Large Language Models (LLM) have shown remarkable language capabilities fueling attempts to integrate them into applications across a wide range of domains. An important application area is question answering over private enterprise documents where the main considerations are data security, which necessitates applications that can be deployed on-prem, limited computational resources and the need for a robust application that correctly responds to queries. Retrieval-Augmented Generation (RAG) has emerged as the most prominent framework for building LLM-based applications. While building a RAG is relatively straightforward, making it robust and a reliable application requires extensive customization and relatively deep knowledge of the application domain. We share our experiences building and deploying an LLM application for question answering over private organizational documents. Our application combines the use of RAG with a finetuned open-source LLM. Additionally, our system, which we call Tree-RAG (T-RAG), uses a tree structure to represent entity hierarchies within the organization. This is used to generate a textual description to augment the context when responding to user queries pertaining to entities within the organization's hierarchy. Our evaluations, including a Needle in a Haystack test, show that this combination performs better than a simple RAG or finetuning implementation. Finally, we share some lessons learned based on our experiences building an LLM application for real-world use.",
+                "authors": [
+                  "Masoomali Fatehkia",
+                  "Ji Kim Lucas",
+                  "Sanjay Chawla"
+                ],
+                "published": "2024-02-12T08:45:08Z",
+                "updated": "2024-06-06T14:42:47Z",
+                "url": "http://arxiv.org/abs/2402.07483v2",
+                "pdf_url": "https://arxiv.org/pdf/2402.07483v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2504.01346v4",
+                "title": "RAG over Tables: Hierarchical Memory Index, Multi-Stage Retrieval, and Benchmarking",
+                "summary": "Retrieval-Augmented Generation (RAG) enhances Large Language Models (LLMs) by integrating them with an external knowledge base to improve the answer relevance and accuracy. In real-world scenarios, beyond pure text, a substantial amount of knowledge is stored in tables, and user questions often require retrieving answers that are distributed across multiple tables. Retrieving knowledge from a table corpora (i.e., various individual tables) for a question remains nascent, at least, for (i) how to understand intra- and inter-table knowledge effectively, (ii) how to filter unnecessary tables and how to retrieve the most relevant tables efficiently, (iii) how to prompt LLMs to infer over the retrieval, (iv) how to evaluate the corresponding performance in a realistic setting. Facing the above challenges, in this paper, we first propose a table-corpora-aware RAG framework, named T-RAG, which consists of the hierarchical memory index, multi-stage retrieval, and graph-aware prompting for effective and efficient table knowledge retrieval and inference. Further, we first develop a multi-table question answering benchmark named MultiTableQA, which spans 3 different task types, 57,193 tables, and 23,758 questions in total, and the sources are all from real-world scenarios. Based on MultiTableQA, we did the holistic comparison over table retrieval methods, RAG methods, and table-to-graph representation learning methods, where T-RAG shows the leading accuracy, recall, and running time performance. Also, under T-RAG, we evaluate the inference ability upgrade of different LLMs. Code and Data are available at https://github.com/jiaruzouu/T-RAG",
+                "authors": [
+                  "Jiaru Zou",
+                  "Dongqi Fu",
+                  "Sirui Chen",
+                  "Xinrui He",
+                  "Zihao Li",
+                  "Yada Zhu",
+                  "Jiawei Han",
+                  "Jingrui He"
+                ],
+                "published": "2025-04-02T04:24:41Z",
+                "updated": "2025-10-05T07:24:41Z",
+                "url": "http://arxiv.org/abs/2504.01346v4",
+                "pdf_url": "https://arxiv.org/pdf/2504.01346v4",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.IR",
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G006",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: Turn 1 finds papers → Turn 2 must use paper_text with URL from Turn 1 results"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm bài báo về RLHF"
+        },
+        {
+          "role": "user",
+          "content": "Đọc bài đầu tiên đi"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "RLHF",
+              "max_results": 1,
+              "sort_by": "relevance"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "missing_tool_call",
+        "failure_type": "wrong_tool",
+        "failures": [
+          "missing tool call paper_text",
+          "extra tool call papers"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "RLHF",
+            "max_results": 1,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "RLHF",
+            "api_query": "all:RLHF",
+            "total_results": 1367,
+            "items": [
+              {
+                "arxiv_id": "2312.11456v4",
+                "title": "Iterative Preference Learning from Human Feedback: Bridging Theory and Practice for RLHF under KL-Constraint",
+                "summary": "This paper studies the alignment process of generative models with Reinforcement Learning from Human Feedback (RLHF). We first identify the primary challenges of existing popular methods like offline PPO and offline DPO as lacking in strategical exploration of the environment. Then, to understand the mathematical principle of RLHF, we consider a standard mathematical formulation, the reverse-KL regularized contextual bandit for RLHF. Despite its widespread practical application, a rigorous theoretical analysis of this formulation remains open. We investigate its behavior in three distinct settings -- offline, online, and hybrid -- and propose efficient algorithms with finite-sample theoretical guarantees. Moving towards practical applications, our framework, with a robust approximation of the information-theoretical policy improvement oracle, naturally gives rise to several novel RLHF algorithms. This includes an iterative version of the Direct Preference Optimization (DPO) algorithm for online settings, and a multi-step rejection sampling strategy for offline scenarios. Our empirical evaluations on real-world alignment experiment of large language model demonstrate that these proposed methods significantly surpass existing strong baselines, such as DPO and Rejection Sampling Optimization (RSO), showcasing the connections between solid theoretical foundations and their potent practical implementations.",
+                "authors": [
+                  "Wei Xiong",
+                  "Hanze Dong",
+                  "Chenlu Ye",
+                  "Ziqi Wang",
+                  "Han Zhong",
+                  "Heng Ji",
+                  "Nan Jiang",
+                  "Tong Zhang"
+                ],
+                "published": "2023-12-18T18:58:42Z",
+                "updated": "2024-05-01T14:50:56Z",
+                "url": "http://arxiv.org/abs/2312.11456v4",
+                "pdf_url": "https://arxiv.org/pdf/2312.11456v4",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "stat.ML"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G007",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: Turn 1 missing keyword → agent must clarify, Turn 2 provides keyword → use papers with correct query"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper"
+        },
+        {
+          "role": "user",
+          "content": "về LLM safety"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "LLM safety"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "LLM safety",
+              "max_results": 5,
+              "sort_by": "relevance"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "LLM safety",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "LLM safety",
+            "api_query": "all:LLM AND all:safety",
+            "total_results": 4791,
+            "items": [
+              {
+                "arxiv_id": "2506.06444v2",
+                "title": "Saffron-1: Safety Inference Scaling",
+                "summary": "Existing safety assurance research has primarily focused on training-phase alignment to instill safe behaviors into LLMs. However, recent studies have exposed these methods' susceptibility to diverse jailbreak attacks. Concurrently, inference scaling has significantly advanced LLM reasoning capabilities but remains unexplored in the context of safety assurance. Addressing this gap, our work pioneers inference scaling for robust and effective LLM safety against emerging threats. We reveal that conventional inference scaling techniques, despite their success in reasoning tasks, perform poorly in safety contexts, even falling short of basic approaches like Best-of-N Sampling. We attribute this inefficiency to a newly identified challenge, the exploration--efficiency dilemma, arising from the high computational overhead associated with frequent process reward model (PRM) evaluations. To overcome this dilemma, we propose SAFFRON, a novel inference scaling paradigm tailored explicitly for safety assurance. Central to our approach is the introduction of a multifurcation reward model (MRM) that significantly reduces the required number of reward model evaluations. To operationalize this paradigm, we further propose: (i) a partial supervision training objective for MRM, (ii) a conservative exploration constraint to prevent out-of-distribution explorations, and (iii) a Trie-based key--value caching strategy that facilitates cache sharing across sequences during tree search. Extensive experiments validate the effectiveness of our method. Additionally, we publicly release our trained multifurcation reward model (Saffron-1) and the accompanying token-level safety reward dataset (Safety4M) to accelerate future research in LLM safety. Our code, model, and data are publicly available at https://github.com/q-rz/saffron , and our project homepage is at https://q-rz.github.io/p/saffron .",
+                "authors": [
+                  "Ruizhong Qiu",
+                  "Gaotang Li",
+                  "Tianxin Wei",
+                  "Jingrui He",
+                  "Hanghang Tong"
+                ],
+                "published": "2025-06-06T18:05:45Z",
+                "updated": "2025-07-09T07:47:59Z",
+                "url": "http://arxiv.org/abs/2506.06444v2",
+                "pdf_url": "https://arxiv.org/pdf/2506.06444v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "cs.CR"
+                ]
+              },
+              {
+                "arxiv_id": "2606.30219v4",
+                "title": "EvalSafetyGap: A Hybrid Survey and Conceptual Framework for LLM Evaluation-Safety Failures",
+                "summary": "This paper presents a systematic survey and conceptual synthesis of the shared measurement problem underlying large language model (LLM) evaluation and AI safety: benchmark scores, reward signals, and safety metrics can improve while the capabilities and alignment properties they are meant to represent remain uncertain. Synthesizing 373 primary studies published between 2018 and 2026, the survey organizes evidence on benchmark validity, contamination, dynamic evaluation, LLM-as-a-judge protocols, adversarial safety testing, reward and proxy optimization, mechanistic interpretability, and AI governance into an eight-stream evidence taxonomy. Building on this synthesis, we introduce EvalSafetyGap, a conceptual framework that unifies benchmark-validity and alignment-failure research as a shared proxy-target divergence problem under optimization pressure, formalized through a Goodhart-inspired Instability Decomposition and an Alignment Trilemma. An exploratory ten-model public-evidence audit illustrates the framework by showing why capability, behavioral robustness, and governance disclosure should be reported as separate evidence layers rather than collapsed into a single safety score. The survey closes with a research agenda for dynamic and contamination-resistant benchmarks, pre-specified multi-attempt threat models, version-locked evaluation, transparent source reporting, and validated mechanistic safety indicators, offering researchers, model developers, and AI auditors a shared vocabulary for measurement-aware LLM safety evaluation.",
+                "authors": [
+                  "Buğra Alperen Uluırmak",
+                  "Rifat Kurban"
+                ],
+                "published": "2026-06-29T12:33:06Z",
+                "updated": "2026-07-27T16:02:21Z",
+                "url": "http://arxiv.org/abs/2606.30219v4",
+                "pdf_url": "https://arxiv.org/pdf/2606.30219v4",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.CL",
+                  "cs.LG",
+                  "cs.SE"
+                ]
+              },
+              {
+                "arxiv_id": "2408.17003v5",
+                "title": "Safety Layers in Aligned Large Language Models: The Key to LLM Security",
+                "summary": "Aligned LLMs are secure, capable of recognizing and refusing to answer malicious questions. However, the role of internal parameters in maintaining such security is not well understood yet, further these models can be vulnerable to security degradation when subjected to fine-tuning attacks. To address these challenges, our work uncovers the mechanism behind security in aligned LLMs at the parameter level, identifying a small set of contiguous layers in the middle of the model that are crucial for distinguishing malicious queries from normal ones, referred to as ``safety layers\". We first confirm the existence of these safety layers by analyzing variations in input vectors within the model's internal layers. Additionally, we leverage the over-rejection phenomenon and parameters scaling analysis to precisely locate the safety layers. Building on these findings, we propose a novel fine-tuning approach, Safely Partial-Parameter Fine-Tuning (SPPFT), that fixes the gradient of the safety layers during fine-tuning to address the security degradation. Our experiments demonstrate that the proposed approach can significantly preserve LLM security while maintaining performance and reducing computational resources compared to full fine-tuning.",
+                "authors": [
+                  "Shen Li",
+                  "Liuyi Yao",
+                  "Lan Zhang",
+                  "Yaliang Li"
+                ],
+                "published": "2024-08-30T04:35:59Z",
+                "updated": "2025-04-07T07:23:33Z",
+                "url": "http://arxiv.org/abs/2408.17003v5",
+                "pdf_url": "https://arxiv.org/pdf/2408.17003v5",
+                "source": "arxiv.org",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2603.01494v1",
+                "title": "Inference-Time Safety For Code LLMs Via Retrieval-Augmented Revision",
+                "summary": "Large Language Models (LLMs) are increasingly deployed for code generation in high-stakes software development, yet their limited transparency in security reasoning and brittleness to evolving vulnerability patterns raise critical trustworthiness concerns. Models trained on static datasets cannot readily adapt to newly discovered vulnerabilities or changing security standards without retraining, leading to the repeated generation of unsafe code. We present a principled approach to trustworthy code generation by design that operates as an inference-time safety mechanism. Our approach employs retrieval-augmented generation to surface relevant security risks in generated code and retrieve related security discussions from a curated Stack Overflow knowledge base, which are then used to guide an LLM during code revision. This design emphasizes three aspects relevant to trustworthiness: (1) interpretability, through transparent safety interventions grounded in expert community explanations; (2) robustness, by allowing adaptation to evolving security practices without model retraining; and (3) safety alignment, through real-time intervention before unsafe code reaches deployment. Across real-world and benchmark datasets, our approach improves the security of LLM-generated code compared to prompting alone, while introducing no new vulnerabilities as measured by static analysis. These results suggest that principled, retrieval-augmented inference-time interventions can serve as a complementary mechanism for improving the safety of LLM-based code generation, and highlight the ongoing value of community knowledge in supporting trustworthy AI deployment.",
+                "authors": [
+                  "Manisha Mukherjee",
+                  "Vincent J. Hellendoorn"
+                ],
+                "published": "2026-03-02T06:06:34Z",
+                "updated": "2026-03-02T06:06:34Z",
+                "url": "http://arxiv.org/abs/2603.01494v1",
+                "pdf_url": "https://arxiv.org/pdf/2603.01494v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.SE",
+                "categories": [
+                  "cs.SE",
+                  "cs.AI",
+                  "cs.CR",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2602.20102v2",
+                "title": "BarrierSteer: LLM Safety via Learning Barrier Steering",
+                "summary": "Despite the strong performance of large language models (LLMs) across diverse tasks, their susceptibility to adversarial attacks and unsafe content generation remains a significant obstacle to deployment, particularly in high-stakes settings. Addressing this challenge requires safety mechanisms that are both practically effective and theoretically grounded. In this paper, we introduce BarrierSteer, a novel inference-time framework that improves response safety by embedding learned nonlinear safety constraints directly into the model's latent representation space. BarrierSteer treats hidden-state safety classifiers as Control Barrier Functions (CBFs), enabling constraint-guided steering of unsafe latent trajectories during generation. By composing multiple safety constraints through efficient constraint merging without modifying the underlying LLM parameters, BarrierSteer preserves model utility. We provide theoretical results showing that applying CBFs in the latent space yields a principled, modular, and computationally efficient approach for steering with respect to learned safety constraints, with guarantees conditional on the learned barriers capturing the intended safety property. Our extensive experimental results across multiple model families and datasets demonstrate that BarrierSteer substantially reduces adversarial attack success rates and unsafe generations, outperforming the existing method. The code is available in our \\href{https://github.com/thanhquangtran/BarrierSteer}{GitHub repository}.",
+                "authors": [
+                  "Thanh Q. Tran",
+                  "Arun Verma",
+                  "Kiwan Wong",
+                  "Bryan Kian Hsiang Low",
+                  "Daniela Rus",
+                  "Wei Xiao"
+                ],
+                "published": "2026-02-23T18:19:46Z",
+                "updated": "2026-05-21T18:01:19Z",
+                "url": "http://arxiv.org/abs/2602.20102v2",
+                "pdf_url": "https://arxiv.org/pdf/2602.20102v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G008",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: Turn 1 missing URL → clarify, Turn 2 provides URL → use paper_text with that URL"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tóm tắt bài này"
+        },
+        {
+          "role": "user",
+          "content": "https://arxiv.org/abs/2005.11401"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/2005.11401"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://arxiv.org/abs/2005.11401"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "missing_tool_call",
+        "failure_type": "missing_info",
+        "failures": [
+          "missing tool call paper_text",
+          "extra tool call fetch"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://arxiv.org/abs/2005.11401"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://arxiv.org/abs/2005.11401",
+            "items": [
+              {
+                "title": "[2005.11401] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+                "url": "https://arxiv.org/abs/2005.11401",
+                "source": "arxiv.org",
+                "summary": "[Skip to main content](https://arxiv.org/abs/2005.11401#content)\n\n![](https://arxiv.org/static/base/1.0.1/images/icons/smileybones-small.svg)arXiv is now an independent nonprofit! [Learn more](https://info.arxiv.org/about) ×\n\nSearch arXiv\n\nPress Enter to search · [Advanced search](https://arxiv.org/search/advanced)\n\n# Computer Science > Computation and Language\n\n**arXiv:2005.11401** (cs)\n\n\n\\[Submitted on 22 May 2020 ( [v1](https://arxiv.org/abs/2005.11401v1)), last revised 12 Apr 2021 (this version, v4)\\]\n\n# Title:Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\n\nAuthors: [Patrick Lewis](https://arxiv.org/search/cs?searchtype=author&query=Lewis,+P), [Ethan Perez](https://arxiv.org/search/cs?searchtype=author&query=Perez,+E), [Aleksandra Piktus](https://arxiv.org/search/cs?searchtype=author&query=Piktus,+A), [Fabio Petroni](https://arxiv.org/search/cs?searchtype=author&query=Petroni,+F), [Vladimir Karpukhin](https://arxiv.org/search/cs?searchtype=author&query=Karpukhin,+V), [Naman Goyal](https://arxiv.org/search/cs?searchtype=author&query=Goyal,+N), [Heinrich Küttler](https://arxiv.org/search/cs?searchtype=author&query=K%C3%BCttler,+H), [Mike Lewis](https://arxiv.org/search/cs?searchtype=author&query=Lewis,+M), [Wen-tau Yih](https://arxiv.org/search/cs?searchtype=author&query=Yih,+W), [Tim Rocktäschel](https://arxiv.org/search/cs?searchtype=author&query=Rockt%C3%A4schel,+T), [Sebastian Riedel](https://arxiv.org/search/cs?searchtype=author&query=Riedel,+S), [Douwe Kiela](https://arxiv.org/search/cs?searchtype=author&query=Kiela,+D)\n\nView a PDF of the paper titled Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks, by Patrick Lewis and 11 other authors\n\n[View PDF](https://arxiv.org/pdf/2005.11401) [HTML (experimental)](https://arxiv.org/html/2005.11401v4)\n\n> Abstract:Large pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when fine-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-specific architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pre-trained models with a differentiable access mechanism to explicit non-parametric memory can overcome this issue, but have so far been only investigated for extractive downstream tasks. We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) -- models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, the other can use different passages per token. We fine-tune and evaluate our models on a wide range of knowledge-intensive NLP tasks and set the state-of-the-art on three open domain QA tasks, outperforming parametric seq2seq models and task-specific retrieve-and-extract architectures. For language generation tasks, we find that RAG models generate more specific, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline.\n\n|     |     |\n| --- | --- |\n| Comments: | Accepted at NeurIPS 2020 |\n| Subjects: | Computation and Language (cs.CL); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2005.11401](https://arxiv.org/abs/2005.11401) \\[cs.CL\\] |\n|  | (or [arXiv:2005.11401v4](https://arxiv.org/abs/2005.11401v4) \\[cs.CL\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2005.11401](https://doi.org/10.48550/arXiv.2005.11401)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n\n## Submission history\n\nFrom: Patrick Lewis \\[ [view email](https://arxiv.o"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G009",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: Turn 1 searches papers → Turn 2 asks for formatting → use format tool with items from previous turn"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper về multi-agent systems"
+        },
+        {
+          "role": "user",
+          "content": "Format kết quả thành markdown digest"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "template": "sections"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "items": [],
+              "template": "sections"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "format",
+          "args": {
+            "items": [],
+            "template": "sections"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "",
+            "item_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "G010",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: Search returns no results → agent should answer honestly that no results found, not fabricate data or call unnecessary tools"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper về non-existent-topic-xyz-12345"
+        },
+        {
+          "role": "user",
+          "content": "Có kết quả không?"
+        }
+      ],
+      "expect": {
+        "no_tool": true
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "non-existent-topic-xyz-12345"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": "unexpected_tool_call",
+        "failure_type": "out_of_scope",
+        "failures": [
+          "expected no tool call"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "non-existent-topic-xyz-12345"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "non-existent-topic-xyz-12345",
+            "api_query": "all:non-existent-topic-xyz-12345",
+            "total_results": 0,
+            "items": [],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    }
+  ]
+}

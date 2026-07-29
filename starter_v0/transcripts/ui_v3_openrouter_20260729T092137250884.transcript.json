@@ -1,0 +1,276 @@
+{
+  "transcript_id": "ui_v3_openrouter_20260729T092137250884",
+  "version": "v3",
+  "artifact_version": "v3+p53982f7ab803+tb9eec571bc4f",
+  "prompt_hash": "53982f7ab80315fd8c067670660a2f5b55aaf79347265bc18ace99573d10837e",
+  "tools_hash": "b9eec571bc4fedced6651e53e0ad2cc982e13138911677276bbd6677f8721827",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\artifacts\\tools.yaml",
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T09:21:37",
+  "updated_at": "2026-07-29T09:21:37",
+  "turns": [
+    {
+      "turn_index": 1,
+      "user": "tìm kiếm bài báo về messi",
+      "status": "answered",
+      "assistant_text": "Dưới đây là một số bài báo liên quan đến Lionel Messi:\n\n1. **[The structure of MESSI biological systems](http://arxiv.org/abs/1612.08763v3)**\n   - **Tác giả:** Mercedes Pérez Millán, Alicia Dickenstein\n   - **Tóm tắt:** Bài báo giới thiệu một khung tổng quát cho các hệ thống sinh học, gọi là hệ thống MESSI, mô tả các biến đổi loại Enzyme-Substrate hoặc Swap với các trung gian. Nghiên cứu này chứng minh các kết quả chung dựa trên cấu trúc mạng.\n   - **Ngày xuất bản:** 27 tháng 12, 2016\n   - **[PDF](https://arxiv.org/pdf/1612.08763v3)**\n\n2. **[Which Football Player Bears Most Resemblance to Messi? A Statistical Analysis](http://arxiv.org/abs/1802.00967v1)**\n   - **Tác giả:** Jiri Mazurek\n   - **Tóm tắt:** Nghiên cứu này phân tích để xác định cầu thủ nào giống Messi nhất dựa trên dữ liệu từ mùa giải hiện tại. Bài báo sử dụng 17 tham số liên quan đến hiệu suất của cầu thủ để tìm ra cầu thủ tương tự nhất với Messi.\n   - **Ngày xuất bản:** 3 tháng 2, 2018\n   - **[PDF](https://arxiv.org/pdf/1802.00967v1)**\n\n3. **[Cristiano Ronaldo or Lionel Messi, who is more consistent in scoring goals? The evidence from CFM exploratory analysis](http://arxiv.org/abs/2603.27502v1)**\n   - **Tác giả:** Samsul Anwar, Siti Munawarah, Radhiah Radhiah\n   - **Tóm tắt:** Nghiên cứu so sánh mức độ nhất quán trong việc ghi bàn giữa Cristiano Ronaldo và Lionel Messi qua nhiều phương thức khác nhau. Kết quả cho thấy cả hai cầu thủ có mức độ nhất quán tương đương trong suốt sự nghiệp của họ.\n   - **Ngày xuất bản:** 29 tháng 3, 2026\n   - **[PDF](https://arxiv.org/pdf/2603.27502v1)**\n\n4. **[MESSI: A Multi-Elevation Semantic Segmentation Image Dataset of an Urban Environment](http://arxiv.org/abs/2505.08589v1)**\n   - **Tác giả:** Barak Pinkovich, Boaz Matalon, Ehud Rivlin, Hector Rotstein\n   - **Tóm tắt:** Bài báo giới thiệu một tập dữ liệu hình ảnh phân đoạn ngữ nghĩa đa độ cao từ môi trường đô thị, có thể được sử dụng để huấn luyện mạng nơ-ron sâu cho phân đoạn ngữ nghĩa.\n   - **Ngày xuất bản:** 13 tháng 5, 2025\n   - **[PDF](https://arxiv.org/pdf/2505.08589v1)**\n\n5. **[MESSI: In-Memory Data Series Indexing](http://arxiv.org/abs/2009.00786v1)**\n   - **Tác giả:** Botao Peng, Panagiota Fatourou, Themis Palpanas\n   - **Tóm tắt:** Bài báo đề xuất MESSI, một chỉ mục dữ liệu chuỗi thiết kế cho hoạt động trong bộ nhớ, nhằm cải thiện hiệu suất tìm kiếm tương tự cho các ứng dụng phân tích dữ liệu chuỗi.\n   - **Ngày xuất bản:** 2 tháng 9, 2020\n   - **[PDF](https://arxiv.org/pdf/2009.00786v1)**\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "Messi",
+                "max_results": 5,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "Messi",
+                "max_results": 5,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Messi",
+                "api_query": "all:Messi",
+                "total_results": 400,
+                "items": [
+                  {
+                    "arxiv_id": "1612.08763v3",
+                    "title": "The structure of MESSI biological systems",
+                    "summary": "We introduce a general framework for biological systems, called MESSI systems, that describe Modifications of type Enzyme-Substrate or Swap with Intermediates, and we prove general results based on the network structure. Many post-translational modification networks are MESSI systems. For example: the motifs in [Feliu and Wiuf (2012a)], sequential distributive and processive multisite phosphorylation networks, most of the examples in [Angeli et al. (2007)], phosphorylation cascades, two component systems as in [Kothamachu et al. (2015)], the bacterial EnvZ/OmpR network in [Shinar and Feinberg (2010)], and all linear networks. We show that, under mass-action kinetics, MESSI systems are conservative. We simplify the study of steady states of these systems by explicit elimination of intermediate complexes and we give conditions to ensure an explicit rational parametrization of the variety of steady states (inspired by [Feliu and Wiuf (2013a, 2013b), Thomson and Gunawardena (2009)]). We define an important subclass of MESSI systems with toric steady states [Pérez Millán et al. (2012)] and we give for MESSI systems with toric steady states an easy algorithm to determine the capacity for multistationarity. In this case, the algorithm provides rate constants for which multistationarity takes place, based on the theory of oriented matroids.",
+                    "authors": [
+                      "Mercedes Pérez Millán",
+                      "Alicia Dickenstein"
+                    ],
+                    "published": "2016-12-27T22:09:23Z",
+                    "updated": "2018-05-05T22:44:02Z",
+                    "url": "http://arxiv.org/abs/1612.08763v3",
+                    "pdf_url": "https://arxiv.org/pdf/1612.08763v3",
+                    "source": "arxiv.org",
+                    "primary_category": "q-bio.MN",
+                    "categories": [
+                      "q-bio.MN",
+                      "math.AG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2009.00786v1",
+                    "title": "MESSI: In-Memory Data Series Indexing",
+                    "summary": "Data series similarity search is a core operation for several data series analysis applications across many different domains. However, the state-of-the-art techniques fail to deliver the time performance required for interactive exploration, or analysis of large data series collections. In this work, we propose MESSI, the first data series index designed for in-memory operation on modern hardware. Our index takes advantage of the modern hardware parallelization opportunities (i.e., SIMD instructions, multi-core and multi-socket architectures), in order to accelerate both index construction and similarity search processing times. Moreover, it benefits from a careful design in the setup and coordination of the parallel workers and data structures, so that it maximizes its performance for in-memory operations. Our experiments with synthetic and real datasets demonstrate that overall MESSI is up to 4x faster at index construction, and up to 11x faster at query answering than the state-of-the-art parallel approach. MESSI is the first to answer exact similarity search queries on 100GB datasets in _50msec (30-75msec across diverse datasets), which enables real-time, interactive data exploration on very large data series collections.",
+                    "authors": [
+                      "Botao Peng",
+                      "Panagiota Fatourou",
+                      "Themis Palpanas"
+                    ],
+                    "published": "2020-09-02T02:10:18Z",
+                    "updated": "2020-09-02T02:10:18Z",
+                    "url": "http://arxiv.org/abs/2009.00786v1",
+                    "pdf_url": "https://arxiv.org/pdf/2009.00786v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.DB",
+                    "categories": [
+                      "cs.DB"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1802.00967v1",
+                    "title": "Which Football Player Bears Most Resemblance to Messi? A Statistical Analysis",
+                    "summary": "Many pundits and fans ask themselves the same question: Which football player bears most resemblance to Lionel Messi? Is it Chelsea's Eden Hazard? Is it Paulo Dybala, the heir to Messi in the national team of Argentina? Or is the most alike player to Messi someone completely else? In general, the research on the evaluation of players' performances originated in the context of baseball in the USA, but, currently, it is of great importance in almost every team sport on the planet. Specifically, football clubs' managers can use the data on player's similarity when looking for replacement of their players by other, presumably similar ones. Also, the research in the presented direction is certainly interesting both for football pundits and football fans. Therefore, the aim of this study is to answer the question from the title with the use of the statistical analysis based on the data from ongoing league season retrieved from WhoScored (WS) database. WS provides detailed data (up to 24 parameters such as goals scored, the number of assists, shots on goal, passes, dribbles or fouls) for players of TOP 5 European leagues, and ranks them with respect to their overall performance. For this study, 17 parameters (criteria) most relevant for an attacking player were used, and a set of 28 players, candidates to be 'most alike to Messi' from WS TOP 100 list were selected. After data normalization and application of a proper metric function the most similar player to Lionel Messi was found.",
+                    "authors": [
+                      "Jiri Mazurek"
+                    ],
+                    "published": "2018-02-03T12:50:00Z",
+                    "updated": "2018-02-03T12:50:00Z",
+                    "url": "http://arxiv.org/abs/1802.00967v1",
+                    "pdf_url": "https://arxiv.org/pdf/1802.00967v1",
+                    "source": "arxiv.org",
+                    "primary_category": "stat.OT",
+                    "categories": [
+                      "stat.OT"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2505.08589v1",
+                    "title": "MESSI: A Multi-Elevation Semantic Segmentation Image Dataset of an Urban Environment",
+                    "summary": "This paper presents a Multi-Elevation Semantic Segmentation Image (MESSI) dataset comprising 2525 images taken by a drone flying over dense urban environments. MESSI is unique in two main features. First, it contains images from various altitudes, allowing us to investigate the effect of depth on semantic segmentation. Second, it includes images taken from several different urban regions (at different altitudes). This is important since the variety covers the visual richness captured by a drone's 3D flight, performing horizontal and vertical maneuvers. MESSI contains images annotated with location, orientation, and the camera's intrinsic parameters and can be used to train a deep neural network for semantic segmentation or other applications of interest (e.g., localization, navigation, and tracking). This paper describes the dataset and provides annotation details. It also explains how semantic segmentation was performed using several neural network models and shows several relevant statistics. MESSI will be published in the public domain to serve as an evaluation benchmark for semantic segmentation using images captured by a drone or similar vehicle flying over a dense urban environment.",
+                    "authors": [
+                      "Barak Pinkovich",
+                      "Boaz Matalon",
+                      "Ehud Rivlin",
+                      "Hector Rotstein"
+                    ],
+                    "published": "2025-05-13T14:01:07Z",
+                    "updated": "2025-05-13T14:01:07Z",
+                    "url": "http://arxiv.org/abs/2505.08589v1",
+                    "pdf_url": "https://arxiv.org/pdf/2505.08589v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI",
+                      "cs.LG",
+                      "cs.RO"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2603.27502v1",
+                    "title": "Cristiano Ronaldo or Lionel Messi, who is more consistent in scoring goals? The evidence from CFM exploratory analysis",
+                    "summary": "The rivalry between two football superstars Cristiano Ronaldo and Lionel Messi has always been a subject of extensive discussion. This study aimed to compare the level of consistency between the two players in scoring goals through 6 ways: right-footed kicks, left-footed kicks, penalty kicks, direct free kicks, long-range kicks, and headers. The data analyzed was the duration of time (minutes) each player took to score a goal in every match they played. The data was obtained from a football website called Transfermarkt.com. Competing Failure Modes (CFM) was used to measure the reliability of the two players in scoring goals based on those various ways. The results of CFM exploratory analysis showed that Ronaldo and Messi had the same level of consistency in scoring goals for more than 17 years of their professional football career. Both have been among most talented players in the modern football era with individual and team achievements that are far above other footballers around the world.",
+                    "authors": [
+                      "Samsul Anwar",
+                      "Siti Munawarah",
+                      "Radhiah Radhiah"
+                    ],
+                    "published": "2026-03-29T03:44:11Z",
+                    "updated": "2026-03-29T03:44:11Z",
+                    "url": "http://arxiv.org/abs/2603.27502v1",
+                    "pdf_url": "https://arxiv.org/pdf/2603.27502v1",
+                    "source": "arxiv.org",
+                    "primary_category": "stat.AP",
+                    "categories": [
+                      "stat.AP"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là một số bài báo liên quan đến Lionel Messi:\n\n1. **[The structure of MESSI biological systems](http://arxiv.org/abs/1612.08763v3)**\n   - **Tác giả:** Mercedes Pérez Millán, Alicia Dickenstein\n   - **Tóm tắt:** Bài báo giới thiệu một khung tổng quát cho các hệ thống sinh học, gọi là hệ thống MESSI, mô tả các biến đổi loại Enzyme-Substrate hoặc Swap với các trung gian. Nghiên cứu này chứng minh các kết quả chung dựa trên cấu trúc mạng.\n   - **Ngày xuất bản:** 27 tháng 12, 2016\n   - **[PDF](https://arxiv.org/pdf/1612.08763v3)**\n\n2. **[Which Football Player Bears Most Resemblance to Messi? A Statistical Analysis](http://arxiv.org/abs/1802.00967v1)**\n   - **Tác giả:** Jiri Mazurek\n   - **Tóm tắt:** Nghiên cứu này phân tích để xác định cầu thủ nào giống Messi nhất dựa trên dữ liệu từ mùa giải hiện tại. Bài báo sử dụng 17 tham số liên quan đến hiệu suất của cầu thủ để tìm ra cầu thủ tương tự nhất với Messi.\n   - **Ngày xuất bản:** 3 tháng 2, 2018\n   - **[PDF](https://arxiv.org/pdf/1802.00967v1)**\n\n3. **[Cristiano Ronaldo or Lionel Messi, who is more consistent in scoring goals? The evidence from CFM exploratory analysis](http://arxiv.org/abs/2603.27502v1)**\n   - **Tác giả:** Samsul Anwar, Siti Munawarah, Radhiah Radhiah\n   - **Tóm tắt:** Nghiên cứu so sánh mức độ nhất quán trong việc ghi bàn giữa Cristiano Ronaldo và Lionel Messi qua nhiều phương thức khác nhau. Kết quả cho thấy cả hai cầu thủ có mức độ nhất quán tương đương trong suốt sự nghiệp của họ.\n   - **Ngày xuất bản:** 29 tháng 3, 2026\n   - **[PDF](https://arxiv.org/pdf/2603.27502v1)**\n\n4. **[MESSI: A Multi-Elevation Semantic Segmentation Image Dataset of an Urban Environment](http://arxiv.org/abs/2505.08589v1)**\n   - **Tác giả:** Barak Pinkovich, Boaz Matalon, Ehud Rivlin, Hector Rotstein\n   - **Tóm tắt:** Bài báo giới thiệu một tập dữ liệu hình ảnh phân đoạn ngữ nghĩa đa độ cao từ môi trường đô thị, có thể được sử dụng để huấn luyện mạng nơ-ron sâu cho phân đoạn ngữ nghĩa.\n   - **Ngày xuất bản:** 13 tháng 5, 2025\n   - **[PDF](https://arxiv.org/pdf/2505.08589v1)**\n\n5. **[MESSI: In-Memory Data Series Indexing](http://arxiv.org/abs/2009.00786v1)**\n   - **Tác giả:** Botao Peng, Panagiota Fatourou, Themis Palpanas\n   - **Tóm tắt:** Bài báo đề xuất MESSI, một chỉ mục dữ liệu chuỗi thiết kế cho hoạt động trong bộ nhớ, nhằm cải thiện hiệu suất tìm kiếm tương tự cho các ứng dụng phân tích dữ liệu chuỗi.\n   - **Ngày xuất bản:** 2 tháng 9, 2020\n   - **[PDF](https://arxiv.org/pdf/2009.00786v1)**\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Messi",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Messi",
+            "api_query": "all:Messi",
+            "total_results": 400,
+            "items": [
+              {
+                "arxiv_id": "1612.08763v3",
+                "title": "The structure of MESSI biological systems",
+                "summary": "We introduce a general framework for biological systems, called MESSI systems, that describe Modifications of type Enzyme-Substrate or Swap with Intermediates, and we prove general results based on the network structure. Many post-translational modification networks are MESSI systems. For example: the motifs in [Feliu and Wiuf (2012a)], sequential distributive and processive multisite phosphorylation networks, most of the examples in [Angeli et al. (2007)], phosphorylation cascades, two component systems as in [Kothamachu et al. (2015)], the bacterial EnvZ/OmpR network in [Shinar and Feinberg (2010)], and all linear networks. We show that, under mass-action kinetics, MESSI systems are conservative. We simplify the study of steady states of these systems by explicit elimination of intermediate complexes and we give conditions to ensure an explicit rational parametrization of the variety of steady states (inspired by [Feliu and Wiuf (2013a, 2013b), Thomson and Gunawardena (2009)]). We define an important subclass of MESSI systems with toric steady states [Pérez Millán et al. (2012)] and we give for MESSI systems with toric steady states an easy algorithm to determine the capacity for multistationarity. In this case, the algorithm provides rate constants for which multistationarity takes place, based on the theory of oriented matroids.",
+                "authors": [
+                  "Mercedes Pérez Millán",
+                  "Alicia Dickenstein"
+                ],
+                "published": "2016-12-27T22:09:23Z",
+                "updated": "2018-05-05T22:44:02Z",
+                "url": "http://arxiv.org/abs/1612.08763v3",
+                "pdf_url": "https://arxiv.org/pdf/1612.08763v3",
+                "source": "arxiv.org",
+                "primary_category": "q-bio.MN",
+                "categories": [
+                  "q-bio.MN",
+                  "math.AG"
+                ]
+              },
+              {
+                "arxiv_id": "2009.00786v1",
+                "title": "MESSI: In-Memory Data Series Indexing",
+                "summary": "Data series similarity search is a core operation for several data series analysis applications across many different domains. However, the state-of-the-art techniques fail to deliver the time performance required for interactive exploration, or analysis of large data series collections. In this work, we propose MESSI, the first data series index designed for in-memory operation on modern hardware. Our index takes advantage of the modern hardware parallelization opportunities (i.e., SIMD instructions, multi-core and multi-socket architectures), in order to accelerate both index construction and similarity search processing times. Moreover, it benefits from a careful design in the setup and coordination of the parallel workers and data structures, so that it maximizes its performance for in-memory operations. Our experiments with synthetic and real datasets demonstrate that overall MESSI is up to 4x faster at index construction, and up to 11x faster at query answering than the state-of-the-art parallel approach. MESSI is the first to answer exact similarity search queries on 100GB datasets in _50msec (30-75msec across diverse datasets), which enables real-time, interactive data exploration on very large data series collections.",
+                "authors": [
+                  "Botao Peng",
+                  "Panagiota Fatourou",
+                  "Themis Palpanas"
+                ],
+                "published": "2020-09-02T02:10:18Z",
+                "updated": "2020-09-02T02:10:18Z",
+                "url": "http://arxiv.org/abs/2009.00786v1",
+                "pdf_url": "https://arxiv.org/pdf/2009.00786v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.DB",
+                "categories": [
+                  "cs.DB"
+                ]
+              },
+              {
+                "arxiv_id": "1802.00967v1",
+                "title": "Which Football Player Bears Most Resemblance to Messi? A Statistical Analysis",
+                "summary": "Many pundits and fans ask themselves the same question: Which football player bears most resemblance to Lionel Messi? Is it Chelsea's Eden Hazard? Is it Paulo Dybala, the heir to Messi in the national team of Argentina? Or is the most alike player to Messi someone completely else? In general, the research on the evaluation of players' performances originated in the context of baseball in the USA, but, currently, it is of great importance in almost every team sport on the planet. Specifically, football clubs' managers can use the data on player's similarity when looking for replacement of their players by other, presumably similar ones. Also, the research in the presented direction is certainly interesting both for football pundits and football fans. Therefore, the aim of this study is to answer the question from the title with the use of the statistical analysis based on the data from ongoing league season retrieved from WhoScored (WS) database. WS provides detailed data (up to 24 parameters such as goals scored, the number of assists, shots on goal, passes, dribbles or fouls) for players of TOP 5 European leagues, and ranks them with respect to their overall performance. For this study, 17 parameters (criteria) most relevant for an attacking player were used, and a set of 28 players, candidates to be 'most alike to Messi' from WS TOP 100 list were selected. After data normalization and application of a proper metric function the most similar player to Lionel Messi was found.",
+                "authors": [
+                  "Jiri Mazurek"
+                ],
+                "published": "2018-02-03T12:50:00Z",
+                "updated": "2018-02-03T12:50:00Z",
+                "url": "http://arxiv.org/abs/1802.00967v1",
+                "pdf_url": "https://arxiv.org/pdf/1802.00967v1",
+                "source": "arxiv.org",
+                "primary_category": "stat.OT",
+                "categories": [
+                  "stat.OT"
+                ]
+              },
+              {
+                "arxiv_id": "2505.08589v1",
+                "title": "MESSI: A Multi-Elevation Semantic Segmentation Image Dataset of an Urban Environment",
+                "summary": "This paper presents a Multi-Elevation Semantic Segmentation Image (MESSI) dataset comprising 2525 images taken by a drone flying over dense urban environments. MESSI is unique in two main features. First, it contains images from various altitudes, allowing us to investigate the effect of depth on semantic segmentation. Second, it includes images taken from several different urban regions (at different altitudes). This is important since the variety covers the visual richness captured by a drone's 3D flight, performing horizontal and vertical maneuvers. MESSI contains images annotated with location, orientation, and the camera's intrinsic parameters and can be used to train a deep neural network for semantic segmentation or other applications of interest (e.g., localization, navigation, and tracking). This paper describes the dataset and provides annotation details. It also explains how semantic segmentation was performed using several neural network models and shows several relevant statistics. MESSI will be published in the public domain to serve as an evaluation benchmark for semantic segmentation using images captured by a drone or similar vehicle flying over a dense urban environment.",
+                "authors": [
+                  "Barak Pinkovich",
+                  "Boaz Matalon",
+                  "Ehud Rivlin",
+                  "Hector Rotstein"
+                ],
+                "published": "2025-05-13T14:01:07Z",
+                "updated": "2025-05-13T14:01:07Z",
+                "url": "http://arxiv.org/abs/2505.08589v1",
+                "pdf_url": "https://arxiv.org/pdf/2505.08589v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI",
+                  "cs.LG",
+                  "cs.RO"
+                ]
+              },
+              {
+                "arxiv_id": "2603.27502v1",
+                "title": "Cristiano Ronaldo or Lionel Messi, who is more consistent in scoring goals? The evidence from CFM exploratory analysis",
+                "summary": "The rivalry between two football superstars Cristiano Ronaldo and Lionel Messi has always been a subject of extensive discussion. This study aimed to compare the level of consistency between the two players in scoring goals through 6 ways: right-footed kicks, left-footed kicks, penalty kicks, direct free kicks, long-range kicks, and headers. The data analyzed was the duration of time (minutes) each player took to score a goal in every match they played. The data was obtained from a football website called Transfermarkt.com. Competing Failure Modes (CFM) was used to measure the reliability of the two players in scoring goals based on those various ways. The results of CFM exploratory analysis showed that Ronaldo and Messi had the same level of consistency in scoring goals for more than 17 years of their professional football career. Both have been among most talented players in the modern football era with individual and team achievements that are far above other footballers around the world.",
+                "authors": [
+                  "Samsul Anwar",
+                  "Siti Munawarah",
+                  "Radhiah Radhiah"
+                ],
+                "published": "2026-03-29T03:44:11Z",
+                "updated": "2026-03-29T03:44:11Z",
+                "url": "http://arxiv.org/abs/2603.27502v1",
+                "pdf_url": "https://arxiv.org/pdf/2603.27502v1",
+                "source": "arxiv.org",
+                "primary_category": "stat.AP",
+                "categories": [
+                  "stat.AP"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    }
+  ]
+}

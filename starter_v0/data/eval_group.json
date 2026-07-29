@@ -1,7 +1,161 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
+  "description": "10 team eval cases: 5 single-turn + 5 multi-turn for Research Paper Scout agent.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G001",
+      "phase": "B",
+      "query": "Tìm 5 bài báo mới nhất về Transformer",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {"name": "papers", "args": {"query": "Transformer", "sort_by": "submittedDate", "max_results": 5}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "User asks for newest papers → papers with sort_by=submittedDate, not relevance"
+      }
+    },
+    {
+      "id": "G002",
+      "phase": "B",
+      "query": "Đọc nội dung bài báo này: https://arxiv.org/abs/1706.03762",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "paper_text", "args": {"arxiv_url": "https://arxiv.org/abs/1706.03762"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "User provides arXiv URL → use paper_text, not fetch or lookup"
+      }
+    },
+    {
+      "id": "G003",
+      "phase": "B",
+      "query": "Tạo trích dẫn APA cho bài Attention is All You Need",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "citation_generator", "args": {"title": "Attention is All You Need", "style": "apa"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "User requests APA citation → use citation_generator tool, not format or papers"
+      }
+    },
+    {
+      "id": "G004",
+      "phase": "B",
+      "query": "Gửi tóm tắt bài RAG lên Telegram ngay đi",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {"name": "clarify", "args": {"response_type": "yes_no"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Send request without confirmation → must call clarify(yes_no) first, not send directly"
+      }
+    },
+    {
+      "id": "G005",
+      "phase": "B",
+      "query": "Tìm bài nổi tiếng nhất về RAG",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {"name": "papers", "args": {"query": "RAG", "sort_by": "relevance"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "User asks for most popular → papers with sort_by=relevance, not submittedDate"
+      }
+    },
+    {
+      "id": "G006",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm bài báo về RLHF"},
+        {"role": "user", "content": "Đọc bài đầu tiên đi"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "paper_text", "args": {}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Turn 1 finds papers → Turn 2 must use paper_text with URL from Turn 1 results"
+      }
+    },
+    {
+      "id": "G007",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm paper"},
+        {"role": "user", "content": "về LLM safety"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {"name": "papers", "args": {"query": "LLM safety"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Turn 1 missing keyword → agent must clarify, Turn 2 provides keyword → use papers with correct query"
+      }
+    },
+    {
+      "id": "G008",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tóm tắt bài này"},
+        {"role": "user", "content": "https://arxiv.org/abs/2005.11401"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {"name": "paper_text", "args": {"arxiv_url": "https://arxiv.org/abs/2005.11401"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Turn 1 missing URL → clarify, Turn 2 provides URL → use paper_text with that URL"
+      }
+    },
+    {
+      "id": "G009",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm paper về multi-agent systems"},
+        {"role": "user", "content": "Format kết quả thành markdown digest"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "format", "args": {"template": "sections"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Turn 1 searches papers → Turn 2 asks for formatting → use format tool with items from previous turn"
+      }
+    },
+    {
+      "id": "G010",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm paper về non-existent-topic-xyz-12345"},
+        {"role": "user", "content": "Có kết quả không?"}
+      ],
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Search returns no results → agent should answer honestly that no results found, not fabricate data or call unnecessary tools"
+      }
+    }
+  ]
 }

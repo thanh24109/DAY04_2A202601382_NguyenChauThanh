@@ -1,0 +1,286 @@
+{
+  "transcript_id": "ui_v3_openrouter_20260729T090126899368",
+  "version": "v3",
+  "artifact_version": "v3+p2c56c5319563+tb9eec571bc4f",
+  "prompt_hash": "2c56c5319563953cc0e2071b67946c26d1ea391a485821d8730248def686133f",
+  "tools_hash": "b9eec571bc4fedced6651e53e0ad2cc982e13138911677276bbd6677f8721827",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\CODE\\VINAI\\LABS\\DAY04_2A202601118_NguyenMaiHoangAnh\\starter_v0\\artifacts\\tools.yaml",
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T09:01:26",
+  "updated_at": "2026-07-29T09:01:26",
+  "turns": [
+    {
+      "turn_index": 1,
+      "user": "bài báo về AI mới nhất ",
+      "status": "answered",
+      "assistant_text": "Here are some of the latest papers on AI from arXiv:\n\n1. **[Falling Behind Drives Unsafe Development in an Idealised AI Race Experiment](http://arxiv.org/abs/2607.26034v1)**\n   - **Authors:** Elias Fernández Domingos, The Anh Han\n   - **Published:** July 28, 2026\n   - **Summary:** This paper explores how competitive pressure in technological races can lead to unsafe development practices in AI. It presents a behavioral experiment that shows how participants' choices between safe and unsafe development are influenced by their opponents' actions and the fear of falling behind.\n\n2. **[MAC-Gyver: Open, Programmable, Scheduling for AI-RAN 6G Systems](http://arxiv.org/abs/2607.26012v1)**\n   - **Authors:** Maxime Elkael, Reshma Prasad, Tamerlan Aghayev, Salvatore D'Oro, Michele Polese, Tommaso Melodia\n   - **Published:** July 28, 2026\n   - **Summary:** This paper introduces MAC-Gyver, an open-source framework for developing and evaluating scheduling applications in AI-integrated radio access networks. It discusses the framework's flexibility and evaluates two use cases that demonstrate its capabilities.\n\n3. **[Phantom Evidence: How and Why Generative AI Manufactures False Positives in Science](http://arxiv.org/abs/2607.25991v1)**\n   - **Authors:** Yukiyasu Kamitani, Ken Shirakawa\n   - **Published:** July 28, 2026\n   - **Summary:** The authors discuss the concept of \"phantom evidence\" in the context of generative AI, arguing that the persuasive outputs of AI can lead to false positives in scientific research. They emphasize the need for rigorous procedures to validate findings.\n\n4. **[Face De-Identification: A Domain-Centric Survey from Capture to Processing](http://arxiv.org/abs/2607.25926v1)**\n   - **Authors:** Hui Wei, Hao Yu, Guoying Zhao\n   - **Published:** July 28, 2026\n   - **Summary:** This survey provides a comprehensive overview of face de-identification techniques, focusing on methods that span the entire data acquisition pipeline. It highlights the challenges and emerging research directions in this field.\n\n5. **[Toward Standardized Cross-Vendor Agent Tool Trust Management in Autonomous Networks](http://arxiv.org/abs/2607.25914v1)**\n   - **Authors:** Ravi Kant Sharma, Ashutosh Uttam, Ajay Kumar\n   - **Published:** July 28, 2026\n   - **Summary:** The paper presents a proposed model for managing trust in AI agents that invoke tools across different vendors. It discusses the implications of trust degradation and offers a framework for improving trust management in autonomous networks.\n\nYou can access the full papers through the provided links.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "AI",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "AI",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "AI",
+                "api_query": "all:AI",
+                "total_results": 62313,
+                "items": [
+                  {
+                    "arxiv_id": "2607.26034v1",
+                    "title": "Falling Behind Drives Unsafe Development in an Idealised AI Race Experiment",
+                    "summary": "Technological races create tension between speed and safety: actors may gain by moving faster than competitors, even when risky development is harmful. This is prominent in debates about artificial intelligence (AI), where competitive pressure is often argued to incentivise riskier, less safety-conscious development. We study this using a framed behavioural experiment based on an idealised AI race, in which paired participants repeatedly chose between Safe and Unsafe development under an uncertain time horizon. Unsafe development gave faster progress and higher immediate payoffs but accumulated private risk up to a treatment-specific maximum of 10\\%, 60\\%, or 90\\%; the race's competitive structure was held constant, and only this maximum risk varied. Neither the pre-registered comparison between risk levels nor the role of elicited risk preferences was supported by the data. Instead, exploratory analyses motivated by the task's repeated structure show that Unsafe behaviour is shaped less by risk preferences than by the evolving strategic state of the race: participants are more likely to choose Unsafe after their opponent does so, being ahead reduces Unsafe play while falling behind increases it, and first-round choices predict later behaviour. To interpret these effects we introduce a reduced evolutionary model with four strategies -- Always Safe, Always Unsafe, Conditionally Safe, and Conditionally Antisocial Safe -- which reproduces the treatment effect and shows how conditional Unsafe behaviour can be favoured by competitive race dynamics. Together, the experiment and model show that unsafe development can emerge from early behavioural momentum, opponent behaviour, and fear of falling behind, rather than from risk preferences alone, suggesting policy should focus on reducing competitive pressure and promoting cooperation in AI development rather than only individual risk.",
+                    "authors": [
+                      "Elias Fernández Domingos",
+                      "The Anh Han"
+                    ],
+                    "published": "2026-07-28T17:44:03Z",
+                    "updated": "2026-07-28T17:44:03Z",
+                    "url": "http://arxiv.org/abs/2607.26034v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.26034v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI",
+                      "cs.CY",
+                      "cs.GT",
+                      "econ.GN"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.26012v1",
+                    "title": "MAC-Gyver: Open, Programmable, Scheduling for AI-RAN 6G Systems",
+                    "summary": "Cellular networks are integrating Artificial Intelli- gence (AI) into radio access network control. The MAC scheduler is a promising target because it allocates a limited resource, spectrum, at every slot, under competing latency, throughput, and reliability requirements. However, most learning-based sched- ulers are evaluated only in simulation. Production schedulers are difficult to modify, and realistic stress tests require more radio hardware than most laboratories can provide. We present MAC-Gyver, an open-source framework for developing and evaluating scheduling applications that execute directly inside the OpenAirInterface scheduler. It exposes scheduler observations and controls through typed interfaces while preserving the underlying protocol and real-time execution paths. The same applications run over the air and in mac-emu, a PHY-less emulator that executes the unmodified OpenAirInterface Layer 2 stack for up to 90 users on one host at real-time slot pace, with a 3GPP-compliant channel model. To showcase the flexibility of MAC-Gyver, we evaluate two use cases. A proactive uplink scheduler predicts packet arrivals and roughly halves median round-trip latency. A frequency-selective uplink scheduler selects contiguous sub-bands from per-PRB sounding observations and is evaluated across mobility and power-limited operating points against an offline scheduling ceiling. Together, they show how the same production stack can be an AI playground that supports implementation, controlled evaluation, and over-the-air validation through complementary scheduling use cases.",
+                    "authors": [
+                      "Maxime Elkael",
+                      "Reshma Prasad",
+                      "Tamerlan Aghayev",
+                      "Salvatore D'Oro",
+                      "Michele Polese",
+                      "Tommaso Melodia"
+                    ],
+                    "published": "2026-07-28T17:24:53Z",
+                    "updated": "2026-07-28T17:24:53Z",
+                    "url": "http://arxiv.org/abs/2607.26012v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.26012v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.NI",
+                    "categories": [
+                      "cs.NI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25991v1",
+                    "title": "Phantom Evidence: How and Why Generative AI Manufactures False Positives in Science",
+                    "summary": "Four centuries ago Francis Bacon warned against the anticipations of nature, hasty generalization that wins assent on a few facts, and set against it the table of absence: checking that a property fails to appear where it should not. The demand was that looking convincing should not, on its own, count as evidence. Science has professed that demand ever since, while in practice letting persuasiveness do the work of evidence. It could be let to do so because making something persuasive was itself hard. Generative AI removes that difficulty, and an old error returns on a scale and at a speed it never had before. We locate the problem not in evidence growing weaker but in how surprise is counted. An observer marvels at a convincing output as a single point hit among a vast range of possibilities, yet what a system can actually reach is a small part of that range. The gap between the breadth imagined and the narrowness actually reached is what we call phantom evidence, and we formalize it as one quantity that also absorbs the trial and error and the data leakage a research process adds. Three things follow. Higher resolution and greater fluency add no evidence. The evidence a single result can carry has a ceiling that neither polishing the output nor letting a generative system grade itself can exceed. And the fraction of published findings that are true falls back to what it was before anything was observed. The prescription lies in the same place: genuinely widen what a system can reach, and measure whether convincing outputs still appear when the target is absent -- Bacon's table of absence, restated in the language of probability. In a world where the persuasive has become cheap, the credibility of science rests not on more convincing outputs but on procedures that show they could not have arisen by chance.",
+                    "authors": [
+                      "Yukiyasu Kamitani",
+                      "Ken Shirakawa"
+                    ],
+                    "published": "2026-07-28T17:07:12Z",
+                    "updated": "2026-07-28T17:07:12Z",
+                    "url": "http://arxiv.org/abs/2607.25991v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25991v1",
+                    "source": "arxiv.org",
+                    "primary_category": "q-bio.NC",
+                    "categories": [
+                      "q-bio.NC"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25926v1",
+                    "title": "Face De-Identification: A Domain-Centric Survey from Capture to Processing",
+                    "summary": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and privacy-preserving communities. Early approaches, and many contemporary ones, operate in the digital domain by modifying pixel-level or appearance-level features through post-capture processing. Recent advances extend face De-ID beyond post-processing by integrating privacy mechanisms directly into sensors during image acquisition, bridging sensing systems and downstream vision algorithms. In parallel, physical-domain methods explore wearable accessories and materials that conceal identity information in real-world environments prior to capture. In this survey, we present the first unified overview that spans the full data acquisition pipeline, encompassing the physical, sensor, and digital domains. Through this domain-centric lens, we systematically analyze current methodologies, technical progress, and the distinct challenges inherent to each stage. We then review and organize existing evaluation protocols, examining current practices and highlighting the critical need for standardized, comprehensive benchmarks. Finally, we identify key open problems and outline emerging research directions to guide future work in this rapidly evolving field. To support ongoing research, we maintain a project page that organizes relevant literature with collected datasets and open source code: https://github.com/CV-AC/Awesome-FaceDe-ID.",
+                    "authors": [
+                      "Hui Wei",
+                      "Hao Yu",
+                      "Guoying Zhao"
+                    ],
+                    "published": "2026-07-28T16:15:12Z",
+                    "updated": "2026-07-28T16:15:12Z",
+                    "url": "http://arxiv.org/abs/2607.25926v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25926v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25914v1",
+                    "title": "Toward Standardized Cross-Vendor Agent Tool Trust Management in Autonomous Networks",
+                    "summary": "Autonomous Network Levels 4-5 require AI agents to invoke tools across vendor boundaries without human oversight, yet existing management standards lack a standardized mechanism for cross-vendor trust visibility. When a tool from Vendor B is compromised, agents from Vendor A continue invoking it -- unaware of the trust degradation -- causing cascading service impact. We present AgentToolMO, a proposed 3GPP NRM information model for agent tool trust management. The model comprises: a formally defined trust state machine with provable graduated enforcement, damped cascade propagation with bounded convergence, cross-vendor trust notifications via existing Management Services (MnS) interfaces, and retroactive impact assessment through NRM dependency graph traversal. Simulation-based evaluation across multi-vendor topologies shows that standardized cross-vendor notifications reduce blast radius from hours-scale undetected propagation to near-real-time containment bounded by MnS notification delivery, with cascade convergence guaranteed in bounded iterations and sub-linear notification scaling across vendor domains. The framework operates within existing 3GPP management infrastructure, leverages existing protocols, and provides a standardization pathway for trustworthy multi-vendor autonomous network management.",
+                    "authors": [
+                      "Ravi Kant Sharma",
+                      "Ashutosh Uttam",
+                      "Ajay Kumar"
+                    ],
+                    "published": "2026-07-28T16:06:41Z",
+                    "updated": "2026-07-28T16:06:41Z",
+                    "url": "http://arxiv.org/abs/2607.25914v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25914v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI",
+                      "cs.CR",
+                      "cs.NI"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are some of the latest papers on AI from arXiv:\n\n1. **[Falling Behind Drives Unsafe Development in an Idealised AI Race Experiment](http://arxiv.org/abs/2607.26034v1)**\n   - **Authors:** Elias Fernández Domingos, The Anh Han\n   - **Published:** July 28, 2026\n   - **Summary:** This paper explores how competitive pressure in technological races can lead to unsafe development practices in AI. It presents a behavioral experiment that shows how participants' choices between safe and unsafe development are influenced by their opponents' actions and the fear of falling behind.\n\n2. **[MAC-Gyver: Open, Programmable, Scheduling for AI-RAN 6G Systems](http://arxiv.org/abs/2607.26012v1)**\n   - **Authors:** Maxime Elkael, Reshma Prasad, Tamerlan Aghayev, Salvatore D'Oro, Michele Polese, Tommaso Melodia\n   - **Published:** July 28, 2026\n   - **Summary:** This paper introduces MAC-Gyver, an open-source framework for developing and evaluating scheduling applications in AI-integrated radio access networks. It discusses the framework's flexibility and evaluates two use cases that demonstrate its capabilities.\n\n3. **[Phantom Evidence: How and Why Generative AI Manufactures False Positives in Science](http://arxiv.org/abs/2607.25991v1)**\n   - **Authors:** Yukiyasu Kamitani, Ken Shirakawa\n   - **Published:** July 28, 2026\n   - **Summary:** The authors discuss the concept of \"phantom evidence\" in the context of generative AI, arguing that the persuasive outputs of AI can lead to false positives in scientific research. They emphasize the need for rigorous procedures to validate findings.\n\n4. **[Face De-Identification: A Domain-Centric Survey from Capture to Processing](http://arxiv.org/abs/2607.25926v1)**\n   - **Authors:** Hui Wei, Hao Yu, Guoying Zhao\n   - **Published:** July 28, 2026\n   - **Summary:** This survey provides a comprehensive overview of face de-identification techniques, focusing on methods that span the entire data acquisition pipeline. It highlights the challenges and emerging research directions in this field.\n\n5. **[Toward Standardized Cross-Vendor Agent Tool Trust Management in Autonomous Networks](http://arxiv.org/abs/2607.25914v1)**\n   - **Authors:** Ravi Kant Sharma, Ashutosh Uttam, Ajay Kumar\n   - **Published:** July 28, 2026\n   - **Summary:** The paper presents a proposed model for managing trust in AI agents that invoke tools across different vendors. It discusses the implications of trust degradation and offers a framework for improving trust management in autonomous networks.\n\nYou can access the full papers through the provided links.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "AI",
+            "max_results": 5,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "AI",
+            "api_query": "all:AI",
+            "total_results": 62313,
+            "items": [
+              {
+                "arxiv_id": "2607.26034v1",
+                "title": "Falling Behind Drives Unsafe Development in an Idealised AI Race Experiment",
+                "summary": "Technological races create tension between speed and safety: actors may gain by moving faster than competitors, even when risky development is harmful. This is prominent in debates about artificial intelligence (AI), where competitive pressure is often argued to incentivise riskier, less safety-conscious development. We study this using a framed behavioural experiment based on an idealised AI race, in which paired participants repeatedly chose between Safe and Unsafe development under an uncertain time horizon. Unsafe development gave faster progress and higher immediate payoffs but accumulated private risk up to a treatment-specific maximum of 10\\%, 60\\%, or 90\\%; the race's competitive structure was held constant, and only this maximum risk varied. Neither the pre-registered comparison between risk levels nor the role of elicited risk preferences was supported by the data. Instead, exploratory analyses motivated by the task's repeated structure show that Unsafe behaviour is shaped less by risk preferences than by the evolving strategic state of the race: participants are more likely to choose Unsafe after their opponent does so, being ahead reduces Unsafe play while falling behind increases it, and first-round choices predict later behaviour. To interpret these effects we introduce a reduced evolutionary model with four strategies -- Always Safe, Always Unsafe, Conditionally Safe, and Conditionally Antisocial Safe -- which reproduces the treatment effect and shows how conditional Unsafe behaviour can be favoured by competitive race dynamics. Together, the experiment and model show that unsafe development can emerge from early behavioural momentum, opponent behaviour, and fear of falling behind, rather than from risk preferences alone, suggesting policy should focus on reducing competitive pressure and promoting cooperation in AI development rather than only individual risk.",
+                "authors": [
+                  "Elias Fernández Domingos",
+                  "The Anh Han"
+                ],
+                "published": "2026-07-28T17:44:03Z",
+                "updated": "2026-07-28T17:44:03Z",
+                "url": "http://arxiv.org/abs/2607.26034v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26034v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.CY",
+                  "cs.GT",
+                  "econ.GN"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26012v1",
+                "title": "MAC-Gyver: Open, Programmable, Scheduling for AI-RAN 6G Systems",
+                "summary": "Cellular networks are integrating Artificial Intelli- gence (AI) into radio access network control. The MAC scheduler is a promising target because it allocates a limited resource, spectrum, at every slot, under competing latency, throughput, and reliability requirements. However, most learning-based sched- ulers are evaluated only in simulation. Production schedulers are difficult to modify, and realistic stress tests require more radio hardware than most laboratories can provide. We present MAC-Gyver, an open-source framework for developing and evaluating scheduling applications that execute directly inside the OpenAirInterface scheduler. It exposes scheduler observations and controls through typed interfaces while preserving the underlying protocol and real-time execution paths. The same applications run over the air and in mac-emu, a PHY-less emulator that executes the unmodified OpenAirInterface Layer 2 stack for up to 90 users on one host at real-time slot pace, with a 3GPP-compliant channel model. To showcase the flexibility of MAC-Gyver, we evaluate two use cases. A proactive uplink scheduler predicts packet arrivals and roughly halves median round-trip latency. A frequency-selective uplink scheduler selects contiguous sub-bands from per-PRB sounding observations and is evaluated across mobility and power-limited operating points against an offline scheduling ceiling. Together, they show how the same production stack can be an AI playground that supports implementation, controlled evaluation, and over-the-air validation through complementary scheduling use cases.",
+                "authors": [
+                  "Maxime Elkael",
+                  "Reshma Prasad",
+                  "Tamerlan Aghayev",
+                  "Salvatore D'Oro",
+                  "Michele Polese",
+                  "Tommaso Melodia"
+                ],
+                "published": "2026-07-28T17:24:53Z",
+                "updated": "2026-07-28T17:24:53Z",
+                "url": "http://arxiv.org/abs/2607.26012v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26012v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.NI",
+                "categories": [
+                  "cs.NI"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25991v1",
+                "title": "Phantom Evidence: How and Why Generative AI Manufactures False Positives in Science",
+                "summary": "Four centuries ago Francis Bacon warned against the anticipations of nature, hasty generalization that wins assent on a few facts, and set against it the table of absence: checking that a property fails to appear where it should not. The demand was that looking convincing should not, on its own, count as evidence. Science has professed that demand ever since, while in practice letting persuasiveness do the work of evidence. It could be let to do so because making something persuasive was itself hard. Generative AI removes that difficulty, and an old error returns on a scale and at a speed it never had before. We locate the problem not in evidence growing weaker but in how surprise is counted. An observer marvels at a convincing output as a single point hit among a vast range of possibilities, yet what a system can actually reach is a small part of that range. The gap between the breadth imagined and the narrowness actually reached is what we call phantom evidence, and we formalize it as one quantity that also absorbs the trial and error and the data leakage a research process adds. Three things follow. Higher resolution and greater fluency add no evidence. The evidence a single result can carry has a ceiling that neither polishing the output nor letting a generative system grade itself can exceed. And the fraction of published findings that are true falls back to what it was before anything was observed. The prescription lies in the same place: genuinely widen what a system can reach, and measure whether convincing outputs still appear when the target is absent -- Bacon's table of absence, restated in the language of probability. In a world where the persuasive has become cheap, the credibility of science rests not on more convincing outputs but on procedures that show they could not have arisen by chance.",
+                "authors": [
+                  "Yukiyasu Kamitani",
+                  "Ken Shirakawa"
+                ],
+                "published": "2026-07-28T17:07:12Z",
+                "updated": "2026-07-28T17:07:12Z",
+                "url": "http://arxiv.org/abs/2607.25991v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25991v1",
+                "source": "arxiv.org",
+                "primary_category": "q-bio.NC",
+                "categories": [
+                  "q-bio.NC"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25926v1",
+                "title": "Face De-Identification: A Domain-Centric Survey from Capture to Processing",
+                "summary": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and privacy-preserving communities. Early approaches, and many contemporary ones, operate in the digital domain by modifying pixel-level or appearance-level features through post-capture processing. Recent advances extend face De-ID beyond post-processing by integrating privacy mechanisms directly into sensors during image acquisition, bridging sensing systems and downstream vision algorithms. In parallel, physical-domain methods explore wearable accessories and materials that conceal identity information in real-world environments prior to capture. In this survey, we present the first unified overview that spans the full data acquisition pipeline, encompassing the physical, sensor, and digital domains. Through this domain-centric lens, we systematically analyze current methodologies, technical progress, and the distinct challenges inherent to each stage. We then review and organize existing evaluation protocols, examining current practices and highlighting the critical need for standardized, comprehensive benchmarks. Finally, we identify key open problems and outline emerging research directions to guide future work in this rapidly evolving field. To support ongoing research, we maintain a project page that organizes relevant literature with collected datasets and open source code: https://github.com/CV-AC/Awesome-FaceDe-ID.",
+                "authors": [
+                  "Hui Wei",
+                  "Hao Yu",
+                  "Guoying Zhao"
+                ],
+                "published": "2026-07-28T16:15:12Z",
+                "updated": "2026-07-28T16:15:12Z",
+                "url": "http://arxiv.org/abs/2607.25926v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25926v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25914v1",
+                "title": "Toward Standardized Cross-Vendor Agent Tool Trust Management in Autonomous Networks",
+                "summary": "Autonomous Network Levels 4-5 require AI agents to invoke tools across vendor boundaries without human oversight, yet existing management standards lack a standardized mechanism for cross-vendor trust visibility. When a tool from Vendor B is compromised, agents from Vendor A continue invoking it -- unaware of the trust degradation -- causing cascading service impact. We present AgentToolMO, a proposed 3GPP NRM information model for agent tool trust management. The model comprises: a formally defined trust state machine with provable graduated enforcement, damped cascade propagation with bounded convergence, cross-vendor trust notifications via existing Management Services (MnS) interfaces, and retroactive impact assessment through NRM dependency graph traversal. Simulation-based evaluation across multi-vendor topologies shows that standardized cross-vendor notifications reduce blast radius from hours-scale undetected propagation to near-real-time containment bounded by MnS notification delivery, with cascade convergence guaranteed in bounded iterations and sub-linear notification scaling across vendor domains. The framework operates within existing 3GPP management infrastructure, leverages existing protocols, and provides a standardization pathway for trustworthy multi-vendor autonomous network management.",
+                "authors": [
+                  "Ravi Kant Sharma",
+                  "Ashutosh Uttam",
+                  "Ajay Kumar"
+                ],
+                "published": "2026-07-28T16:06:41Z",
+                "updated": "2026-07-28T16:06:41Z",
+                "url": "http://arxiv.org/abs/2607.25914v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25914v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.CR",
+                  "cs.NI"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    }
+  ]
+}
