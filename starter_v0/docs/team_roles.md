@@ -7,6 +7,17 @@ Mỗi role hoạt động song song và giao sản phẩm cho nhau qua Github Br
 
 ---
 
+## 📊 Bảng Phân Công Công Việc Tổng Quan
+
+| Role | Tên Thành Viên | Trách nhiệm chính | Kết quả cần giao (Deliverables) |
+| :--- | :--- | :--- | :--- |
+| **Role 1: Prompt & AI Engineer** | *[Điền tên]* | Tối ưu "não" Agent, chỉnh sửa prompt và tool routing dựa trên JSON log. | Các file `system_prompt.md`, `tools.yaml` (v1, v2, v3), `version_log.csv`. |
+| **Role 2: Tool Developer** | *[Điền tên]* | Lập trình Tool mới, gọi API bên ngoài để mở rộng kỹ năng cho Agent. | Thư mục `tools/<tên_tool>`, file `TOOL.md`, `tool.py`, config `.env`. |
+| **Role 3: Frontend / UI Developer** | *[Điền tên]* | Dựng giao diện Web (Streamlit) cho Chatbot hiển thị minh bạch Tool Trace. | File `app.py`, link public Cloudflare phục vụ Demo. |
+| **Role 4: QA & Data Analyst** | *[Điền tên]* | Viết test cases đánh giá Agent, tổng hợp dữ liệu và làm báo cáo. | File `eval_group.json` (10 test cases), `REPORT.md` (Phần A & B). |
+
+---
+
 ## 👤 Role 1 — Prompt & AI Engineer
 **Phụ trách:** Tối ưu "bộ não" Agent — system prompt và tool declaration — dựa trên bằng chứng thực từ eval JSON.
 
