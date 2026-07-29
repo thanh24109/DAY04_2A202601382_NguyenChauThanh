@@ -1,0 +1,28 @@
+{
+  "transcript_id": "v3_openrouter_20260729T160300528368",
+  "version": "v3",
+  "artifact_version": "v3+pd90ef4190b79+ta2826a2d1a7d",
+  "prompt_hash": "d90ef4190b797665c0ce7945acecdb287c8143217a906c73466ccf6db3d0271c",
+  "tools_hash": "a2826a2d1a7d700494e21a0bc12949dd0ad53aa5aea9800bb0714bea787a7184",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T16:03:00",
+  "updated_at": "2026-07-29T16:03:02",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:03:00",
+      "user": "Tìm 5 bài báo mới nhất về Retrieval-Augmented Generation.",
+      "status": "provider_error",
+      "assistant_text": null,
+      "rounds": [],
+      "tool_events": [],
+      "error": "APIConnectionError: Connection error.",
+      "ended_at": "2026-07-29T16:03:02"
+    }
+  ]
+}

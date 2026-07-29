@@ -1,0 +1,760 @@
+{
+  "transcript_id": "v3_gemini_20260729T162619878972",
+  "version": "v3",
+  "artifact_version": "v3+pd90ef4190b79+ta2826a2d1a7d",
+  "prompt_hash": "d90ef4190b797665c0ce7945acecdb287c8143217a906c73466ccf6db3d0271c",
+  "tools_hash": "a2826a2d1a7d700494e21a0bc12949dd0ad53aa5aea9800bb0714bea787a7184",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash",
+  "system_prompt": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T16:26:19",
+  "updated_at": "2026-07-29T16:28:03",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:26:19",
+      "user": "Tìm 5 bài báo mới nhất về Retrieval-Augmented Generation.",
+      "status": "answered",
+      "assistant_text": "Dưới đây là danh sách 5 bài báo nghiên cứu mới nhất về **Retrieval-Augmented Generation (RAG)** được tìm thấy trên arXiv (lưu ý các bài báo này hiện ở dạng bản thảo tiền ấn phẩm - *preprint*):\n\n### 1. Phát hiện bất nhất tri thức xuyên phương thức\n* **Tiêu đề:** *Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs*\n* **Tác giả:** Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n* **Tóm tắt:** Nghiên cứu vấn đề phát hiện sự bất nhất tri thức giữa văn bản, bảng biểu và đồ thị tri thức (KGs) — các nguồn dữ liệu vốn được sử dụng rộng rãi cho RAG. Nhóm tác giả giới thiệu **KONTRAST**, một khung tự động sử dụng Text-to-SPARQL và suy luận của LLM để đối chiếu, phân loại các điểm mâu thuẫn, giúp kiểm định tri thức quy mô lớn.\n* **Nguồn:** [arXiv:2607.25959v1 (Preprint)](http://arxiv.org/abs/2607.25959v1)\n\n### 2. Định tuyến truy xuất dựa trên độ tự tin của LLM\n* **Tiêu đề:** *Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs*\n* **Tác giả:** Chandan Kumar Sah, Xiaoli Lian, Li Zhang\n* **Tóm tắt:** Đề xuất phương pháp **BeyondUncertainty** nhằm giảm thiểu việc truy xuất thông tin bừa bãi không cần thiết trong RAG. Bằng cách sử dụng độ tự tin dạng văn bản (verbalized confidence) của LLM làm tín hiệu định tuyến, hệ thống chỉ kích hoạt truy xuất khi độ tự tin thấp. Phương pháp này giúp giảm 20.4% số đoạn văn cần truy xuất mà vẫn cải thiện điểm F1 trung bình.\n* **Nguồn:** [arXiv:2607.25600v1 (Preprint)](http://arxiv.org/abs/2607.25600v1)\n\n### 3. Mô hình biểu diễn thay vì sinh văn bản cho truy xuất\n* **Tiêu đề:** *The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers*\n* **Tác giả:** Zhe Xu, Prachi Agrawal, Kavosh Asadi, và cộng sự.\n* **Tóm tắt:** Bài báo đề xuất quay lại kiến trúc hai tháp (two-tower) truyền thống nhưng sử dụng LLM làm xương sống biểu diễn ngữ nghĩa thay vì làm công cụ sinh (generative). Khung LLM-native hai tháp này giúp tối ưu hóa hiệu năng, giảm chi phí tính toán và tăng tốc độ xử lý quy mô lớn cho các hệ thống gợi ý và truy xuất công nghiệp.\n* **Nguồn:** [arXiv:2607.25346v1 (Preprint)](http://arxiv.org/abs/2607.25346v1)\n\n### 4. Bảo mật quyền riêng tư trong RAG\n* **Tiêu đề:** *ScoreShield: Differentially Private Release of Similarity Scores*\n* **Tác giả:** Behrooz Razeghi, Parsa Rahimi\n* **Tóm tắt:** Giới thiệu **ScoreShield**, một cơ chế nhiễu-rồi-chiếu (perturb-then-project) giúp công bố điểm tương đồng cosine một cách riêng tư vi phân (Differential Privacy - DP). Phương pháp này bảo vệ hệ thống RAG và nhận diện khuôn mặt khỏi các cuộc tấn công suy luận thành viên (membership inference attacks) mà vẫn giữ được độ chính xác cao.\n* **Nguồn:** [arXiv:2607.25041v1 (Preprint)](http://arxiv.org/abs/2607.25041v1)\n\n### 5. Ứng dụng GraphRAG trong Địa chấn học\n* **Tiêu đề:** *Automatic Knowledge Graph Construction and Query for Earthquake Catalogs*\n* **Tác giả:** Yuxin Zhou, Huai Zhang, S. Mostafa Mousavi\n* **Tóm tắt:** Nghiên cứu áp dụng RAG dựa trên đồ thị (**GraphRAG**) trực tiếp vào các bản ghi danh mục động đất dạng bảng thô. Hệ thống tự động xây dựng đồ thị tri thức để trả lời các câu hỏi mở của chuyên gia, vượt trội hơn so với Vector RAG truyền thống trong việc tóm tắt toàn diện và so sánh dữ liệu theo thời gian.\n* **Nguồn:** [arXiv:2607.24984v1 (Preprint)](http://arxiv.org/abs/2607.24984v1)",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "sort_by": "submittedDate",
+                "query": "Retrieval-Augmented Generation",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "sort_by": "submittedDate",
+                "query": "Retrieval-Augmented Generation",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Retrieval-Augmented Generation",
+                "api_query": "all:Retrieval-Augmented AND all:Generation",
+                "total_results": 7424,
+                "items": [
+                  {
+                    "arxiv_id": "2607.25959v1",
+                    "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                    "summary": "Wikipedia and Wikidata are widely used for information access, LLM pre-training, and retrieval-augmented generation. Their knowledge is deeply connected but scattered across text, tables, and knowledge graphs. This raises a practical question: when these modalities disagree, how can we detect and explain the conflict? We study this problem as \\emph{modality-level inconsistency detection}. We first introduce a taxonomy of cross-modal knowledge inconsistencies, covering information granularity differences, direct conflicts, temporal changes, and KG incompleteness. We then present \\textsc{Kontrast}, an automatic framework that uses Text-to-SPARQL and LLM reasoning to compare table-based answers with KG evidence and categorize the resulting inconsistencies. Experiments on various Table-QA datasets show that cross-modal inconsistencies are common and informative. They reveal not only true knowledge conflicts, but also missing KG structure and temporal mismatches while being limited by Text-to-SPARQL errors and noise. Our analysis shows that text, tables, and KGs can complement and correct one another through systematic comparison. \\textsc{Kontrast} provides a practical tool for large-scale knowledge auditing and establishes a benchmark for future work on cross-modal knowledge consistency. Code and data are available at https://github.com/ECLADATTA/KONTRAST.",
+                    "authors": [
+                      "Fanfu Wei",
+                      "Thibault Ehrhart",
+                      "Raphaël Troncy"
+                    ],
+                    "published": "2026-07-28T16:43:56Z",
+                    "updated": "2026-07-28T16:43:56Z",
+                    "url": "http://arxiv.org/abs/2607.25959v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25959v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25600v1",
+                    "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                    "summary": "Retrieval-augmented generation improves knowledge-intensive question answering, but indiscriminate retrieval can introduce irrelevant evidence and unnecessary computation. We investigate whether verbalized confidence from black-box language models can serve as an actionable signal for retrieval routing. Our method, BeyondUncertainty, first elicits a structured provisional answer and confidence estimate, then applies a model-specific threshold selected on held-out validation data and frozen before test evaluation. Low-confidence questions receive top-$5$ TF--IDF retrieval followed by a second answer call, whereas high-confidence questions return the provisional answer directly. We evaluate 27,000 policy instances across six QA benchmarks, three model families, and three retrieval policies. BeyondUncertainty achieves $0.483$ mean token-level F1, compared with $0.467$ for always retrieval and $0.401$ for no retrieval, while reducing retrieved passages by $20.4\\%$ relative to always retrieval. When matched on the number of questions routed to retrieval within each dataset--model cell, it outperforms a post-hoc random allocation in 17 of 18 settings, with an average gain of 0.024 F1. Although poorly calibrated as an absolute probability, probe uncertainty modestly predicts question-level retrieval benefit (AUROC $=0.628$). However, the additional probe increases total token usage by $28.2\\%$, revealing a trade-off between more selective evidence acquisition and end-to-end token efficiency.",
+                    "authors": [
+                      "Chandan Kumar Sah",
+                      "Xiaoli Lian",
+                      "Li Zhang"
+                    ],
+                    "published": "2026-07-28T11:30:25Z",
+                    "updated": "2026-07-28T11:30:25Z",
+                    "url": "http://arxiv.org/abs/2607.25600v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25600v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25346v1",
+                    "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                    "summary": "Large Language Models (LLMs) have emerged as powerful assets for recommender systems. However, deploying them as generative recommenders or zero-shot rankers at web-scale remains bottlenecked by prohibitive computational overhead and grounding challenges. In this paper, we revitalize the classic, highly efficient two-tower retrieval architecture by adapting LLMs as semantic representation backbones rather than generative engines. We introduce an LLM-native two-tower framework engineered for high-throughput, large-scale retrieval. Our architecture introduces several key innovations: a shared LLM encoder for joint user-item modeling, End-Of-Sentence (EOS) token pooling for compact sequence embedding, cross-dataset transfer learning, knowledge distillation from powerful cross-encoder teachers, and latent reasoning within the user tower. Extensive evaluation across three public benchmarks demonstrates that cross-encoder architecture outperforms current state-of-the-art (SoTA) models, while the efficient two-tower student achieves SoTA-comparable retrieval performance. Furthermore, experiments on internal large-scale production systems yield substantial topline retrieval improvements along with high resilience to model staleness and superior data scaling. Our findings demonstrate that when augmented with modern representation learning, the traditional two-tower paradigm remains an exceptionally competitive and practical solution for industrial retrieval systems.",
+                    "authors": [
+                      "Zhe Xu",
+                      "Prachi Agrawal",
+                      "Kavosh Asadi",
+                      "Tianyi Chen",
+                      "Carl Hu",
+                      "Justin Johnson",
+                      "Wuwei Lan",
+                      "Mingfu Liang",
+                      "Xi Liu",
+                      "Tik On Lui",
+                      "Oladipo Ositelu",
+                      "Sandeep Pandey",
+                      "Ankit Peshin",
+                      "Feng Qi",
+                      "Anil Ramakrishna",
+                      "Kaushik Rangadurai",
+                      "Frank Shyu",
+                      "Luke Simon",
+                      "Yang Yang",
+                      "Chiyu Zhang"
+                    ],
+                    "published": "2026-07-28T06:47:53Z",
+                    "updated": "2026-07-28T06:47:53Z",
+                    "url": "http://arxiv.org/abs/2607.25346v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25346v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25041v1",
+                    "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                    "summary": "A growing number of applications, such as biometrics and retrieval-augmented generation (RAG), rely on cosine similarity scores computed between vector embeddings of text, images, or audio. These systems return similarity scores through their APIs for ranking and verification. However, such releases can leak information about individual records and enable membership inference attacks. While differential privacy (DP) provides a principled metric for quantifying attack risks, naïve application of DP mechanisms---such as adding i.i.d. Gaussian noise to vector entries---leads to excessive distortion (i.e., low utility) at a given privacy constraint that scales poorly with the number of released scores. We propose \\textsc{ScoreShield}, a perturb-then-project mechanism that adds Gaussian noise calibrated to global sensitivity of the chosen score release regime and then projects the result onto the feasibility set of valid cosine objects. \\textsc{ScoreShield} satisfies $(\\varepsilon,δ)$-DP for releasing similarity score vectors and Gram matrices. We provide utility guarantees for the exact Frobenius metric projection used in the risk analysis, and prove convergence to feasibility for the practical averaged alternating-projection solver used for large-scale Gram releases. For full pairwise cosine Gram release under record-level replacement adjacency, the exact-projection bound improves the $n$-dependence of squared Frobenius risk from $Θ(n^3)$ for the naïve Gaussian baseline to $\\mathcal{O}(n^2)$ for fixed privacy parameters, with sharper local bounds at low-rank Grams. We evaluate the mechanism across RAG, face recognition, semantic retrieval, image similarity, and recommender-system tasks.",
+                    "authors": [
+                      "Behrooz Razeghi",
+                      "Parsa Rahimi"
+                    ],
+                    "published": "2026-07-27T20:02:28Z",
+                    "updated": "2026-07-27T20:02:28Z",
+                    "url": "http://arxiv.org/abs/2607.25041v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25041v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR",
+                      "cs.CR",
+                      "cs.CV",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.24984v1",
+                    "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                    "summary": "In recent years, the number of events in earthquake catalogs has significantly increased due to the utilization of more effective deep learning based detectors and phase pickers but answering open ended questions such as what characterizes this sequence? remains constrained by rigid spatiotemporal windowing and subjective expert interpretation. We present the first systematic application of graph based retrieval augmented generation GraphRAG directly to raw, tabular catalog records across three independently featured catalogs, a reservoir adjacent swarm, the 2019 Ridgecrest tectonic sequence, and the 2021 Maduo Mw7.4 aftershock sequence. Without the need for manual data structuring, the pipeline builds structurally complete, queryable knowledge graphs for all three. Rigorous evaluation individually verified against catalog derived ground truth and a rule based reference graph exposes failure modes, and four seismology informed prompt fixes eliminate all targeted fabrications while sharply improving mechanism reasoning. A vector RAG baseline demonstrates the graph layers distinctive value, catalog wide summarization and temporal stage comparison. In addition, we have identified two main pitfalls that need attention. GraphRAG thus offers a practical, transferable, near zero cost query interface for earthquake catalogs, where careful prompting ensures the results are consistently accurate and trustworthy.",
+                    "authors": [
+                      "Yuxin Zhou",
+                      "Huai Zhang",
+                      "S. Mostafa Mousavi"
+                    ],
+                    "published": "2026-07-27T18:39:05Z",
+                    "updated": "2026-07-27T18:39:05Z",
+                    "url": "http://arxiv.org/abs/2607.24984v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.24984v1",
+                    "source": "arxiv.org",
+                    "primary_category": "physics.geo-ph",
+                    "categories": [
+                      "physics.geo-ph",
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "format",
+              "args": {
+                "template": "sections",
+                "items": [
+                  {
+                    "summary": "Nghiên cứu vấn đề phát hiện bất nhất tri thức giữa văn bản, bảng biểu và đồ thị tri thức (KGs) - các nguồn dữ liệu thường dùng cho RAG. Nhóm tác giả giới thiệu KONTRAST, một khung tự động sử dụng Text-to-SPARQL và suy luận LLM để đối chiếu và phân loại các điểm mâu thuẫn, giúp kiểm định tri thức quy mô lớn.",
+                    "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                    "source": "arXiv:2607.25959v1 (Preprint)",
+                    "section": "Phát hiện bất nhất tri thức xuyên phương thức",
+                    "url": "http://arxiv.org/abs/2607.25959v1"
+                  },
+                  {
+                    "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                    "section": "Định tuyến truy xuất dựa trên độ tự tin của LLM",
+                    "source": "arXiv:2607.25600v1 (Preprint)",
+                    "summary": "Đề xuất phương pháp BeyondUncertainty nhằm giảm thiểu việc truy xuất không cần thiết trong RAG. Bằng cách sử dụng độ tự tin dạng văn bản (verbalized confidence) của LLM làm tín hiệu định tuyến, hệ thống chỉ kích hoạt truy xuất khi độ tự tin thấp, giúp giảm 20.4% số đoạn văn cần truy xuất mà vẫn cải thiện điểm F1 trung bình.",
+                    "url": "http://arxiv.org/abs/2607.25600v1"
+                  },
+                  {
+                    "summary": "Bài báo đề xuất quay lại kiến trúc hai tháp (two-tower) truyền thống nhưng sử dụng LLM làm xương sống biểu diễn ngữ nghĩa thay vì làm công cụ sinh (generative). Khung LLM-native hai tháp này giúp tối ưu hóa hiệu năng và tốc độ xử lý quy mô lớn cho các hệ thống gợi ý và truy xuất công nghiệp.",
+                    "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                    "url": "http://arxiv.org/abs/2607.25346v1",
+                    "source": "arXiv:2607.25346v1 (Preprint)",
+                    "section": "Mô hình biểu diễn thay vì sinh văn bản cho truy xuất"
+                  },
+                  {
+                    "source": "arXiv:2607.25041v1 (Preprint)",
+                    "section": "Bảo mật quyền riêng tư trong RAG",
+                    "summary": "Giới thiệu ScoreShield, một cơ chế nhiễu-rồi-chiếu (perturb-then-project) giúp công bố điểm tương đồng cosine một cách riêng tư vi phân (Differential Privacy - DP). Phương pháp này bảo vệ hệ thống RAG và nhận diện khuôn mặt khỏi các cuộc tấn công suy luận thành viên (membership inference attacks) mà vẫn giữ được độ chính xác cao.",
+                    "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                    "url": "http://arxiv.org/abs/2607.25041v1"
+                  },
+                  {
+                    "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                    "url": "http://arxiv.org/abs/2607.24984v1",
+                    "section": "Ứng dụng GraphRAG trong Địa chấn học",
+                    "source": "arXiv:2607.24984v1 (Preprint)",
+                    "summary": "Nghiên cứu áp dụng RAG dựa trên đồ thị (GraphRAG) vào các bản ghi danh mục động đất dạng bảng. Hệ thống tự động xây dựng đồ thị tri thức để trả lời các câu hỏi mở của chuyên gia, vượt trội hơn so với Vector RAG truyền thống trong việc tóm tắt toàn diện và so sánh theo thời gian."
+                  }
+                ],
+                "headline": "5 bài báo mới nhất về Retrieval-Augmented Generation (RAG) trên arXiv"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "format",
+              "args": {
+                "template": "sections",
+                "items": [
+                  {
+                    "summary": "Nghiên cứu vấn đề phát hiện bất nhất tri thức giữa văn bản, bảng biểu và đồ thị tri thức (KGs) - các nguồn dữ liệu thường dùng cho RAG. Nhóm tác giả giới thiệu KONTRAST, một khung tự động sử dụng Text-to-SPARQL và suy luận LLM để đối chiếu và phân loại các điểm mâu thuẫn, giúp kiểm định tri thức quy mô lớn.",
+                    "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                    "source": "arXiv:2607.25959v1 (Preprint)",
+                    "section": "Phát hiện bất nhất tri thức xuyên phương thức",
+                    "url": "http://arxiv.org/abs/2607.25959v1"
+                  },
+                  {
+                    "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                    "section": "Định tuyến truy xuất dựa trên độ tự tin của LLM",
+                    "source": "arXiv:2607.25600v1 (Preprint)",
+                    "summary": "Đề xuất phương pháp BeyondUncertainty nhằm giảm thiểu việc truy xuất không cần thiết trong RAG. Bằng cách sử dụng độ tự tin dạng văn bản (verbalized confidence) của LLM làm tín hiệu định tuyến, hệ thống chỉ kích hoạt truy xuất khi độ tự tin thấp, giúp giảm 20.4% số đoạn văn cần truy xuất mà vẫn cải thiện điểm F1 trung bình.",
+                    "url": "http://arxiv.org/abs/2607.25600v1"
+                  },
+                  {
+                    "summary": "Bài báo đề xuất quay lại kiến trúc hai tháp (two-tower) truyền thống nhưng sử dụng LLM làm xương sống biểu diễn ngữ nghĩa thay vì làm công cụ sinh (generative). Khung LLM-native hai tháp này giúp tối ưu hóa hiệu năng và tốc độ xử lý quy mô lớn cho các hệ thống gợi ý và truy xuất công nghiệp.",
+                    "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                    "url": "http://arxiv.org/abs/2607.25346v1",
+                    "source": "arXiv:2607.25346v1 (Preprint)",
+                    "section": "Mô hình biểu diễn thay vì sinh văn bản cho truy xuất"
+                  },
+                  {
+                    "source": "arXiv:2607.25041v1 (Preprint)",
+                    "section": "Bảo mật quyền riêng tư trong RAG",
+                    "summary": "Giới thiệu ScoreShield, một cơ chế nhiễu-rồi-chiếu (perturb-then-project) giúp công bố điểm tương đồng cosine một cách riêng tư vi phân (Differential Privacy - DP). Phương pháp này bảo vệ hệ thống RAG và nhận diện khuôn mặt khỏi các cuộc tấn công suy luận thành viên (membership inference attacks) mà vẫn giữ được độ chính xác cao.",
+                    "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                    "url": "http://arxiv.org/abs/2607.25041v1"
+                  },
+                  {
+                    "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                    "url": "http://arxiv.org/abs/2607.24984v1",
+                    "section": "Ứng dụng GraphRAG trong Địa chấn học",
+                    "source": "arXiv:2607.24984v1 (Preprint)",
+                    "summary": "Nghiên cứu áp dụng RAG dựa trên đồ thị (GraphRAG) vào các bản ghi danh mục động đất dạng bảng. Hệ thống tự động xây dựng đồ thị tri thức để trả lời các câu hỏi mở của chuyên gia, vượt trội hơn so với Vector RAG truyền thống trong việc tóm tắt toàn diện và so sánh theo thời gian."
+                  }
+                ],
+                "headline": "5 bài báo mới nhất về Retrieval-Augmented Generation (RAG) trên arXiv"
+              },
+              "result": {
+                "tool": "render_digest",
+                "template": "sections",
+                "markdown": "# 5 bài báo mới nhất về Retrieval-Augmented Generation (RAG) trên arXiv\n\n## Phát hiện bất nhất tri thức xuyên phương thức\n- Nghiên cứu vấn đề phát hiện bất nhất tri thức giữa văn bản, bảng biểu và đồ thị tri thức (KGs) - các nguồn dữ liệu thường dùng cho RAG. Nhóm tác giả giới thiệu KONTRAST, một khung tự động sử dụng Text-to-SPARQL và suy luận LLM để đối chiếu và phân loại các điểm mâu thuẫn, giúp... - [arXiv:2607.25959v1 (Preprint)](http://arxiv.org/abs/2607.25959v1)\n\n## Định tuyến truy xuất dựa trên độ tự tin của LLM\n- Đề xuất phương pháp BeyondUncertainty nhằm giảm thiểu việc truy xuất không cần thiết trong RAG. Bằng cách sử dụng độ tự tin dạng văn bản (verbalized confidence) của LLM làm tín hiệu định tuyến, hệ thống chỉ kích hoạt truy xuất khi độ tự tin thấp, giúp giảm 20.4% số đoạn văn cầ... - [arXiv:2607.25600v1 (Preprint)](http://arxiv.org/abs/2607.25600v1)\n\n## Mô hình biểu diễn thay vì sinh văn bản cho truy xuất\n- Bài báo đề xuất quay lại kiến trúc hai tháp (two-tower) truyền thống nhưng sử dụng LLM làm xương sống biểu diễn ngữ nghĩa thay vì làm công cụ sinh (generative). Khung LLM-native hai tháp này giúp tối ưu hóa hiệu năng và tốc độ xử lý quy mô lớn cho các hệ thống gợi ý và truy xu... - [arXiv:2607.25346v1 (Preprint)](http://arxiv.org/abs/2607.25346v1)\n\n## Bảo mật quyền riêng tư trong RAG\n- Giới thiệu ScoreShield, một cơ chế nhiễu-rồi-chiếu (perturb-then-project) giúp công bố điểm tương đồng cosine một cách riêng tư vi phân (Differential Privacy - DP). Phương pháp này bảo vệ hệ thống RAG và nhận diện khuôn mặt khỏi các cuộc tấn công suy luận thành viên (membershi... - [arXiv:2607.25041v1 (Preprint)](http://arxiv.org/abs/2607.25041v1)\n\n## Ứng dụng GraphRAG trong Địa chấn học\n- Nghiên cứu áp dụng RAG dựa trên đồ thị (GraphRAG) vào các bản ghi danh mục động đất dạng bảng. Hệ thống tự động xây dựng đồ thị tri thức để trả lời các câu hỏi mở của chuyên gia, vượt trội hơn so với Vector RAG truyền thống trong việc tóm tắt toàn diện và so sánh theo thời gian. - [arXiv:2607.24984v1 (Preprint)](http://arxiv.org/abs/2607.24984v1)\n",
+                "item_count": 5
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "Dưới đây là danh sách 5 bài báo nghiên cứu mới nhất về **Retrieval-Augmented Generation (RAG)** được tìm thấy trên arXiv (lưu ý các bài báo này hiện ở dạng bản thảo tiền ấn phẩm - *preprint*):\n\n### 1. Phát hiện bất nhất tri thức xuyên phương thức\n* **Tiêu đề:** *Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs*\n* **Tác giả:** Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n* **Tóm tắt:** Nghiên cứu vấn đề phát hiện sự bất nhất tri thức giữa văn bản, bảng biểu và đồ thị tri thức (KGs) — các nguồn dữ liệu vốn được sử dụng rộng rãi cho RAG. Nhóm tác giả giới thiệu **KONTRAST**, một khung tự động sử dụng Text-to-SPARQL và suy luận của LLM để đối chiếu, phân loại các điểm mâu thuẫn, giúp kiểm định tri thức quy mô lớn.\n* **Nguồn:** [arXiv:2607.25959v1 (Preprint)](http://arxiv.org/abs/2607.25959v1)\n\n### 2. Định tuyến truy xuất dựa trên độ tự tin của LLM\n* **Tiêu đề:** *Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs*\n* **Tác giả:** Chandan Kumar Sah, Xiaoli Lian, Li Zhang\n* **Tóm tắt:** Đề xuất phương pháp **BeyondUncertainty** nhằm giảm thiểu việc truy xuất thông tin bừa bãi không cần thiết trong RAG. Bằng cách sử dụng độ tự tin dạng văn bản (verbalized confidence) của LLM làm tín hiệu định tuyến, hệ thống chỉ kích hoạt truy xuất khi độ tự tin thấp. Phương pháp này giúp giảm 20.4% số đoạn văn cần truy xuất mà vẫn cải thiện điểm F1 trung bình.\n* **Nguồn:** [arXiv:2607.25600v1 (Preprint)](http://arxiv.org/abs/2607.25600v1)\n\n### 3. Mô hình biểu diễn thay vì sinh văn bản cho truy xuất\n* **Tiêu đề:** *The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers*\n* **Tác giả:** Zhe Xu, Prachi Agrawal, Kavosh Asadi, và cộng sự.\n* **Tóm tắt:** Bài báo đề xuất quay lại kiến trúc hai tháp (two-tower) truyền thống nhưng sử dụng LLM làm xương sống biểu diễn ngữ nghĩa thay vì làm công cụ sinh (generative). Khung LLM-native hai tháp này giúp tối ưu hóa hiệu năng, giảm chi phí tính toán và tăng tốc độ xử lý quy mô lớn cho các hệ thống gợi ý và truy xuất công nghiệp.\n* **Nguồn:** [arXiv:2607.25346v1 (Preprint)](http://arxiv.org/abs/2607.25346v1)\n\n### 4. Bảo mật quyền riêng tư trong RAG\n* **Tiêu đề:** *ScoreShield: Differentially Private Release of Similarity Scores*\n* **Tác giả:** Behrooz Razeghi, Parsa Rahimi\n* **Tóm tắt:** Giới thiệu **ScoreShield**, một cơ chế nhiễu-rồi-chiếu (perturb-then-project) giúp công bố điểm tương đồng cosine một cách riêng tư vi phân (Differential Privacy - DP). Phương pháp này bảo vệ hệ thống RAG và nhận diện khuôn mặt khỏi các cuộc tấn công suy luận thành viên (membership inference attacks) mà vẫn giữ được độ chính xác cao.\n* **Nguồn:** [arXiv:2607.25041v1 (Preprint)](http://arxiv.org/abs/2607.25041v1)\n\n### 5. Ứng dụng GraphRAG trong Địa chấn học\n* **Tiêu đề:** *Automatic Knowledge Graph Construction and Query for Earthquake Catalogs*\n* **Tác giả:** Yuxin Zhou, Huai Zhang, S. Mostafa Mousavi\n* **Tóm tắt:** Nghiên cứu áp dụng RAG dựa trên đồ thị (**GraphRAG**) trực tiếp vào các bản ghi danh mục động đất dạng bảng thô. Hệ thống tự động xây dựng đồ thị tri thức để trả lời các câu hỏi mở của chuyên gia, vượt trội hơn so với Vector RAG truyền thống trong việc tóm tắt toàn diện và so sánh dữ liệu theo thời gian.\n* **Nguồn:** [arXiv:2607.24984v1 (Preprint)](http://arxiv.org/abs/2607.24984v1)",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "sort_by": "submittedDate",
+            "query": "Retrieval-Augmented Generation",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Retrieval-Augmented Generation",
+            "api_query": "all:Retrieval-Augmented AND all:Generation",
+            "total_results": 7424,
+            "items": [
+              {
+                "arxiv_id": "2607.25959v1",
+                "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                "summary": "Wikipedia and Wikidata are widely used for information access, LLM pre-training, and retrieval-augmented generation. Their knowledge is deeply connected but scattered across text, tables, and knowledge graphs. This raises a practical question: when these modalities disagree, how can we detect and explain the conflict? We study this problem as \\emph{modality-level inconsistency detection}. We first introduce a taxonomy of cross-modal knowledge inconsistencies, covering information granularity differences, direct conflicts, temporal changes, and KG incompleteness. We then present \\textsc{Kontrast}, an automatic framework that uses Text-to-SPARQL and LLM reasoning to compare table-based answers with KG evidence and categorize the resulting inconsistencies. Experiments on various Table-QA datasets show that cross-modal inconsistencies are common and informative. They reveal not only true knowledge conflicts, but also missing KG structure and temporal mismatches while being limited by Text-to-SPARQL errors and noise. Our analysis shows that text, tables, and KGs can complement and correct one another through systematic comparison. \\textsc{Kontrast} provides a practical tool for large-scale knowledge auditing and establishes a benchmark for future work on cross-modal knowledge consistency. Code and data are available at https://github.com/ECLADATTA/KONTRAST.",
+                "authors": [
+                  "Fanfu Wei",
+                  "Thibault Ehrhart",
+                  "Raphaël Troncy"
+                ],
+                "published": "2026-07-28T16:43:56Z",
+                "updated": "2026-07-28T16:43:56Z",
+                "url": "http://arxiv.org/abs/2607.25959v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25959v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25600v1",
+                "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                "summary": "Retrieval-augmented generation improves knowledge-intensive question answering, but indiscriminate retrieval can introduce irrelevant evidence and unnecessary computation. We investigate whether verbalized confidence from black-box language models can serve as an actionable signal for retrieval routing. Our method, BeyondUncertainty, first elicits a structured provisional answer and confidence estimate, then applies a model-specific threshold selected on held-out validation data and frozen before test evaluation. Low-confidence questions receive top-$5$ TF--IDF retrieval followed by a second answer call, whereas high-confidence questions return the provisional answer directly. We evaluate 27,000 policy instances across six QA benchmarks, three model families, and three retrieval policies. BeyondUncertainty achieves $0.483$ mean token-level F1, compared with $0.467$ for always retrieval and $0.401$ for no retrieval, while reducing retrieved passages by $20.4\\%$ relative to always retrieval. When matched on the number of questions routed to retrieval within each dataset--model cell, it outperforms a post-hoc random allocation in 17 of 18 settings, with an average gain of 0.024 F1. Although poorly calibrated as an absolute probability, probe uncertainty modestly predicts question-level retrieval benefit (AUROC $=0.628$). However, the additional probe increases total token usage by $28.2\\%$, revealing a trade-off between more selective evidence acquisition and end-to-end token efficiency.",
+                "authors": [
+                  "Chandan Kumar Sah",
+                  "Xiaoli Lian",
+                  "Li Zhang"
+                ],
+                "published": "2026-07-28T11:30:25Z",
+                "updated": "2026-07-28T11:30:25Z",
+                "url": "http://arxiv.org/abs/2607.25600v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25600v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25346v1",
+                "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                "summary": "Large Language Models (LLMs) have emerged as powerful assets for recommender systems. However, deploying them as generative recommenders or zero-shot rankers at web-scale remains bottlenecked by prohibitive computational overhead and grounding challenges. In this paper, we revitalize the classic, highly efficient two-tower retrieval architecture by adapting LLMs as semantic representation backbones rather than generative engines. We introduce an LLM-native two-tower framework engineered for high-throughput, large-scale retrieval. Our architecture introduces several key innovations: a shared LLM encoder for joint user-item modeling, End-Of-Sentence (EOS) token pooling for compact sequence embedding, cross-dataset transfer learning, knowledge distillation from powerful cross-encoder teachers, and latent reasoning within the user tower. Extensive evaluation across three public benchmarks demonstrates that cross-encoder architecture outperforms current state-of-the-art (SoTA) models, while the efficient two-tower student achieves SoTA-comparable retrieval performance. Furthermore, experiments on internal large-scale production systems yield substantial topline retrieval improvements along with high resilience to model staleness and superior data scaling. Our findings demonstrate that when augmented with modern representation learning, the traditional two-tower paradigm remains an exceptionally competitive and practical solution for industrial retrieval systems.",
+                "authors": [
+                  "Zhe Xu",
+                  "Prachi Agrawal",
+                  "Kavosh Asadi",
+                  "Tianyi Chen",
+                  "Carl Hu",
+                  "Justin Johnson",
+                  "Wuwei Lan",
+                  "Mingfu Liang",
+                  "Xi Liu",
+                  "Tik On Lui",
+                  "Oladipo Ositelu",
+                  "Sandeep Pandey",
+                  "Ankit Peshin",
+                  "Feng Qi",
+                  "Anil Ramakrishna",
+                  "Kaushik Rangadurai",
+                  "Frank Shyu",
+                  "Luke Simon",
+                  "Yang Yang",
+                  "Chiyu Zhang"
+                ],
+                "published": "2026-07-28T06:47:53Z",
+                "updated": "2026-07-28T06:47:53Z",
+                "url": "http://arxiv.org/abs/2607.25346v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25346v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25041v1",
+                "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                "summary": "A growing number of applications, such as biometrics and retrieval-augmented generation (RAG), rely on cosine similarity scores computed between vector embeddings of text, images, or audio. These systems return similarity scores through their APIs for ranking and verification. However, such releases can leak information about individual records and enable membership inference attacks. While differential privacy (DP) provides a principled metric for quantifying attack risks, naïve application of DP mechanisms---such as adding i.i.d. Gaussian noise to vector entries---leads to excessive distortion (i.e., low utility) at a given privacy constraint that scales poorly with the number of released scores. We propose \\textsc{ScoreShield}, a perturb-then-project mechanism that adds Gaussian noise calibrated to global sensitivity of the chosen score release regime and then projects the result onto the feasibility set of valid cosine objects. \\textsc{ScoreShield} satisfies $(\\varepsilon,δ)$-DP for releasing similarity score vectors and Gram matrices. We provide utility guarantees for the exact Frobenius metric projection used in the risk analysis, and prove convergence to feasibility for the practical averaged alternating-projection solver used for large-scale Gram releases. For full pairwise cosine Gram release under record-level replacement adjacency, the exact-projection bound improves the $n$-dependence of squared Frobenius risk from $Θ(n^3)$ for the naïve Gaussian baseline to $\\mathcal{O}(n^2)$ for fixed privacy parameters, with sharper local bounds at low-rank Grams. We evaluate the mechanism across RAG, face recognition, semantic retrieval, image similarity, and recommender-system tasks.",
+                "authors": [
+                  "Behrooz Razeghi",
+                  "Parsa Rahimi"
+                ],
+                "published": "2026-07-27T20:02:28Z",
+                "updated": "2026-07-27T20:02:28Z",
+                "url": "http://arxiv.org/abs/2607.25041v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25041v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR",
+                  "cs.CR",
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.24984v1",
+                "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                "summary": "In recent years, the number of events in earthquake catalogs has significantly increased due to the utilization of more effective deep learning based detectors and phase pickers but answering open ended questions such as what characterizes this sequence? remains constrained by rigid spatiotemporal windowing and subjective expert interpretation. We present the first systematic application of graph based retrieval augmented generation GraphRAG directly to raw, tabular catalog records across three independently featured catalogs, a reservoir adjacent swarm, the 2019 Ridgecrest tectonic sequence, and the 2021 Maduo Mw7.4 aftershock sequence. Without the need for manual data structuring, the pipeline builds structurally complete, queryable knowledge graphs for all three. Rigorous evaluation individually verified against catalog derived ground truth and a rule based reference graph exposes failure modes, and four seismology informed prompt fixes eliminate all targeted fabrications while sharply improving mechanism reasoning. A vector RAG baseline demonstrates the graph layers distinctive value, catalog wide summarization and temporal stage comparison. In addition, we have identified two main pitfalls that need attention. GraphRAG thus offers a practical, transferable, near zero cost query interface for earthquake catalogs, where careful prompting ensures the results are consistently accurate and trustworthy.",
+                "authors": [
+                  "Yuxin Zhou",
+                  "Huai Zhang",
+                  "S. Mostafa Mousavi"
+                ],
+                "published": "2026-07-27T18:39:05Z",
+                "updated": "2026-07-27T18:39:05Z",
+                "url": "http://arxiv.org/abs/2607.24984v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.24984v1",
+                "source": "arxiv.org",
+                "primary_category": "physics.geo-ph",
+                "categories": [
+                  "physics.geo-ph",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "template": "sections",
+            "items": [
+              {
+                "summary": "Nghiên cứu vấn đề phát hiện bất nhất tri thức giữa văn bản, bảng biểu và đồ thị tri thức (KGs) - các nguồn dữ liệu thường dùng cho RAG. Nhóm tác giả giới thiệu KONTRAST, một khung tự động sử dụng Text-to-SPARQL và suy luận LLM để đối chiếu và phân loại các điểm mâu thuẫn, giúp kiểm định tri thức quy mô lớn.",
+                "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                "source": "arXiv:2607.25959v1 (Preprint)",
+                "section": "Phát hiện bất nhất tri thức xuyên phương thức",
+                "url": "http://arxiv.org/abs/2607.25959v1"
+              },
+              {
+                "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                "section": "Định tuyến truy xuất dựa trên độ tự tin của LLM",
+                "source": "arXiv:2607.25600v1 (Preprint)",
+                "summary": "Đề xuất phương pháp BeyondUncertainty nhằm giảm thiểu việc truy xuất không cần thiết trong RAG. Bằng cách sử dụng độ tự tin dạng văn bản (verbalized confidence) của LLM làm tín hiệu định tuyến, hệ thống chỉ kích hoạt truy xuất khi độ tự tin thấp, giúp giảm 20.4% số đoạn văn cần truy xuất mà vẫn cải thiện điểm F1 trung bình.",
+                "url": "http://arxiv.org/abs/2607.25600v1"
+              },
+              {
+                "summary": "Bài báo đề xuất quay lại kiến trúc hai tháp (two-tower) truyền thống nhưng sử dụng LLM làm xương sống biểu diễn ngữ nghĩa thay vì làm công cụ sinh (generative). Khung LLM-native hai tháp này giúp tối ưu hóa hiệu năng và tốc độ xử lý quy mô lớn cho các hệ thống gợi ý và truy xuất công nghiệp.",
+                "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                "url": "http://arxiv.org/abs/2607.25346v1",
+                "source": "arXiv:2607.25346v1 (Preprint)",
+                "section": "Mô hình biểu diễn thay vì sinh văn bản cho truy xuất"
+              },
+              {
+                "source": "arXiv:2607.25041v1 (Preprint)",
+                "section": "Bảo mật quyền riêng tư trong RAG",
+                "summary": "Giới thiệu ScoreShield, một cơ chế nhiễu-rồi-chiếu (perturb-then-project) giúp công bố điểm tương đồng cosine một cách riêng tư vi phân (Differential Privacy - DP). Phương pháp này bảo vệ hệ thống RAG và nhận diện khuôn mặt khỏi các cuộc tấn công suy luận thành viên (membership inference attacks) mà vẫn giữ được độ chính xác cao.",
+                "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                "url": "http://arxiv.org/abs/2607.25041v1"
+              },
+              {
+                "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                "url": "http://arxiv.org/abs/2607.24984v1",
+                "section": "Ứng dụng GraphRAG trong Địa chấn học",
+                "source": "arXiv:2607.24984v1 (Preprint)",
+                "summary": "Nghiên cứu áp dụng RAG dựa trên đồ thị (GraphRAG) vào các bản ghi danh mục động đất dạng bảng. Hệ thống tự động xây dựng đồ thị tri thức để trả lời các câu hỏi mở của chuyên gia, vượt trội hơn so với Vector RAG truyền thống trong việc tóm tắt toàn diện và so sánh theo thời gian."
+              }
+            ],
+            "headline": "5 bài báo mới nhất về Retrieval-Augmented Generation (RAG) trên arXiv"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "# 5 bài báo mới nhất về Retrieval-Augmented Generation (RAG) trên arXiv\n\n## Phát hiện bất nhất tri thức xuyên phương thức\n- Nghiên cứu vấn đề phát hiện bất nhất tri thức giữa văn bản, bảng biểu và đồ thị tri thức (KGs) - các nguồn dữ liệu thường dùng cho RAG. Nhóm tác giả giới thiệu KONTRAST, một khung tự động sử dụng Text-to-SPARQL và suy luận LLM để đối chiếu và phân loại các điểm mâu thuẫn, giúp... - [arXiv:2607.25959v1 (Preprint)](http://arxiv.org/abs/2607.25959v1)\n\n## Định tuyến truy xuất dựa trên độ tự tin của LLM\n- Đề xuất phương pháp BeyondUncertainty nhằm giảm thiểu việc truy xuất không cần thiết trong RAG. Bằng cách sử dụng độ tự tin dạng văn bản (verbalized confidence) của LLM làm tín hiệu định tuyến, hệ thống chỉ kích hoạt truy xuất khi độ tự tin thấp, giúp giảm 20.4% số đoạn văn cầ... - [arXiv:2607.25600v1 (Preprint)](http://arxiv.org/abs/2607.25600v1)\n\n## Mô hình biểu diễn thay vì sinh văn bản cho truy xuất\n- Bài báo đề xuất quay lại kiến trúc hai tháp (two-tower) truyền thống nhưng sử dụng LLM làm xương sống biểu diễn ngữ nghĩa thay vì làm công cụ sinh (generative). Khung LLM-native hai tháp này giúp tối ưu hóa hiệu năng và tốc độ xử lý quy mô lớn cho các hệ thống gợi ý và truy xu... - [arXiv:2607.25346v1 (Preprint)](http://arxiv.org/abs/2607.25346v1)\n\n## Bảo mật quyền riêng tư trong RAG\n- Giới thiệu ScoreShield, một cơ chế nhiễu-rồi-chiếu (perturb-then-project) giúp công bố điểm tương đồng cosine một cách riêng tư vi phân (Differential Privacy - DP). Phương pháp này bảo vệ hệ thống RAG và nhận diện khuôn mặt khỏi các cuộc tấn công suy luận thành viên (membershi... - [arXiv:2607.25041v1 (Preprint)](http://arxiv.org/abs/2607.25041v1)\n\n## Ứng dụng GraphRAG trong Địa chấn học\n- Nghiên cứu áp dụng RAG dựa trên đồ thị (GraphRAG) vào các bản ghi danh mục động đất dạng bảng. Hệ thống tự động xây dựng đồ thị tri thức để trả lời các câu hỏi mở của chuyên gia, vượt trội hơn so với Vector RAG truyền thống trong việc tóm tắt toàn diện và so sánh theo thời gian. - [arXiv:2607.24984v1 (Preprint)](http://arxiv.org/abs/2607.24984v1)\n",
+            "item_count": 5
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T16:26:39"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T16:27:41",
+      "user": "cho tôi 5 bài báo về wc trận thua messi",
+      "status": "answered",
+      "assistant_text": "Dưới đây là tổng hợp 5 bài báo nổi bật xoay quanh thất bại của Lionel Messi và đội tuyển Argentina tại trận Chung kết World Cup 2026 trước Tây Ban Nha, cùng với bối cảnh hành trình của anh tại giải đấu:\n\n### 1. Cảm xúc nghẹn ngào sau trận chung kết\n* **Tiêu đề:** *Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat*\n* **Nội dung:** Bài viết mô tả cảm xúc đau đớn của Lionel Messi và các đồng đội sau trận thua sát nút 0-1 trước Tây Ban Nha tại trận chung kết World Cup 2026 diễn ra trên đất Mỹ. Đây rất có thể là trận đấu World Cup cuối cùng trong sự nghiệp vĩ đại của siêu sao 39 tuổi này. Trận đấu càng thêm khó khăn cho Argentina khi họ phải chơi thiếu người từ phút bù giờ hiệp hai do Cristian Romero nhận thẻ vàng thứ hai.\n* **Nguồn:** [FOX Sports](https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction)\n\n### 2. Thông điệp gửi tới người hâm mộ\n* **Tiêu đề:** *Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat*\n* **Nội dung:** Sau thất bại cay đắng, Messi đã chia sẻ một thông điệp đầy cảm xúc gửi tới người hâm mộ quê nhà. Anh bày tỏ sự tự hào về tinh thần chiến đấu kiên cường của toàn đội, đồng thời kêu gọi người hâm mộ trân trọng hành trình lịch sử khi Argentina một lần nữa lọt vào tới trận đấu cuối cùng của ngày hội bóng đá lớn nhất hành tinh.\n* **Nguồn:** [FOX Sports](https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain)\n\n### 3. \"Nỗi đau vô cùng lớn\"\n* **Tiêu đề:** *Messi says 'pain is immense' after losing World Cup final*\n* **Nội dung:** Trả lời phỏng vấn, Messi thừa nhận rằng \"nỗi đau này là vô cùng lớn\" và \"vết thương này sẽ cần rất nhiều thời gian để chữa lành\". Đây là lần thứ hai trong sự nghiệp Messi phải nếm trải cảm giác thất bại ở một trận chung kết World Cup, sau trận thua 0-1 trước đội tuyển Đức vào năm 2014.\n* **Nguồn:** [BBC](https://www.bbc.com/sport/football/articles/cz97gwpk01yo)\n\n### 4. Messi phá vỡ sự im lặng trên mạng xã hội\n* **Tiêu đề:** *Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’*\n* **Nội dung:** Bài báo tường thuật việc Messi đăng tải tâm thư trên Instagram cá nhân sau khi rời sân vận động MetLife. Dù đang phải trải qua nỗi buồn tột cùng, anh vẫn thể hiện tinh thần thể thao cao thượng khi nán lại sân để bắt tay chúc mừng và ôm động viên ngôi sao trẻ Lamine Yamal của đội tuyển Tây Ban Nha.\n* **Nguồn:** [New York Post](https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/)\n\n### 5. Điểm sáng trước thềm chung kết (Bối cảnh thêm)\n* **Tiêu đề:** *Argentina Player Ratings vs. Algeria: Magical Messi Opens World Cup With Record Night*\n* **Nội dung:** Trái ngược với nốt trầm ở trận chung kết, bài báo này ghi lại khoảnh khắc thăng hoa rực rỡ của Messi ở giai đoạn vòng bảng. Anh đã lập một cú hat-trick đẳng cấp giúp Argentina đè bẹp Algeria với tỷ số 3-0, qua đó chính thức cân bằng kỷ lục ghi bàn tại các kỳ World Cup của huyền thoại người Đức Miroslav Klose (16 bàn).\n* **Nguồn:** [Sports Illustrated](https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26)",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "timeframe": "year",
+                "topic": "news",
+                "query": "Messi World Cup defeat"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "timeframe": "year",
+                "topic": "news",
+                "query": "Messi World Cup defeat"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "Messi World Cup defeat",
+                "topic": "news",
+                "timeframe": "year",
+                "items": [
+                  {
+                    "title": "Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat - FOX Sports",
+                    "url": "https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction",
+                    "source": "amp.foxsports.com",
+                    "summary": "# Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat. For Lionel Messi and Argentina, it was the latter on Sunday afternoon, as the team couldn't repeat in a 1-0 final loss to Spain that might just be Messi's last World Cup match. Argentina played a man down from the third minute of stoppage time in the second half on after Cristian Romero was given his second yellow card of the game. If this is the end of the line for Messi's World Cup career, the eight-time Ballon d'Or winner and 13-time Domestic League champion ends it with 21 combined goals and 12 assists across six World Cup tournaments (2006, 2010, 2014, 2018, 2022 and 2026). Argentina, which won the 2022 World Cup and 2024 Copa América, reached the World Cup final for the third time in the last four tournaments this year, while Spain has won its second consecutive major tournament, as it previously won Euro 2024.",
+                    "score": 0.8170061
+                  },
+                  {
+                    "title": "Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat - FOX Sports",
+                    "url": "https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain",
+                    "source": "foxsports.com",
+                    "summary": "FIFA Men's World Cup. FIFA Men's World Cup. FIFA Men's World Cup. # Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat. In the wake of Argentina's 1-0 loss to Spain in the World Cup final, Lionel Messi shared a message with Argentina fans after what likely was his last World Cup match. \"But I also take away all the good things… With the matches we turned around leaving everything on the pitch and that will remain forever in the memory, with the support of an entire country that together with the work and effort of this group led us to be, once again, among the best in the world.\". Messi shared the difficulty of processing a loss on the biggest stage, yet urged fans to recognize the historic nature of the team's accomplishment in reaching the final stage of the tournament once again. Get more from the FIFA Men's World Cup Follow your favorites to get information about games, news and more.",
+                    "score": 0.8066246
+                  },
+                  {
+                    "title": "Messi says 'pain is immense' after losing World Cup final - BBC",
+                    "url": "https://www.bbc.com/sport/football/articles/cz97gwpk01yo",
+                    "source": "bbc.com",
+                    "summary": "# Messi says 'pain is immense' after losing World Cup final. **Lionel Messi says \"the pain is immense\" and that it \"will take time to heal\" after Argentina lost 1-0 to Spain in the World Cup final.**. Messi has now lost two World Cup finals after Argentina were defeated 1-0 by Germany in 2014. \"The pain is immense, and this wound will take time to heal. \"The matches we turned around by giving it our all - moments that will remain in our memories forever - and the support of an entire country which, combined with this group's hard work and effort, brought us back among the world's elite once again. \"It is hard to fully appreciate our achievement right now, but this group reached two consecutive World Cup finals. Messi contributed eight goals and four assists as Argentina reached the final for the third time in the past four World Cups. * How to watch the World Cup on the BBC and ITV.",
+                    "score": 0.75049835
+                  },
+                  {
+                    "title": "Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’ - New York Post",
+                    "url": "https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/",
+                    "source": "nypost.com",
+                    "summary": "# Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’. Following Spain’s 1-0 FIFA World Cup Final win on Sunday afternoon at MetLife Stadium, the 39-year-old and his team ducked their media obligations and headed straight to the team bus through a back exit. On Monday, Messi addressed the crushing loss in an Instagram post that detailed the “immense” pain he is enduring in the aftermath. “The pain is immense, and it will take time for this wound to heal,” Messi wrote. “But I also hold on to all the good… The matches we turned around, giving our all, matches that will forever remain in our memories, the support of an entire country that, together with the hard work and effort of this group, led us to be, once again, among the best in the world. He took some time to sit on the ground, but Messi did get up to shake hands and hug Spain star Lamine Yamal after his win, in what was a full-circle moment for the generational players.",
+                    "score": 0.7092009
+                  },
+                  {
+                    "title": "Argentina Player Ratings vs. Algeria: Magical Messi Opens World Cup With Record Night - Sports Illustrated",
+                    "url": "https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26",
+                    "source": "si.com",
+                    "summary": "Algeria: Magical Messi Opens World Cup With Record Night. Lionel Messi is now the joint greatest goalscorer in World Cup history. Lionel Messi produced the latest historic performance of his legendary career, scoring a hat-trick that saw Argentina defeat Algeria 3–0 to begin its World Cup title-defense in dream fashion. The three strikes saw Messi join Miroslav Klose as the all-time leading goalscorers in World Cup annals with 16. History awaited 10 minutes later, as Messi curled a shot into the bottom corner to score his first-career World Cup hat-trick, a strike the sufficed for him to tie Klose’s iconic record. A long-haired, 18-year-old Messi came on as a substitute and scored the final goal in Argentina’s dominant 6–0 victory over Serbia in the group stage of 2006 Germany. Messi received the ball on the edge of the area, set himself and curled a shot into the bottom corner to complete his first career World Cup hat-trick to tie Klose’s all-time record.",
+                    "score": 0.6854659
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "format",
+              "args": {
+                "template": "sections",
+                "items": [
+                  {
+                    "title": "Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat",
+                    "summary": "Bài viết mô tả cảm xúc nghẹn ngào của Lionel Messi và các đồng đội sau trận thua 0-1 trước Tây Ban Nha tại chung kết World Cup 2026. Trận đấu này có thể là lần cuối cùng Messi khoác áo đội tuyển tại một kỳ World Cup. Argentina phải chơi thiếu người từ phút bù giờ hiệp hai sau khi Cristian Romero nhận thẻ vàng thứ hai.",
+                    "url": "https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction",
+                    "source": "FOX Sports",
+                    "section": "Thất bại tại Chung kết World Cup 2026"
+                  },
+                  {
+                    "summary": "Sau thất bại cay đắng trước Tây Ban Nha, Lionel Messi đã chia sẻ một thông điệp đầy cảm xúc gửi tới người hâm mộ Argentina, bày tỏ sự tự hào về hành trình của đội bóng và kêu gọi người hâm mộ trân trọng những gì toàn đội đã đạt được khi một lần nữa lọt vào trận chung kết thế giới.",
+                    "source": "FOX Sports",
+                    "url": "https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain",
+                    "section": "Thông điệp gửi người hâm mộ",
+                    "title": "Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat"
+                  },
+                  {
+                    "source": "BBC",
+                    "url": "https://www.bbc.com/sport/football/articles/cz97gwpk01yo",
+                    "summary": "Lionel Messi chia sẻ rằng 'nỗi đau là vô cùng lớn' và 'vết thương này sẽ cần thời gian để lành' sau khi Argentina thất thủ 0-1 trước Tây Ban Nha. Đây là lần thứ hai Messi phải nếm trải thất bại trong một trận chung kết World Cup (sau trận thua Đức năm 2014).",
+                    "section": "Nỗi đau của Messi",
+                    "title": "Messi says 'pain is immense' after losing World Cup final"
+                  },
+                  {
+                    "summary": "Bài báo tường thuật việc Messi phá vỡ sự im lặng bằng một bài đăng trên Instagram sau trận thua tại sân vận động MetLife. Anh thừa nhận nỗi đau quá lớn nhưng cũng dành thời gian để chúc mừng và ôm ngôi sao trẻ Lamine Yamal của Tây Ban Nha sau trận đấu.",
+                    "url": "https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/",
+                    "title": "Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’",
+                    "source": "New York Post",
+                    "section": "Phản ứng sau trận đấu"
+                  },
+                  {
+                    "url": "https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26",
+                    "section": "Hành trình vòng bảng (Bối cảnh thêm)",
+                    "title": "Argentina Player Ratings vs. Algeria: Magical Messi Opens World Cup With Record Night",
+                    "summary": "Trái ngược với nỗi buồn ở chung kết, bài báo này ghi nhận khoảnh khắc thăng hoa của Messi ở đầu giải đấu khi anh lập cú hat-trick giúp Argentina đánh bại Algeria 3-0, qua đó cân bằng kỷ lục ghi bàn tại World Cup của Miroslav Klose.",
+                    "source": "Sports Illustrated"
+                  }
+                ]
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "format",
+              "args": {
+                "template": "sections",
+                "items": [
+                  {
+                    "title": "Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat",
+                    "summary": "Bài viết mô tả cảm xúc nghẹn ngào của Lionel Messi và các đồng đội sau trận thua 0-1 trước Tây Ban Nha tại chung kết World Cup 2026. Trận đấu này có thể là lần cuối cùng Messi khoác áo đội tuyển tại một kỳ World Cup. Argentina phải chơi thiếu người từ phút bù giờ hiệp hai sau khi Cristian Romero nhận thẻ vàng thứ hai.",
+                    "url": "https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction",
+                    "source": "FOX Sports",
+                    "section": "Thất bại tại Chung kết World Cup 2026"
+                  },
+                  {
+                    "summary": "Sau thất bại cay đắng trước Tây Ban Nha, Lionel Messi đã chia sẻ một thông điệp đầy cảm xúc gửi tới người hâm mộ Argentina, bày tỏ sự tự hào về hành trình của đội bóng và kêu gọi người hâm mộ trân trọng những gì toàn đội đã đạt được khi một lần nữa lọt vào trận chung kết thế giới.",
+                    "source": "FOX Sports",
+                    "url": "https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain",
+                    "section": "Thông điệp gửi người hâm mộ",
+                    "title": "Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat"
+                  },
+                  {
+                    "source": "BBC",
+                    "url": "https://www.bbc.com/sport/football/articles/cz97gwpk01yo",
+                    "summary": "Lionel Messi chia sẻ rằng 'nỗi đau là vô cùng lớn' và 'vết thương này sẽ cần thời gian để lành' sau khi Argentina thất thủ 0-1 trước Tây Ban Nha. Đây là lần thứ hai Messi phải nếm trải thất bại trong một trận chung kết World Cup (sau trận thua Đức năm 2014).",
+                    "section": "Nỗi đau của Messi",
+                    "title": "Messi says 'pain is immense' after losing World Cup final"
+                  },
+                  {
+                    "summary": "Bài báo tường thuật việc Messi phá vỡ sự im lặng bằng một bài đăng trên Instagram sau trận thua tại sân vận động MetLife. Anh thừa nhận nỗi đau quá lớn nhưng cũng dành thời gian để chúc mừng và ôm ngôi sao trẻ Lamine Yamal của Tây Ban Nha sau trận đấu.",
+                    "url": "https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/",
+                    "title": "Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’",
+                    "source": "New York Post",
+                    "section": "Phản ứng sau trận đấu"
+                  },
+                  {
+                    "url": "https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26",
+                    "section": "Hành trình vòng bảng (Bối cảnh thêm)",
+                    "title": "Argentina Player Ratings vs. Algeria: Magical Messi Opens World Cup With Record Night",
+                    "summary": "Trái ngược với nỗi buồn ở chung kết, bài báo này ghi nhận khoảnh khắc thăng hoa của Messi ở đầu giải đấu khi anh lập cú hat-trick giúp Argentina đánh bại Algeria 3-0, qua đó cân bằng kỷ lục ghi bàn tại World Cup của Miroslav Klose.",
+                    "source": "Sports Illustrated"
+                  }
+                ]
+              },
+              "result": {
+                "tool": "render_digest",
+                "template": "sections",
+                "markdown": "## Thất bại tại Chung kết World Cup 2026\n- Bài viết mô tả cảm xúc nghẹn ngào của Lionel Messi và các đồng đội sau trận thua 0-1 trước Tây Ban Nha tại chung kết World Cup 2026. Trận đấu này có thể là lần cuối cùng Messi khoác áo đội tuyển tại một kỳ World Cup. Argentina phải chơi thiếu người từ phút bù giờ hiệp hai sau ... - [FOX Sports](https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction)\n\n## Thông điệp gửi người hâm mộ\n- Sau thất bại cay đắng trước Tây Ban Nha, Lionel Messi đã chia sẻ một thông điệp đầy cảm xúc gửi tới người hâm mộ Argentina, bày tỏ sự tự hào về hành trình của đội bóng và kêu gọi người hâm mộ trân trọng những gì toàn đội đã đạt được khi một lần nữa lọt vào trận chung kết thế g... - [FOX Sports](https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain)\n\n## Nỗi đau của Messi\n- Lionel Messi chia sẻ rằng 'nỗi đau là vô cùng lớn' và 'vết thương này sẽ cần thời gian để lành' sau khi Argentina thất thủ 0-1 trước Tây Ban Nha. Đây là lần thứ hai Messi phải nếm trải thất bại trong một trận chung kết World Cup (sau trận thua Đức năm 2014). - [BBC](https://www.bbc.com/sport/football/articles/cz97gwpk01yo)\n\n## Phản ứng sau trận đấu\n- Bài báo tường thuật việc Messi phá vỡ sự im lặng bằng một bài đăng trên Instagram sau trận thua tại sân vận động MetLife. Anh thừa nhận nỗi đau quá lớn nhưng cũng dành thời gian để chúc mừng và ôm ngôi sao trẻ Lamine Yamal của Tây Ban Nha sau trận đấu. - [New York Post](https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/)\n\n## Hành trình vòng bảng (Bối cảnh thêm)\n- Trái ngược với nỗi buồn ở chung kết, bài báo này ghi nhận khoảnh khắc thăng hoa của Messi ở đầu giải đấu khi anh lập cú hat-trick giúp Argentina đánh bại Algeria 3-0, qua đó cân bằng kỷ lục ghi bàn tại World Cup của Miroslav Klose. - [Sports Illustrated](https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26)\n",
+                "item_count": 5
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "Dưới đây là tổng hợp 5 bài báo nổi bật xoay quanh thất bại của Lionel Messi và đội tuyển Argentina tại trận Chung kết World Cup 2026 trước Tây Ban Nha, cùng với bối cảnh hành trình của anh tại giải đấu:\n\n### 1. Cảm xúc nghẹn ngào sau trận chung kết\n* **Tiêu đề:** *Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat*\n* **Nội dung:** Bài viết mô tả cảm xúc đau đớn của Lionel Messi và các đồng đội sau trận thua sát nút 0-1 trước Tây Ban Nha tại trận chung kết World Cup 2026 diễn ra trên đất Mỹ. Đây rất có thể là trận đấu World Cup cuối cùng trong sự nghiệp vĩ đại của siêu sao 39 tuổi này. Trận đấu càng thêm khó khăn cho Argentina khi họ phải chơi thiếu người từ phút bù giờ hiệp hai do Cristian Romero nhận thẻ vàng thứ hai.\n* **Nguồn:** [FOX Sports](https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction)\n\n### 2. Thông điệp gửi tới người hâm mộ\n* **Tiêu đề:** *Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat*\n* **Nội dung:** Sau thất bại cay đắng, Messi đã chia sẻ một thông điệp đầy cảm xúc gửi tới người hâm mộ quê nhà. Anh bày tỏ sự tự hào về tinh thần chiến đấu kiên cường của toàn đội, đồng thời kêu gọi người hâm mộ trân trọng hành trình lịch sử khi Argentina một lần nữa lọt vào tới trận đấu cuối cùng của ngày hội bóng đá lớn nhất hành tinh.\n* **Nguồn:** [FOX Sports](https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain)\n\n### 3. \"Nỗi đau vô cùng lớn\"\n* **Tiêu đề:** *Messi says 'pain is immense' after losing World Cup final*\n* **Nội dung:** Trả lời phỏng vấn, Messi thừa nhận rằng \"nỗi đau này là vô cùng lớn\" và \"vết thương này sẽ cần rất nhiều thời gian để chữa lành\". Đây là lần thứ hai trong sự nghiệp Messi phải nếm trải cảm giác thất bại ở một trận chung kết World Cup, sau trận thua 0-1 trước đội tuyển Đức vào năm 2014.\n* **Nguồn:** [BBC](https://www.bbc.com/sport/football/articles/cz97gwpk01yo)\n\n### 4. Messi phá vỡ sự im lặng trên mạng xã hội\n* **Tiêu đề:** *Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’*\n* **Nội dung:** Bài báo tường thuật việc Messi đăng tải tâm thư trên Instagram cá nhân sau khi rời sân vận động MetLife. Dù đang phải trải qua nỗi buồn tột cùng, anh vẫn thể hiện tinh thần thể thao cao thượng khi nán lại sân để bắt tay chúc mừng và ôm động viên ngôi sao trẻ Lamine Yamal của đội tuyển Tây Ban Nha.\n* **Nguồn:** [New York Post](https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/)\n\n### 5. Điểm sáng trước thềm chung kết (Bối cảnh thêm)\n* **Tiêu đề:** *Argentina Player Ratings vs. Algeria: Magical Messi Opens World Cup With Record Night*\n* **Nội dung:** Trái ngược với nốt trầm ở trận chung kết, bài báo này ghi lại khoảnh khắc thăng hoa rực rỡ của Messi ở giai đoạn vòng bảng. Anh đã lập một cú hat-trick đẳng cấp giúp Argentina đè bẹp Algeria với tỷ số 3-0, qua đó chính thức cân bằng kỷ lục ghi bàn tại các kỳ World Cup của huyền thoại người Đức Miroslav Klose (16 bàn).\n* **Nguồn:** [Sports Illustrated](https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26)",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "timeframe": "year",
+            "topic": "news",
+            "query": "Messi World Cup defeat"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Messi World Cup defeat",
+            "topic": "news",
+            "timeframe": "year",
+            "items": [
+              {
+                "title": "Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat - FOX Sports",
+                "url": "https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction",
+                "source": "amp.foxsports.com",
+                "summary": "# Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat. For Lionel Messi and Argentina, it was the latter on Sunday afternoon, as the team couldn't repeat in a 1-0 final loss to Spain that might just be Messi's last World Cup match. Argentina played a man down from the third minute of stoppage time in the second half on after Cristian Romero was given his second yellow card of the game. If this is the end of the line for Messi's World Cup career, the eight-time Ballon d'Or winner and 13-time Domestic League champion ends it with 21 combined goals and 12 assists across six World Cup tournaments (2006, 2010, 2014, 2018, 2022 and 2026). Argentina, which won the 2022 World Cup and 2024 Copa América, reached the World Cup final for the third time in the last four tournaments this year, while Spain has won its second consecutive major tournament, as it previously won Euro 2024.",
+                "score": 0.8170061
+              },
+              {
+                "title": "Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat - FOX Sports",
+                "url": "https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain",
+                "source": "foxsports.com",
+                "summary": "FIFA Men's World Cup. FIFA Men's World Cup. FIFA Men's World Cup. # Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat. In the wake of Argentina's 1-0 loss to Spain in the World Cup final, Lionel Messi shared a message with Argentina fans after what likely was his last World Cup match. \"But I also take away all the good things… With the matches we turned around leaving everything on the pitch and that will remain forever in the memory, with the support of an entire country that together with the work and effort of this group led us to be, once again, among the best in the world.\". Messi shared the difficulty of processing a loss on the biggest stage, yet urged fans to recognize the historic nature of the team's accomplishment in reaching the final stage of the tournament once again. Get more from the FIFA Men's World Cup Follow your favorites to get information about games, news and more.",
+                "score": 0.8066246
+              },
+              {
+                "title": "Messi says 'pain is immense' after losing World Cup final - BBC",
+                "url": "https://www.bbc.com/sport/football/articles/cz97gwpk01yo",
+                "source": "bbc.com",
+                "summary": "# Messi says 'pain is immense' after losing World Cup final. **Lionel Messi says \"the pain is immense\" and that it \"will take time to heal\" after Argentina lost 1-0 to Spain in the World Cup final.**. Messi has now lost two World Cup finals after Argentina were defeated 1-0 by Germany in 2014. \"The pain is immense, and this wound will take time to heal. \"The matches we turned around by giving it our all - moments that will remain in our memories forever - and the support of an entire country which, combined with this group's hard work and effort, brought us back among the world's elite once again. \"It is hard to fully appreciate our achievement right now, but this group reached two consecutive World Cup finals. Messi contributed eight goals and four assists as Argentina reached the final for the third time in the past four World Cups. * How to watch the World Cup on the BBC and ITV.",
+                "score": 0.75049835
+              },
+              {
+                "title": "Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’ - New York Post",
+                "url": "https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/",
+                "source": "nypost.com",
+                "summary": "# Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’. Following Spain’s 1-0 FIFA World Cup Final win on Sunday afternoon at MetLife Stadium, the 39-year-old and his team ducked their media obligations and headed straight to the team bus through a back exit. On Monday, Messi addressed the crushing loss in an Instagram post that detailed the “immense” pain he is enduring in the aftermath. “The pain is immense, and it will take time for this wound to heal,” Messi wrote. “But I also hold on to all the good… The matches we turned around, giving our all, matches that will forever remain in our memories, the support of an entire country that, together with the hard work and effort of this group, led us to be, once again, among the best in the world. He took some time to sit on the ground, but Messi did get up to shake hands and hug Spain star Lamine Yamal after his win, in what was a full-circle moment for the generational players.",
+                "score": 0.7092009
+              },
+              {
+                "title": "Argentina Player Ratings vs. Algeria: Magical Messi Opens World Cup With Record Night - Sports Illustrated",
+                "url": "https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26",
+                "source": "si.com",
+                "summary": "Algeria: Magical Messi Opens World Cup With Record Night. Lionel Messi is now the joint greatest goalscorer in World Cup history. Lionel Messi produced the latest historic performance of his legendary career, scoring a hat-trick that saw Argentina defeat Algeria 3–0 to begin its World Cup title-defense in dream fashion. The three strikes saw Messi join Miroslav Klose as the all-time leading goalscorers in World Cup annals with 16. History awaited 10 minutes later, as Messi curled a shot into the bottom corner to score his first-career World Cup hat-trick, a strike the sufficed for him to tie Klose’s iconic record. A long-haired, 18-year-old Messi came on as a substitute and scored the final goal in Argentina’s dominant 6–0 victory over Serbia in the group stage of 2006 Germany. Messi received the ball on the edge of the area, set himself and curled a shot into the bottom corner to complete his first career World Cup hat-trick to tie Klose’s all-time record.",
+                "score": 0.6854659
+              }
+            ]
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "template": "sections",
+            "items": [
+              {
+                "title": "Lionel Messi And Argentina Show Raw Emotion After World Cup Final Defeat",
+                "summary": "Bài viết mô tả cảm xúc nghẹn ngào của Lionel Messi và các đồng đội sau trận thua 0-1 trước Tây Ban Nha tại chung kết World Cup 2026. Trận đấu này có thể là lần cuối cùng Messi khoác áo đội tuyển tại một kỳ World Cup. Argentina phải chơi thiếu người từ phút bù giờ hiệp hai sau khi Cristian Romero nhận thẻ vàng thứ hai.",
+                "url": "https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction",
+                "source": "FOX Sports",
+                "section": "Thất bại tại Chung kết World Cup 2026"
+              },
+              {
+                "summary": "Sau thất bại cay đắng trước Tây Ban Nha, Lionel Messi đã chia sẻ một thông điệp đầy cảm xúc gửi tới người hâm mộ Argentina, bày tỏ sự tự hào về hành trình của đội bóng và kêu gọi người hâm mộ trân trọng những gì toàn đội đã đạt được khi một lần nữa lọt vào trận chung kết thế giới.",
+                "source": "FOX Sports",
+                "url": "https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain",
+                "section": "Thông điệp gửi người hâm mộ",
+                "title": "Lionel Messi Shares Heartfelt Message To Argentina Fans After World Cup Defeat"
+              },
+              {
+                "source": "BBC",
+                "url": "https://www.bbc.com/sport/football/articles/cz97gwpk01yo",
+                "summary": "Lionel Messi chia sẻ rằng 'nỗi đau là vô cùng lớn' và 'vết thương này sẽ cần thời gian để lành' sau khi Argentina thất thủ 0-1 trước Tây Ban Nha. Đây là lần thứ hai Messi phải nếm trải thất bại trong một trận chung kết World Cup (sau trận thua Đức năm 2014).",
+                "section": "Nỗi đau của Messi",
+                "title": "Messi says 'pain is immense' after losing World Cup final"
+              },
+              {
+                "summary": "Bài báo tường thuật việc Messi phá vỡ sự im lặng bằng một bài đăng trên Instagram sau trận thua tại sân vận động MetLife. Anh thừa nhận nỗi đau quá lớn nhưng cũng dành thời gian để chúc mừng và ôm ngôi sao trẻ Lamine Yamal của Tây Ban Nha sau trận đấu.",
+                "url": "https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/",
+                "title": "Lionel Messi breaks silence following Argentina’s World Cup loss: ‘The pain is immense’",
+                "source": "New York Post",
+                "section": "Phản ứng sau trận đấu"
+              },
+              {
+                "url": "https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26",
+                "section": "Hành trình vòng bảng (Bối cảnh thêm)",
+                "title": "Argentina Player Ratings vs. Algeria: Magical Messi Opens World Cup With Record Night",
+                "summary": "Trái ngược với nỗi buồn ở chung kết, bài báo này ghi nhận khoảnh khắc thăng hoa của Messi ở đầu giải đấu khi anh lập cú hat-trick giúp Argentina đánh bại Algeria 3-0, qua đó cân bằng kỷ lục ghi bàn tại World Cup của Miroslav Klose.",
+                "source": "Sports Illustrated"
+              }
+            ]
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "## Thất bại tại Chung kết World Cup 2026\n- Bài viết mô tả cảm xúc nghẹn ngào của Lionel Messi và các đồng đội sau trận thua 0-1 trước Tây Ban Nha tại chung kết World Cup 2026. Trận đấu này có thể là lần cuối cùng Messi khoác áo đội tuyển tại một kỳ World Cup. Argentina phải chơi thiếu người từ phút bù giờ hiệp hai sau ... - [FOX Sports](https://amp.foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-final-loss-spain-reaction)\n\n## Thông điệp gửi người hâm mộ\n- Sau thất bại cay đắng trước Tây Ban Nha, Lionel Messi đã chia sẻ một thông điệp đầy cảm xúc gửi tới người hâm mộ Argentina, bày tỏ sự tự hào về hành trình của đội bóng và kêu gọi người hâm mộ trân trọng những gì toàn đội đã đạt được khi một lần nữa lọt vào trận chung kết thế g... - [FOX Sports](https://www.foxsports.com/stories/soccer/2026-fifa-world-cup-final-lionel-messi-defeat-spain)\n\n## Nỗi đau của Messi\n- Lionel Messi chia sẻ rằng 'nỗi đau là vô cùng lớn' và 'vết thương này sẽ cần thời gian để lành' sau khi Argentina thất thủ 0-1 trước Tây Ban Nha. Đây là lần thứ hai Messi phải nếm trải thất bại trong một trận chung kết World Cup (sau trận thua Đức năm 2014). - [BBC](https://www.bbc.com/sport/football/articles/cz97gwpk01yo)\n\n## Phản ứng sau trận đấu\n- Bài báo tường thuật việc Messi phá vỡ sự im lặng bằng một bài đăng trên Instagram sau trận thua tại sân vận động MetLife. Anh thừa nhận nỗi đau quá lớn nhưng cũng dành thời gian để chúc mừng và ôm ngôi sao trẻ Lamine Yamal của Tây Ban Nha sau trận đấu. - [New York Post](https://nypost.com/2026/07/20/sports/lionel-messi-breaks-silence-following-argentinas-world-cup-loss/)\n\n## Hành trình vòng bảng (Bối cảnh thêm)\n- Trái ngược với nỗi buồn ở chung kết, bài báo này ghi nhận khoảnh khắc thăng hoa của Messi ở đầu giải đấu khi anh lập cú hat-trick giúp Argentina đánh bại Algeria 3-0, qua đó cân bằng kỷ lục ghi bàn tại World Cup của Miroslav Klose. - [Sports Illustrated](https://www.si.com/soccer/argentina-player-ratings-vs-algeria-magical-messi-opens-world-cup-record-night-6-16-26)\n",
+            "item_count": 5
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T16:28:03"
+    }
+  ]
+}

@@ -139,6 +139,34 @@ python scripts/preflight_provider.py --provider openrouter
 
 Không ghi đè `.env` đã có. Nếu dùng provider khác, thay `openrouter` trong mọi command; xem lệnh Windows và quicktest chi tiết trong [TOOL-SETUP.md](TOOL-SETUP.md).
 
+## Research Paper Scout UI
+
+Website demo nằm tại `starter_v0/app.py` và dùng chung `run_model_tool_loop` với
+CLI/eval. Trên Windows PowerShell:
+
+```powershell
+cd starter_v0
+.\.venv\Scripts\Activate.ps1
+streamlit run app.py
+```
+
+Mở `http://localhost:8501`. Sidebar cho phép chọn `openai`, `openrouter`,
+`gemini` hoặc `anthropic`, nhập model override và xem trạng thái API key. Đặt key
+trong `starter_v0/.env`; nếu file đó chưa tồn tại, app cũng đọc `.env` đã gitignore
+ở thư mục repo cha. Không nhập API key vào giao diện hoặc commit file `.env`.
+
+Các biến provider tương ứng:
+
+```text
+OPENAI_API_KEY=...
+OPENROUTER_API_KEY=...
+GEMINI_API_KEY=...
+ANTHROPIC_API_KEY=...
+```
+
+UI lưu transcript dưới `starter_v0/transcripts/`, hiển thị artifact hashes và
+Tool Trace theo từng round gồm tool name, arguments, result/error và final status.
+
 ## Step 1 — Run baseline
 
 Run the fixed base eval as `v0`:

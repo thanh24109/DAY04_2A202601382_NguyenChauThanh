@@ -87,15 +87,22 @@ class GeminiProvider:
         temperature: float = 0.0,
         tool_choice: Any | None = None,
     ) -> ModelResponse:
+        api_key = os.getenv(self.api_key_env)
+        if not api_key:
+            raise RuntimeError(f"Missing API key env var: {self.api_key_env}")
+
+        # The Google SDK gives GOOGLE_API_KEY precedence when both variables are
+        # present. The app's documented configuration uses GEMINI_API_KEY, so
+        # remove the inherited alternate key in this process before importing
+        # the SDK. This never edits the user's system environment or .env file.
+        if self.api_key_env == "GEMINI_API_KEY":
+            os.environ.pop("GOOGLE_API_KEY", None)
+
         try:
             from google import genai
             from google.genai import types
         except ImportError as exc:
             raise RuntimeError("Install live provider dependency first: pip install google-genai") from exc
-
-        api_key = os.getenv(self.api_key_env)
-        if not api_key:
-            raise RuntimeError(f"Missing API key env var: {self.api_key_env}")
 
         system_instruction, contents = _to_gemini_contents(messages)
         declarations = _to_gemini_declarations(tools)
@@ -104,6 +111,10 @@ class GeminiProvider:
             config_kwargs["system_instruction"] = system_instruction
         if declarations:
             config_kwargs["tools"] = [types.Tool(function_declarations=declarations)]
+            if tool_choice == "required":
+                config_kwargs["tool_config"] = types.ToolConfig(
+                    function_calling_config=types.FunctionCallingConfig(mode="ANY")
+                )
 
         client = genai.Client(api_key=api_key)
         resp = client.models.generate_content(

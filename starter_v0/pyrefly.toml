@@ -1,0 +1,5 @@
+# Keep editor import resolution aligned with the runtime environment.
+project-includes = ["**/*.py"]
+project-excludes = [".venv/**", "arxiv_papers/**", "__pycache__/**"]
+search-path = ["."]
+python-interpreter-path = ".venv/Scripts/python.exe"

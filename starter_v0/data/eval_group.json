@@ -1,7 +1,283 @@
 {
-  "dataset_id": "day04_v2_research_group",
+  "dataset_id": "day04_v2_research_paper_scout_group",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
-  "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "description": "10 case do nhom tu thiet ke cho Research Paper Scout: 5 single-turn va 5 multi-turn. Grader cham tool routing va subset arguments tren yeu cau hien tai.",
+  "allowed_failure_types": [
+    "wrong_tool",
+    "wrong_arg_value",
+    "wrong_boundary",
+    "unnecessary_tool",
+    "out_of_scope",
+    "missing_info"
+  ],
+  "cases": [
+    {
+      "id": "G001",
+      "phase": "B",
+      "query": "Tìm đúng 5 bài báo arXiv mới nhất về Transformer.",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "Transformer",
+              "max_results": 5,
+              "sort_by": "submittedDate"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "paper_search_latest",
+        "difficulty": "medium",
+        "what_it_tests": "Yêu cầu paper mới nhất phải dùng papers, giữ max_results=5 và ánh xạ 'mới nhất' thành sort_by=submittedDate."
+      }
+    },
+    {
+      "id": "G002",
+      "phase": "B",
+      "query": "Đọc nội dung 2 trang đầu của paper này: https://arxiv.org/abs/1706.03762",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "1706.03762",
+              "max_pages": 2
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "read_specific_arxiv_paper",
+        "difficulty": "medium",
+        "what_it_tests": "Có URL arXiv cụ thể và yêu cầu đọc nội dung thì dùng paper_text, không tìm lại bằng papers; đồng thời giữ max_pages=2."
+      }
+    },
+    {
+      "id": "G003",
+      "phase": "B",
+      "query": "Tạo trích dẫn APA cho bài 'Attention Is All You Need', tác giả Vaswani et al., năm 2017, đăng tại NeurIPS.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention Is All You Need",
+              "authors": "Vaswani et al.",
+              "year": 2017,
+              "journal": "NeurIPS"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "generate_citation",
+        "difficulty": "medium",
+        "what_it_tests": "Yêu cầu tạo citation từ metadata đã đủ phải route thẳng tới citation_generator và truyền đúng bốn trường cốt lõi."
+      }
+    },
+    {
+      "id": "G004",
+      "phase": "B",
+      "query": "Chuẩn bị gửi đúng nội dung 'Digest: paper RAG' lên Telegram, nhưng tôi chưa xác nhận gửi.",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "confirm_before_external_send",
+        "difficulty": "medium",
+        "what_it_tests": "Send là hành động có side effect; khi chưa có xác nhận rõ ràng, agent phải hỏi yes/no và không được gọi send."
+      }
+    },
+    {
+      "id": "G005",
+      "phase": "B",
+      "query": "Tìm 3 bài arXiv phù hợp nhất về retrieval-augmented generation.",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "retrieval-augmented generation",
+              "max_results": 3,
+              "sort_by": "relevance"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "paper_search_relevance",
+        "difficulty": "medium",
+        "what_it_tests": "Cụm 'phù hợp nhất' phải ánh xạ thành sort_by=relevance, không nhầm với mới nhất, và giữ max_results=3."
+      }
+    },
+    {
+      "id": "G006",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Mình đã chọn paper đầu tiên có URL https://arxiv.org/abs/2305.18290."
+        },
+        {
+          "role": "user",
+          "content": "Đọc đúng 3 trang đầu của paper mình vừa chọn đi."
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "2305.18290",
+              "max_pages": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_selected_paper_carryover",
+        "difficulty": "hard",
+        "what_it_tests": "Carry URL paper đã chọn từ lượt trước sang paper_text ở lượt hiện tại và giữ giới hạn 3 trang."
+      }
+    },
+    {
+      "id": "G007",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm paper giúp mình."
+        },
+        {
+          "role": "user",
+          "content": "Mình vẫn chưa chọn chủ đề; hãy hỏi mình cần tìm paper về chủ đề nào."
+        }
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_clarify_missing_topic",
+        "difficulty": "medium",
+        "what_it_tests": "Khi chủ đề paper vẫn còn thiếu, agent phải hỏi lấy từ khóa bằng clarify(text), không tự đoán query cho papers."
+      }
+    },
+    {
+      "id": "G008",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Mình cần tạo trích dẫn cho một paper."
+        },
+        {
+          "role": "user",
+          "content": "Metadata đây: title 'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding', authors 'Devlin et al.', year 2019, journal 'NAACL-HLT'. Hãy tạo citation."
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+              "authors": "Devlin et al.",
+              "year": 2019,
+              "journal": "NAACL-HLT"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_citation_metadata_fill",
+        "difficulty": "hard",
+        "what_it_tests": "Sau khi metadata được bổ sung ở lượt mới nhất, agent phải gọi citation_generator với các giá trị chính xác."
+      }
+    },
+    {
+      "id": "G009",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Mình đã có danh sách paper về LLM safety gồm tiêu đề, URL và tóm tắt."
+        },
+        {
+          "role": "user",
+          "content": "Không tìm thêm dữ liệu; hãy format danh sách đã có thành markdown digest chia theo sections."
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "template": "sections"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_format_existing_results",
+        "difficulty": "medium",
+        "what_it_tests": "Yêu cầu chỉ trình bày dữ liệu đã có phải dùng format(template=sections), không gọi papers hoặc lookup để tìm lại."
+      }
+    },
+    {
+      "id": "G010",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Hãy gửi digest paper này lên Telegram; trước tiên cần hỏi mình xác nhận."
+        },
+        {
+          "role": "user",
+          "content": "Tôi xác nhận gửi đúng nội dung 'Digest: 3 paper về RAG' lên Telegram."
+        }
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "send",
+            "args": {
+              "text": "Digest: 3 paper về RAG",
+              "confirmed": true
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_send_after_confirmation",
+        "difficulty": "hard",
+        "what_it_tests": "Sau xác nhận rõ ràng ở lượt hiện tại, agent mới được gọi send với confirmed=true và giữ nguyên nội dung đã duyệt."
+      }
+    }
+  ]
 }
