@@ -1,0 +1,567 @@
+{
+  "transcript_id": "v3_openrouter_20260729T174439560669",
+  "version": "v3",
+  "artifact_version": "v3+pc38d82b22688+t307e7502377d",
+  "prompt_hash": "c38d82b22688da2cc5767bbe24a0d0a8409ddd989134f381c1a950e361c7aa80",
+  "tools_hash": "307e7502377d709d44e0d1a72fa2baf98ee48d07a4c33091745a59123bb5e106",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 10,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T17:44:39",
+  "updated_at": "2026-07-29T17:47:20",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T17:44:39",
+      "user": "Tìm 5 bài báo mới nhất về Retrieval-Augmented Generation.",
+      "status": "answered",
+      "assistant_text": "Dưới đây là 5 bài báo mới nhất về Retrieval-Augmented Generation:\n\n1. **Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs**\n   - **Tác giả**: Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n   - **Ngày xuất bản**: 28 tháng 7, 2026\n   - **Tóm tắt**: Nghiên cứu về việc phát hiện sự không nhất quán giữa các phương thức thông tin khác nhau như văn bản, bảng và đồ thị tri thức. Bài báo giới thiệu một khung tự động có tên là Kontrast để so sánh các câu trả lời dựa trên bảng với bằng chứng từ KG.\n   - **URL**: [arXiv:2607.25959v1](http://arxiv.org/abs/2607.25959v1)\n\n2. **Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs**\n   - **Tác giả**: Chandan Kumar Sah, Xiaoli Lian, Li Zhang\n   - **Ngày xuất bản**: 28 tháng 7, 2026\n   - **Tóm tắt**: Nghiên cứu về việc cải thiện việc trả lời câu hỏi thông qua việc sử dụng sự tự tin từ các mô hình ngôn ngữ. Phương pháp BeyondUncertainty được giới thiệu để tối ưu hóa việc truy xuất thông tin.\n   - **URL**: [arXiv:2607.25600v1](http://arxiv.org/abs/2607.25600v1)\n\n3. **The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers**\n   - **Tác giả**: Zhe Xu, Prachi Agrawal, Kavosh Asadi, và nhiều tác giả khác\n   - **Ngày xuất bản**: 28 tháng 7, 2026\n   - **Tóm tắt**: Bài báo này đề xuất một kiến trúc hai tháp mới cho việc truy xuất thông tin, sử dụng các mô hình ngôn ngữ như là các nền tảng đại diện thay vì các động cơ sinh.\n   - **URL**: [arXiv:2607.25346v1](http://arxiv.org/abs/2607.25346v1)\n\n4. **ScoreShield: Differentially Private Release of Similarity Scores**\n   - **Tác giả**: Behrooz Razeghi, Parsa Rahimi\n   - **Ngày xuất bản**: 27 tháng 7, 2026\n   - **Tóm tắt**: Nghiên cứu về việc phát hành các điểm số tương đồng một cách riêng tư, nhằm giảm thiểu rủi ro rò rỉ thông tin trong các ứng dụng như nhận diện khuôn mặt và truy xuất thông tin.\n   - **URL**: [arXiv:2607.25041v1](http://arxiv.org/abs/2607.25041v1)\n\n5. **Automatic Knowledge Graph Construction and Query for Earthquake Catalogs**\n   - **Tác giả**: Yuxin Zhou, Huai Zhang, S. Mostafa Mousavi\n   - **Ngày xuất bản**: 27 tháng 7, 2026\n   - **Tóm tắt**: Bài báo trình bày ứng dụng của GraphRAG trong việc xây dựng và truy vấn các đồ thị tri thức từ các bản ghi động đất mà không cần cấu trúc dữ liệu thủ công.\n   - **URL**: [arXiv:2607.24984v1](http://arxiv.org/abs/2607.24984v1)\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "Retrieval-Augmented Generation",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "Retrieval-Augmented Generation",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Retrieval-Augmented Generation",
+                "api_query": "all:Retrieval-Augmented AND all:Generation",
+                "total_results": 7424,
+                "items": [
+                  {
+                    "arxiv_id": "2607.25959v1",
+                    "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                    "summary": "Wikipedia and Wikidata are widely used for information access, LLM pre-training, and retrieval-augmented generation. Their knowledge is deeply connected but scattered across text, tables, and knowledge graphs. This raises a practical question: when these modalities disagree, how can we detect and explain the conflict? We study this problem as \\emph{modality-level inconsistency detection}. We first introduce a taxonomy of cross-modal knowledge inconsistencies, covering information granularity differences, direct conflicts, temporal changes, and KG incompleteness. We then present \\textsc{Kontrast}, an automatic framework that uses Text-to-SPARQL and LLM reasoning to compare table-based answers with KG evidence and categorize the resulting inconsistencies. Experiments on various Table-QA datasets show that cross-modal inconsistencies are common and informative. They reveal not only true knowledge conflicts, but also missing KG structure and temporal mismatches while being limited by Text-to-SPARQL errors and noise. Our analysis shows that text, tables, and KGs can complement and correct one another through systematic comparison. \\textsc{Kontrast} provides a practical tool for large-scale knowledge auditing and establishes a benchmark for future work on cross-modal knowledge consistency. Code and data are available at https://github.com/ECLADATTA/KONTRAST.",
+                    "authors": [
+                      "Fanfu Wei",
+                      "Thibault Ehrhart",
+                      "Raphaël Troncy"
+                    ],
+                    "published": "2026-07-28T16:43:56Z",
+                    "updated": "2026-07-28T16:43:56Z",
+                    "url": "http://arxiv.org/abs/2607.25959v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25959v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25600v1",
+                    "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                    "summary": "Retrieval-augmented generation improves knowledge-intensive question answering, but indiscriminate retrieval can introduce irrelevant evidence and unnecessary computation. We investigate whether verbalized confidence from black-box language models can serve as an actionable signal for retrieval routing. Our method, BeyondUncertainty, first elicits a structured provisional answer and confidence estimate, then applies a model-specific threshold selected on held-out validation data and frozen before test evaluation. Low-confidence questions receive top-$5$ TF--IDF retrieval followed by a second answer call, whereas high-confidence questions return the provisional answer directly. We evaluate 27,000 policy instances across six QA benchmarks, three model families, and three retrieval policies. BeyondUncertainty achieves $0.483$ mean token-level F1, compared with $0.467$ for always retrieval and $0.401$ for no retrieval, while reducing retrieved passages by $20.4\\%$ relative to always retrieval. When matched on the number of questions routed to retrieval within each dataset--model cell, it outperforms a post-hoc random allocation in 17 of 18 settings, with an average gain of 0.024 F1. Although poorly calibrated as an absolute probability, probe uncertainty modestly predicts question-level retrieval benefit (AUROC $=0.628$). However, the additional probe increases total token usage by $28.2\\%$, revealing a trade-off between more selective evidence acquisition and end-to-end token efficiency.",
+                    "authors": [
+                      "Chandan Kumar Sah",
+                      "Xiaoli Lian",
+                      "Li Zhang"
+                    ],
+                    "published": "2026-07-28T11:30:25Z",
+                    "updated": "2026-07-28T11:30:25Z",
+                    "url": "http://arxiv.org/abs/2607.25600v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25600v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25346v1",
+                    "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                    "summary": "Large Language Models (LLMs) have emerged as powerful assets for recommender systems. However, deploying them as generative recommenders or zero-shot rankers at web-scale remains bottlenecked by prohibitive computational overhead and grounding challenges. In this paper, we revitalize the classic, highly efficient two-tower retrieval architecture by adapting LLMs as semantic representation backbones rather than generative engines. We introduce an LLM-native two-tower framework engineered for high-throughput, large-scale retrieval. Our architecture introduces several key innovations: a shared LLM encoder for joint user-item modeling, End-Of-Sentence (EOS) token pooling for compact sequence embedding, cross-dataset transfer learning, knowledge distillation from powerful cross-encoder teachers, and latent reasoning within the user tower. Extensive evaluation across three public benchmarks demonstrates that cross-encoder architecture outperforms current state-of-the-art (SoTA) models, while the efficient two-tower student achieves SoTA-comparable retrieval performance. Furthermore, experiments on internal large-scale production systems yield substantial topline retrieval improvements along with high resilience to model staleness and superior data scaling. Our findings demonstrate that when augmented with modern representation learning, the traditional two-tower paradigm remains an exceptionally competitive and practical solution for industrial retrieval systems.",
+                    "authors": [
+                      "Zhe Xu",
+                      "Prachi Agrawal",
+                      "Kavosh Asadi",
+                      "Tianyi Chen",
+                      "Carl Hu",
+                      "Justin Johnson",
+                      "Wuwei Lan",
+                      "Mingfu Liang",
+                      "Xi Liu",
+                      "Tik On Lui",
+                      "Oladipo Ositelu",
+                      "Sandeep Pandey",
+                      "Ankit Peshin",
+                      "Feng Qi",
+                      "Anil Ramakrishna",
+                      "Kaushik Rangadurai",
+                      "Frank Shyu",
+                      "Luke Simon",
+                      "Yang Yang",
+                      "Chiyu Zhang"
+                    ],
+                    "published": "2026-07-28T06:47:53Z",
+                    "updated": "2026-07-28T06:47:53Z",
+                    "url": "http://arxiv.org/abs/2607.25346v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25346v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25041v1",
+                    "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                    "summary": "A growing number of applications, such as biometrics and retrieval-augmented generation (RAG), rely on cosine similarity scores computed between vector embeddings of text, images, or audio. These systems return similarity scores through their APIs for ranking and verification. However, such releases can leak information about individual records and enable membership inference attacks. While differential privacy (DP) provides a principled metric for quantifying attack risks, naïve application of DP mechanisms---such as adding i.i.d. Gaussian noise to vector entries---leads to excessive distortion (i.e., low utility) at a given privacy constraint that scales poorly with the number of released scores. We propose \\textsc{ScoreShield}, a perturb-then-project mechanism that adds Gaussian noise calibrated to global sensitivity of the chosen score release regime and then projects the result onto the feasibility set of valid cosine objects. \\textsc{ScoreShield} satisfies $(\\varepsilon,δ)$-DP for releasing similarity score vectors and Gram matrices. We provide utility guarantees for the exact Frobenius metric projection used in the risk analysis, and prove convergence to feasibility for the practical averaged alternating-projection solver used for large-scale Gram releases. For full pairwise cosine Gram release under record-level replacement adjacency, the exact-projection bound improves the $n$-dependence of squared Frobenius risk from $Θ(n^3)$ for the naïve Gaussian baseline to $\\mathcal{O}(n^2)$ for fixed privacy parameters, with sharper local bounds at low-rank Grams. We evaluate the mechanism across RAG, face recognition, semantic retrieval, image similarity, and recommender-system tasks.",
+                    "authors": [
+                      "Behrooz Razeghi",
+                      "Parsa Rahimi"
+                    ],
+                    "published": "2026-07-27T20:02:28Z",
+                    "updated": "2026-07-27T20:02:28Z",
+                    "url": "http://arxiv.org/abs/2607.25041v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25041v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR",
+                      "cs.CR",
+                      "cs.CV",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.24984v1",
+                    "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                    "summary": "In recent years, the number of events in earthquake catalogs has significantly increased due to the utilization of more effective deep learning based detectors and phase pickers but answering open ended questions such as what characterizes this sequence? remains constrained by rigid spatiotemporal windowing and subjective expert interpretation. We present the first systematic application of graph based retrieval augmented generation GraphRAG directly to raw, tabular catalog records across three independently featured catalogs, a reservoir adjacent swarm, the 2019 Ridgecrest tectonic sequence, and the 2021 Maduo Mw7.4 aftershock sequence. Without the need for manual data structuring, the pipeline builds structurally complete, queryable knowledge graphs for all three. Rigorous evaluation individually verified against catalog derived ground truth and a rule based reference graph exposes failure modes, and four seismology informed prompt fixes eliminate all targeted fabrications while sharply improving mechanism reasoning. A vector RAG baseline demonstrates the graph layers distinctive value, catalog wide summarization and temporal stage comparison. In addition, we have identified two main pitfalls that need attention. GraphRAG thus offers a practical, transferable, near zero cost query interface for earthquake catalogs, where careful prompting ensures the results are consistently accurate and trustworthy.",
+                    "authors": [
+                      "Yuxin Zhou",
+                      "Huai Zhang",
+                      "S. Mostafa Mousavi"
+                    ],
+                    "published": "2026-07-27T18:39:05Z",
+                    "updated": "2026-07-27T18:39:05Z",
+                    "url": "http://arxiv.org/abs/2607.24984v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.24984v1",
+                    "source": "arxiv.org",
+                    "primary_category": "physics.geo-ph",
+                    "categories": [
+                      "physics.geo-ph",
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là 5 bài báo mới nhất về Retrieval-Augmented Generation:\n\n1. **Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs**\n   - **Tác giả**: Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n   - **Ngày xuất bản**: 28 tháng 7, 2026\n   - **Tóm tắt**: Nghiên cứu về việc phát hiện sự không nhất quán giữa các phương thức thông tin khác nhau như văn bản, bảng và đồ thị tri thức. Bài báo giới thiệu một khung tự động có tên là Kontrast để so sánh các câu trả lời dựa trên bảng với bằng chứng từ KG.\n   - **URL**: [arXiv:2607.25959v1](http://arxiv.org/abs/2607.25959v1)\n\n2. **Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs**\n   - **Tác giả**: Chandan Kumar Sah, Xiaoli Lian, Li Zhang\n   - **Ngày xuất bản**: 28 tháng 7, 2026\n   - **Tóm tắt**: Nghiên cứu về việc cải thiện việc trả lời câu hỏi thông qua việc sử dụng sự tự tin từ các mô hình ngôn ngữ. Phương pháp BeyondUncertainty được giới thiệu để tối ưu hóa việc truy xuất thông tin.\n   - **URL**: [arXiv:2607.25600v1](http://arxiv.org/abs/2607.25600v1)\n\n3. **The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers**\n   - **Tác giả**: Zhe Xu, Prachi Agrawal, Kavosh Asadi, và nhiều tác giả khác\n   - **Ngày xuất bản**: 28 tháng 7, 2026\n   - **Tóm tắt**: Bài báo này đề xuất một kiến trúc hai tháp mới cho việc truy xuất thông tin, sử dụng các mô hình ngôn ngữ như là các nền tảng đại diện thay vì các động cơ sinh.\n   - **URL**: [arXiv:2607.25346v1](http://arxiv.org/abs/2607.25346v1)\n\n4. **ScoreShield: Differentially Private Release of Similarity Scores**\n   - **Tác giả**: Behrooz Razeghi, Parsa Rahimi\n   - **Ngày xuất bản**: 27 tháng 7, 2026\n   - **Tóm tắt**: Nghiên cứu về việc phát hành các điểm số tương đồng một cách riêng tư, nhằm giảm thiểu rủi ro rò rỉ thông tin trong các ứng dụng như nhận diện khuôn mặt và truy xuất thông tin.\n   - **URL**: [arXiv:2607.25041v1](http://arxiv.org/abs/2607.25041v1)\n\n5. **Automatic Knowledge Graph Construction and Query for Earthquake Catalogs**\n   - **Tác giả**: Yuxin Zhou, Huai Zhang, S. Mostafa Mousavi\n   - **Ngày xuất bản**: 27 tháng 7, 2026\n   - **Tóm tắt**: Bài báo trình bày ứng dụng của GraphRAG trong việc xây dựng và truy vấn các đồ thị tri thức từ các bản ghi động đất mà không cần cấu trúc dữ liệu thủ công.\n   - **URL**: [arXiv:2607.24984v1](http://arxiv.org/abs/2607.24984v1)\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Retrieval-Augmented Generation",
+            "max_results": 5,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Retrieval-Augmented Generation",
+            "api_query": "all:Retrieval-Augmented AND all:Generation",
+            "total_results": 7424,
+            "items": [
+              {
+                "arxiv_id": "2607.25959v1",
+                "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                "summary": "Wikipedia and Wikidata are widely used for information access, LLM pre-training, and retrieval-augmented generation. Their knowledge is deeply connected but scattered across text, tables, and knowledge graphs. This raises a practical question: when these modalities disagree, how can we detect and explain the conflict? We study this problem as \\emph{modality-level inconsistency detection}. We first introduce a taxonomy of cross-modal knowledge inconsistencies, covering information granularity differences, direct conflicts, temporal changes, and KG incompleteness. We then present \\textsc{Kontrast}, an automatic framework that uses Text-to-SPARQL and LLM reasoning to compare table-based answers with KG evidence and categorize the resulting inconsistencies. Experiments on various Table-QA datasets show that cross-modal inconsistencies are common and informative. They reveal not only true knowledge conflicts, but also missing KG structure and temporal mismatches while being limited by Text-to-SPARQL errors and noise. Our analysis shows that text, tables, and KGs can complement and correct one another through systematic comparison. \\textsc{Kontrast} provides a practical tool for large-scale knowledge auditing and establishes a benchmark for future work on cross-modal knowledge consistency. Code and data are available at https://github.com/ECLADATTA/KONTRAST.",
+                "authors": [
+                  "Fanfu Wei",
+                  "Thibault Ehrhart",
+                  "Raphaël Troncy"
+                ],
+                "published": "2026-07-28T16:43:56Z",
+                "updated": "2026-07-28T16:43:56Z",
+                "url": "http://arxiv.org/abs/2607.25959v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25959v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25600v1",
+                "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                "summary": "Retrieval-augmented generation improves knowledge-intensive question answering, but indiscriminate retrieval can introduce irrelevant evidence and unnecessary computation. We investigate whether verbalized confidence from black-box language models can serve as an actionable signal for retrieval routing. Our method, BeyondUncertainty, first elicits a structured provisional answer and confidence estimate, then applies a model-specific threshold selected on held-out validation data and frozen before test evaluation. Low-confidence questions receive top-$5$ TF--IDF retrieval followed by a second answer call, whereas high-confidence questions return the provisional answer directly. We evaluate 27,000 policy instances across six QA benchmarks, three model families, and three retrieval policies. BeyondUncertainty achieves $0.483$ mean token-level F1, compared with $0.467$ for always retrieval and $0.401$ for no retrieval, while reducing retrieved passages by $20.4\\%$ relative to always retrieval. When matched on the number of questions routed to retrieval within each dataset--model cell, it outperforms a post-hoc random allocation in 17 of 18 settings, with an average gain of 0.024 F1. Although poorly calibrated as an absolute probability, probe uncertainty modestly predicts question-level retrieval benefit (AUROC $=0.628$). However, the additional probe increases total token usage by $28.2\\%$, revealing a trade-off between more selective evidence acquisition and end-to-end token efficiency.",
+                "authors": [
+                  "Chandan Kumar Sah",
+                  "Xiaoli Lian",
+                  "Li Zhang"
+                ],
+                "published": "2026-07-28T11:30:25Z",
+                "updated": "2026-07-28T11:30:25Z",
+                "url": "http://arxiv.org/abs/2607.25600v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25600v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25346v1",
+                "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                "summary": "Large Language Models (LLMs) have emerged as powerful assets for recommender systems. However, deploying them as generative recommenders or zero-shot rankers at web-scale remains bottlenecked by prohibitive computational overhead and grounding challenges. In this paper, we revitalize the classic, highly efficient two-tower retrieval architecture by adapting LLMs as semantic representation backbones rather than generative engines. We introduce an LLM-native two-tower framework engineered for high-throughput, large-scale retrieval. Our architecture introduces several key innovations: a shared LLM encoder for joint user-item modeling, End-Of-Sentence (EOS) token pooling for compact sequence embedding, cross-dataset transfer learning, knowledge distillation from powerful cross-encoder teachers, and latent reasoning within the user tower. Extensive evaluation across three public benchmarks demonstrates that cross-encoder architecture outperforms current state-of-the-art (SoTA) models, while the efficient two-tower student achieves SoTA-comparable retrieval performance. Furthermore, experiments on internal large-scale production systems yield substantial topline retrieval improvements along with high resilience to model staleness and superior data scaling. Our findings demonstrate that when augmented with modern representation learning, the traditional two-tower paradigm remains an exceptionally competitive and practical solution for industrial retrieval systems.",
+                "authors": [
+                  "Zhe Xu",
+                  "Prachi Agrawal",
+                  "Kavosh Asadi",
+                  "Tianyi Chen",
+                  "Carl Hu",
+                  "Justin Johnson",
+                  "Wuwei Lan",
+                  "Mingfu Liang",
+                  "Xi Liu",
+                  "Tik On Lui",
+                  "Oladipo Ositelu",
+                  "Sandeep Pandey",
+                  "Ankit Peshin",
+                  "Feng Qi",
+                  "Anil Ramakrishna",
+                  "Kaushik Rangadurai",
+                  "Frank Shyu",
+                  "Luke Simon",
+                  "Yang Yang",
+                  "Chiyu Zhang"
+                ],
+                "published": "2026-07-28T06:47:53Z",
+                "updated": "2026-07-28T06:47:53Z",
+                "url": "http://arxiv.org/abs/2607.25346v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25346v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25041v1",
+                "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                "summary": "A growing number of applications, such as biometrics and retrieval-augmented generation (RAG), rely on cosine similarity scores computed between vector embeddings of text, images, or audio. These systems return similarity scores through their APIs for ranking and verification. However, such releases can leak information about individual records and enable membership inference attacks. While differential privacy (DP) provides a principled metric for quantifying attack risks, naïve application of DP mechanisms---such as adding i.i.d. Gaussian noise to vector entries---leads to excessive distortion (i.e., low utility) at a given privacy constraint that scales poorly with the number of released scores. We propose \\textsc{ScoreShield}, a perturb-then-project mechanism that adds Gaussian noise calibrated to global sensitivity of the chosen score release regime and then projects the result onto the feasibility set of valid cosine objects. \\textsc{ScoreShield} satisfies $(\\varepsilon,δ)$-DP for releasing similarity score vectors and Gram matrices. We provide utility guarantees for the exact Frobenius metric projection used in the risk analysis, and prove convergence to feasibility for the practical averaged alternating-projection solver used for large-scale Gram releases. For full pairwise cosine Gram release under record-level replacement adjacency, the exact-projection bound improves the $n$-dependence of squared Frobenius risk from $Θ(n^3)$ for the naïve Gaussian baseline to $\\mathcal{O}(n^2)$ for fixed privacy parameters, with sharper local bounds at low-rank Grams. We evaluate the mechanism across RAG, face recognition, semantic retrieval, image similarity, and recommender-system tasks.",
+                "authors": [
+                  "Behrooz Razeghi",
+                  "Parsa Rahimi"
+                ],
+                "published": "2026-07-27T20:02:28Z",
+                "updated": "2026-07-27T20:02:28Z",
+                "url": "http://arxiv.org/abs/2607.25041v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25041v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR",
+                  "cs.CR",
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.24984v1",
+                "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                "summary": "In recent years, the number of events in earthquake catalogs has significantly increased due to the utilization of more effective deep learning based detectors and phase pickers but answering open ended questions such as what characterizes this sequence? remains constrained by rigid spatiotemporal windowing and subjective expert interpretation. We present the first systematic application of graph based retrieval augmented generation GraphRAG directly to raw, tabular catalog records across three independently featured catalogs, a reservoir adjacent swarm, the 2019 Ridgecrest tectonic sequence, and the 2021 Maduo Mw7.4 aftershock sequence. Without the need for manual data structuring, the pipeline builds structurally complete, queryable knowledge graphs for all three. Rigorous evaluation individually verified against catalog derived ground truth and a rule based reference graph exposes failure modes, and four seismology informed prompt fixes eliminate all targeted fabrications while sharply improving mechanism reasoning. A vector RAG baseline demonstrates the graph layers distinctive value, catalog wide summarization and temporal stage comparison. In addition, we have identified two main pitfalls that need attention. GraphRAG thus offers a practical, transferable, near zero cost query interface for earthquake catalogs, where careful prompting ensures the results are consistently accurate and trustworthy.",
+                "authors": [
+                  "Yuxin Zhou",
+                  "Huai Zhang",
+                  "S. Mostafa Mousavi"
+                ],
+                "published": "2026-07-27T18:39:05Z",
+                "updated": "2026-07-27T18:39:05Z",
+                "url": "http://arxiv.org/abs/2607.24984v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.24984v1",
+                "source": "arxiv.org",
+                "primary_category": "physics.geo-ph",
+                "categories": [
+                  "physics.geo-ph",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T17:44:53"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T17:45:03",
+      "user": "tác giả Fanfu Wei là gì",
+      "status": "answered",
+      "assistant_text": "Xin lỗi, nhưng tôi không thể tìm thấy thông tin cụ thể về tác giả Fanfu Wei tại thời điểm này. Nếu bạn có thêm thông tin hoặc ngữ cảnh về tác giả này, tôi có thể giúp bạn tốt hơn. Bạn có muốn tìm kiếm thông tin khác không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "Fanfu Wei",
+                "topic": "general"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "Fanfu Wei",
+                "topic": "general"
+              },
+              "result": {
+                "tool": "web_search",
+                "error": "RuntimeError",
+                "message": "Missing TAVILY_API_KEY env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Xin lỗi, nhưng tôi không thể tìm thấy thông tin cụ thể về tác giả Fanfu Wei tại thời điểm này. Nếu bạn có thêm thông tin hoặc ngữ cảnh về tác giả này, tôi có thể giúp bạn tốt hơn. Bạn có muốn tìm kiếm thông tin khác không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "Fanfu Wei",
+            "topic": "general"
+          },
+          "result": {
+            "tool": "web_search",
+            "error": "RuntimeError",
+            "message": "Missing TAVILY_API_KEY env var"
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T17:45:07"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-07-29T17:45:40",
+      "user": "tác giả Fanfu Wei có ở trong 1 trong 5 bài báo bạn vừa tìm không",
+      "status": "answered",
+      "assistant_text": "Có, tác giả Fanfu Wei xuất hiện trong bài báo đầu tiên trong danh sách mà tôi đã cung cấp:\n\n1. **Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs**\n   - **Tác giả**: Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n   - **Ngày xuất bản**: 28 tháng 7, 2026\n   - **URL**: [arXiv:2607.25959v1](http://arxiv.org/abs/2607.25959v1)\n\nNếu bạn cần thêm thông tin về bài báo này hoặc tác giả, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Có, tác giả Fanfu Wei xuất hiện trong bài báo đầu tiên trong danh sách mà tôi đã cung cấp:\n\n1. **Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs**\n   - **Tác giả**: Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n   - **Ngày xuất bản**: 28 tháng 7, 2026\n   - **URL**: [arXiv:2607.25959v1](http://arxiv.org/abs/2607.25959v1)\n\nNếu bạn cần thêm thông tin về bài báo này hoặc tác giả, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T17:45:44"
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-07-29T17:46:03",
+      "user": "thông tin quan trọng của bài báo",
+      "status": "answered",
+      "assistant_text": "Dưới đây là thông tin quan trọng về bài báo \"Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs\":\n\n- **Tác giả**: Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n- **Ngày xuất bản**: 28 tháng 7, 2026\n- **Tóm tắt**: Bài báo nghiên cứu về việc phát hiện sự không nhất quán giữa các phương thức thông tin khác nhau như văn bản, bảng và đồ thị tri thức. Tác giả giới thiệu một khung tự động có tên là Kontrast, sử dụng Text-to-SPARQL và lý luận từ mô hình ngôn ngữ lớn (LLM) để so sánh các câu trả lời dựa trên bảng với bằng chứng từ đồ thị tri thức (KG) và phân loại các sự không nhất quán. Nghiên cứu cho thấy sự không nhất quán giữa các phương thức là phổ biến và có thể cung cấp thông tin hữu ích, đồng thời chỉ ra rằng các phương thức này có thể bổ sung và sửa chữa lẫn nhau thông qua so sánh hệ thống.\n\n- **Từ khóa**: Knowledge Graphs, Knowledge Inconsistencies, Text-to-SPARQL\n\n- **URL bài báo**: [arXiv:2607.25959v1](https://arxiv.org/abs/2607.25959v1)\n\nNếu bạn cần thêm thông tin chi tiết hoặc có câu hỏi khác, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "paper_text",
+              "args": {
+                "arxiv_url": "2607.25959v1",
+                "max_pages": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "paper_text",
+              "args": {
+                "arxiv_url": "2607.25959v1",
+                "max_pages": 5
+              },
+              "result": {
+                "tool": "get_arxiv_paper_text",
+                "arxiv_id": "2607.25959v1",
+                "url": "https://arxiv.org/abs/2607.25959v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25959v1.pdf",
+                "pdf_path": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2607.25959v1.pdf",
+                "txt_path": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2607.25959v1.txt",
+                "page_count": 20,
+                "pages_read": 5,
+                "chars_returned": 8000,
+                "items": [
+                  {
+                    "title": "arXiv paper 2607.25959v1",
+                    "url": "https://arxiv.org/abs/2607.25959v1",
+                    "source": "arxiv.org",
+                    "summary": "Detecting Knowledge Inconsistencies Across Text,\nTables, and Knowledge Graphs\nFanfu Wei1[0009−0008−4397−0492]⋆ , Thibault Ehrhart1[0000−0003−1377−8279], and\nRaphaël Troncy1[0000−0003−0457−1436]\nEURECOM, France\n{fanfu.wei, thibault.ehrhart, raphael.troncy}@eurecom.fr\nAbstract.Wikipedia and Wikidata are widely used for information ac-\ncess,LLMpre-training,andretrieval-augmentedgeneration.Theirknowl-\nedge is deeply connected but scattered across text, tables, and knowledge\ngraphs. This raises a practical question: when these modalities disagree,\nhow can we detect and explain the conflict? We study this problem as\nmodality-level inconsistency detection. We first introduce a taxonomy of\ncross-modal knowledge inconsistencies, covering information granularity\ndifferences, direct conflicts, temporal changes, and KG incompleteness.\nWe then presentKontrast, an automatic framework that uses Text-\nto-SPARQL and LLM reasoning to compare table-based answers with\nKG evidence and categorize the resulting inconsistencies. Experiments\non various Table-QA datasets show that cross-modal inconsistencies are\ncommon and informative. They reveal not only true knowledge conflicts,\nbut also missing KG structure and temporal mismatches while being\nlimited by Text-to-SPARQL errors and noise. Our analysis shows that\ntext, tables, and KGs can complement and correct one another through\nsystematic comparison.Kontrastprovides a practical tool for large-\nscale knowledge auditing and establishes a benchmark for future work\non cross-modal knowledge consistency. Code and data are available at\nhttps://github.com/ECLADATTA/KONTRAST.\nKeywords:Knowledge Graphs·Knowledge Inconsistencies·Text-to-\nSPARQL\n1 Introduction\nWikipedia and Wikidata are two of the most widely used open knowledge re-\nsources on the Web. They support human information access and serve as im-\nportant knowledge sources for open-domain question answering [17], retrieval-\naugmented generation [19], large language model pre-training [3,12], and other\nknowledge-intensive applications. Their value comes from scale, openness, and\nconstant updates. These same properties, however, make consistency difficult to\nmaintain.\n⋆ Corresponding author.\narXiv:2607.25959v1  [cs.CL]  28 Jul 2026\n\n2 F. Wei et al.\nThis difficulty is amplified by the way knowledge is represented. The same\nfact may appear in a sentence, an infobox, or a table row of a Wikipedia article,\nand in a Wikidata statement. These representations are connected, but they are\nedited under different schemas, workflows, and update cycles. As a result, the\nsame question can receive different answers depending on whether we consult\ntext, tables, or the KG. A Wikipedia table may list the complete casting of a\nmovie while Wikidata contains only the lead actors; Wikidata may store country-\nspecific release dates for the movie while a table reports only a single year; an\nelevation value may differ between an infobox and Wikidata because the sources\nrefer to different measurement points. Such cases are not merely retrieval errors,\nthey revealmodality-level knowledge inconsistencies.\nRecent work has begun to study inconsistencies within Wikipedia. For ex-\nample, WikiContradict constructs a benchmark of conflicting textual claims and\nevaluates whether LLMs can recognize incompatible answers [14]. WikiCollide/-\nCLAIRE detects corpus-level inconsistencies by surfacing conflicting Wikipedia\npassages for human review [29]. These studies show that inconsistencies are com-\nmon and that automatic systems can help finding them. However, they mostly\nfocus on textual evidence which leaves an important gap: how to systematically\ndetect and categorize inconsistencies across text, tables, and KGs.\nTo address this gap, we need a setting where the same information needs\ncan be grounded in multiple modalities. Table-based question answering pro-\nvides such a hinge point. Its questions are grounded in Wikipedia tables or\ntables and table-relevant text, while recent Text-to-SPARQL models allow the\nsame questions to be queried against Wikidata. This creates a direct compari-\nson: the table-based answer represents Wikipedia table-text evidence, and the\nSPARQL result retrieves KG evidence. The consistent agreement provides mu-\ntual support. Inconsistent disagreement provides a signal for possible knowledge\nconflicts, missing KG structure, or temporal drift.\nIn this paper, we introduce the task ofmodality-level inconsistency detection:\ngiven a table-based question, its Wikipedia-grounded answer, and a KG answer\nobtained through Text-to-SPARQL querying, the goal is to determine whether\nthe modalities agree and to characterize the mismatch when they do not.\nWe introduceKontrast(KnowledgeContrast), an automatic system for\ndetecting and categorizing inconsistencies across text, tables, and KGs. Given a\ntable-based QA instance,Kontrastretrieves Wikidata KG evidence with Text-\nto-SPARQL and compares it with the Wikipedia-table-grounded answer using\nrule-based matching and LLM-based reasoning. Its central idea is to treat cross-\nmodal disagreement not as noise, but as a signal for knowledge reconciliation.\nFigure 1 depicts the overview of our system. Our contributions are:\n–We introduce modality-level inconsistency detection across text, tables, and\nKGs.\n–We propose a taxonomy of cross-modal knowledge inconsistencies, covering\ndirect conflicts, granularity differences, temporal changes, and KG incom-\npleteness.\n\nDetecting Cross-Modal Knowledge Inconsistencies 3\n–We presentKontrast, a system for detecting and categorizing inconsisten-\ncies across text, tables, and KGs.\n–We generate a new table-based QA dataset suitable for evaluatingKon-\ntrastand we show that cross-modal inconsistencies are measurable at scale\nand can reveal where modalities complement or correct each other.\n2 Preliminaries and Related Work\n2.1 Knowledge Conflict\nKnowledge conflict can be divided into three main directions: (i)Uncertainty\nin KG constructionstudies uncertainty arising from extracting, aligning, and\nfusing heterogeneous data into a KG. These discrepancies, termed knowledge\ndeltas, reflect the semantic nature of knowledge conflicts such as invalidity, am-\nbiguity, vagueness, fuzziness, timeliness, and incompleteness [15,9]. In parallel,\nWikiConflict offers a Wikidata revision-based dataset for conflicting data recon-\nciliation in KG construction [16]. (ii)Corpus-level inconsistencystudies contra-\ndictions inside large knowledge corpora such as Wikipedia. WikiContradict [14]\nand CLAIRE [29] show that real Wikipedia passages can support incompatible\nanswers and that LLM-based systems can help automate surfacing such conflicts\nfor human review. However, these works mainly treat conflict as disagreement\namong textual claims or retrieved passages. (iii)LLM and RAG conflictstudies\ndisagreement among retrieved sources or between evidence and a model’s para-\nmetric knowledge. Prior work examines how contextual and parametric knowl-\nedge affect QA [22], and analyzes conflicts from outdated knowledge, ambigu-\nity, misinformation, and inconsistent retrieval [34,21,4,35]. Surveys distinguish\ncontext–memory, inter-context, and intra-memory conflicts [38], while conflict-\naware QA benchmarks test whether systems can separate consensus from con-\nflicting answers [23].\n2.2 Table-based QA\nTablesstorerichstructuredknowledge,andexistingtable-basedQAdatasetscan\nagain be grouped into three categories: (i)Table QAuses a single table as evi-\ndence, oftenthrough table-to-text generationor questionannotation [24,25,26,7].\nExamples include FeTaQA that requires free-form reasoning over table cells,\nToTTo that focuses on faithful generation from highlighted cells, and NQ-Table\nthat extracts naturally asked questions grounded in Wikipedia tables or in-\nfoboxes [13,18]. (ii)Table-Text QAcombines tables with textual passages. Hy-\nbridQA and OTT-QA require multi-hop reasoning across both modalities [6,5].\nQAMPARI supports multi-answer questions with distributed W"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là thông tin quan trọng về bài báo \"Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs\":\n\n- **Tác giả**: Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n- **Ngày xuất bản**: 28 tháng 7, 2026\n- **Tóm tắt**: Bài báo nghiên cứu về việc phát hiện sự không nhất quán giữa các phương thức thông tin khác nhau như văn bản, bảng và đồ thị tri thức. Tác giả giới thiệu một khung tự động có tên là Kontrast, sử dụng Text-to-SPARQL và lý luận từ mô hình ngôn ngữ lớn (LLM) để so sánh các câu trả lời dựa trên bảng với bằng chứng từ đồ thị tri thức (KG) và phân loại các sự không nhất quán. Nghiên cứu cho thấy sự không nhất quán giữa các phương thức là phổ biến và có thể cung cấp thông tin hữu ích, đồng thời chỉ ra rằng các phương thức này có thể bổ sung và sửa chữa lẫn nhau thông qua so sánh hệ thống.\n\n- **Từ khóa**: Knowledge Graphs, Knowledge Inconsistencies, Text-to-SPARQL\n\n- **URL bài báo**: [arXiv:2607.25959v1](https://arxiv.org/abs/2607.25959v1)\n\nNếu bạn cần thêm thông tin chi tiết hoặc có câu hỏi khác, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "2607.25959v1",
+            "max_pages": 5
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2607.25959v1",
+            "url": "https://arxiv.org/abs/2607.25959v1",
+            "pdf_url": "https://arxiv.org/pdf/2607.25959v1.pdf",
+            "pdf_path": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2607.25959v1.pdf",
+            "txt_path": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2607.25959v1.txt",
+            "page_count": 20,
+            "pages_read": 5,
+            "chars_returned": 8000,
+            "items": [
+              {
+                "title": "arXiv paper 2607.25959v1",
+                "url": "https://arxiv.org/abs/2607.25959v1",
+                "source": "arxiv.org",
+                "summary": "Detecting Knowledge Inconsistencies Across Text,\nTables, and Knowledge Graphs\nFanfu Wei1[0009−0008−4397−0492]⋆ , Thibault Ehrhart1[0000−0003−1377−8279], and\nRaphaël Troncy1[0000−0003−0457−1436]\nEURECOM, France\n{fanfu.wei, thibault.ehrhart, raphael.troncy}@eurecom.fr\nAbstract.Wikipedia and Wikidata are widely used for information ac-\ncess,LLMpre-training,andretrieval-augmentedgeneration.Theirknowl-\nedge is deeply connected but scattered across text, tables, and knowledge\ngraphs. This raises a practical question: when these modalities disagree,\nhow can we detect and explain the conflict? We study this problem as\nmodality-level inconsistency detection. We first introduce a taxonomy of\ncross-modal knowledge inconsistencies, covering information granularity\ndifferences, direct conflicts, temporal changes, and KG incompleteness.\nWe then presentKontrast, an automatic framework that uses Text-\nto-SPARQL and LLM reasoning to compare table-based answers with\nKG evidence and categorize the resulting inconsistencies. Experiments\non various Table-QA datasets show that cross-modal inconsistencies are\ncommon and informative. They reveal not only true knowledge conflicts,\nbut also missing KG structure and temporal mismatches while being\nlimited by Text-to-SPARQL errors and noise. Our analysis shows that\ntext, tables, and KGs can complement and correct one another through\nsystematic comparison.Kontrastprovides a practical tool for large-\nscale knowledge auditing and establishes a benchmark for future work\non cross-modal knowledge consistency. Code and data are available at\nhttps://github.com/ECLADATTA/KONTRAST.\nKeywords:Knowledge Graphs·Knowledge Inconsistencies·Text-to-\nSPARQL\n1 Introduction\nWikipedia and Wikidata are two of the most widely used open knowledge re-\nsources on the Web. They support human information access and serve as im-\nportant knowledge sources for open-domain question answering [17], retrieval-\naugmented generation [19], large language model pre-training [3,12], and other\nknowledge-intensive applications. Their value comes from scale, openness, and\nconstant updates. These same properties, however, make consistency difficult to\nmaintain.\n⋆ Corresponding author.\narXiv:2607.25959v1  [cs.CL]  28 Jul 2026\n\n2 F. Wei et al.\nThis difficulty is amplified by the way knowledge is represented. The same\nfact may appear in a sentence, an infobox, or a table row of a Wikipedia article,\nand in a Wikidata statement. These representations are connected, but they are\nedited under different schemas, workflows, and update cycles. As a result, the\nsame question can receive different answers depending on whether we consult\ntext, tables, or the KG. A Wikipedia table may list the complete casting of a\nmovie while Wikidata contains only the lead actors; Wikidata may store country-\nspecific release dates for the movie while a table reports only a single year; an\nelevation value may differ between an infobox and Wikidata because the sources\nrefer to different measurement points. Such cases are not merely retrieval errors,\nthey revealmodality-level knowledge inconsistencies.\nRecent work has begun to study inconsistencies within Wikipedia. For ex-\nample, WikiContradict constructs a benchmark of conflicting textual claims and\nevaluates whether LLMs can recognize incompatible answers [14]. WikiCollide/-\nCLAIRE detects corpus-level inconsistencies by surfacing conflicting Wikipedia\npassages for human review [29]. These studies show that inconsistencies are com-\nmon and that automatic systems can help finding them. However, they mostly\nfocus on textual evidence which leaves an important gap: how to systematically\ndetect and categorize inconsistencies across text, tables, and KGs.\nTo address this gap, we need a setting where the same information needs\ncan be grounded in multiple modalities. Table-based question answering pro-\nvides such a hinge point. Its questions are grounded in Wikipedia tables or\ntables and table-relevant text, while recent Text-to-SPARQL models allow the\nsame questions to be queried against Wikidata. This creates a direct compari-\nson: the table-based answer represents Wikipedia table-text evidence, and the\nSPARQL result retrieves KG evidence. The consistent agreement provides mu-\ntual support. Inconsistent disagreement provides a signal for possible knowledge\nconflicts, missing KG structure, or temporal drift.\nIn this paper, we introduce the task ofmodality-level inconsistency detection:\ngiven a table-based question, its Wikipedia-grounded answer, and a KG answer\nobtained through Text-to-SPARQL querying, the goal is to determine whether\nthe modalities agree and to characterize the mismatch when they do not.\nWe introduceKontrast(KnowledgeContrast), an automatic system for\ndetecting and categorizing inconsistencies across text, tables, and KGs. Given a\ntable-based QA instance,Kontrastretrieves Wikidata KG evidence with Text-\nto-SPARQL and compares it with the Wikipedia-table-grounded answer using\nrule-based matching and LLM-based reasoning. Its central idea is to treat cross-\nmodal disagreement not as noise, but as a signal for knowledge reconciliation.\nFigure 1 depicts the overview of our system. Our contributions are:\n–We introduce modality-level inconsistency detection across text, tables, and\nKGs.\n–We propose a taxonomy of cross-modal knowledge inconsistencies, covering\ndirect conflicts, granularity differences, temporal changes, and KG incom-\npleteness.\n\nDetecting Cross-Modal Knowledge Inconsistencies 3\n–We presentKontrast, a system for detecting and categorizing inconsisten-\ncies across text, tables, and KGs.\n–We generate a new table-based QA dataset suitable for evaluatingKon-\ntrastand we show that cross-modal inconsistencies are measurable at scale\nand can reveal where modalities complement or correct each other.\n2 Preliminaries and Related Work\n2.1 Knowledge Conflict\nKnowledge conflict can be divided into three main directions: (i)Uncertainty\nin KG constructionstudies uncertainty arising from extracting, aligning, and\nfusing heterogeneous data into a KG. These discrepancies, termed knowledge\ndeltas, reflect the semantic nature of knowledge conflicts such as invalidity, am-\nbiguity, vagueness, fuzziness, timeliness, and incompleteness [15,9]. In parallel,\nWikiConflict offers a Wikidata revision-based dataset for conflicting data recon-\nciliation in KG construction [16]. (ii)Corpus-level inconsistencystudies contra-\ndictions inside large knowledge corpora such as Wikipedia. WikiContradict [14]\nand CLAIRE [29] show that real Wikipedia passages can support incompatible\nanswers and that LLM-based systems can help automate surfacing such conflicts\nfor human review. However, these works mainly treat conflict as disagreement\namong textual claims or retrieved passages. (iii)LLM and RAG conflictstudies\ndisagreement among retrieved sources or between evidence and a model’s para-\nmetric knowledge. Prior work examines how contextual and parametric knowl-\nedge affect QA [22], and analyzes conflicts from outdated knowledge, ambigu-\nity, misinformation, and inconsistent retrieval [34,21,4,35]. Surveys distinguish\ncontext–memory, inter-context, and intra-memory conflicts [38], while conflict-\naware QA benchmarks test whether systems can separate consensus from con-\nflicting answers [23].\n2.2 Table-based QA\nTablesstorerichstructuredknowledge,andexistingtable-basedQAdatasetscan\nagain be grouped into three categories: (i)Table QAuses a single table as evi-\ndence, oftenthrough table-to-text generationor questionannotation [24,25,26,7].\nExamples include FeTaQA that requires free-form reasoning over table cells,\nToTTo that focuses on faithful generation from highlighted cells, and NQ-Table\nthat extracts naturally asked questions grounded in Wikipedia tables or in-\nfoboxes [13,18]. (ii)Table-Text QAcombines tables with textual passages. Hy-\nbridQA and OTT-QA require multi-hop reasoning across both modalities [6,5].\nQAMPARI supports multi-answer questions with distributed W"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T17:46:11"
+    },
+    {
+      "turn_index": 5,
+      "started_at": "2026-07-29T17:47:13",
+      "user": "Có biểu đồ hay hình ảnh nào trong bài báo của tác FanfuWei không",
+      "status": "answered",
+      "assistant_text": "Bài báo \"Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs\" của tác giả Fanfu Wei không có hình ảnh hoặc biểu đồ cụ thể được trích dẫn trong phần nội dung mà tôi đã đọc. Tuy nhiên, bài báo có thể có hình ảnh hoặc biểu đồ trong phiên bản PDF đầy đủ.\n\nBạn có thể xem và tải xuống phiên bản PDF của bài báo tại đây: [PDF bài báo](https://arxiv.org/pdf/2607.25959v1.pdf).\n\nNếu bạn cần thêm thông tin hoặc có câu hỏi khác, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "paper_text",
+              "args": {
+                "arxiv_url": "2607.25959v1",
+                "max_pages": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "paper_text",
+              "args": {
+                "arxiv_url": "2607.25959v1",
+                "max_pages": 5
+              },
+              "result": {
+                "tool": "get_arxiv_paper_text",
+                "arxiv_id": "2607.25959v1",
+                "url": "https://arxiv.org/abs/2607.25959v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25959v1.pdf",
+                "pdf_path": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2607.25959v1.pdf",
+                "txt_path": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2607.25959v1.txt",
+                "page_count": 20,
+                "pages_read": 5,
+                "chars_returned": 8000,
+                "items": [
+                  {
+                    "title": "arXiv paper 2607.25959v1",
+                    "url": "https://arxiv.org/abs/2607.25959v1",
+                    "source": "arxiv.org",
+                    "summary": "Detecting Knowledge Inconsistencies Across Text,\nTables, and Knowledge Graphs\nFanfu Wei1[0009−0008−4397−0492]⋆ , Thibault Ehrhart1[0000−0003−1377−8279], and\nRaphaël Troncy1[0000−0003−0457−1436]\nEURECOM, France\n{fanfu.wei, thibault.ehrhart, raphael.troncy}@eurecom.fr\nAbstract.Wikipedia and Wikidata are widely used for information ac-\ncess,LLMpre-training,andretrieval-augmentedgeneration.Theirknowl-\nedge is deeply connected but scattered across text, tables, and knowledge\ngraphs. This raises a practical question: when these modalities disagree,\nhow can we detect and explain the conflict? We study this problem as\nmodality-level inconsistency detection. We first introduce a taxonomy of\ncross-modal knowledge inconsistencies, covering information granularity\ndifferences, direct conflicts, temporal changes, and KG incompleteness.\nWe then presentKontrast, an automatic framework that uses Text-\nto-SPARQL and LLM reasoning to compare table-based answers with\nKG evidence and categorize the resulting inconsistencies. Experiments\non various Table-QA datasets show that cross-modal inconsistencies are\ncommon and informative. They reveal not only true knowledge conflicts,\nbut also missing KG structure and temporal mismatches while being\nlimited by Text-to-SPARQL errors and noise. Our analysis shows that\ntext, tables, and KGs can complement and correct one another through\nsystematic comparison.Kontrastprovides a practical tool for large-\nscale knowledge auditing and establishes a benchmark for future work\non cross-modal knowledge consistency. Code and data are available at\nhttps://github.com/ECLADATTA/KONTRAST.\nKeywords:Knowledge Graphs·Knowledge Inconsistencies·Text-to-\nSPARQL\n1 Introduction\nWikipedia and Wikidata are two of the most widely used open knowledge re-\nsources on the Web. They support human information access and serve as im-\nportant knowledge sources for open-domain question answering [17], retrieval-\naugmented generation [19], large language model pre-training [3,12], and other\nknowledge-intensive applications. Their value comes from scale, openness, and\nconstant updates. These same properties, however, make consistency difficult to\nmaintain.\n⋆ Corresponding author.\narXiv:2607.25959v1  [cs.CL]  28 Jul 2026\n\n2 F. Wei et al.\nThis difficulty is amplified by the way knowledge is represented. The same\nfact may appear in a sentence, an infobox, or a table row of a Wikipedia article,\nand in a Wikidata statement. These representations are connected, but they are\nedited under different schemas, workflows, and update cycles. As a result, the\nsame question can receive different answers depending on whether we consult\ntext, tables, or the KG. A Wikipedia table may list the complete casting of a\nmovie while Wikidata contains only the lead actors; Wikidata may store country-\nspecific release dates for the movie while a table reports only a single year; an\nelevation value may differ between an infobox and Wikidata because the sources\nrefer to different measurement points. Such cases are not merely retrieval errors,\nthey revealmodality-level knowledge inconsistencies.\nRecent work has begun to study inconsistencies within Wikipedia. For ex-\nample, WikiContradict constructs a benchmark of conflicting textual claims and\nevaluates whether LLMs can recognize incompatible answers [14]. WikiCollide/-\nCLAIRE detects corpus-level inconsistencies by surfacing conflicting Wikipedia\npassages for human review [29]. These studies show that inconsistencies are com-\nmon and that automatic systems can help finding them. However, they mostly\nfocus on textual evidence which leaves an important gap: how to systematically\ndetect and categorize inconsistencies across text, tables, and KGs.\nTo address this gap, we need a setting where the same information needs\ncan be grounded in multiple modalities. Table-based question answering pro-\nvides such a hinge point. Its questions are grounded in Wikipedia tables or\ntables and table-relevant text, while recent Text-to-SPARQL models allow the\nsame questions to be queried against Wikidata. This creates a direct compari-\nson: the table-based answer represents Wikipedia table-text evidence, and the\nSPARQL result retrieves KG evidence. The consistent agreement provides mu-\ntual support. Inconsistent disagreement provides a signal for possible knowledge\nconflicts, missing KG structure, or temporal drift.\nIn this paper, we introduce the task ofmodality-level inconsistency detection:\ngiven a table-based question, its Wikipedia-grounded answer, and a KG answer\nobtained through Text-to-SPARQL querying, the goal is to determine whether\nthe modalities agree and to characterize the mismatch when they do not.\nWe introduceKontrast(KnowledgeContrast), an automatic system for\ndetecting and categorizing inconsistencies across text, tables, and KGs. Given a\ntable-based QA instance,Kontrastretrieves Wikidata KG evidence with Text-\nto-SPARQL and compares it with the Wikipedia-table-grounded answer using\nrule-based matching and LLM-based reasoning. Its central idea is to treat cross-\nmodal disagreement not as noise, but as a signal for knowledge reconciliation.\nFigure 1 depicts the overview of our system. Our contributions are:\n–We introduce modality-level inconsistency detection across text, tables, and\nKGs.\n–We propose a taxonomy of cross-modal knowledge inconsistencies, covering\ndirect conflicts, granularity differences, temporal changes, and KG incom-\npleteness.\n\nDetecting Cross-Modal Knowledge Inconsistencies 3\n–We presentKontrast, a system for detecting and categorizing inconsisten-\ncies across text, tables, and KGs.\n–We generate a new table-based QA dataset suitable for evaluatingKon-\ntrastand we show that cross-modal inconsistencies are measurable at scale\nand can reveal where modalities complement or correct each other.\n2 Preliminaries and Related Work\n2.1 Knowledge Conflict\nKnowledge conflict can be divided into three main directions: (i)Uncertainty\nin KG constructionstudies uncertainty arising from extracting, aligning, and\nfusing heterogeneous data into a KG. These discrepancies, termed knowledge\ndeltas, reflect the semantic nature of knowledge conflicts such as invalidity, am-\nbiguity, vagueness, fuzziness, timeliness, and incompleteness [15,9]. In parallel,\nWikiConflict offers a Wikidata revision-based dataset for conflicting data recon-\nciliation in KG construction [16]. (ii)Corpus-level inconsistencystudies contra-\ndictions inside large knowledge corpora such as Wikipedia. WikiContradict [14]\nand CLAIRE [29] show that real Wikipedia passages can support incompatible\nanswers and that LLM-based systems can help automate surfacing such conflicts\nfor human review. However, these works mainly treat conflict as disagreement\namong textual claims or retrieved passages. (iii)LLM and RAG conflictstudies\ndisagreement among retrieved sources or between evidence and a model’s para-\nmetric knowledge. Prior work examines how contextual and parametric knowl-\nedge affect QA [22], and analyzes conflicts from outdated knowledge, ambigu-\nity, misinformation, and inconsistent retrieval [34,21,4,35]. Surveys distinguish\ncontext–memory, inter-context, and intra-memory conflicts [38], while conflict-\naware QA benchmarks test whether systems can separate consensus from con-\nflicting answers [23].\n2.2 Table-based QA\nTablesstorerichstructuredknowledge,andexistingtable-basedQAdatasetscan\nagain be grouped into three categories: (i)Table QAuses a single table as evi-\ndence, oftenthrough table-to-text generationor questionannotation [24,25,26,7].\nExamples include FeTaQA that requires free-form reasoning over table cells,\nToTTo that focuses on faithful generation from highlighted cells, and NQ-Table\nthat extracts naturally asked questions grounded in Wikipedia tables or in-\nfoboxes [13,18]. (ii)Table-Text QAcombines tables with textual passages. Hy-\nbridQA and OTT-QA require multi-hop reasoning across both modalities [6,5].\nQAMPARI supports multi-answer questions with distributed W"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Bài báo \"Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs\" của tác giả Fanfu Wei không có hình ảnh hoặc biểu đồ cụ thể được trích dẫn trong phần nội dung mà tôi đã đọc. Tuy nhiên, bài báo có thể có hình ảnh hoặc biểu đồ trong phiên bản PDF đầy đủ.\n\nBạn có thể xem và tải xuống phiên bản PDF của bài báo tại đây: [PDF bài báo](https://arxiv.org/pdf/2607.25959v1.pdf).\n\nNếu bạn cần thêm thông tin hoặc có câu hỏi khác, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "2607.25959v1",
+            "max_pages": 5
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2607.25959v1",
+            "url": "https://arxiv.org/abs/2607.25959v1",
+            "pdf_url": "https://arxiv.org/pdf/2607.25959v1.pdf",
+            "pdf_path": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2607.25959v1.pdf",
+            "txt_path": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2607.25959v1.txt",
+            "page_count": 20,
+            "pages_read": 5,
+            "chars_returned": 8000,
+            "items": [
+              {
+                "title": "arXiv paper 2607.25959v1",
+                "url": "https://arxiv.org/abs/2607.25959v1",
+                "source": "arxiv.org",
+                "summary": "Detecting Knowledge Inconsistencies Across Text,\nTables, and Knowledge Graphs\nFanfu Wei1[0009−0008−4397−0492]⋆ , Thibault Ehrhart1[0000−0003−1377−8279], and\nRaphaël Troncy1[0000−0003−0457−1436]\nEURECOM, France\n{fanfu.wei, thibault.ehrhart, raphael.troncy}@eurecom.fr\nAbstract.Wikipedia and Wikidata are widely used for information ac-\ncess,LLMpre-training,andretrieval-augmentedgeneration.Theirknowl-\nedge is deeply connected but scattered across text, tables, and knowledge\ngraphs. This raises a practical question: when these modalities disagree,\nhow can we detect and explain the conflict? We study this problem as\nmodality-level inconsistency detection. We first introduce a taxonomy of\ncross-modal knowledge inconsistencies, covering information granularity\ndifferences, direct conflicts, temporal changes, and KG incompleteness.\nWe then presentKontrast, an automatic framework that uses Text-\nto-SPARQL and LLM reasoning to compare table-based answers with\nKG evidence and categorize the resulting inconsistencies. Experiments\non various Table-QA datasets show that cross-modal inconsistencies are\ncommon and informative. They reveal not only true knowledge conflicts,\nbut also missing KG structure and temporal mismatches while being\nlimited by Text-to-SPARQL errors and noise. Our analysis shows that\ntext, tables, and KGs can complement and correct one another through\nsystematic comparison.Kontrastprovides a practical tool for large-\nscale knowledge auditing and establishes a benchmark for future work\non cross-modal knowledge consistency. Code and data are available at\nhttps://github.com/ECLADATTA/KONTRAST.\nKeywords:Knowledge Graphs·Knowledge Inconsistencies·Text-to-\nSPARQL\n1 Introduction\nWikipedia and Wikidata are two of the most widely used open knowledge re-\nsources on the Web. They support human information access and serve as im-\nportant knowledge sources for open-domain question answering [17], retrieval-\naugmented generation [19], large language model pre-training [3,12], and other\nknowledge-intensive applications. Their value comes from scale, openness, and\nconstant updates. These same properties, however, make consistency difficult to\nmaintain.\n⋆ Corresponding author.\narXiv:2607.25959v1  [cs.CL]  28 Jul 2026\n\n2 F. Wei et al.\nThis difficulty is amplified by the way knowledge is represented. The same\nfact may appear in a sentence, an infobox, or a table row of a Wikipedia article,\nand in a Wikidata statement. These representations are connected, but they are\nedited under different schemas, workflows, and update cycles. As a result, the\nsame question can receive different answers depending on whether we consult\ntext, tables, or the KG. A Wikipedia table may list the complete casting of a\nmovie while Wikidata contains only the lead actors; Wikidata may store country-\nspecific release dates for the movie while a table reports only a single year; an\nelevation value may differ between an infobox and Wikidata because the sources\nrefer to different measurement points. Such cases are not merely retrieval errors,\nthey revealmodality-level knowledge inconsistencies.\nRecent work has begun to study inconsistencies within Wikipedia. For ex-\nample, WikiContradict constructs a benchmark of conflicting textual claims and\nevaluates whether LLMs can recognize incompatible answers [14]. WikiCollide/-\nCLAIRE detects corpus-level inconsistencies by surfacing conflicting Wikipedia\npassages for human review [29]. These studies show that inconsistencies are com-\nmon and that automatic systems can help finding them. However, they mostly\nfocus on textual evidence which leaves an important gap: how to systematically\ndetect and categorize inconsistencies across text, tables, and KGs.\nTo address this gap, we need a setting where the same information needs\ncan be grounded in multiple modalities. Table-based question answering pro-\nvides such a hinge point. Its questions are grounded in Wikipedia tables or\ntables and table-relevant text, while recent Text-to-SPARQL models allow the\nsame questions to be queried against Wikidata. This creates a direct compari-\nson: the table-based answer represents Wikipedia table-text evidence, and the\nSPARQL result retrieves KG evidence. The consistent agreement provides mu-\ntual support. Inconsistent disagreement provides a signal for possible knowledge\nconflicts, missing KG structure, or temporal drift.\nIn this paper, we introduce the task ofmodality-level inconsistency detection:\ngiven a table-based question, its Wikipedia-grounded answer, and a KG answer\nobtained through Text-to-SPARQL querying, the goal is to determine whether\nthe modalities agree and to characterize the mismatch when they do not.\nWe introduceKontrast(KnowledgeContrast), an automatic system for\ndetecting and categorizing inconsistencies across text, tables, and KGs. Given a\ntable-based QA instance,Kontrastretrieves Wikidata KG evidence with Text-\nto-SPARQL and compares it with the Wikipedia-table-grounded answer using\nrule-based matching and LLM-based reasoning. Its central idea is to treat cross-\nmodal disagreement not as noise, but as a signal for knowledge reconciliation.\nFigure 1 depicts the overview of our system. Our contributions are:\n–We introduce modality-level inconsistency detection across text, tables, and\nKGs.\n–We propose a taxonomy of cross-modal knowledge inconsistencies, covering\ndirect conflicts, granularity differences, temporal changes, and KG incom-\npleteness.\n\nDetecting Cross-Modal Knowledge Inconsistencies 3\n–We presentKontrast, a system for detecting and categorizing inconsisten-\ncies across text, tables, and KGs.\n–We generate a new table-based QA dataset suitable for evaluatingKon-\ntrastand we show that cross-modal inconsistencies are measurable at scale\nand can reveal where modalities complement or correct each other.\n2 Preliminaries and Related Work\n2.1 Knowledge Conflict\nKnowledge conflict can be divided into three main directions: (i)Uncertainty\nin KG constructionstudies uncertainty arising from extracting, aligning, and\nfusing heterogeneous data into a KG. These discrepancies, termed knowledge\ndeltas, reflect the semantic nature of knowledge conflicts such as invalidity, am-\nbiguity, vagueness, fuzziness, timeliness, and incompleteness [15,9]. In parallel,\nWikiConflict offers a Wikidata revision-based dataset for conflicting data recon-\nciliation in KG construction [16]. (ii)Corpus-level inconsistencystudies contra-\ndictions inside large knowledge corpora such as Wikipedia. WikiContradict [14]\nand CLAIRE [29] show that real Wikipedia passages can support incompatible\nanswers and that LLM-based systems can help automate surfacing such conflicts\nfor human review. However, these works mainly treat conflict as disagreement\namong textual claims or retrieved passages. (iii)LLM and RAG conflictstudies\ndisagreement among retrieved sources or between evidence and a model’s para-\nmetric knowledge. Prior work examines how contextual and parametric knowl-\nedge affect QA [22], and analyzes conflicts from outdated knowledge, ambigu-\nity, misinformation, and inconsistent retrieval [34,21,4,35]. Surveys distinguish\ncontext–memory, inter-context, and intra-memory conflicts [38], while conflict-\naware QA benchmarks test whether systems can separate consensus from con-\nflicting answers [23].\n2.2 Table-based QA\nTablesstorerichstructuredknowledge,andexistingtable-basedQAdatasetscan\nagain be grouped into three categories: (i)Table QAuses a single table as evi-\ndence, oftenthrough table-to-text generationor questionannotation [24,25,26,7].\nExamples include FeTaQA that requires free-form reasoning over table cells,\nToTTo that focuses on faithful generation from highlighted cells, and NQ-Table\nthat extracts naturally asked questions grounded in Wikipedia tables or in-\nfoboxes [13,18]. (ii)Table-Text QAcombines tables with textual passages. Hy-\nbridQA and OTT-QA require multi-hop reasoning across both modalities [6,5].\nQAMPARI supports multi-answer questions with distributed W"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T17:47:20"
+    }
+  ]
+}
