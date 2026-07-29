@@ -9,51 +9,86 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Gửi một câu hỏi cho người dùng."
+    description: >
+      Gửi một câu hỏi cho người dùng để lấy thêm thông tin còn thiếu hoặc xác nhận trước hành động nhạy cảm.
+      BẮT BUỘC dùng khi: (1) user muốn gửi/post/publish — gọi clarify(response_type="yes_no") TRƯỚC khi gọi send;
+      (2) user nhắc tới tweet/bài đăng mà không nêu tên người hoặc handle cụ thể;
+      (3) user nói 'bài này', 'link đó' mà không cung cấp URL nào trong hội thoại.
+      Dùng response_type="yes_no" cho xác nhận hành động; response_type="text" khi cần thông tin tự do;
+      response_type="choice" khi có danh sách lựa chọn cụ thể.
     parameters:
       type: object
       properties:
-        question: {type: string, default: "", description: "Câu hỏi"}
-        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "Kiểu trả lời"}
-        options: {type: array, default: [], items: {type: string}, description: "Các lựa chọn"}
+        question: {type: string, default: "", description: "Câu hỏi cụ thể, ngắn gọn"}
+        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "Kiểu trả lời: text (tự do), yes_no (xác nhận), choice (nhiều lựa chọn)"}
+        options: {type: array, default: [], items: {type: string}, description: "Danh sách lựa chọn — chỉ dùng khi response_type=choice"}
       required: [question]
 
   - name: timeline
-    description: "Lấy các bài đăng gần đây."
+    description: >
+      Lấy các bài đăng (tweet) gần đây của MỘT TÀI KHOẢN cụ thể trên X/Twitter.
+      Dùng khi user hỏi về bài đăng CỦA một người ("tweet của Sam Altman", "bài mới nhất của Karpathy").
+      KHÔNG dùng để tìm theo chủ đề — hãy dùng social_search thay thế.
+      QUAN TRỌNG: screenname phải là Twitter handle (không có @), không phải tên thường.
+      Mapping phổ biến: Sam Altman → sama | Elon Musk → elonmusk | Andrej Karpathy → karpathy
+      | Yann LeCun → ylecun | Geoffrey Hinton → geoffreyhinton.
+      Nếu không biết handle, gọi clarify trước.
+      Trích đúng số lượng từ yêu cầu của user vào tham số limit.
     parameters:
       type: object
       properties:
-        screenname: {type: string, default: "", description: "Tên tài khoản"}
-        limit: {type: integer, default: 5, description: "Số lượng"}
+        screenname: {type: string, default: "", description: "Twitter handle (không có @), ví dụ: sama, elonmusk, karpathy"}
+        limit: {type: integer, default: 5, description: "Số tweet cần lấy — trích từ yêu cầu user, mặc định 5"}
       required: [screenname]
 
   - name: social_search
-    description: "Tìm trên mạng xã hội."
+    description: >
+      Tìm bài đăng (tweet) theo CHỦ ĐỀ hoặc TỪ KHÓA trên X/Twitter.
+      Dùng khi user hỏi "mọi người đang bàn gì về X", "tweet về Y", "tìm theo hashtag Z".
+      KHÔNG dùng để lấy bài của một người cụ thể — hãy dùng timeline thay thế.
+      search_type convention:
+        Latest = mới nhất theo thời gian (default, dùng khi user không nói rõ)
+        Top    = phổ biến/viral nhất — dùng khi user nói "nổi tiếng", "viral", "top", "phổ biến"
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Từ khóa"}
-        search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Cách sắp xếp"}
-        limit: {type: integer, default: 5, description: "Số lượng"}
+        query: {type: string, default: "", description: "Từ khóa hoặc chủ đề cần tìm"}
+        search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Latest = mới nhất; Top = phổ biến nhất. Dùng Top khi user nói 'nổi tiếng', 'viral', 'top'"}
+        limit: {type: integer, default: 5, description: "Số kết quả"}
       required: [query]
 
   - name: lookup
-    description: "Tra cứu thông tin trên internet."
+    description: >
+      Tra cứu thông tin, tin tức hoặc kiến thức chung trên internet (không phải arXiv).
+      Dùng khi user cần tìm kiếm thông tin trên web mà không có URL cụ thể.
+      topic convention:
+        news    = tin tức thời sự — dùng khi user nói "tin", "news", "hôm nay", "mới nhất" (cho tin tức)
+        general = kiến thức chung, sự kiện, thông tin sản phẩm (default)
+      timeframe convention (chỉ có ý nghĩa khi topic=news):
+        day   → "hôm nay", "today", "24h"
+        week  → "tuần này", "this week" (default)
+        month → "tháng này", "this month"
+        year  → "năm nay", "this year"
+      KHÔNG dùng lookup để tìm bài báo khoa học — hãy dùng papers thay thế.
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Truy vấn"}
-        topic: {type: string, enum: [general, news], default: "general", description: "Phân loại"}
-        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Khoảng thời gian"}
-        max_results: {type: integer, default: 5, description: "Số kết quả"}
+        query: {type: string, default: "", description: "Từ khóa hoặc câu hỏi"}
+        topic: {type: string, enum: [general, news], default: "general", description: "news = tin tức thời sự; general = thông tin chung"}
+        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Khoảng thời gian: day=hôm nay, week=tuần này, month=tháng này, year=năm nay"}
+        max_results: {type: integer, default: 5, description: "Số kết quả tối đa"}
       required: [query]
 
   - name: fetch
-    description: "Lấy nội dung từ một địa chỉ."
+    description: >
+      Đọc và trích xuất nội dung văn bản từ một URL cụ thể (trang web, blog, bài viết).
+      Dùng khi user cung cấp URL rõ ràng và yêu cầu đọc/tóm tắt nội dung.
+      KHÔNG dùng để tìm bài báo arXiv theo nội dung — hãy dùng paper_text thay thế.
+      KHÔNG tự bịa URL nếu user không cung cấp — hãy dùng clarify để hỏi.
     parameters:
       type: object
       properties:
-        url: {type: string, default: "", description: "Địa chỉ"}
+        url: {type: string, default: "", description: "URL đầy đủ của trang cần đọc (phải do user cung cấp)"}
       required: [url]
 
   - name: format
@@ -77,14 +112,39 @@ tools:
         headline: {type: string, default: "", description: "Tiêu đề"}
       required: [items, template]
 
-  # ---------------- Bonus tools ----------------
-  - name: send
-    description: "Gửi một đoạn văn bản đi."
+  # ---------------- New team tool ----------------
+  - name: citation_generator
+    description: >
+      Tạo trích dẫn học thuật cho một bài báo khoa học theo định dạng APA 7th edition, BibTeX và plain text.
+      Dùng tool này khi user yêu cầu "tạo trích dẫn", "cite bài báo này", "lấy BibTeX", hoặc "tạo reference".
+      Gọi tool này SAU KHI đã có metadata bài báo từ `papers` hoặc từ thông tin user cung cấp.
+      KHÔNG dùng tool này để tìm kiếm bài báo — hãy dùng `papers` trước.
+      Nếu user chỉ cung cấp URL arXiv, truyền vào trường `url` hoặc `arxiv_id`.
     parameters:
       type: object
       properties:
-        text: {type: string, default: "", description: "Nội dung"}
-        confirmed: {type: boolean, default: false, description: "Cờ xác nhận"}
+        title: {type: string, default: "", description: "Tên đầy đủ của bài báo (bắt buộc)"}
+        authors: {type: string, default: "", description: "Tên tác giả, ngăn cách bằng dấu phẩy hoặc 'and'. Ví dụ: 'Vaswani, A., Shazeer, N.' hoặc 'Vaswani and Shazeer'"}
+        year: {type: string, default: "", description: "Năm xuất bản, ví dụ '2017'"}
+        venue: {type: string, default: "arXiv preprint", description: "Tên tạp chí, hội nghị, hoặc 'arXiv preprint'"}
+        url: {type: string, default: "", description: "URL đến trang abstract của bài báo"}
+        arxiv_id: {type: string, default: "", description: "ID arXiv, ví dụ '1706.03762'"}
+      required: [title, authors, year]
+
+  # ---------------- Bonus tools ----------------
+  - name: send
+    description: >
+      Gửi nội dung văn bản lên kênh Telegram.
+      ĐÂY LÀ HÀNH ĐỘNG KHÔNG THỂ HOÀN TÁC — BẮT BUỘC phải xác nhận trước.
+      Quy trình bắt buộc:
+        1. Gọi clarify(response_type="yes_no") để hỏi user xác nhận muốn gửi.
+        2. Chỉ gọi send(confirmed=true) sau khi user xác nhận đồng ý.
+      KHÔNG tự gọi send khi chưa có xác nhận từ user, dù user yêu cầu "gửi ngay".
+    parameters:
+      type: object
+      properties:
+        text: {type: string, default: "", description: "Nội dung cần gửi"}
+        confirmed: {type: boolean, default: false, description: "Phải là true — chỉ set true sau khi user đã xác nhận bằng clarify yes_no"}
       required: [text]
 
   - name: policy
@@ -98,21 +158,34 @@ tools:
       required: [query]
 
   - name: papers
-    description: "Tìm bài báo khoa học."
+    description: >
+      Tìm kiếm bài báo khoa học trên arXiv theo từ khóa.
+      Dùng khi user tìm bài báo học thuật, research paper, hoặc kết quả nghiên cứu.
+      KHÔNG dùng để đọc nội dung full text — hãy dùng paper_text sau khi có arxiv_url.
+      sort_by convention (QUAN TRỌNG):
+        submittedDate = bài MỚI NHẤT theo ngày nộp — dùng khi user nói "mới nhất", "gần đây", "latest"
+        relevance     = bài phù hợp nhất / nổi tiếng nhất — dùng khi user nói "phổ biến", "nổi tiếng", "relevant" (DEFAULT)
+        lastUpdatedDate = bài cập nhật gần đây nhất
+      Trích đúng số lượng từ yêu cầu user vào max_results.
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Từ khóa"}
-        max_results: {type: integer, default: 5, description: "Số lượng"}
-        sort_by: {type: string, enum: [relevance, lastUpdatedDate, submittedDate], default: "relevance", description: "Sắp xếp"}
+        query: {type: string, default: "", description: "Từ khóa tìm kiếm bài báo"}
+        max_results: {type: integer, default: 5, description: "Số bài tối đa — trích từ yêu cầu user"}
+        sort_by: {type: string, enum: [relevance, lastUpdatedDate, submittedDate], default: "relevance", description: "submittedDate=mới nhất; relevance=phổ biến nhất (default); lastUpdatedDate=cập nhật gần nhất"}
       required: [query]
 
   - name: paper_text
-    description: "Lấy nội dung text của một bài báo."
+    description: >
+      Tải và trích xuất toàn bộ nội dung text từ một bài báo arXiv (qua PDF).
+      Dùng khi user muốn đọc, tóm tắt, hoặc phân tích chi tiết nội dung một bài báo cụ thể trên arXiv.
+      Cần có arxiv_url cụ thể — lấy từ kết quả `papers` hoặc từ URL user cung cấp.
+      arxiv_url có thể là: URL đầy đủ (https://arxiv.org/abs/1706.03762) hoặc chỉ ID (1706.03762).
+      KHÔNG dùng fetch để đọc bài arXiv — paper_text xử lý PDF tốt hơn nhiều.
     parameters:
       type: object
       properties:
-        arxiv_url: {type: string, default: "", description: "ID hoặc địa chỉ"}
-        max_pages: {type: integer, default: 5, description: "Số trang"}
-        max_chars: {type: integer, default: 8000, description: "Số ký tự"}
+        arxiv_url: {type: string, default: "", description: "URL abstract arXiv hoặc ID bài báo, ví dụ: https://arxiv.org/abs/1706.03762 hoặc 1706.03762"}
+        max_pages: {type: integer, default: 5, description: "Số trang PDF tối đa cần đọc"}
+        max_chars: {type: integer, default: 8000, description: "Số ký tự tối đa trả về"}
       required: [arxiv_url]

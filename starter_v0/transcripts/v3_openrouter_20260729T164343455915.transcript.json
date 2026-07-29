@@ -1,0 +1,406 @@
+{
+  "transcript_id": "v3_openrouter_20260729T164343455915",
+  "version": "v3",
+  "artifact_version": "v3+p75008ae02e60+t35a8896bcf7c",
+  "prompt_hash": "75008ae02e60b4520fee067aa1a8fde40ef5d57e3f02af6a2ebe38f5cc0a2d5e",
+  "tools_hash": "35a8896bcf7ca3beb166405a22bcb72d2637775c414604ded959c7b62bae9b7b",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T16:43:43",
+  "updated_at": "2026-07-29T16:44:12",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:44:00",
+      "user": "Tìm các bài báo về LLM để research",
+      "status": "answered",
+      "assistant_text": "Here are some recent research papers on Large Language Models (LLMs):\n\n1. **[YouZhi: Towards High-Concurrency Financial LLMs via Adaptive GQA-to-MLA Transition](http://arxiv.org/abs/2606.05868v1)**\n   - **Authors**: PSBC LLM Team, Huawei LLM Team, Ruihan Long, et al.\n   - **Published**: June 4, 2026\n   - **Summary**: This paper discusses YouZhi-LLM, a financial LLM designed to improve deployment efficiency by reducing KV cache memory overhead, thus enhancing scalability and performance in financial benchmarks.\n\n2. **[RETA-LLM: A Retrieval-Augmented Large Language Model Toolkit](http://arxiv.org/abs/2306.05212v1)**\n   - **Authors**: Jiongnan Liu, Jiajie Jin, Zihan Wang, et al.\n   - **Published**: June 8, 2023\n   - **Summary**: This work presents RETA-LLM, a toolkit for building retrieval-augmented LLM systems, which helps in generating more factual responses by integrating information retrieval systems.\n\n3. **[FBI-LLM: Scaling Up Fully Binarized LLMs from Scratch via Autoregressive Distillation](http://arxiv.org/abs/2407.07093v1)**\n   - **Authors**: Liqun Ma, Mingjie Sun, Zhiqiang Shen\n   - **Published**: July 9, 2024\n   - **Summary**: The paper introduces a Fully Binarized LLM (FBI-LLM) that can be trained from scratch to match the performance of full-precision models, utilizing autoregressive distillation.\n\n4. **[Systematic Evaluation of LLM-as-a-Judge in LLM Alignment Tasks: Explainable Metrics and Diverse Prompt Templates](http://arxiv.org/abs/2408.13006v2)**\n   - **Authors**: Hui Wei, Shenghua He, Tian Xia, et al.\n   - **Published**: August 23, 2024\n   - **Summary**: This research evaluates the reliability of LLMs used as judges in alignment tasks, proposing new metrics and frameworks to assess their performance and alignment with human preferences.\n\n5. **[Enhancing Jailbreak Attacks on LLMs via Persona Prompts](http://arxiv.org/abs/2507.22171v3)**\n   - **Authors**: Zheng Zhang, Peilin Zhao, Deheng Ye, Hao Wang\n   - **Published**: July 28, 2025\n   - **Summary**: The study explores the use of persona prompts in jailbreak attacks on LLMs, revealing their effectiveness in bypassing safety mechanisms and enhancing attack success rates.\n\nThese papers cover various aspects of LLMs, including efficiency, retrieval augmentation, evaluation frameworks, and security vulnerabilities.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "LLM",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "LLM",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "LLM",
+                "api_query": "all:LLM",
+                "total_results": 75643,
+                "items": [
+                  {
+                    "arxiv_id": "2606.05868v1",
+                    "title": "YouZhi: Towards High-Concurrency Financial LLMs via Adaptive GQA-to-MLA Transition",
+                    "summary": "Large language models (LLMs) drive significant financial innovations, yet their high-concurrency deployment is severely bottlenecked by KV cache memory overhead, which inflates infrastructure costs and throttles scalability. To address this, we propose YouZhi-LLM, a highly efficient financial LLM empowered by a comprehensive structural transition and training pipeline natively built on the Huawei Ascend ecosystem. At its algorithmic core, YouZhi-LLM features a layer-adaptive GQA-to-MLA transition framework that dynamically assigns per-layer FreqFold sizes, maximizing KV-cache compression while minimizing perplexity degradation. To recover representation capacity and inject domain expertise, the Ascend-based training pipeline seamlessly integrates generalized knowledge distillation with financial-specific supervised fine-tuning. Evaluations demonstrate the superiority of this systematic approach, with the adaptive transition reducing perplexity degradation by up to 35% over uniform baselines. Crucially, when evaluated on Ascend NPUs via vLLM-Ascend, the massive KV-cache reduction translates directly into deployment efficiency. Compared to their respective base models, YouZhi-7B yields a 12.3% improvement in average financial benchmark score alongside a 2.69$\\times$ increase in maximum concurrency; similarly, YouZhi-14B achieves a 7.0% accuracy gain and a 2.43$\\times$ concurrency boost, establishing a new paradigm for cost-effective, high-throughput financial inference.",
+                    "authors": [
+                      "PSBC LLM Team",
+                      "Huawei LLM Team",
+                      "Ruihan Long",
+                      "Junjie Wu",
+                      "Tianan Zhang",
+                      "Duo Zhang",
+                      "Yaozong Wu",
+                      "Jinbin Fu",
+                      "Chang Liu",
+                      "Zhentao Tang",
+                      "Wenshuang Yang",
+                      "Xin Wang",
+                      "Zhihao Song",
+                      "Ning Huang",
+                      "Wenjing Xu",
+                      "Shuai Zong",
+                      "Shupei Sun",
+                      "Sen Wang",
+                      "Jing Hu",
+                      "Bin Wang",
+                      "Xinyu Wang",
+                      "Junkui Ju",
+                      "Zequn Ding",
+                      "Jie Ran",
+                      "Man Luo",
+                      "Shixiong Kai",
+                      "Linkai Hou",
+                      "Kaichao Liang",
+                      "Hu Zhao",
+                      "Yang Zhao",
+                      "Shucheng Lin",
+                      "Wei Yu",
+                      "Chenghan Jiang",
+                      "Jingjing Ding",
+                      "Jiahui Zhang",
+                      "Tian Jin",
+                      "Yuhang Zhang",
+                      "Dong Guo",
+                      "Wei Sun",
+                      "Jun Xie",
+                      "Jianwei Li",
+                      "Lei Cao",
+                      "Pei Li",
+                      "Jiabin Li",
+                      "Jia Yuan",
+                      "Rui Yuan",
+                      "Jing Zhu",
+                      "Mingxuan Yuan",
+                      "Zhangcheng Lv",
+                      "Xin Jiang",
+                      "Xiuhong Fei",
+                      "Xiaozhe Ren",
+                      "Yulong Li",
+                      "Zhipeng Zhang",
+                      "Hang Wang",
+                      "Zhaohui Xu",
+                      "Rui Zhao",
+                      "Yibo He",
+                      "Xinzhuang Niu"
+                    ],
+                    "published": "2026-06-04T08:44:37Z",
+                    "updated": "2026-06-04T08:44:37Z",
+                    "url": "http://arxiv.org/abs/2606.05868v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.05868v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2306.05212v1",
+                    "title": "RETA-LLM: A Retrieval-Augmented Large Language Model Toolkit",
+                    "summary": "Although Large Language Models (LLMs) have demonstrated extraordinary capabilities in many domains, they still have a tendency to hallucinate and generate fictitious responses to user requests. This problem can be alleviated by augmenting LLMs with information retrieval (IR) systems (also known as retrieval-augmented LLMs). Applying this strategy, LLMs can generate more factual texts in response to user input according to the relevant content retrieved by IR systems from external corpora as references. In addition, by incorporating external knowledge, retrieval-augmented LLMs can answer in-domain questions that cannot be answered by solely relying on the world knowledge stored in parameters. To support research in this area and facilitate the development of retrieval-augmented LLM systems, we develop RETA-LLM, a {RET}reival-{A}ugmented LLM toolkit. In RETA-LLM, we create a complete pipeline to help researchers and users build their customized in-domain LLM-based systems. Compared with previous retrieval-augmented LLM systems, RETA-LLM provides more plug-and-play modules to support better interaction between IR systems and LLMs, including {request rewriting, document retrieval, passage extraction, answer generation, and fact checking} modules. Our toolkit is publicly available at https://github.com/RUC-GSAI/YuLan-IR/tree/main/RETA-LLM.",
+                    "authors": [
+                      "Jiongnan Liu",
+                      "Jiajie Jin",
+                      "Zihan Wang",
+                      "Jiehan Cheng",
+                      "Zhicheng Dou",
+                      "Ji-Rong Wen"
+                    ],
+                    "published": "2023-06-08T14:10:54Z",
+                    "updated": "2023-06-08T14:10:54Z",
+                    "url": "http://arxiv.org/abs/2306.05212v1",
+                    "pdf_url": "https://arxiv.org/pdf/2306.05212v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2407.07093v1",
+                    "title": "FBI-LLM: Scaling Up Fully Binarized LLMs from Scratch via Autoregressive Distillation",
+                    "summary": "This work presents a Fully BInarized Large Language Model (FBI-LLM), demonstrating for the first time how to train a large-scale binary language model from scratch (not the partial binary or ternary LLM like BitNet b1.58) to match the performance of its full-precision counterparts (e.g., FP16 or BF16) in transformer-based LLMs. It achieves this by employing an autoregressive distillation (AD) loss with maintaining equivalent model dimensions (130M, 1.3B, 7B) and training data volume as regular LLM pretraining, while delivering competitive results in terms of perplexity and task-specific effectiveness. Intriguingly, by analyzing the training trajectory, we find that the pretrained weight is not necessary for training binarized LLMs from scratch. This research encourages a new computational framework and may facilitate the future design of specialized hardware tailored for fully 1-bit LLMs. We make all models, code, and training dataset fully accessible and transparent to support further research (Code: https://github.com/LiqunMa/FBI-LLM. Model: https://huggingface.co/LiqunMa/).",
+                    "authors": [
+                      "Liqun Ma",
+                      "Mingjie Sun",
+                      "Zhiqiang Shen"
+                    ],
+                    "published": "2024-07-09T17:59:48Z",
+                    "updated": "2024-07-09T17:59:48Z",
+                    "url": "http://arxiv.org/abs/2407.07093v1",
+                    "pdf_url": "https://arxiv.org/pdf/2407.07093v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2408.13006v2",
+                    "title": "Systematic Evaluation of LLM-as-a-Judge in LLM Alignment Tasks: Explainable Metrics and Diverse Prompt Templates",
+                    "summary": "LLM-as-a-Judge has been widely applied to evaluate and compare different LLM alignmnet approaches (e.g., RLHF and DPO). However, concerns regarding its reliability have emerged, due to LLM judges' biases and inconsistent decision-making. Previous research has developed evaluation frameworks to assess reliability of LLM judges and their alignment with human preferences. However, the employed evaluation metrics often lack adequate explainability and fail to address LLM internal inconsistency. Additionally, existing studies inadequately explore the impact of various prompt templates when applying LLM-as-a-Judge methods, leading to potentially inconsistent comparisons between different alignment algorithms. In this work, we systematically evaluate LLM-as-a-Judge on alignment tasks by defining more theoretically interpretable evaluation metrics and explicitly mitigating LLM internal inconsistency from reliability metrics. We develop an open-source framework to evaluate, compare, and visualize the reliability and alignment of LLM judges, which facilitates practitioners to choose LLM judges for alignment tasks. In the experiments, we examine effects of diverse prompt templates on LLM-judge reliability and also demonstrate our developed framework by comparing various LLM judges on two common alignment datasets (i.e., TL;DR Summarization and HH-RLHF-Helpfulness). Our results indicate a significant impact of prompt templates on LLM judge performance, as well as a mediocre alignment level between the tested LLM judges and human evaluators.",
+                    "authors": [
+                      "Hui Wei",
+                      "Shenghua He",
+                      "Tian Xia",
+                      "Fei Liu",
+                      "Andy Wong",
+                      "Jingyang Lin",
+                      "Mei Han"
+                    ],
+                    "published": "2024-08-23T11:49:01Z",
+                    "updated": "2025-03-30T17:59:47Z",
+                    "url": "http://arxiv.org/abs/2408.13006v2",
+                    "pdf_url": "https://arxiv.org/pdf/2408.13006v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2507.22171v3",
+                    "title": "Enhancing Jailbreak Attacks on LLMs via Persona Prompts",
+                    "summary": "Jailbreak attacks aim to exploit large language models (LLMs) by inducing them to generate harmful content, thereby revealing their vulnerabilities. Understanding and addressing these attacks is crucial for advancing the field of LLM safety. Previous jailbreak approaches have mainly focused on direct manipulations of harmful intent, with limited attention to the impact of persona prompts. In this study, we systematically explore the efficacy of persona prompts in compromising LLM defenses. We propose a genetic algorithm-based method that automatically crafts persona prompts to bypass LLM's safety mechanisms. Our experiments reveal that: (1) our evolved persona prompts reduce refusal rates by 50-70% across multiple LLMs, and (2) these prompts demonstrate synergistic effects when combined with existing attack methods, increasing success rates by 10-20%. Our code and data are available at https://github.com/CjangCjengh/Generic_Persona.",
+                    "authors": [
+                      "Zheng Zhang",
+                      "Peilin Zhao",
+                      "Deheng Ye",
+                      "Hao Wang"
+                    ],
+                    "published": "2025-07-28T12:03:22Z",
+                    "updated": "2026-03-25T15:46:17Z",
+                    "url": "http://arxiv.org/abs/2507.22171v3",
+                    "pdf_url": "https://arxiv.org/pdf/2507.22171v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CR",
+                    "categories": [
+                      "cs.CR",
+                      "cs.AI"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are some recent research papers on Large Language Models (LLMs):\n\n1. **[YouZhi: Towards High-Concurrency Financial LLMs via Adaptive GQA-to-MLA Transition](http://arxiv.org/abs/2606.05868v1)**\n   - **Authors**: PSBC LLM Team, Huawei LLM Team, Ruihan Long, et al.\n   - **Published**: June 4, 2026\n   - **Summary**: This paper discusses YouZhi-LLM, a financial LLM designed to improve deployment efficiency by reducing KV cache memory overhead, thus enhancing scalability and performance in financial benchmarks.\n\n2. **[RETA-LLM: A Retrieval-Augmented Large Language Model Toolkit](http://arxiv.org/abs/2306.05212v1)**\n   - **Authors**: Jiongnan Liu, Jiajie Jin, Zihan Wang, et al.\n   - **Published**: June 8, 2023\n   - **Summary**: This work presents RETA-LLM, a toolkit for building retrieval-augmented LLM systems, which helps in generating more factual responses by integrating information retrieval systems.\n\n3. **[FBI-LLM: Scaling Up Fully Binarized LLMs from Scratch via Autoregressive Distillation](http://arxiv.org/abs/2407.07093v1)**\n   - **Authors**: Liqun Ma, Mingjie Sun, Zhiqiang Shen\n   - **Published**: July 9, 2024\n   - **Summary**: The paper introduces a Fully Binarized LLM (FBI-LLM) that can be trained from scratch to match the performance of full-precision models, utilizing autoregressive distillation.\n\n4. **[Systematic Evaluation of LLM-as-a-Judge in LLM Alignment Tasks: Explainable Metrics and Diverse Prompt Templates](http://arxiv.org/abs/2408.13006v2)**\n   - **Authors**: Hui Wei, Shenghua He, Tian Xia, et al.\n   - **Published**: August 23, 2024\n   - **Summary**: This research evaluates the reliability of LLMs used as judges in alignment tasks, proposing new metrics and frameworks to assess their performance and alignment with human preferences.\n\n5. **[Enhancing Jailbreak Attacks on LLMs via Persona Prompts](http://arxiv.org/abs/2507.22171v3)**\n   - **Authors**: Zheng Zhang, Peilin Zhao, Deheng Ye, Hao Wang\n   - **Published**: July 28, 2025\n   - **Summary**: The study explores the use of persona prompts in jailbreak attacks on LLMs, revealing their effectiveness in bypassing safety mechanisms and enhancing attack success rates.\n\nThese papers cover various aspects of LLMs, including efficiency, retrieval augmentation, evaluation frameworks, and security vulnerabilities.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "LLM",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "LLM",
+            "api_query": "all:LLM",
+            "total_results": 75643,
+            "items": [
+              {
+                "arxiv_id": "2606.05868v1",
+                "title": "YouZhi: Towards High-Concurrency Financial LLMs via Adaptive GQA-to-MLA Transition",
+                "summary": "Large language models (LLMs) drive significant financial innovations, yet their high-concurrency deployment is severely bottlenecked by KV cache memory overhead, which inflates infrastructure costs and throttles scalability. To address this, we propose YouZhi-LLM, a highly efficient financial LLM empowered by a comprehensive structural transition and training pipeline natively built on the Huawei Ascend ecosystem. At its algorithmic core, YouZhi-LLM features a layer-adaptive GQA-to-MLA transition framework that dynamically assigns per-layer FreqFold sizes, maximizing KV-cache compression while minimizing perplexity degradation. To recover representation capacity and inject domain expertise, the Ascend-based training pipeline seamlessly integrates generalized knowledge distillation with financial-specific supervised fine-tuning. Evaluations demonstrate the superiority of this systematic approach, with the adaptive transition reducing perplexity degradation by up to 35% over uniform baselines. Crucially, when evaluated on Ascend NPUs via vLLM-Ascend, the massive KV-cache reduction translates directly into deployment efficiency. Compared to their respective base models, YouZhi-7B yields a 12.3% improvement in average financial benchmark score alongside a 2.69$\\times$ increase in maximum concurrency; similarly, YouZhi-14B achieves a 7.0% accuracy gain and a 2.43$\\times$ concurrency boost, establishing a new paradigm for cost-effective, high-throughput financial inference.",
+                "authors": [
+                  "PSBC LLM Team",
+                  "Huawei LLM Team",
+                  "Ruihan Long",
+                  "Junjie Wu",
+                  "Tianan Zhang",
+                  "Duo Zhang",
+                  "Yaozong Wu",
+                  "Jinbin Fu",
+                  "Chang Liu",
+                  "Zhentao Tang",
+                  "Wenshuang Yang",
+                  "Xin Wang",
+                  "Zhihao Song",
+                  "Ning Huang",
+                  "Wenjing Xu",
+                  "Shuai Zong",
+                  "Shupei Sun",
+                  "Sen Wang",
+                  "Jing Hu",
+                  "Bin Wang",
+                  "Xinyu Wang",
+                  "Junkui Ju",
+                  "Zequn Ding",
+                  "Jie Ran",
+                  "Man Luo",
+                  "Shixiong Kai",
+                  "Linkai Hou",
+                  "Kaichao Liang",
+                  "Hu Zhao",
+                  "Yang Zhao",
+                  "Shucheng Lin",
+                  "Wei Yu",
+                  "Chenghan Jiang",
+                  "Jingjing Ding",
+                  "Jiahui Zhang",
+                  "Tian Jin",
+                  "Yuhang Zhang",
+                  "Dong Guo",
+                  "Wei Sun",
+                  "Jun Xie",
+                  "Jianwei Li",
+                  "Lei Cao",
+                  "Pei Li",
+                  "Jiabin Li",
+                  "Jia Yuan",
+                  "Rui Yuan",
+                  "Jing Zhu",
+                  "Mingxuan Yuan",
+                  "Zhangcheng Lv",
+                  "Xin Jiang",
+                  "Xiuhong Fei",
+                  "Xiaozhe Ren",
+                  "Yulong Li",
+                  "Zhipeng Zhang",
+                  "Hang Wang",
+                  "Zhaohui Xu",
+                  "Rui Zhao",
+                  "Yibo He",
+                  "Xinzhuang Niu"
+                ],
+                "published": "2026-06-04T08:44:37Z",
+                "updated": "2026-06-04T08:44:37Z",
+                "url": "http://arxiv.org/abs/2606.05868v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.05868v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2306.05212v1",
+                "title": "RETA-LLM: A Retrieval-Augmented Large Language Model Toolkit",
+                "summary": "Although Large Language Models (LLMs) have demonstrated extraordinary capabilities in many domains, they still have a tendency to hallucinate and generate fictitious responses to user requests. This problem can be alleviated by augmenting LLMs with information retrieval (IR) systems (also known as retrieval-augmented LLMs). Applying this strategy, LLMs can generate more factual texts in response to user input according to the relevant content retrieved by IR systems from external corpora as references. In addition, by incorporating external knowledge, retrieval-augmented LLMs can answer in-domain questions that cannot be answered by solely relying on the world knowledge stored in parameters. To support research in this area and facilitate the development of retrieval-augmented LLM systems, we develop RETA-LLM, a {RET}reival-{A}ugmented LLM toolkit. In RETA-LLM, we create a complete pipeline to help researchers and users build their customized in-domain LLM-based systems. Compared with previous retrieval-augmented LLM systems, RETA-LLM provides more plug-and-play modules to support better interaction between IR systems and LLMs, including {request rewriting, document retrieval, passage extraction, answer generation, and fact checking} modules. Our toolkit is publicly available at https://github.com/RUC-GSAI/YuLan-IR/tree/main/RETA-LLM.",
+                "authors": [
+                  "Jiongnan Liu",
+                  "Jiajie Jin",
+                  "Zihan Wang",
+                  "Jiehan Cheng",
+                  "Zhicheng Dou",
+                  "Ji-Rong Wen"
+                ],
+                "published": "2023-06-08T14:10:54Z",
+                "updated": "2023-06-08T14:10:54Z",
+                "url": "http://arxiv.org/abs/2306.05212v1",
+                "pdf_url": "https://arxiv.org/pdf/2306.05212v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR"
+                ]
+              },
+              {
+                "arxiv_id": "2407.07093v1",
+                "title": "FBI-LLM: Scaling Up Fully Binarized LLMs from Scratch via Autoregressive Distillation",
+                "summary": "This work presents a Fully BInarized Large Language Model (FBI-LLM), demonstrating for the first time how to train a large-scale binary language model from scratch (not the partial binary or ternary LLM like BitNet b1.58) to match the performance of its full-precision counterparts (e.g., FP16 or BF16) in transformer-based LLMs. It achieves this by employing an autoregressive distillation (AD) loss with maintaining equivalent model dimensions (130M, 1.3B, 7B) and training data volume as regular LLM pretraining, while delivering competitive results in terms of perplexity and task-specific effectiveness. Intriguingly, by analyzing the training trajectory, we find that the pretrained weight is not necessary for training binarized LLMs from scratch. This research encourages a new computational framework and may facilitate the future design of specialized hardware tailored for fully 1-bit LLMs. We make all models, code, and training dataset fully accessible and transparent to support further research (Code: https://github.com/LiqunMa/FBI-LLM. Model: https://huggingface.co/LiqunMa/).",
+                "authors": [
+                  "Liqun Ma",
+                  "Mingjie Sun",
+                  "Zhiqiang Shen"
+                ],
+                "published": "2024-07-09T17:59:48Z",
+                "updated": "2024-07-09T17:59:48Z",
+                "url": "http://arxiv.org/abs/2407.07093v1",
+                "pdf_url": "https://arxiv.org/pdf/2407.07093v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2408.13006v2",
+                "title": "Systematic Evaluation of LLM-as-a-Judge in LLM Alignment Tasks: Explainable Metrics and Diverse Prompt Templates",
+                "summary": "LLM-as-a-Judge has been widely applied to evaluate and compare different LLM alignmnet approaches (e.g., RLHF and DPO). However, concerns regarding its reliability have emerged, due to LLM judges' biases and inconsistent decision-making. Previous research has developed evaluation frameworks to assess reliability of LLM judges and their alignment with human preferences. However, the employed evaluation metrics often lack adequate explainability and fail to address LLM internal inconsistency. Additionally, existing studies inadequately explore the impact of various prompt templates when applying LLM-as-a-Judge methods, leading to potentially inconsistent comparisons between different alignment algorithms. In this work, we systematically evaluate LLM-as-a-Judge on alignment tasks by defining more theoretically interpretable evaluation metrics and explicitly mitigating LLM internal inconsistency from reliability metrics. We develop an open-source framework to evaluate, compare, and visualize the reliability and alignment of LLM judges, which facilitates practitioners to choose LLM judges for alignment tasks. In the experiments, we examine effects of diverse prompt templates on LLM-judge reliability and also demonstrate our developed framework by comparing various LLM judges on two common alignment datasets (i.e., TL;DR Summarization and HH-RLHF-Helpfulness). Our results indicate a significant impact of prompt templates on LLM judge performance, as well as a mediocre alignment level between the tested LLM judges and human evaluators.",
+                "authors": [
+                  "Hui Wei",
+                  "Shenghua He",
+                  "Tian Xia",
+                  "Fei Liu",
+                  "Andy Wong",
+                  "Jingyang Lin",
+                  "Mei Han"
+                ],
+                "published": "2024-08-23T11:49:01Z",
+                "updated": "2025-03-30T17:59:47Z",
+                "url": "http://arxiv.org/abs/2408.13006v2",
+                "pdf_url": "https://arxiv.org/pdf/2408.13006v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2507.22171v3",
+                "title": "Enhancing Jailbreak Attacks on LLMs via Persona Prompts",
+                "summary": "Jailbreak attacks aim to exploit large language models (LLMs) by inducing them to generate harmful content, thereby revealing their vulnerabilities. Understanding and addressing these attacks is crucial for advancing the field of LLM safety. Previous jailbreak approaches have mainly focused on direct manipulations of harmful intent, with limited attention to the impact of persona prompts. In this study, we systematically explore the efficacy of persona prompts in compromising LLM defenses. We propose a genetic algorithm-based method that automatically crafts persona prompts to bypass LLM's safety mechanisms. Our experiments reveal that: (1) our evolved persona prompts reduce refusal rates by 50-70% across multiple LLMs, and (2) these prompts demonstrate synergistic effects when combined with existing attack methods, increasing success rates by 10-20%. Our code and data are available at https://github.com/CjangCjengh/Generic_Persona.",
+                "authors": [
+                  "Zheng Zhang",
+                  "Peilin Zhao",
+                  "Deheng Ye",
+                  "Hao Wang"
+                ],
+                "published": "2025-07-28T12:03:22Z",
+                "updated": "2026-03-25T15:46:17Z",
+                "url": "http://arxiv.org/abs/2507.22171v3",
+                "pdf_url": "https://arxiv.org/pdf/2507.22171v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR",
+                  "cs.AI"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T16:44:12"
+    }
+  ]
+}

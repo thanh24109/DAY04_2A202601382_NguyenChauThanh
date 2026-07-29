@@ -7,6 +7,7 @@ import yaml
 
 # Folder names are intentionally vague to match the tool names students see.
 # The imported function names are the underlying implementations (unchanged).
+from .citation_generator.tool import generate_citation
 from .clarify.tool import ask_user
 from .papers.tool import arxiv_search
 from .paper_text.tool import get_arxiv_paper_text
@@ -25,6 +26,7 @@ from .lookup.tool import web_search
 #   artifacts/tools.yaml  ->  this dict  ->  data/eval_base.json + data/eval_research_extension.json
 # Otherwise the eval raises "not declared in tools.yaml" or scores every call as a name mismatch.
 TOOL_FUNCTIONS = {
+    "citation_generator": generate_citation,
     "clarify": ask_user,
     "timeline": get_user_tweets,
     "social_search": search_tweets,

@@ -1,0 +1,288 @@
+{
+  "transcript_id": "v3_openrouter_20260729T163744832437",
+  "version": "v3",
+  "artifact_version": "v3+p75008ae02e60+t35a8896bcf7c",
+  "prompt_hash": "75008ae02e60b4520fee067aa1a8fde40ef5d57e3f02af6a2ebe38f5cc0a2d5e",
+  "tools_hash": "35a8896bcf7ca3beb166405a22bcb72d2637775c414604ded959c7b62bae9b7b",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "E:\\LabVin\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T16:37:44",
+  "updated_at": "2026-07-29T16:38:34",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:38:09",
+      "user": "TFind papers about LLM reasoning",
+      "status": "answered",
+      "assistant_text": "Here are some recent papers on LLM (Large Language Model) reasoning:\n\n1. **[Grounding LLM Reasoning under Incomplete Graph Evidence](http://arxiv.org/abs/2606.30247v1)**  \n   - **Authors**: Jiaqi Li, Fanghui Song  \n   - **Published**: June 29, 2026  \n   - **Summary**: This paper discusses how knowledge graphs can guide LLM reasoning, focusing on the challenges posed by incomplete evidence states. It develops a theoretical perspective on grounding observable LLM trajectories under such conditions.\n\n2. **[Interactive Learning for LLM Reasoning](http://arxiv.org/abs/2509.26306v5)**  \n   - **Authors**: Hehai Lin et al.  \n   - **Published**: September 30, 2025  \n   - **Summary**: This study introduces a co-learning framework for multi-agent systems that enhances LLMs' independent problem-solving abilities through dynamic interaction and perception calibration.\n\n3. **[When Reasoning Beats Scale: A 1.5B Reasoning Model Outranks 13B LLMs as Discriminator](http://arxiv.org/abs/2505.03786v1)**  \n   - **Author**: Md Fahim Anjum  \n   - **Published**: April 30, 2025  \n   - **Summary**: This research benchmarks a distilled 1.5B parameter reasoning model against larger non-reasoning LLMs, demonstrating that reasoning models can be more effective discriminators in certain contexts.\n\n4. **[LLMs as Models for Analogical Reasoning](http://arxiv.org/abs/2406.13803v3)**  \n   - **Authors**: Sam Musker et al.  \n   - **Published**: June 19, 2024  \n   - **Summary**: This paper explores the capacity of LLMs to perform analogical reasoning, comparing their performance to human participants on novel tasks that require mapping between different domains.\n\n5. **[Multimodal Reasoning with LLM for Encrypted Traffic Interpretation: A Benchmark](http://arxiv.org/abs/2604.08140v1)**  \n   - **Authors**: Longgang Zhang et al.  \n   - **Published**: April 9, 2026  \n   - **Summary**: This paper proposes a benchmark for multimodal reasoning in network traffic interpretation, addressing the limitations of existing methods and introducing a new framework for explainable traffic analysis.\n\nFeel free to ask if you need more information on any specific paper!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "LLM reasoning",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "LLM reasoning",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "LLM reasoning",
+                "api_query": "all:LLM AND all:reasoning",
+                "total_results": 21280,
+                "items": [
+                  {
+                    "arxiv_id": "2606.30247v1",
+                    "title": "Grounding LLM Reasoning under Incomplete Graph Evidence",
+                    "summary": "Knowledge graphs can guide large language models (LLMs) reasoning, but the graph seen by a system is usually a retrieved, linked, temporally scoped, and incomplete evidence state rather than a complete account of truth. We develop a theoretical perspective on grounding observable LLM trajectories under such incomplete graph evidence.The evidence state induces entity anchors, typed relation residuals, path energies, and support regions, while the language model supplies a prior over candidate trajectories. We show that, under open-world incompleteness, no hard rule based only on the observed state can both reject every false unsupported trajectory and retain every true-but-unobserved one.We then characterize soft grounding as a KL-regularized deformation of the LLM prior: finite slack preserves support for unsupported but non-contradicted trajectories, whereas hard conditioning appears as an infinite-penalty limit.The framework also yields stability bounds under evidence perturbations and clarifies the constraint regimes appropriate for GraphRAG, KGQA, graph agents, constrained decoding, and faithful generation. The claims are evidence-relative: KG compatibility is treated as declared support, not factual truth.",
+                    "authors": [
+                      "Jiaqi Li",
+                      "Fanghui Song"
+                    ],
+                    "published": "2026-06-29T12:56:21Z",
+                    "updated": "2026-06-29T12:56:21Z",
+                    "url": "http://arxiv.org/abs/2606.30247v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.30247v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2509.26306v5",
+                    "title": "Interactive Learning for LLM Reasoning",
+                    "summary": "Existing multi-agent learning approaches have developed interactive training environments to explicitly promote collaboration among multiple Large Language Models (LLMs), thereby constructing stronger multi-agent systems (MAS). However, during inference, they require re-executing the MAS to obtain final solutions, which diverges from human cognition that individuals can enhance their reasoning capabilities through interactions with others and resolve questions independently in the future. To investigate whether multi-agent interaction can enhance LLMs' independent problem-solving ability, we introduce ILR, a novel co-learning framework for MAS that integrates two key components: Dynamic Interaction and Perception Calibration. Specifically, Dynamic Interaction first adaptively selects either cooperative or competitive strategies depending on question difficulty and model ability. LLMs then exchange information through Idea3, an innovative interaction paradigm designed to mimic human discussion, before deriving their respective final answers. In Perception Calibration, ILR employs Group Relative Policy Optimization (GRPO) to train LLMs while integrating one LLM's reward distribution characteristics into another's reward function, thereby enhancing the cohesion of multi-agent interactions. We evaluate the effectiveness of ILR across three LLMs from two model families of varying scales on five mathematical, one coding, one general question answering, and one scientific reasoning benchmarks. Experimental results show that ILR consistently outperforms single-agent learning, yielding an improvement of up to 5% over the strongest baseline. We further discover that Idea3 can enhance the robustness of stronger LLMs during multi-agent inference, and dynamic interaction types can boost multi-agent learning compared to pure cooperative or competitive strategies.",
+                    "authors": [
+                      "Hehai Lin",
+                      "Shilei Cao",
+                      "Sudong Wang",
+                      "Haotian Wu",
+                      "Minzhi Li",
+                      "Linyi Yang",
+                      "Juepeng Zheng",
+                      "Chengwei Qin"
+                    ],
+                    "published": "2025-09-30T14:21:31Z",
+                    "updated": "2026-07-06T02:27:57Z",
+                    "url": "http://arxiv.org/abs/2509.26306v5",
+                    "pdf_url": "https://arxiv.org/pdf/2509.26306v5",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2505.03786v1",
+                    "title": "When Reasoning Beats Scale: A 1.5B Reasoning Model Outranks 13B LLMs as Discriminator",
+                    "summary": "Large Language Models (LLM) with reasoning capabilities offer a promising path for improving candidate evaluation in planning frameworks, but their relative performance against traditional non-reasoning models remains largely underexplored. In this study, we benchmark a distilled 1.5B parameter reasoning model (DeepSeek-R1) against several state-of-the-art non-reasoning LLMs within a generator-discriminator LLM planning framework for the text-to-SQL task. For this, we introduce a novel method for extracting soft scores from the chain-of-thought (CoT) outputs from reasoning that enables fine-grained ranking of candidates. Our central hypothesis is that reasoning models are more effective discriminators than non-reasoning LLMs. Our results show that distilled DeepSeek-R1-1.5B achieves up to $87\\%$ higher F1 and $3.7\\%$ better discrimination accuracy than CodeLlama-7B, as well as $3.7\\%$ higher execution accuracy than CodeLlama-13B, despite having significantly fewer parameters. Furthermore, we find that there is a limit to the logical capabilities of reasoning models, and only providing more context or allowing more compute budget for reasoning is not enough to improve their discrimination performance. Finally, we demonstrate that, unlike non-reasoning LLMs, reasoning models find generation more challenging than discrimination and may underperform as generators compared to smaller non-reasoning LLMs. Our work highlights the potential of reasoning models as discriminators in agentic frameworks, far outweighing their capabilities as generators, offering insights into their optimal role within LLM planning infrastructures.",
+                    "authors": [
+                      "Md Fahim Anjum"
+                    ],
+                    "published": "2025-04-30T17:27:13Z",
+                    "updated": "2025-04-30T17:27:13Z",
+                    "url": "http://arxiv.org/abs/2505.03786v1",
+                    "pdf_url": "https://arxiv.org/pdf/2505.03786v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2406.13803v3",
+                    "title": "LLMs as Models for Analogical Reasoning",
+                    "summary": "Analogical reasoning -- the capacity to identify and map structural relationships between different domains -- is fundamental to human cognition and learning. Recent studies have shown that large language models (LLMs) can sometimes match humans in analogical reasoning tasks, opening the possibility that analogical reasoning might emerge from domain-general processes. However, it is still debated whether these emergent capacities are largely superficial and limited to simple relations seen during training or whether they encompass the flexible representational and mapping capabilities which are the focus of leading cognitive models of analogy. In this study, we introduce novel analogical reasoning tasks that require participants to map between semantically contentful words and sequences of letters and other abstract characters. This task necessitates the ability to flexibly re-represent rich semantic information -- an ability which is known to be central to human analogy but which is thus far not well captured by existing cognitive theories and models. We assess the performance of both human participants and LLMs on tasks focusing on reasoning from semantic structure and semantic content, introducing variations that test the robustness of their analogical inferences. Advanced LLMs match human performance across several conditions, though humans and LLMs respond differently to certain task variations and semantic distractors. Our results thus provide new evidence that LLMs might offer a how-possibly explanation of human analogical reasoning in contexts that are not yet well modeled by existing theories, but that even today's best models are unlikely to yield how-actually explanations.",
+                    "authors": [
+                      "Sam Musker",
+                      "Alex Duchnowski",
+                      "Raphaël Millière",
+                      "Ellie Pavlick"
+                    ],
+                    "published": "2024-06-19T20:07:37Z",
+                    "updated": "2025-11-20T03:50:38Z",
+                    "url": "http://arxiv.org/abs/2406.13803v3",
+                    "pdf_url": "https://arxiv.org/pdf/2406.13803v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2604.08140v1",
+                    "title": "Multimodal Reasoning with LLM for Encrypted Traffic Interpretation: A Benchmark",
+                    "summary": "Network traffic, as a key media format, is crucial for ensuring security and communications in modern internet infrastructure. While existing methods offer excellent performance, they face two key bottlenecks: (1) They fail to capture multidimensional semantics beyond unimodal sequence patterns. (2) Their black box property, i.e., providing only category labels, lacks an auditable reasoning process. We identify a key factor that existing network traffic datasets are primarily designed for classification and inherently lack rich semantic annotations, failing to generate human-readable evidence report. To address data scarcity, this paper proposes a Byte-Grounded Traffic Description (BGTD) benchmark for the first time, combining raw bytes with structured expert annotations. BGTD provides necessary behavioral features and verifiable chains of evidence for multimodal reasoning towards explainable encrypted traffic interpretation. Built upon BGTD, this paper proposes an end-to-end traffic-language representation framework (mmTraffic), a multimodal reasoning architecture bridging physical traffic encoding and semantic interpretation. In order to alleviate modality interference and generative hallucinations, mmTraffic adopts a jointly-optimized perception-cognition architecture. By incorporating a perception-centered traffic encoder and a cognition-centered LLM generator, mmTraffic achieves refined traffic interpretation with guaranteed category prediction. Extensive experiments demonstrate that mmTraffic autonomously generates high-fidelity, human-readable, and evidence-grounded traffic interpretation reports, while maintaining highly competitive classification accuracy comparing to specialized unimodal model (e.g., NetMamba). The source code is available at https://github.com/lgzhangzlg/Multimodal-Reasoning-with-LLM-for-Encrypted-Traffic-Interpretation-A-Benchmark",
+                    "authors": [
+                      "Longgang Zhang",
+                      "Xiaowei Fu",
+                      "Fuxiang Huang",
+                      "Lei Zhang"
+                    ],
+                    "published": "2026-04-09T11:56:28Z",
+                    "updated": "2026-04-09T11:56:28Z",
+                    "url": "http://arxiv.org/abs/2604.08140v1",
+                    "pdf_url": "https://arxiv.org/pdf/2604.08140v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CR",
+                    "categories": [
+                      "cs.CR",
+                      "cs.AI",
+                      "cs.MM",
+                      "cs.NI"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are some recent papers on LLM (Large Language Model) reasoning:\n\n1. **[Grounding LLM Reasoning under Incomplete Graph Evidence](http://arxiv.org/abs/2606.30247v1)**  \n   - **Authors**: Jiaqi Li, Fanghui Song  \n   - **Published**: June 29, 2026  \n   - **Summary**: This paper discusses how knowledge graphs can guide LLM reasoning, focusing on the challenges posed by incomplete evidence states. It develops a theoretical perspective on grounding observable LLM trajectories under such conditions.\n\n2. **[Interactive Learning for LLM Reasoning](http://arxiv.org/abs/2509.26306v5)**  \n   - **Authors**: Hehai Lin et al.  \n   - **Published**: September 30, 2025  \n   - **Summary**: This study introduces a co-learning framework for multi-agent systems that enhances LLMs' independent problem-solving abilities through dynamic interaction and perception calibration.\n\n3. **[When Reasoning Beats Scale: A 1.5B Reasoning Model Outranks 13B LLMs as Discriminator](http://arxiv.org/abs/2505.03786v1)**  \n   - **Author**: Md Fahim Anjum  \n   - **Published**: April 30, 2025  \n   - **Summary**: This research benchmarks a distilled 1.5B parameter reasoning model against larger non-reasoning LLMs, demonstrating that reasoning models can be more effective discriminators in certain contexts.\n\n4. **[LLMs as Models for Analogical Reasoning](http://arxiv.org/abs/2406.13803v3)**  \n   - **Authors**: Sam Musker et al.  \n   - **Published**: June 19, 2024  \n   - **Summary**: This paper explores the capacity of LLMs to perform analogical reasoning, comparing their performance to human participants on novel tasks that require mapping between different domains.\n\n5. **[Multimodal Reasoning with LLM for Encrypted Traffic Interpretation: A Benchmark](http://arxiv.org/abs/2604.08140v1)**  \n   - **Authors**: Longgang Zhang et al.  \n   - **Published**: April 9, 2026  \n   - **Summary**: This paper proposes a benchmark for multimodal reasoning in network traffic interpretation, addressing the limitations of existing methods and introducing a new framework for explainable traffic analysis.\n\nFeel free to ask if you need more information on any specific paper!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "LLM reasoning",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "LLM reasoning",
+            "api_query": "all:LLM AND all:reasoning",
+            "total_results": 21280,
+            "items": [
+              {
+                "arxiv_id": "2606.30247v1",
+                "title": "Grounding LLM Reasoning under Incomplete Graph Evidence",
+                "summary": "Knowledge graphs can guide large language models (LLMs) reasoning, but the graph seen by a system is usually a retrieved, linked, temporally scoped, and incomplete evidence state rather than a complete account of truth. We develop a theoretical perspective on grounding observable LLM trajectories under such incomplete graph evidence.The evidence state induces entity anchors, typed relation residuals, path energies, and support regions, while the language model supplies a prior over candidate trajectories. We show that, under open-world incompleteness, no hard rule based only on the observed state can both reject every false unsupported trajectory and retain every true-but-unobserved one.We then characterize soft grounding as a KL-regularized deformation of the LLM prior: finite slack preserves support for unsupported but non-contradicted trajectories, whereas hard conditioning appears as an infinite-penalty limit.The framework also yields stability bounds under evidence perturbations and clarifies the constraint regimes appropriate for GraphRAG, KGQA, graph agents, constrained decoding, and faithful generation. The claims are evidence-relative: KG compatibility is treated as declared support, not factual truth.",
+                "authors": [
+                  "Jiaqi Li",
+                  "Fanghui Song"
+                ],
+                "published": "2026-06-29T12:56:21Z",
+                "updated": "2026-06-29T12:56:21Z",
+                "url": "http://arxiv.org/abs/2606.30247v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.30247v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2509.26306v5",
+                "title": "Interactive Learning for LLM Reasoning",
+                "summary": "Existing multi-agent learning approaches have developed interactive training environments to explicitly promote collaboration among multiple Large Language Models (LLMs), thereby constructing stronger multi-agent systems (MAS). However, during inference, they require re-executing the MAS to obtain final solutions, which diverges from human cognition that individuals can enhance their reasoning capabilities through interactions with others and resolve questions independently in the future. To investigate whether multi-agent interaction can enhance LLMs' independent problem-solving ability, we introduce ILR, a novel co-learning framework for MAS that integrates two key components: Dynamic Interaction and Perception Calibration. Specifically, Dynamic Interaction first adaptively selects either cooperative or competitive strategies depending on question difficulty and model ability. LLMs then exchange information through Idea3, an innovative interaction paradigm designed to mimic human discussion, before deriving their respective final answers. In Perception Calibration, ILR employs Group Relative Policy Optimization (GRPO) to train LLMs while integrating one LLM's reward distribution characteristics into another's reward function, thereby enhancing the cohesion of multi-agent interactions. We evaluate the effectiveness of ILR across three LLMs from two model families of varying scales on five mathematical, one coding, one general question answering, and one scientific reasoning benchmarks. Experimental results show that ILR consistently outperforms single-agent learning, yielding an improvement of up to 5% over the strongest baseline. We further discover that Idea3 can enhance the robustness of stronger LLMs during multi-agent inference, and dynamic interaction types can boost multi-agent learning compared to pure cooperative or competitive strategies.",
+                "authors": [
+                  "Hehai Lin",
+                  "Shilei Cao",
+                  "Sudong Wang",
+                  "Haotian Wu",
+                  "Minzhi Li",
+                  "Linyi Yang",
+                  "Juepeng Zheng",
+                  "Chengwei Qin"
+                ],
+                "published": "2025-09-30T14:21:31Z",
+                "updated": "2026-07-06T02:27:57Z",
+                "url": "http://arxiv.org/abs/2509.26306v5",
+                "pdf_url": "https://arxiv.org/pdf/2509.26306v5",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2505.03786v1",
+                "title": "When Reasoning Beats Scale: A 1.5B Reasoning Model Outranks 13B LLMs as Discriminator",
+                "summary": "Large Language Models (LLM) with reasoning capabilities offer a promising path for improving candidate evaluation in planning frameworks, but their relative performance against traditional non-reasoning models remains largely underexplored. In this study, we benchmark a distilled 1.5B parameter reasoning model (DeepSeek-R1) against several state-of-the-art non-reasoning LLMs within a generator-discriminator LLM planning framework for the text-to-SQL task. For this, we introduce a novel method for extracting soft scores from the chain-of-thought (CoT) outputs from reasoning that enables fine-grained ranking of candidates. Our central hypothesis is that reasoning models are more effective discriminators than non-reasoning LLMs. Our results show that distilled DeepSeek-R1-1.5B achieves up to $87\\%$ higher F1 and $3.7\\%$ better discrimination accuracy than CodeLlama-7B, as well as $3.7\\%$ higher execution accuracy than CodeLlama-13B, despite having significantly fewer parameters. Furthermore, we find that there is a limit to the logical capabilities of reasoning models, and only providing more context or allowing more compute budget for reasoning is not enough to improve their discrimination performance. Finally, we demonstrate that, unlike non-reasoning LLMs, reasoning models find generation more challenging than discrimination and may underperform as generators compared to smaller non-reasoning LLMs. Our work highlights the potential of reasoning models as discriminators in agentic frameworks, far outweighing their capabilities as generators, offering insights into their optimal role within LLM planning infrastructures.",
+                "authors": [
+                  "Md Fahim Anjum"
+                ],
+                "published": "2025-04-30T17:27:13Z",
+                "updated": "2025-04-30T17:27:13Z",
+                "url": "http://arxiv.org/abs/2505.03786v1",
+                "pdf_url": "https://arxiv.org/pdf/2505.03786v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2406.13803v3",
+                "title": "LLMs as Models for Analogical Reasoning",
+                "summary": "Analogical reasoning -- the capacity to identify and map structural relationships between different domains -- is fundamental to human cognition and learning. Recent studies have shown that large language models (LLMs) can sometimes match humans in analogical reasoning tasks, opening the possibility that analogical reasoning might emerge from domain-general processes. However, it is still debated whether these emergent capacities are largely superficial and limited to simple relations seen during training or whether they encompass the flexible representational and mapping capabilities which are the focus of leading cognitive models of analogy. In this study, we introduce novel analogical reasoning tasks that require participants to map between semantically contentful words and sequences of letters and other abstract characters. This task necessitates the ability to flexibly re-represent rich semantic information -- an ability which is known to be central to human analogy but which is thus far not well captured by existing cognitive theories and models. We assess the performance of both human participants and LLMs on tasks focusing on reasoning from semantic structure and semantic content, introducing variations that test the robustness of their analogical inferences. Advanced LLMs match human performance across several conditions, though humans and LLMs respond differently to certain task variations and semantic distractors. Our results thus provide new evidence that LLMs might offer a how-possibly explanation of human analogical reasoning in contexts that are not yet well modeled by existing theories, but that even today's best models are unlikely to yield how-actually explanations.",
+                "authors": [
+                  "Sam Musker",
+                  "Alex Duchnowski",
+                  "Raphaël Millière",
+                  "Ellie Pavlick"
+                ],
+                "published": "2024-06-19T20:07:37Z",
+                "updated": "2025-11-20T03:50:38Z",
+                "url": "http://arxiv.org/abs/2406.13803v3",
+                "pdf_url": "https://arxiv.org/pdf/2406.13803v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2604.08140v1",
+                "title": "Multimodal Reasoning with LLM for Encrypted Traffic Interpretation: A Benchmark",
+                "summary": "Network traffic, as a key media format, is crucial for ensuring security and communications in modern internet infrastructure. While existing methods offer excellent performance, they face two key bottlenecks: (1) They fail to capture multidimensional semantics beyond unimodal sequence patterns. (2) Their black box property, i.e., providing only category labels, lacks an auditable reasoning process. We identify a key factor that existing network traffic datasets are primarily designed for classification and inherently lack rich semantic annotations, failing to generate human-readable evidence report. To address data scarcity, this paper proposes a Byte-Grounded Traffic Description (BGTD) benchmark for the first time, combining raw bytes with structured expert annotations. BGTD provides necessary behavioral features and verifiable chains of evidence for multimodal reasoning towards explainable encrypted traffic interpretation. Built upon BGTD, this paper proposes an end-to-end traffic-language representation framework (mmTraffic), a multimodal reasoning architecture bridging physical traffic encoding and semantic interpretation. In order to alleviate modality interference and generative hallucinations, mmTraffic adopts a jointly-optimized perception-cognition architecture. By incorporating a perception-centered traffic encoder and a cognition-centered LLM generator, mmTraffic achieves refined traffic interpretation with guaranteed category prediction. Extensive experiments demonstrate that mmTraffic autonomously generates high-fidelity, human-readable, and evidence-grounded traffic interpretation reports, while maintaining highly competitive classification accuracy comparing to specialized unimodal model (e.g., NetMamba). The source code is available at https://github.com/lgzhangzlg/Multimodal-Reasoning-with-LLM-for-Encrypted-Traffic-Interpretation-A-Benchmark",
+                "authors": [
+                  "Longgang Zhang",
+                  "Xiaowei Fu",
+                  "Fuxiang Huang",
+                  "Lei Zhang"
+                ],
+                "published": "2026-04-09T11:56:28Z",
+                "updated": "2026-04-09T11:56:28Z",
+                "url": "http://arxiv.org/abs/2604.08140v1",
+                "pdf_url": "https://arxiv.org/pdf/2604.08140v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR",
+                  "cs.AI",
+                  "cs.MM",
+                  "cs.NI"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T16:38:34"
+    }
+  ]
+}

@@ -1,7 +1,214 @@
 {
-  "dataset_id": "day04_v2_research_group",
+  "dataset_id": "day04_v2_research_group_2A202601382",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
+  "description": "10 eval cases cho Research Paper Scout Agent — 5 single-turn + 5 multi-turn. Tập trung vào routing đúng tool (papers, paper_text, citation_generator, clarify), trích xuất đúng argument (sort_by, max_results, arxiv_id), và kiểm soát boundary (không tự cite mà không có đủ thông tin).",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+
+    {
+      "id": "P01_papers_sort_by_submitted",
+      "phase": "B",
+      "query": "Tìm 5 bài báo mới nhất về Large Language Models",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": { "query": "Large Language Models", "sort_by": "submittedDate" }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Từ 'mới nhất' phải map sang sort_by=submittedDate, không phải sort_by=relevance (default). Đây là arg convention quan trọng nhất của tool papers."
+      }
+    },
+
+    {
+      "id": "P02_papers_sort_by_relevance",
+      "phase": "B",
+      "query": "Tìm những bài báo nổi tiếng nhất về Retrieval-Augmented Generation",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": { "query": "Retrieval-Augmented Generation", "sort_by": "relevance" }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "'Nổi tiếng nhất' / 'phổ biến' phải map sang sort_by=relevance. Phân biệt với 'mới nhất' → submittedDate."
+      }
+    },
+
+    {
+      "id": "P03_citation_from_user_info",
+      "phase": "B",
+      "query": "Tạo trích dẫn APA cho bài báo 'Attention Is All You Need' của Vaswani et al., năm 2017, đăng tại NeurIPS",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention Is All You Need",
+              "authors": "Vaswani et al.",
+              "year": "2017",
+              "venue": "NeurIPS"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "User cung cấp đầy đủ metadata → gọi citation_generator trực tiếp, không cần tìm kiếm thêm. Test routing đến tool mới."
+      }
+    },
+
+    {
+      "id": "P04_paper_text_from_arxiv_url",
+      "phase": "B",
+      "query": "Đọc và tóm tắt nội dung bài báo này: https://arxiv.org/abs/1706.03762",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": { "arxiv_url": "https://arxiv.org/abs/1706.03762" }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Đã có link arXiv cụ thể → dùng paper_text để đọc full text, không dùng fetch hay papers."
+      }
+    },
+
+    {
+      "id": "P05_out_of_scope_no_tool",
+      "phase": "B",
+      "query": "Giải thích cho tôi hiểu mạng nơ-ron hoạt động như thế nào theo cách đơn giản nhất",
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer_without_tool"
+      },
+      "metadata": {
+        "what_it_tests": "Câu hỏi kiến thức phổ thông có thể trả lời trực tiếp — agent KHÔNG cần gọi bất kỳ tool nào. Test tránh gọi tool thừa."
+      }
+    },
+
+    {
+      "id": "M01_papers_then_cite",
+      "phase": "B",
+      "turns": [
+        { "role": "user", "content": "Tìm cho tôi 3 bài báo nổi tiếng về RLHF" },
+        { "role": "user", "content": "Tạo trích dẫn BibTeX cho bài đầu tiên đi" }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {}
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: sau khi đã có kết quả từ papers ở turn 1, turn 2 yêu cầu cite → agent phải nhớ thông tin bài đầu tiên và gọi citation_generator với title/authors/year từ context."
+      }
+    },
+
+    {
+      "id": "M02_clarify_missing_query",
+      "phase": "B",
+      "turns": [
+        { "role": "user", "content": "Tìm bài báo về chủ đề đó đi" },
+        { "role": "user", "content": "Là chủ đề về vision transformer" }
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": { "query": "vision transformer" }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: turn 1 thiếu chủ đề rõ ràng ('chủ đề đó') → agent phải dùng clarify hoặc chờ; turn 2 bổ sung → agent phải gọi papers với query=vision transformer. Chấm trên turn cuối."
+      }
+    },
+
+    {
+      "id": "M03_read_then_cite_arxiv",
+      "phase": "B",
+      "turns": [
+        { "role": "user", "content": "Đọc bài báo này: https://arxiv.org/abs/2005.14165" },
+        { "role": "user", "content": "Tạo cho tôi trích dẫn APA của bài đó, tác giả là Brown et al., năm 2020, tên bài là 'Language Models are Few-Shot Learners'" }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Language Models are Few-Shot Learners",
+              "authors": "Brown et al.",
+              "year": "2020",
+              "arxiv_id": "2005.14165"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: turn 1 đọc paper, turn 2 yêu cầu cite với thông tin user tự cung cấp → gọi citation_generator với arxiv_id lấy từ URL ở turn trước."
+      }
+    },
+
+    {
+      "id": "M04_switch_from_lookup_to_papers",
+      "phase": "B",
+      "turns": [
+        { "role": "user", "content": "Tìm trên web thông tin về diffusion models" },
+        { "role": "user", "content": "Thôi, tìm bài báo khoa học về diffusion models trên arXiv đi, lấy bài mới nhất" }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": { "query": "diffusion models", "sort_by": "submittedDate" }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: turn 1 dùng lookup (web), turn 2 chuyển sang papers (arXiv) và yêu cầu bài mới nhất → sort_by=submittedDate. Test switch tool + carry query."
+      }
+    },
+
+    {
+      "id": "M05_clarify_before_cite",
+      "phase": "B",
+      "turns": [
+        { "role": "user", "content": "Tạo trích dẫn cho bài báo về transformer" },
+        { "role": "user", "content": "Bài 'Attention Is All You Need', tác giả Vaswani et al., năm 2017" }
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention Is All You Need",
+              "authors": "Vaswani et al.",
+              "year": "2017"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: turn 1 thiếu title/authors/year cụ thể → agent phải dùng clarify để hỏi; turn 2 user cung cấp đủ → citation_generator được gọi với đúng args. Test boundary: KHÔNG tự bịa metadata."
+      }
+    }
+
+  ]
 }
