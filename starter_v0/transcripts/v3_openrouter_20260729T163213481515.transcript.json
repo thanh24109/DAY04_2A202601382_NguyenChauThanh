@@ -1,0 +1,323 @@
+{
+  "transcript_id": "v3_openrouter_20260729T163213481515",
+  "version": "v3",
+  "artifact_version": "v3+pd90ef4190b79+ta2826a2d1a7d",
+  "prompt_hash": "d90ef4190b797665c0ce7945acecdb287c8143217a906c73466ccf6db3d0271c",
+  "tools_hash": "a2826a2d1a7d700494e21a0bc12949dd0ad53aa5aea9800bb0714bea787a7184",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T16:32:13",
+  "updated_at": "2026-07-29T16:32:34",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:32:13",
+      "user": "Tìm 5 bài báo mới nhất về Retrieval-Augmented Generation.",
+      "status": "answered",
+      "assistant_text": "Here are the 5 most recent papers on Retrieval-Augmented Generation:\n\n1. **Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs**\n   - **Authors**: Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n   - **Published**: July 28, 2026\n   - **Summary**: This paper addresses the detection of modality-level inconsistencies in knowledge across text, tables, and knowledge graphs, introducing a framework called Kontrast for automatic comparison and categorization of inconsistencies.\n   - [Read more](http://arxiv.org/abs/2607.25959v1) | [PDF](https://arxiv.org/pdf/2607.25959v1)\n\n2. **Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs**\n   - **Authors**: Chandan Kumar Sah, Xiaoli Lian, Li Zhang\n   - **Published**: July 28, 2026\n   - **Summary**: This study explores how verbalized confidence from language models can guide retrieval routing in knowledge-intensive question answering, proposing a method that balances retrieval efficiency and accuracy.\n   - [Read more](http://arxiv.org/abs/2607.25600v1) | [PDF](https://arxiv.org/pdf/2607.25600v1)\n\n3. **The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers**\n   - **Authors**: Zhe Xu et al.\n   - **Published**: July 28, 2026\n   - **Summary**: The paper presents a two-tower retrieval architecture using LLMs as semantic representation backbones, demonstrating its effectiveness in large-scale retrieval tasks compared to generative models.\n   - [Read more](http://arxiv.org/abs/2607.25346v1) | [PDF](https://arxiv.org/pdf/2607.25346v1)\n\n4. **ScoreShield: Differentially Private Release of Similarity Scores**\n   - **Authors**: Behrooz Razeghi, Parsa Rahimi\n   - **Published**: July 27, 2026\n   - **Summary**: This work introduces ScoreShield, a mechanism for releasing similarity scores in a differentially private manner, addressing privacy concerns in applications like retrieval-augmented generation.\n   - [Read more](http://arxiv.org/abs/2607.25041v1) | [PDF](https://arxiv.org/pdf/2607.25041v1)\n\n5. **Automatic Knowledge Graph Construction and Query for Earthquake Catalogs**\n   - **Authors**: Yuxin Zhou, Huai Zhang, S. Mostafa Mousavi\n   - **Published**: July 27, 2026\n   - **Summary**: This paper presents GraphRAG, a method for constructing queryable knowledge graphs from earthquake catalogs, enhancing the retrieval of information without manual data structuring.\n   - [Read more](http://arxiv.org/abs/2607.24984v1) | [PDF](https://arxiv.org/pdf/2607.24984v1)\n\nFeel free to ask if you need more information on any of these papers!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "Retrieval-Augmented Generation",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "Retrieval-Augmented Generation",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Retrieval-Augmented Generation",
+                "api_query": "all:Retrieval-Augmented AND all:Generation",
+                "total_results": 7424,
+                "items": [
+                  {
+                    "arxiv_id": "2607.25959v1",
+                    "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                    "summary": "Wikipedia and Wikidata are widely used for information access, LLM pre-training, and retrieval-augmented generation. Their knowledge is deeply connected but scattered across text, tables, and knowledge graphs. This raises a practical question: when these modalities disagree, how can we detect and explain the conflict? We study this problem as \\emph{modality-level inconsistency detection}. We first introduce a taxonomy of cross-modal knowledge inconsistencies, covering information granularity differences, direct conflicts, temporal changes, and KG incompleteness. We then present \\textsc{Kontrast}, an automatic framework that uses Text-to-SPARQL and LLM reasoning to compare table-based answers with KG evidence and categorize the resulting inconsistencies. Experiments on various Table-QA datasets show that cross-modal inconsistencies are common and informative. They reveal not only true knowledge conflicts, but also missing KG structure and temporal mismatches while being limited by Text-to-SPARQL errors and noise. Our analysis shows that text, tables, and KGs can complement and correct one another through systematic comparison. \\textsc{Kontrast} provides a practical tool for large-scale knowledge auditing and establishes a benchmark for future work on cross-modal knowledge consistency. Code and data are available at https://github.com/ECLADATTA/KONTRAST.",
+                    "authors": [
+                      "Fanfu Wei",
+                      "Thibault Ehrhart",
+                      "Raphaël Troncy"
+                    ],
+                    "published": "2026-07-28T16:43:56Z",
+                    "updated": "2026-07-28T16:43:56Z",
+                    "url": "http://arxiv.org/abs/2607.25959v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25959v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25600v1",
+                    "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                    "summary": "Retrieval-augmented generation improves knowledge-intensive question answering, but indiscriminate retrieval can introduce irrelevant evidence and unnecessary computation. We investigate whether verbalized confidence from black-box language models can serve as an actionable signal for retrieval routing. Our method, BeyondUncertainty, first elicits a structured provisional answer and confidence estimate, then applies a model-specific threshold selected on held-out validation data and frozen before test evaluation. Low-confidence questions receive top-$5$ TF--IDF retrieval followed by a second answer call, whereas high-confidence questions return the provisional answer directly. We evaluate 27,000 policy instances across six QA benchmarks, three model families, and three retrieval policies. BeyondUncertainty achieves $0.483$ mean token-level F1, compared with $0.467$ for always retrieval and $0.401$ for no retrieval, while reducing retrieved passages by $20.4\\%$ relative to always retrieval. When matched on the number of questions routed to retrieval within each dataset--model cell, it outperforms a post-hoc random allocation in 17 of 18 settings, with an average gain of 0.024 F1. Although poorly calibrated as an absolute probability, probe uncertainty modestly predicts question-level retrieval benefit (AUROC $=0.628$). However, the additional probe increases total token usage by $28.2\\%$, revealing a trade-off between more selective evidence acquisition and end-to-end token efficiency.",
+                    "authors": [
+                      "Chandan Kumar Sah",
+                      "Xiaoli Lian",
+                      "Li Zhang"
+                    ],
+                    "published": "2026-07-28T11:30:25Z",
+                    "updated": "2026-07-28T11:30:25Z",
+                    "url": "http://arxiv.org/abs/2607.25600v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25600v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25346v1",
+                    "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                    "summary": "Large Language Models (LLMs) have emerged as powerful assets for recommender systems. However, deploying them as generative recommenders or zero-shot rankers at web-scale remains bottlenecked by prohibitive computational overhead and grounding challenges. In this paper, we revitalize the classic, highly efficient two-tower retrieval architecture by adapting LLMs as semantic representation backbones rather than generative engines. We introduce an LLM-native two-tower framework engineered for high-throughput, large-scale retrieval. Our architecture introduces several key innovations: a shared LLM encoder for joint user-item modeling, End-Of-Sentence (EOS) token pooling for compact sequence embedding, cross-dataset transfer learning, knowledge distillation from powerful cross-encoder teachers, and latent reasoning within the user tower. Extensive evaluation across three public benchmarks demonstrates that cross-encoder architecture outperforms current state-of-the-art (SoTA) models, while the efficient two-tower student achieves SoTA-comparable retrieval performance. Furthermore, experiments on internal large-scale production systems yield substantial topline retrieval improvements along with high resilience to model staleness and superior data scaling. Our findings demonstrate that when augmented with modern representation learning, the traditional two-tower paradigm remains an exceptionally competitive and practical solution for industrial retrieval systems.",
+                    "authors": [
+                      "Zhe Xu",
+                      "Prachi Agrawal",
+                      "Kavosh Asadi",
+                      "Tianyi Chen",
+                      "Carl Hu",
+                      "Justin Johnson",
+                      "Wuwei Lan",
+                      "Mingfu Liang",
+                      "Xi Liu",
+                      "Tik On Lui",
+                      "Oladipo Ositelu",
+                      "Sandeep Pandey",
+                      "Ankit Peshin",
+                      "Feng Qi",
+                      "Anil Ramakrishna",
+                      "Kaushik Rangadurai",
+                      "Frank Shyu",
+                      "Luke Simon",
+                      "Yang Yang",
+                      "Chiyu Zhang"
+                    ],
+                    "published": "2026-07-28T06:47:53Z",
+                    "updated": "2026-07-28T06:47:53Z",
+                    "url": "http://arxiv.org/abs/2607.25346v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25346v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.25041v1",
+                    "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                    "summary": "A growing number of applications, such as biometrics and retrieval-augmented generation (RAG), rely on cosine similarity scores computed between vector embeddings of text, images, or audio. These systems return similarity scores through their APIs for ranking and verification. However, such releases can leak information about individual records and enable membership inference attacks. While differential privacy (DP) provides a principled metric for quantifying attack risks, naïve application of DP mechanisms---such as adding i.i.d. Gaussian noise to vector entries---leads to excessive distortion (i.e., low utility) at a given privacy constraint that scales poorly with the number of released scores. We propose \\textsc{ScoreShield}, a perturb-then-project mechanism that adds Gaussian noise calibrated to global sensitivity of the chosen score release regime and then projects the result onto the feasibility set of valid cosine objects. \\textsc{ScoreShield} satisfies $(\\varepsilon,δ)$-DP for releasing similarity score vectors and Gram matrices. We provide utility guarantees for the exact Frobenius metric projection used in the risk analysis, and prove convergence to feasibility for the practical averaged alternating-projection solver used for large-scale Gram releases. For full pairwise cosine Gram release under record-level replacement adjacency, the exact-projection bound improves the $n$-dependence of squared Frobenius risk from $Θ(n^3)$ for the naïve Gaussian baseline to $\\mathcal{O}(n^2)$ for fixed privacy parameters, with sharper local bounds at low-rank Grams. We evaluate the mechanism across RAG, face recognition, semantic retrieval, image similarity, and recommender-system tasks.",
+                    "authors": [
+                      "Behrooz Razeghi",
+                      "Parsa Rahimi"
+                    ],
+                    "published": "2026-07-27T20:02:28Z",
+                    "updated": "2026-07-27T20:02:28Z",
+                    "url": "http://arxiv.org/abs/2607.25041v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25041v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.IR",
+                    "categories": [
+                      "cs.IR",
+                      "cs.CR",
+                      "cs.CV",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.24984v1",
+                    "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                    "summary": "In recent years, the number of events in earthquake catalogs has significantly increased due to the utilization of more effective deep learning based detectors and phase pickers but answering open ended questions such as what characterizes this sequence? remains constrained by rigid spatiotemporal windowing and subjective expert interpretation. We present the first systematic application of graph based retrieval augmented generation GraphRAG directly to raw, tabular catalog records across three independently featured catalogs, a reservoir adjacent swarm, the 2019 Ridgecrest tectonic sequence, and the 2021 Maduo Mw7.4 aftershock sequence. Without the need for manual data structuring, the pipeline builds structurally complete, queryable knowledge graphs for all three. Rigorous evaluation individually verified against catalog derived ground truth and a rule based reference graph exposes failure modes, and four seismology informed prompt fixes eliminate all targeted fabrications while sharply improving mechanism reasoning. A vector RAG baseline demonstrates the graph layers distinctive value, catalog wide summarization and temporal stage comparison. In addition, we have identified two main pitfalls that need attention. GraphRAG thus offers a practical, transferable, near zero cost query interface for earthquake catalogs, where careful prompting ensures the results are consistently accurate and trustworthy.",
+                    "authors": [
+                      "Yuxin Zhou",
+                      "Huai Zhang",
+                      "S. Mostafa Mousavi"
+                    ],
+                    "published": "2026-07-27T18:39:05Z",
+                    "updated": "2026-07-27T18:39:05Z",
+                    "url": "http://arxiv.org/abs/2607.24984v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.24984v1",
+                    "source": "arxiv.org",
+                    "primary_category": "physics.geo-ph",
+                    "categories": [
+                      "physics.geo-ph",
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are the 5 most recent papers on Retrieval-Augmented Generation:\n\n1. **Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs**\n   - **Authors**: Fanfu Wei, Thibault Ehrhart, Raphaël Troncy\n   - **Published**: July 28, 2026\n   - **Summary**: This paper addresses the detection of modality-level inconsistencies in knowledge across text, tables, and knowledge graphs, introducing a framework called Kontrast for automatic comparison and categorization of inconsistencies.\n   - [Read more](http://arxiv.org/abs/2607.25959v1) | [PDF](https://arxiv.org/pdf/2607.25959v1)\n\n2. **Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs**\n   - **Authors**: Chandan Kumar Sah, Xiaoli Lian, Li Zhang\n   - **Published**: July 28, 2026\n   - **Summary**: This study explores how verbalized confidence from language models can guide retrieval routing in knowledge-intensive question answering, proposing a method that balances retrieval efficiency and accuracy.\n   - [Read more](http://arxiv.org/abs/2607.25600v1) | [PDF](https://arxiv.org/pdf/2607.25600v1)\n\n3. **The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers**\n   - **Authors**: Zhe Xu et al.\n   - **Published**: July 28, 2026\n   - **Summary**: The paper presents a two-tower retrieval architecture using LLMs as semantic representation backbones, demonstrating its effectiveness in large-scale retrieval tasks compared to generative models.\n   - [Read more](http://arxiv.org/abs/2607.25346v1) | [PDF](https://arxiv.org/pdf/2607.25346v1)\n\n4. **ScoreShield: Differentially Private Release of Similarity Scores**\n   - **Authors**: Behrooz Razeghi, Parsa Rahimi\n   - **Published**: July 27, 2026\n   - **Summary**: This work introduces ScoreShield, a mechanism for releasing similarity scores in a differentially private manner, addressing privacy concerns in applications like retrieval-augmented generation.\n   - [Read more](http://arxiv.org/abs/2607.25041v1) | [PDF](https://arxiv.org/pdf/2607.25041v1)\n\n5. **Automatic Knowledge Graph Construction and Query for Earthquake Catalogs**\n   - **Authors**: Yuxin Zhou, Huai Zhang, S. Mostafa Mousavi\n   - **Published**: July 27, 2026\n   - **Summary**: This paper presents GraphRAG, a method for constructing queryable knowledge graphs from earthquake catalogs, enhancing the retrieval of information without manual data structuring.\n   - [Read more](http://arxiv.org/abs/2607.24984v1) | [PDF](https://arxiv.org/pdf/2607.24984v1)\n\nFeel free to ask if you need more information on any of these papers!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Retrieval-Augmented Generation",
+            "max_results": 5,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Retrieval-Augmented Generation",
+            "api_query": "all:Retrieval-Augmented AND all:Generation",
+            "total_results": 7424,
+            "items": [
+              {
+                "arxiv_id": "2607.25959v1",
+                "title": "Detecting Knowledge Inconsistencies Across Text, Tables, and Knowledge Graphs",
+                "summary": "Wikipedia and Wikidata are widely used for information access, LLM pre-training, and retrieval-augmented generation. Their knowledge is deeply connected but scattered across text, tables, and knowledge graphs. This raises a practical question: when these modalities disagree, how can we detect and explain the conflict? We study this problem as \\emph{modality-level inconsistency detection}. We first introduce a taxonomy of cross-modal knowledge inconsistencies, covering information granularity differences, direct conflicts, temporal changes, and KG incompleteness. We then present \\textsc{Kontrast}, an automatic framework that uses Text-to-SPARQL and LLM reasoning to compare table-based answers with KG evidence and categorize the resulting inconsistencies. Experiments on various Table-QA datasets show that cross-modal inconsistencies are common and informative. They reveal not only true knowledge conflicts, but also missing KG structure and temporal mismatches while being limited by Text-to-SPARQL errors and noise. Our analysis shows that text, tables, and KGs can complement and correct one another through systematic comparison. \\textsc{Kontrast} provides a practical tool for large-scale knowledge auditing and establishes a benchmark for future work on cross-modal knowledge consistency. Code and data are available at https://github.com/ECLADATTA/KONTRAST.",
+                "authors": [
+                  "Fanfu Wei",
+                  "Thibault Ehrhart",
+                  "Raphaël Troncy"
+                ],
+                "published": "2026-07-28T16:43:56Z",
+                "updated": "2026-07-28T16:43:56Z",
+                "url": "http://arxiv.org/abs/2607.25959v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25959v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25600v1",
+                "title": "Beyond Self-Knowledge: Propagating Uncertainty Across Reasoning and Retrieval in LLMs",
+                "summary": "Retrieval-augmented generation improves knowledge-intensive question answering, but indiscriminate retrieval can introduce irrelevant evidence and unnecessary computation. We investigate whether verbalized confidence from black-box language models can serve as an actionable signal for retrieval routing. Our method, BeyondUncertainty, first elicits a structured provisional answer and confidence estimate, then applies a model-specific threshold selected on held-out validation data and frozen before test evaluation. Low-confidence questions receive top-$5$ TF--IDF retrieval followed by a second answer call, whereas high-confidence questions return the provisional answer directly. We evaluate 27,000 policy instances across six QA benchmarks, three model families, and three retrieval policies. BeyondUncertainty achieves $0.483$ mean token-level F1, compared with $0.467$ for always retrieval and $0.401$ for no retrieval, while reducing retrieved passages by $20.4\\%$ relative to always retrieval. When matched on the number of questions routed to retrieval within each dataset--model cell, it outperforms a post-hoc random allocation in 17 of 18 settings, with an average gain of 0.024 F1. Although poorly calibrated as an absolute probability, probe uncertainty modestly predicts question-level retrieval benefit (AUROC $=0.628$). However, the additional probe increases total token usage by $28.2\\%$, revealing a trade-off between more selective evidence acquisition and end-to-end token efficiency.",
+                "authors": [
+                  "Chandan Kumar Sah",
+                  "Xiaoli Lian",
+                  "Li Zhang"
+                ],
+                "published": "2026-07-28T11:30:25Z",
+                "updated": "2026-07-28T11:30:25Z",
+                "url": "http://arxiv.org/abs/2607.25600v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25600v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25346v1",
+                "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+                "summary": "Large Language Models (LLMs) have emerged as powerful assets for recommender systems. However, deploying them as generative recommenders or zero-shot rankers at web-scale remains bottlenecked by prohibitive computational overhead and grounding challenges. In this paper, we revitalize the classic, highly efficient two-tower retrieval architecture by adapting LLMs as semantic representation backbones rather than generative engines. We introduce an LLM-native two-tower framework engineered for high-throughput, large-scale retrieval. Our architecture introduces several key innovations: a shared LLM encoder for joint user-item modeling, End-Of-Sentence (EOS) token pooling for compact sequence embedding, cross-dataset transfer learning, knowledge distillation from powerful cross-encoder teachers, and latent reasoning within the user tower. Extensive evaluation across three public benchmarks demonstrates that cross-encoder architecture outperforms current state-of-the-art (SoTA) models, while the efficient two-tower student achieves SoTA-comparable retrieval performance. Furthermore, experiments on internal large-scale production systems yield substantial topline retrieval improvements along with high resilience to model staleness and superior data scaling. Our findings demonstrate that when augmented with modern representation learning, the traditional two-tower paradigm remains an exceptionally competitive and practical solution for industrial retrieval systems.",
+                "authors": [
+                  "Zhe Xu",
+                  "Prachi Agrawal",
+                  "Kavosh Asadi",
+                  "Tianyi Chen",
+                  "Carl Hu",
+                  "Justin Johnson",
+                  "Wuwei Lan",
+                  "Mingfu Liang",
+                  "Xi Liu",
+                  "Tik On Lui",
+                  "Oladipo Ositelu",
+                  "Sandeep Pandey",
+                  "Ankit Peshin",
+                  "Feng Qi",
+                  "Anil Ramakrishna",
+                  "Kaushik Rangadurai",
+                  "Frank Shyu",
+                  "Luke Simon",
+                  "Yang Yang",
+                  "Chiyu Zhang"
+                ],
+                "published": "2026-07-28T06:47:53Z",
+                "updated": "2026-07-28T06:47:53Z",
+                "url": "http://arxiv.org/abs/2607.25346v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25346v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25041v1",
+                "title": "ScoreShield: Differentially Private Release of Similarity Scores",
+                "summary": "A growing number of applications, such as biometrics and retrieval-augmented generation (RAG), rely on cosine similarity scores computed between vector embeddings of text, images, or audio. These systems return similarity scores through their APIs for ranking and verification. However, such releases can leak information about individual records and enable membership inference attacks. While differential privacy (DP) provides a principled metric for quantifying attack risks, naïve application of DP mechanisms---such as adding i.i.d. Gaussian noise to vector entries---leads to excessive distortion (i.e., low utility) at a given privacy constraint that scales poorly with the number of released scores. We propose \\textsc{ScoreShield}, a perturb-then-project mechanism that adds Gaussian noise calibrated to global sensitivity of the chosen score release regime and then projects the result onto the feasibility set of valid cosine objects. \\textsc{ScoreShield} satisfies $(\\varepsilon,δ)$-DP for releasing similarity score vectors and Gram matrices. We provide utility guarantees for the exact Frobenius metric projection used in the risk analysis, and prove convergence to feasibility for the practical averaged alternating-projection solver used for large-scale Gram releases. For full pairwise cosine Gram release under record-level replacement adjacency, the exact-projection bound improves the $n$-dependence of squared Frobenius risk from $Θ(n^3)$ for the naïve Gaussian baseline to $\\mathcal{O}(n^2)$ for fixed privacy parameters, with sharper local bounds at low-rank Grams. We evaluate the mechanism across RAG, face recognition, semantic retrieval, image similarity, and recommender-system tasks.",
+                "authors": [
+                  "Behrooz Razeghi",
+                  "Parsa Rahimi"
+                ],
+                "published": "2026-07-27T20:02:28Z",
+                "updated": "2026-07-27T20:02:28Z",
+                "url": "http://arxiv.org/abs/2607.25041v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25041v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.IR",
+                "categories": [
+                  "cs.IR",
+                  "cs.CR",
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.24984v1",
+                "title": "Automatic Knowledge Graph Construction and Query for Earthquake Catalogs",
+                "summary": "In recent years, the number of events in earthquake catalogs has significantly increased due to the utilization of more effective deep learning based detectors and phase pickers but answering open ended questions such as what characterizes this sequence? remains constrained by rigid spatiotemporal windowing and subjective expert interpretation. We present the first systematic application of graph based retrieval augmented generation GraphRAG directly to raw, tabular catalog records across three independently featured catalogs, a reservoir adjacent swarm, the 2019 Ridgecrest tectonic sequence, and the 2021 Maduo Mw7.4 aftershock sequence. Without the need for manual data structuring, the pipeline builds structurally complete, queryable knowledge graphs for all three. Rigorous evaluation individually verified against catalog derived ground truth and a rule based reference graph exposes failure modes, and four seismology informed prompt fixes eliminate all targeted fabrications while sharply improving mechanism reasoning. A vector RAG baseline demonstrates the graph layers distinctive value, catalog wide summarization and temporal stage comparison. In addition, we have identified two main pitfalls that need attention. GraphRAG thus offers a practical, transferable, near zero cost query interface for earthquake catalogs, where careful prompting ensures the results are consistently accurate and trustworthy.",
+                "authors": [
+                  "Yuxin Zhou",
+                  "Huai Zhang",
+                  "S. Mostafa Mousavi"
+                ],
+                "published": "2026-07-27T18:39:05Z",
+                "updated": "2026-07-27T18:39:05Z",
+                "url": "http://arxiv.org/abs/2607.24984v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.24984v1",
+                "source": "arxiv.org",
+                "primary_category": "physics.geo-ph",
+                "categories": [
+                  "physics.geo-ph",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T16:32:34"
+    }
+  ]
+}

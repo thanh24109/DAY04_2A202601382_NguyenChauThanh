@@ -1,0 +1,77 @@
+{
+  "transcript_id": "v3_openrouter_20260729T160428528787",
+  "version": "v3",
+  "artifact_version": "v3+pd90ef4190b79+ta2826a2d1a7d",
+  "prompt_hash": "d90ef4190b797665c0ce7945acecdb287c8143217a906c73466ccf6db3d0271c",
+  "tools_hash": "a2826a2d1a7d700494e21a0bc12949dd0ad53aa5aea9800bb0714bea787a7184",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "artifacts\\system_prompt.md",
+  "tools": "artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T16:04:28",
+  "updated_at": "2026-07-29T16:05:10",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:04:28",
+      "user": "Tìm 3 paper arXiv mới nhất về AI agents.",
+      "status": "answered",
+      "assistant_text": "Hiện tại, tôi không thể truy cập vào arXiv để tìm kiếm các bài báo mới nhất về AI agents do lỗi kết nối. Bạn có thể thử lại sau hoặc yêu cầu một chủ đề khác.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "AI agents",
+                "max_results": 3,
+                "sort_by": "submittedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "AI agents",
+                "max_results": 3,
+                "sort_by": "submittedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "error": "ReadTimeout",
+                "message": "HTTPSConnectionPool(host='export.arxiv.org', port=443): Read timed out. (read timeout=30)"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Hiện tại, tôi không thể truy cập vào arXiv để tìm kiếm các bài báo mới nhất về AI agents do lỗi kết nối. Bạn có thể thử lại sau hoặc yêu cầu một chủ đề khác.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "AI agents",
+            "max_results": 3,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "error": "ReadTimeout",
+            "message": "HTTPSConnectionPool(host='export.arxiv.org', port=443): Read timed out. (read timeout=30)"
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T16:05:10"
+    }
+  ]
+}

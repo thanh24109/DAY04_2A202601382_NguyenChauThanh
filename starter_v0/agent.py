@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from providers.base import Provider, ToolCall
+from providers.base import Provider, ToolCall, dedupe_tool_calls
 from tools import TOOL_FUNCTIONS
 
 
@@ -37,8 +37,9 @@ class ResearchAgent:
             temperature=0.0,
             tool_choice=tool_choice,
         )
+        tool_calls = dedupe_tool_calls(response.tool_calls)
         results: list[dict[str, Any]] = []
-        for call in response.tool_calls:
+        for call in tool_calls:
             func = TOOL_FUNCTIONS.get(call.name)
             if not func:
                 results.append({"tool": call.name, "error": "unknown_tool"})
@@ -48,4 +49,4 @@ class ResearchAgent:
             except Exception as exc:  # keep eval robust; failures are evidence
                 result = {"error": type(exc).__name__, "message": str(exc)}
             results.append({"tool": call.name, "args": call.args, "result": result})
-        return AgentRun(text=response.text, tool_calls=response.tool_calls, tool_results=results)
+        return AgentRun(text=response.text, tool_calls=tool_calls, tool_results=results)

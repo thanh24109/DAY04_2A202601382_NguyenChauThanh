@@ -1,0 +1,984 @@
+{
+  "run_id": "v3_B_group_openrouter_20260729T154755525503",
+  "version": "v3",
+  "artifact_version": "v3+pd90ef4190b79+ta2826a2d1a7d",
+  "prompt_hash": "d90ef4190b797665c0ce7945acecdb287c8143217a906c73466ccf6db3d0271c",
+  "tools_hash": "a2826a2d1a7d700494e21a0bc12949dd0ad53aa5aea9800bb0714bea787a7184",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_paper_scout_group",
+  "dataset_role": "group",
+  "description": "10 case do nhom tu thiet ke cho Research Paper Scout: 5 single-turn va 5 multi-turn. Grader cham tool routing va subset arguments tren yeu cau hien tai.",
+  "generated_at": "2026-07-29T15:47:55",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 9,
+    "case_accuracy": 0.9,
+    "tool_routing_accuracy": 0.9,
+    "argument_accuracy": 0.9,
+    "multiturn_accuracy": 0.8,
+    "failure_counts": {
+      "wrong_arg_value": 1
+    },
+    "observed_mismatch_counts": {
+      "extra_tool_call": 1
+    }
+  },
+  "results": [
+    {
+      "id": "G001",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "paper_search_latest",
+        "difficulty": "medium",
+        "what_it_tests": "Yêu cầu paper mới nhất phải dùng papers, giữ max_results=5 và ánh xạ 'mới nhất' thành sort_by=submittedDate."
+      },
+      "input": "Tìm đúng 5 bài báo arXiv mới nhất về Transformer.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "Transformer",
+              "max_results": 5,
+              "sort_by": "submittedDate"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "Transformer",
+              "max_results": 5,
+              "sort_by": "submittedDate"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Transformer",
+            "max_results": 5,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Transformer",
+            "api_query": "all:Transformer",
+            "total_results": 174319,
+            "items": [
+              {
+                "arxiv_id": "2607.26042v1",
+                "title": "VetClaw: An Edge-Cloud Multimodal Agentic System for Veterinary Disease Screening",
+                "summary": "We present VetClaw, an edge-cloud multimodal agentic system for early veterinary disease screening. VetClaw uses a camera module as an edge sensing device and sends captured images, together with optional symptom descriptions, to a server-hosted vision-language model for zero-shot disease classification. The system separates agent interaction from workflow orchestration: OpenClaw provides scheduling, tool access, user interaction, and notification services on the edge device, while LangGraph manages the stateful screening workflow, including input validation, image transmission, model invocation, safety checks, conditional routing, failure handling, and structured logging. This design moves beyond static image classification by enabling the system to collect visual evidence, invoke external models, apply deterministic safety rules, and generate diagnostic-support alerts. Results show that image-only VLM prediction remains limited, whereas symptom-guided and multimodal inputs improve zero-shot classification performance. Thus, VetClaw transforms a static prediction model into a coordinated, safety-aware system that can use tools, manage workflows, handle failures, and escalate uncertain cases.",
+                "authors": [
+                  "Syed Mhamudul Hasan",
+                  "Anas AlSobeh",
+                  "Hussein Zangoti",
+                  "Abdur R. Shahid"
+                ],
+                "published": "2026-07-28T17:50:25Z",
+                "updated": "2026-07-28T17:50:25Z",
+                "url": "http://arxiv.org/abs/2607.26042v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26042v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26021v1",
+                "title": "Weighted Webs: Morphology-Informed Marked Fields",
+                "summary": "The morphology of the cosmic web formed by the late-time matter distribution encodes cosmological information beyond that contained in standard two-point statistics. Marked power spectra provide a computationally efficient framework to access this higher-order information, by studying the two-point statistics of the density field ``marked'' (i.e. weighted) by a function of its local environmental density. In this work we explore the potential of marks that are sensitive to the morphology of this local environment, rather than simply its density. We study a broad range of such marks, considering mark functions based on the smoothed density, tidal shear amplitude, local degree of isotropy and filamentarity, Gaussian transformations of these quantities and a local fractal dimension estimator. We quantify the merit of different marks in terms of their constraints on key cosmological parameters, including the matter abundance $Ω_m$, the amplitude of fluctuations $σ_8$, and the mass of neutrinos $M_ν$. We have found that density-dependent marks continue to provide the largest improvements over the standard power spectrum, while morphology-based marks yield more modest improvements on their own. Nevertheless, combining density- and morphology-based marks consistently enhances cosmological constraints beyond what either class achieves separately, demonstrating that they probe complementary aspects of the underlying matter distribution. These results provide a systematic assessment of morphology-based marked statistics and explore which geometric properties of the cosmic web contribute most effectively to cosmological parameter inference. They also establish a physically motivated framework for future investigations of optimal marks and their perturbative connection to higher-order correlation functions.",
+                "authors": [
+                  "Mikel Martin Barandiaran",
+                  "Jessica A. Cowell",
+                  "David Alonso",
+                  "Javier Carrón Duque",
+                  "Juan García-Bellido"
+                ],
+                "published": "2026-07-28T17:32:56Z",
+                "updated": "2026-07-28T17:32:56Z",
+                "url": "http://arxiv.org/abs/2607.26021v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26021v1",
+                "source": "arxiv.org",
+                "primary_category": "astro-ph.CO",
+                "categories": [
+                  "astro-ph.CO"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26016v1",
+                "title": "MDTransformer: A Hardware-Software Co-Design of Mode-Division Photonic Transformer Accelerator with Inverse-Designed Coherent Crossbar",
+                "summary": "Recently, photonic transformer accelerators (PTAs) have successfully achieved significant speedup and energy efficiency improvements over electronic accelerators for expediting Transformer inference. However, state-of-the-art rely on expensive multi-wavelength light generation and large dot-product units due to active phase-shifter components, thus making their approach inefficient and impractical. To address this, we propose MDTransformer, a novel hardware-software co-design of PTA based on mode-division optical dataflow and operations. Specifically, MDTransformer performs complex matrix operations using spatial-mode interference, that leverages the inverse-designed multi-mode couplers, crossings, and Mach-Zehnder IQ modulators into a compact mode-division photonic tensor core (MPTC), capable of executing matrix multiplications in the optical domain. Its each guided mode (i.e., TE0-TE3) acts as an independent computational lane, enabling four-fold parallelism-per-waveguide without spectral filtering or free-spectral-range limitations. Moreover, its coherent detection and IQ modulation jointly encode amplitude and phase, realizing complex-valued arithmetic for full-range operations in transformers. MDTransformer offers analog multiplication with sub-4-bit effective precision and inter-modal crosstalk below -30 dB. Its inverse-designed approach also offers scalable and full compatibility with single-laser continuous-wave operation at 1550 nm. Experimental results show that MDTransformer achieves 40.4% area reduction, 63.6% power saving, 40.6% energy saving, and comparable latency over the state-of-the-art PTA across different workloads (i.e., DeiT-Tiny/Small/Base and BERT-Base/Large). These results show that MDTransformer offers a practical solution for high-performance and energy-efficient transformer-based systems.",
+                "authors": [
+                  "Solomon Micheal Serunjogi",
+                  "Rachmad Vidya Wicaksana Putra",
+                  "Ayat Taha",
+                  "Muhammad Shafique",
+                  "Mahmoud Rasras"
+                ],
+                "published": "2026-07-28T17:27:49Z",
+                "updated": "2026-07-28T17:27:49Z",
+                "url": "http://arxiv.org/abs/2607.26016v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26016v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AR",
+                "categories": [
+                  "cs.AR",
+                  "cs.AI",
+                  "cs.DC"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25998v1",
+                "title": "Observable Estimation in the Absence of Classical Verification",
+                "summary": "The predictive success of quantum mechanics underpins many areas of modern science, even as the exact simulation of large, interacting quantum systems remains beyond the reach of classical computation. This success has been enabled by the remarkable advancement of scalable numerical approximation methods, which often demonstrate practical accuracy despite the absence of formal guarantees. As quantum simulation pushes into regimes where these approximations struggle, a fundamental challenge arises: How can quantum outcomes be trusted when reliable classical benchmarks are unavailable? Here, we establish a framework for the independent validation of quantum estimates in this setting and present evidence that they provide the most credible result among several considered methods, in the absence of an immediately accessible ground-truth solution. We apply our framework to the semi-scrambling dynamics of a physical model that strains several leading classical simulation methods yet remains experimentally accessible, in part through our introduction of the \\textit{operator Loschmidt echo}. We systematically design a series of experiments using quantum heuristics that, taken together, test the underlying assumptions and provide strong confidence in the observable estimates obtained from the quantum computer. We then show how this framework can be extended to place accuracy bounds on quantum estimates via careful characterization and manipulation of the device noise, transforming the problem of validating the observable estimation to validating the noise model. These results establish a route towards trusted quantum computation for scientific discovery, independent of classical verification.",
+                "authors": [
+                  "Samantha V. Barron",
+                  "Bradley Mitchell",
+                  "Vinay Tripathi",
+                  "Francesco Grieco",
+                  "Ilan Rosen",
+                  "Francesca Pietracaprina",
+                  "Davide Materia",
+                  "Alireza Seif",
+                  "Darvin Wanisch",
+                  "Ramón L. Panadés-Barrueta",
+                  "Ewout van den Berg",
+                  "Jay-U Chung",
+                  "Andrew Eddins",
+                  "Sam Ferracin",
+                  "Guillermo García-Pérez",
+                  "John Goold",
+                  "Luke C. G. Govia",
+                  "Holger Haas",
+                  "Ian Hincks",
+                  "Jesse C. Hoke",
+                  "Zoë Holmes",
+                  "Su-un Lee",
+                  "Youngseok Kim",
+                  "Swarnadeep Majumder",
+                  "Sabrina Maniscalco",
+                  "Simone Montangero",
+                  "Daniel Puzzuoli",
+                  "Tomaž Prosen",
+                  "James Raftery",
+                  "Ricardo Rivera Cardoso",
+                  "Max Rossmannek",
+                  "Manuel Rudolph",
+                  "Brendan Saxberg",
+                  "Liran Shirizly",
+                  "Karthik Siva",
+                  "Joshua Skanes-Norman",
+                  "Ilaria Siloi",
+                  "Kevin C Smith",
+                  "Boris Sokolov",
+                  "Maika Takita",
+                  "Yanting Teng",
+                  "Mao Tian Tan",
+                  "Joseph Tindall",
+                  "Zoltán Zimborás",
+                  "Matteo A. C. Rossi",
+                  "Minh C. Tran",
+                  "Sergei N. Filippov",
+                  "Abhinav Kandala"
+                ],
+                "published": "2026-07-28T17:14:26Z",
+                "updated": "2026-07-28T17:14:26Z",
+                "url": "http://arxiv.org/abs/2607.25998v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25998v1",
+                "source": "arxiv.org",
+                "primary_category": "quant-ph",
+                "categories": [
+                  "quant-ph"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25988v1",
+                "title": "Generator-Aligned Representation Interfaces for Diagnostic Soft Equivariance",
+                "summary": "Exact-equivariant architectures typically encode prescribed group actions in specialized operators, which can complicate their reuse with generic backbones and across data modalities. We introduce the Generator-Aligned Representation Interface (GARI), a representation-level design principle that exposes selected transformation generators to a generic sequence backbone through aligned canonical and generator-induced views. We formalize the resulting behavior using a probe-specific soft-equivariance residual defined over declared data and transformation distributions. This framework distinguishes representation consistency from task robustness and exact equivariance, and localizes residual mismatch to interface construction, shared stream processing, and terminal fusion. We instantiate the interface as GARI-Net, which constructs generator-indexed streams, converts them into a common interaction frame, processes them with shared parameters, repairs ordering-induced context mismatch, enables cross-stream information exchange, and aggregates them using inter-stream discrepancy. Direct Equivariance Error (DEE) provides a frozen-checkpoint diagnostic of the prescribed representation relation under known token or voxel actions. Experiments on genomic sequences, images, and three-dimensional point clouds examine sequence reversal, planar rotations and reflections, and controlled axial transfer. Across these settings, the same interface principle supports task-relevant transformation consistency and generalization to declared held-out probes without requiring group-specific redesign of the sequence backbone. GARI therefore provides a portable diagnostic complement to hard-equivariant architectures: it makes generator structure accessible, learnable, and measurable, while finite-probe evidence remains distinct from certification of exact equivariance over a continuous group.",
+                "authors": [
+                  "Weitao Li",
+                  "Gong Cheng"
+                ],
+                "published": "2026-07-28T17:06:21Z",
+                "updated": "2026-07-28T17:06:21Z",
+                "url": "http://arxiv.org/abs/2607.25988v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25988v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G002",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "read_specific_arxiv_paper",
+        "difficulty": "medium",
+        "what_it_tests": "Có URL arXiv cụ thể và yêu cầu đọc nội dung thì dùng paper_text, không tìm lại bằng papers; đồng thời giữ max_pages=2."
+      },
+      "input": "Đọc nội dung 2 trang đầu của paper này: https://arxiv.org/abs/1706.03762",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "1706.03762",
+              "max_pages": 2
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "1706.03762",
+              "max_pages": 2
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "1706.03762",
+            "max_pages": 2
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "1706.03762",
+            "url": "https://arxiv.org/abs/1706.03762",
+            "pdf_url": "https://arxiv.org/pdf/1706.03762.pdf",
+            "pdf_path": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\1706.03762.pdf",
+            "txt_path": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\1706.03762.txt",
+            "page_count": 15,
+            "pages_read": 2,
+            "chars_returned": 7118,
+            "items": [
+              {
+                "title": "arXiv paper 1706.03762",
+                "url": "https://arxiv.org/abs/1706.03762",
+                "source": "arxiv.org",
+                "summary": "Provided proper attribution is provided, Google hereby grants permission to\nreproduce the tables and figures in this paper solely for use in journalistic or\nscholarly works.\nAttention Is All You Need\nAshish Vaswani∗\nGoogle Brain\navaswani@google.com\nNoam Shazeer∗\nGoogle Brain\nnoam@google.com\nNiki Parmar∗\nGoogle Research\nnikip@google.com\nJakob Uszkoreit∗\nGoogle Research\nusz@google.com\nLlion Jones∗\nGoogle Research\nllion@google.com\nAidan N. Gomez∗ †\nUniversity of Toronto\naidan@cs.toronto.edu\nŁukasz Kaiser∗\nGoogle Brain\nlukaszkaiser@google.com\nIllia Polosukhin∗ ‡\nillia.polosukhin@gmail.com\nAbstract\nThe dominant sequence transduction models are based on complex recurrent or\nconvolutional neural networks that include an encoder and a decoder. The best\nperforming models also connect the encoder and decoder through an attention\nmechanism. We propose a new simple network architecture, the Transformer,\nbased solely on attention mechanisms, dispensing with recurrence and convolutions\nentirely. Experiments on two machine translation tasks show these models to\nbe superior in quality while being more parallelizable and requiring significantly\nless time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-\nto-German translation task, improving over the existing best results, including\nensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task,\nour model establishes a new single-model state-of-the-art BLEU score of 41.8 after\ntraining for 3.5 days on eight GPUs, a small fraction of the training costs of the\nbest models from the literature. We show that the Transformer generalizes well to\nother tasks by applying it successfully to English constituency parsing both with\nlarge and limited training data.\n∗Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started\nthe effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and\nhas been crucially involved in every aspect of this work. Noam proposed scaled dot-product attention, multi-head\nattention and the parameter-free position representation and became the other person involved in nearly every\ndetail. Niki designed, implemented, tuned and evaluated countless model variants in our original codebase and\ntensor2tensor. Llion also experimented with novel model variants, was responsible for our initial codebase, and\nefficient inference and visualizations. Lukasz and Aidan spent countless long days designing various parts of and\nimplementing tensor2tensor, replacing our earlier codebase, greatly improving results and massively accelerating\nour research.\n†Work performed while at Google Brain.\n‡Work performed while at Google Research.\n31st Conference on Neural Information Processing Systems (NIPS 2017), Long Beach, CA, USA.\narXiv:1706.03762v7  [cs.CL]  2 Aug 2023\n\n1 Introduction\nRecurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks\nin particular, have been firmly established as state of the art approaches in sequence modeling and\ntransduction problems such as language modeling and machine translation [ 35, 2, 5]. Numerous\nefforts have since continued to push the boundaries of recurrent language models and encoder-decoder\narchitectures [38, 24, 15].\nRecurrent models typically factor computation along the symbol positions of the input and output\nsequences. Aligning the positions to steps in computation time, they generate a sequence of hidden\nstates ht, as a function of the previous hidden state ht−1 and the input for position t. This inherently\nsequential nature precludes parallelization within training examples, which becomes critical at longer\nsequence lengths, as memory constraints limit batching across examples. Recent work has achieved\nsignificant improvements in computational efficiency through factorization tricks [21] and conditional\ncomputation [32], while also improving model performance in case of the latter. The fundamental\nconstraint of sequential computation, however, remains.\nAttention mechanisms have become an integral part of compelling sequence modeling and transduc-\ntion models in various tasks, allowing modeling of dependencies without regard to their distance in\nthe input or output sequences [2, 19]. In all but a few cases [27], however, such attention mechanisms\nare used in conjunction with a recurrent network.\nIn this work we propose the Transformer, a model architecture eschewing recurrence and instead\nrelying entirely on an attention mechanism to draw global dependencies between input and output.\nThe Transformer allows for significantly more parallelization and can reach a new state of the art in\ntranslation quality after being trained for as little as twelve hours on eight P100 GPUs.\n2 Background\nThe goal of reducing sequential computation also forms the foundation of the Extended Neural GPU\n[16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building\nblock, computing hidden representations in parallel for all input and output positions. In these models,\nthe number of operations required to relate signals from two arbitrary input or output positions grows\nin the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes\nit more difficult to learn dependencies between distant positions [ 12]. In the Transformer this is\nreduced to a constant number of operations, albeit at the cost of reduced effective resolution due\nto averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as\ndescribed in section 3.2.\nSelf-attention, sometimes called intra-attention is an attention mechanism relating different positions\nof a single sequence in order to compute a representation of the sequence. Self-attention has been\nused successfully in a variety of tasks including reading comprehension, abstractive summarization,\ntextual entailment and learning task-independent sentence representations [4, 27, 28, 22].\nEnd-to-end memory networks are based on a recurrent attention mechanism instead of sequence-\naligned recurrence and have been shown to perform well on simple-language question answering and\nlanguage modeling tasks [34].\nTo the best of our knowledge, however, the Transformer is the first transduction model relying\nentirely on self-attention to compute representations of its input and output without using sequence-\naligned RNNs or convolution. In the following sections, we will describe the Transformer, motivate\nself-attention and discuss its advantages over models such as [17, 18] and [9].\n3 Model Architecture\nMost competitive neural sequence transduction models have an encoder-decoder structure [5, 2, 35].\nHere, the encoder maps an input sequence of symbol representations (x1, ..., xn) to a sequence\nof continuous representations z = (z1, ..., zn). Given z, the decoder then generates an output\nsequence (y1, ..., ym) of symbols one element at a time. At each step the model is auto-regressive\n[10], consuming the previously generated symbols as additional input when generating the next.\n2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G003",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "generate_citation",
+        "difficulty": "medium",
+        "what_it_tests": "Yêu cầu tạo citation từ metadata đã đủ phải route thẳng tới citation_generator và truyền đúng bốn trường cốt lõi."
+      },
+      "input": "Tạo trích dẫn APA cho bài 'Attention Is All You Need', tác giả Vaswani et al., năm 2017, đăng tại NeurIPS.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention Is All You Need",
+              "authors": "Vaswani et al.",
+              "year": 2017,
+              "journal": "NeurIPS"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "Attention Is All You Need",
+              "authors": "Vaswani et al.",
+              "year": 2017,
+              "journal": "NeurIPS"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "citation_generator",
+          "args": {
+            "title": "Attention Is All You Need",
+            "authors": "Vaswani et al.",
+            "year": 2017,
+            "journal": "NeurIPS"
+          },
+          "result": {
+            "tool": "citation_generator",
+            "apa": "Vaswani et al. (2017). Attention Is All You Need. NeurIPS.",
+            "bibtex": "@article{Vaswani2017Attention,\n  title = {Attention Is All You Need},\n  author = {Vaswani et al.},\n  year = {2017},\n  journal = {NeurIPS}\n}",
+            "citation_key": "Vaswani2017Attention"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G004",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "confirm_before_external_send",
+        "difficulty": "medium",
+        "what_it_tests": "Send là hành động có side effect; khi chưa có xác nhận rõ ràng, agent phải hỏi yes/no và không được gọi send."
+      },
+      "input": "Chuẩn bị gửi đúng nội dung 'Digest: paper RAG' lên Telegram, nhưng tôi chưa xác nhận gửi.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có chắc chắn muốn gửi nội dung 'Digest: paper RAG' lên Telegram không?",
+              "response_type": "yes_no"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có chắc chắn muốn gửi nội dung 'Digest: paper RAG' lên Telegram không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có chắc chắn muốn gửi nội dung 'Digest: paper RAG' lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G005",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "paper_search_relevance",
+        "difficulty": "medium",
+        "what_it_tests": "Cụm 'phù hợp nhất' phải ánh xạ thành sort_by=relevance, không nhầm với mới nhất, và giữ max_results=3."
+      },
+      "input": "Tìm 3 bài arXiv phù hợp nhất về retrieval-augmented generation.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "retrieval-augmented generation",
+              "max_results": 3,
+              "sort_by": "relevance"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "retrieval-augmented generation",
+              "max_results": 3,
+              "sort_by": "relevance"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "retrieval-augmented generation",
+            "max_results": 3,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "retrieval-augmented generation",
+            "api_query": "all:retrieval-augmented AND all:generation",
+            "total_results": 7424,
+            "items": [
+              {
+                "arxiv_id": "2506.06962v3",
+                "title": "AR-RAG: Autoregressive Retrieval Augmentation for Image Generation",
+                "summary": "We introduce Autoregressive Retrieval Augmentation (AR-RAG), a novel paradigm that enhances image generation by autoregressively incorporating knearest neighbor retrievals at the patch level. Unlike prior methods that perform a single, static retrieval before generation and condition the entire generation on fixed reference images, AR-RAG performs context-aware retrievals at each generation step, using prior-generated patches as queries to retrieve and incorporate the most relevant patch-level visual references, enabling the model to respond to evolving generation needs while avoiding limitations (e.g., over-copying, stylistic bias, etc.) prevalent in existing methods. To realize AR-RAG, we propose two parallel frameworks: (1) Distribution-Augmentation in Decoding (DAiD), a training-free plug-and-use decoding strategy that directly merges the distribution of model-predicted patches with the distribution of retrieved patches, and (2) Feature-Augmentation in Decoding (FAiD), a parameter-efficient fine-tuning method that progressively smooths the features of retrieved patches via multi-scale convolution operations and leverages them to augment the image generation process. We validate the effectiveness of AR-RAG on widely adopted benchmarks, including Midjourney-30K, GenEval and DPG-Bench, demonstrating significant performance gains over state-of-the-art image generation models.",
+                "authors": [
+                  "Jingyuan Qi",
+                  "Zhiyang Xu",
+                  "Qifan Wang",
+                  "Lifu Huang"
+                ],
+                "published": "2025-06-08T01:33:05Z",
+                "updated": "2025-06-14T00:40:34Z",
+                "url": "http://arxiv.org/abs/2506.06962v3",
+                "pdf_url": "https://arxiv.org/pdf/2506.06962v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2402.12317v2",
+                "title": "EVOR: Evolving Retrieval for Code Generation",
+                "summary": "Recently the retrieval-augmented generation (RAG) has been successfully applied in code generation. However, existing pipelines for retrieval-augmented code generation (RACG) employ static knowledge bases with a single source, limiting the adaptation capabilities of Large Language Models (LLMs) to domains they have insufficient knowledge of. In this work, we develop a novel pipeline, EVOR, that employs the synchronous evolution of both queries and diverse knowledge bases. On two realistic settings where the external knowledge is required to solve code generation tasks, we compile four new datasets associated with frequently updated libraries and long-tail programming languages, named EVOR-BENCH. Extensive experiments demonstrate that EVOR achieves two to four times of execution accuracy compared to other methods such as Reflexion (Shinn et al., 2024), DocPrompting (Zhou et al., 2023), etc. We demonstrate that EVOR is flexible and can be easily combined with them to achieve further improvement. Further analysis reveals that EVOR benefits from the synchronous evolution of queries and documents and the diverse information sources in the knowledge base. We hope that our studies will inspire more insights into the design of advanced RACG pipelines in future research. Our model, code, and data are available at https://arks-codegen.github.io.",
+                "authors": [
+                  "Hongjin Su",
+                  "Shuyang Jiang",
+                  "Yuhang Lai",
+                  "Haoyuan Wu",
+                  "Boao Shi",
+                  "Che Liu",
+                  "Qian Liu",
+                  "Tao Yu"
+                ],
+                "published": "2024-02-19T17:37:28Z",
+                "updated": "2024-12-03T15:56:26Z",
+                "url": "http://arxiv.org/abs/2402.12317v2",
+                "pdf_url": "https://arxiv.org/pdf/2402.12317v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2411.18583v1",
+                "title": "Automated Literature Review Using NLP Techniques and LLM-Based Retrieval-Augmented Generation",
+                "summary": "This research presents and compares multiple approaches to automate the generation of literature reviews using several Natural Language Processing (NLP) techniques and retrieval-augmented generation (RAG) with a Large Language Model (LLM). The ever-increasing number of research articles provides a huge challenge for manual literature review. It has resulted in an increased demand for automation. Developing a system capable of automatically generating the literature reviews from only the PDF files as input is the primary objective of this research work. The effectiveness of several Natural Language Processing (NLP) strategies, such as the frequency-based method (spaCy), the transformer model (Simple T5), and retrieval-augmented generation (RAG) with Large Language Model (GPT-3.5-turbo), is evaluated to meet the primary objective. The SciTLDR dataset is chosen for this research experiment and three distinct techniques are utilized to implement three different systems for auto-generating the literature reviews. The ROUGE scores are used for the evaluation of all three systems. Based on the evaluation, the Large Language Model GPT-3.5-turbo achieved the highest ROUGE-1 score, 0.364. The transformer model comes in second place and spaCy is at the last position. Finally, a graphical user interface is created for the best system based on the large language model.",
+                "authors": [
+                  "Nurshat Fateh Ali",
+                  "Md. Mahdi Mohtasim",
+                  "Shakil Mosharrof",
+                  "T. Gopi Krishna"
+                ],
+                "published": "2024-11-27T18:27:07Z",
+                "updated": "2024-11-27T18:27:07Z",
+                "url": "http://arxiv.org/abs/2411.18583v1",
+                "pdf_url": "https://arxiv.org/pdf/2411.18583v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI",
+                  "cs.IR",
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G006",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_selected_paper_carryover",
+        "difficulty": "hard",
+        "what_it_tests": "Carry URL paper đã chọn từ lượt trước sang paper_text ở lượt hiện tại và giữ giới hạn 3 trang."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mình đã chọn paper đầu tiên có URL https://arxiv.org/abs/2305.18290."
+        },
+        {
+          "role": "user",
+          "content": "Đọc đúng 3 trang đầu của paper mình vừa chọn đi."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "2305.18290",
+              "max_pages": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "2305.18290",
+              "max_pages": 3
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "2305.18290",
+            "max_pages": 3
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2305.18290",
+            "url": "https://arxiv.org/abs/2305.18290",
+            "pdf_url": "https://arxiv.org/pdf/2305.18290.pdf",
+            "pdf_path": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2305.18290.pdf",
+            "txt_path": "C:\\Work\\VinAI\\AiThucChien\\Days4\\DAY04_2A202601382_NguyenChauThanh\\starter_v0\\arxiv_papers\\2305.18290.txt",
+            "page_count": 27,
+            "pages_read": 3,
+            "chars_returned": 8000,
+            "items": [
+              {
+                "title": "arXiv paper 2305.18290",
+                "url": "https://arxiv.org/abs/2305.18290",
+                "source": "arxiv.org",
+                "summary": "Direct Preference Optimization:\nYour Language Model is Secretly a Reward Model\nRafael Rafailov∗ † Archit Sharma∗ † Eric Mitchell∗ †\nStefano Ermon†‡ Christopher D. Manning† Chelsea Finn†\n†Stanford University ‡CZ Biohub\n{rafailov,architsh,eric.mitchell}@cs.stanford.edu\nAbstract\nWhile large-scale unsupervised language models (LMs) learn broad world knowl-\nedge and some reasoning skills, achieving precise control of their behavior is\ndifficult due to the completely unsupervised nature of their training. Existing\nmethods for gaining such steerability collect human labels of the relative quality of\nmodel generations and fine-tune the unsupervised LM to align with these prefer-\nences, often with reinforcement learning from human feedback (RLHF). However,\nRLHF is a complex and often unstable procedure, first fitting a reward model that\nreflects the human preferences, and then fine-tuning the large unsupervised LM\nusing reinforcement learning to maximize this estimated reward without drifting\ntoo far from the original model. In this paper we introduce a new parameterization\nof the reward model in RLHF that enables extraction of the corresponding optimal\npolicy in closed form, allowing us to solve the standard RLHF problem with only a\nsimple classification loss. The resulting algorithm, which we call Direct Prefer-\nence Optimization (DPO), is stable, performant, and computationally lightweight,\neliminating the need for sampling from the LM during fine-tuning or performing\nsignificant hyperparameter tuning. Our experiments show that DPO can fine-tune\nLMs to align with human preferences as well as or better than existing methods.\nNotably, fine-tuning with DPO exceeds PPO-based RLHF in ability to control sen-\ntiment of generations, and matches or improves response quality in summarization\nand single-turn dialogue while being substantially simpler to implement and train.\n1 Introduction\nLarge unsupervised language models (LMs) trained on very large datasets acquire surprising capabili-\nties [11, 7, 42, 8]. However, these models are trained on data generated by humans with a wide variety\nof goals, priorities, and skillsets. Some of these goals and skillsets may not be desirable to imitate; for\nexample, while we may want our AI coding assistant to understand common programming mistakes\nin order to correct them, nevertheless, when generating code, we would like to bias our model toward\nthe (potentially rare) high-quality coding ability present in its training data. Similarly, we might want\nour language model to be aware of a common misconception believed by 50% of people, but we\ncertainly do not want the model to claim this misconception to be true in 50% of queries about it!\nIn other words, selecting the model’s desired responses and behavior from its very wide knowledge\nand abilities is crucial to building AI systems that are safe, performant, and controllable [28]. While\nexisting methods typically steer LMs to match human preferences using reinforcement learning (RL),\n∗Equal contribution; more junior authors listed earlier.\n37th Conference on Neural Information Processing Systems (NeurIPS 2023).\narXiv:2305.18290v3  [cs.LG]  29 Jul 2024\n\nFigure 1: DPO optimizes for human preferences while avoiding reinforcement learning. Existing methods\nfor fine-tuning language models with human feedback first fit a reward model to a dataset of prompts and\nhuman preferences over pairs of responses, and then use RL to find a policy that maximizes the learned reward.\nIn contrast, DPO directly optimizes for the policy best satisfying the preferences with a simple classification\nobjective, fitting an implicit reward model whose corresponding optimal policy can be extracted in closed form.\nwe will show that the RL-based objective used by existing methods can be optimized exactly with a\nsimple binary cross-entropy objective, greatly simplifying the preference learning pipeline.\nAt a high level, existing methods instill the desired behaviors into a language model using curated\nsets of human preferences representing the types of behaviors that humans find safe and helpful. This\npreference learning stage occurs after an initial stage of large-scale unsupervised pre-training on\na large text dataset. While the most straightforward approach to preference learning is supervised\nfine-tuning on human demonstrations of high quality responses, the most successful class of methods\nis reinforcement learning from human (or AI) feedback (RLHF/RLAIF; [12, 2]). RLHF methods fit\na reward model to a dataset of human preferences and then use RL to optimize a language model\npolicy to produce responses assigned high reward without drifting excessively far from the original\nmodel. While RLHF produces models with impressive conversational and coding abilities, the RLHF\npipeline is considerably more complex than supervised learning, involving training multiple LMs and\nsampling from the LM policy in the loop of training, incurring significant computational costs.\nIn this paper, we show how to directly optimize a language model to adhere to human preferences,\nwithout explicit reward modeling or reinforcement learning. We propose Direct Preference Optimiza-\ntion (DPO), an algorithm that implicitly optimizes the same objective as existing RLHF algorithms\n(reward maximization with a KL-divergence constraint) but is simple to implement and straight-\nforward to train. Intuitively, the DPO update increases the relative log probability of preferred to\ndispreferred responses, but it incorporates a dynamic, per-example importance weight that prevents\nthe model degeneration that we find occurs with a naive probability ratio objective. Like existing\nalgorithms, DPO relies on a theoretical preference model (such as the Bradley-Terry model; [5]) that\nmeasures how well a given reward function aligns with empirical preference data. However, while\nexisting methods use the preference model to define a preference loss to train a reward model and\nthen train a policy that optimizes the learned reward model, DPO uses a change of variables to define\nthe preference loss as a function of the policy directly. Given a dataset of human preferences over\nmodel responses, DPO can therefore optimize a policy using a simple binary cross entropy objective,\nproducing the optimal policy to an implicit reward function fit to the preference data.\nOur main contribution is Direct Preference Optimization (DPO), a simple RL-free algorithm for\ntraining language models from preferences. Our experiments show that DPO is at least as effective\nas existing methods, including PPO-based RLHF, for learning from preferences in tasks such as\nsentiment modulation, summarization, and dialogue, using language models with up to 6B parameters.\n2 Related Work\nSelf-supervised language models of increasing scale learn to complete some tasks zero-shot [33] or\nwith few-shot prompts [6, 27, 11]. However, their performance on downstream tasks and alignment\nwith user intent can be significantly improved by fine-tuning on datasets of instructions and human-\nwritten completions [25, 38, 13, 41]. This ‘instruction-tuning’ procedure enables LLMs to generalize\nto instructions outside of the instruction-tuning set and generally increase their usability [13]. Despite\nthe success of instruction tuning, relative human judgments of response quality are often easier to\ncollect than expert demonstrations, and thus subsequent works have fine-tuned LLMs with datasets of\nhuman preferences, improving proficiency in translation [20], summarization [40, 51], story-telling\n[51], and instruction-following [ 28, 34]. These methods first optimize a neural network reward\nfunction for compatibility with the dataset of preferences under a preference model such as the\n2\n\nBradley-Terry model [5], then fine-tune a language model to maximize the given reward using\nreinforcement learning algorithms, commonly REINFORCE [ 47], proximal policy optimization\n(PPO; [39]), or variants [34]. A closely-related lin"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G007",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_missing_topic",
+        "difficulty": "medium",
+        "what_it_tests": "Khi chủ đề paper vẫn còn thiếu, agent phải hỏi lấy từ khóa bằng clarify(text), không tự đoán query cho papers."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper giúp mình."
+        },
+        {
+          "role": "user",
+          "content": "Mình vẫn chưa chọn chủ đề; hãy hỏi mình cần tìm paper về chủ đề nào."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn cần tìm paper về chủ đề nào?",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn cần tìm paper về chủ đề nào?",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn cần tìm paper về chủ đề nào?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G008",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_citation_metadata_fill",
+        "difficulty": "hard",
+        "what_it_tests": "Sau khi metadata được bổ sung ở lượt mới nhất, agent phải gọi citation_generator với các giá trị chính xác."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mình cần tạo trích dẫn cho một paper."
+        },
+        {
+          "role": "user",
+          "content": "Metadata đây: title 'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding', authors 'Devlin et al.', year 2019, journal 'NAACL-HLT'. Hãy tạo citation."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+              "authors": "Devlin et al.",
+              "year": 2019,
+              "journal": "NAACL-HLT"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+              "authors": "Devlin et al.",
+              "year": 2019,
+              "journal": "NAACL-HLT"
+            }
+          },
+          {
+            "name": "citation_generator",
+            "args": {
+              "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+              "authors": "Devlin et al.",
+              "year": 2019,
+              "journal": "NAACL-HLT"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "extra_tool_call",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "extra tool call citation_generator"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "citation_generator",
+          "args": {
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "authors": "Devlin et al.",
+            "year": 2019,
+            "journal": "NAACL-HLT"
+          },
+          "result": {
+            "tool": "citation_generator",
+            "apa": "Devlin et al. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. NAACL-HLT.",
+            "bibtex": "@article{Devlin2019BERT,\n  title = {BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding},\n  author = {Devlin et al.},\n  year = {2019},\n  journal = {NAACL-HLT}\n}",
+            "citation_key": "Devlin2019BERT"
+          }
+        },
+        {
+          "tool": "citation_generator",
+          "args": {
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "authors": "Devlin et al.",
+            "year": 2019,
+            "journal": "NAACL-HLT"
+          },
+          "result": {
+            "tool": "citation_generator",
+            "apa": "Devlin et al. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. NAACL-HLT.",
+            "bibtex": "@article{Devlin2019BERT,\n  title = {BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding},\n  author = {Devlin et al.},\n  year = {2019},\n  journal = {NAACL-HLT}\n}",
+            "citation_key": "Devlin2019BERT"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G009",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_format_existing_results",
+        "difficulty": "medium",
+        "what_it_tests": "Yêu cầu chỉ trình bày dữ liệu đã có phải dùng format(template=sections), không gọi papers hoặc lookup để tìm lại."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mình đã có danh sách paper về LLM safety gồm tiêu đề, URL và tóm tắt."
+        },
+        {
+          "role": "user",
+          "content": "Không tìm thêm dữ liệu; hãy format danh sách đã có thành markdown digest chia theo sections."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "template": "sections"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "items": [
+                {
+                  "title": "Paper 1 Title",
+                  "url": "http://example.com/paper1",
+                  "summary": "Tóm tắt của paper 1."
+                },
+                {
+                  "title": "Paper 2 Title",
+                  "url": "http://example.com/paper2",
+                  "summary": "Tóm tắt của paper 2."
+                },
+                {
+                  "title": "Paper 3 Title",
+                  "url": "http://example.com/paper3",
+                  "summary": "Tóm tắt của paper 3."
+                }
+              ],
+              "template": "sections",
+              "headline": "Danh sách các paper về LLM Safety"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "format",
+          "args": {
+            "items": [
+              {
+                "title": "Paper 1 Title",
+                "url": "http://example.com/paper1",
+                "summary": "Tóm tắt của paper 1."
+              },
+              {
+                "title": "Paper 2 Title",
+                "url": "http://example.com/paper2",
+                "summary": "Tóm tắt của paper 2."
+              },
+              {
+                "title": "Paper 3 Title",
+                "url": "http://example.com/paper3",
+                "summary": "Tóm tắt của paper 3."
+              }
+            ],
+            "template": "sections",
+            "headline": "Danh sách các paper về LLM Safety"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "# Danh sách các paper về LLM Safety\n\n## Tổng hợp\n- Tóm tắt của paper 1. - [example.com](http://example.com/paper1)\n- Tóm tắt của paper 2. - [example.com](http://example.com/paper2)\n- Tóm tắt của paper 3. - [example.com](http://example.com/paper3)\n",
+            "item_count": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "G010",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_send_after_confirmation",
+        "difficulty": "hard",
+        "what_it_tests": "Sau xác nhận rõ ràng ở lượt hiện tại, agent mới được gọi send với confirmed=true và giữ nguyên nội dung đã duyệt."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Hãy gửi digest paper này lên Telegram; trước tiên cần hỏi mình xác nhận."
+        },
+        {
+          "role": "user",
+          "content": "Tôi xác nhận gửi đúng nội dung 'Digest: 3 paper về RAG' lên Telegram."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "send",
+            "args": {
+              "text": "Digest: 3 paper về RAG",
+              "confirmed": true
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "send",
+            "args": {
+              "text": "Digest: 3 paper về RAG",
+              "confirmed": true
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "send",
+          "args": {
+            "text": "Digest: 3 paper về RAG",
+            "confirmed": true
+          },
+          "result": {
+            "tool": "send_telegram",
+            "error": "RuntimeError",
+            "message": "Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID env var"
+          }
+        }
+      ]
+    }
+  ]
+}
